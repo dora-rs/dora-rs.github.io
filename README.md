@@ -7,6 +7,8 @@ https://dora.carsmos.ai
 
 # How to preview your changes locally on your desktop
 
+Install Jekyll first: https://jekyllrb.com/docs/installation/
+
 Clone this repo to your desktop via some Git client, e.g. Guthub Desktop.
 
 Run these commands:
