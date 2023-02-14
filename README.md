@@ -11,9 +11,9 @@ Clone this repo to your desktop via some Git client, e.g. Guthub Desktop.
 
 Run these commands:
 
-> cp Gemfile.local Gemfile
-> bundle install
-> bundle update
+> cp Gemfile.local Gemfile \
+> bundle install \
+> bundle update \
 > bundle exec jekyll serve --livereload
 
 Then open a browser page at http://127.0.0.1:4000 
