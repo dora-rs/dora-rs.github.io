@@ -2,7 +2,7 @@
 
 https://dora-rs.github.io
 
-https://dora.carsmos.ai/
+https://dora.carsmos.ai
 
 
 # How to preview your changes locally on your desktop
