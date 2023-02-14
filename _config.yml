@@ -5,5 +5,5 @@ plugins:
 - jekyll-remote-theme # add this line to the plugins list if you already have one
 
 #Customziatin for DORA project
-title: [DORA - Dataflow-Oriented Robotics Archietcture]
-description: [The dora project goal is to be a low latency, composable, and distributed data flow.]
+title: [DORA]
+description: [Dataflow-Oriented Robotics Archietcture]
