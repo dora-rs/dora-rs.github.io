@@ -35,11 +35,11 @@ import ShowcaseTooltip from "./_components/ShowcaseTooltip";
 
 import styles from "./styles.module.css";
 
-const TITLE = translate({ message: "Docusaurus Site Showcase" });
+const TITLE = translate({ message: "dora-rs nodes and operators" });
 const DESCRIPTION = translate({
   message: "List of operators already implemented by the community",
 });
-const SUBMIT_URL = "https://github.com/facebook/docusaurus/discussions/7826";
+const SUBMIT_URL = "https://github.com/dora-rs/dora/discussions";
 
 type UserState = {
   scrollTopPosition: number;
