@@ -99,7 +99,7 @@ const Users: User[] = [
     title: 'YOLOP Operator',
     description: 'YOLOP lane and drivable area detection',
     preview: '/img/agilets.png',
-    website: 'yolovp_operator',
+    website: 'yolop_operator',
     source: 'https://github.com/dora-rs/dora-drives/blob/main/operators/yolop_op.py',
     tags: ['object_detection', 'python'],
   },

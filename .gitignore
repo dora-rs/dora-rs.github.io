@@ -10,3 +10,4 @@ Gemfile
 Gemfile.lock
 .docusaurus/
 node_modules/
+build/
