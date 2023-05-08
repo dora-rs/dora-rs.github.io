@@ -8,3 +8,5 @@ _sass/.DS_Store
 .jekyll-metadata
 Gemfile
 Gemfile.lock
+.docusaurus/
+node_modules/

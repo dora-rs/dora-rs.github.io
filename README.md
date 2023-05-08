@@ -1,42 +1,41 @@
-# Web pages (layout+content) for DORA Project.
+# Website
 
-https://dora-rs.github.io
+This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
-https://dora.carsmos.ai
+### Installation
 
+```
+$ yarn
+```
 
-# How to preview your changes locally on your desktop
+### Local Development
 
-Install Jekyll first: https://jekyllrb.com/docs/installation/
+```
+$ yarn start
+```
 
-Clone this repo to your desktop via some Git client, e.g. Guthub Desktop.
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-Run these commands:
+### Build
 
-> cp Gemfile.local Gemfile \
-> bundle install \
-> bundle update \
-> bundle exec jekyll serve --livereload
+```
+$ yarn build
+```
 
-Then open a browser page at http://127.0.0.1:4000 
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-Do NOT commit the Gemfile on your local desktop to Github Pages repo! 
-It is needed only on your local host but not needed on the Guthub Pages.
+### Deployment
 
+Using SSH:
 
-# How to modify content for this website
+```
+$ USE_SSH=true yarn deploy
+```
 
-Edit the [index.md](/index.md) file.
+Not using SSH:
 
+```
+$ GIT_USER=<Your GitHub username> yarn deploy
+```
 
-# How to modify the style of this website
-
-Edit the [_layout/default.html](/_layouts/default.html) file.
-
-
-# For more customization
-
-This website is based on the Dinky Jekyll theme.
-
-https://github.com/pages-themes/dinky
-
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
