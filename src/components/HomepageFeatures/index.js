@@ -3,63 +3,95 @@ import clsx from "clsx";
 import styles from "./styles.module.css";
 import Link from "@docusaurus/Link";
 import Heading from "@theme/Heading";
+import Translate, { translate } from "@docusaurus/Translate";
 
 const FeatureList = [
   {
-    title: "🌳 Declarative",
+    title: translate({
+      message: "🌳 Declarative",
+      id: "homepage.features.declarative.title",
+    }),
     // Svg: require("@site/static/img/undraw_docusaurus_mountain.svg").default,
     description: (
-      <>
+      <Translate id="homepage.features.declarative.text">
         Declarative dataflow enabling reusability and isolation. All nodes are
         declared within a YAML configuration, which can be easily modified.
-      </>
+      </Translate>
     ),
   },
   {
-    title: "📁 Zero Copy",
+    title: translate({
+      message: "📁 Zero Copy",
+      id: "homepage.features.zero-copy.title",
+    }),
     // Svg: require("@site/static/img/undraw_docusaurus_tree.svg").default,
     description: (
-      <>Transfer message with no overhead as we do not perform any copy.</>
+      <Translate id="homepage.features.zero-copy.text">
+        Transfer message with no overhead as we do not perform any copy.
+      </Translate>
     ),
   },
   {
-    title: "⭐ Shared Memory",
-    // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
-    description: <>Use shared memory on the same machine.</>,
-  },
-  {
-    title: "🎉 Polyglot",
-    // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
-    description: <>Available on Python, Rust, C and C++</>,
-  },
-  {
-    title: "💻 Cross Platform",
+    title: translate({
+      message: "⭐ shared memory",
+      id: "homepage.features.shared-memory.title",
+    }),
     // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
     description: (
-      <>
+      <Translate id="homepage.features.shared-memory.text">
+        Use shared memory on the same machine.
+      </Translate>
+    ),
+  },
+  {
+    title: translate({
+      message: "🎉 Polyglot",
+      id: "homepage.features.polyglot.title",
+    }),
+    // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
+    description: (
+      <Translate id="homepage.features.polyglot.text">
+        Available on Python, Rust, C and C++
+      </Translate>
+    ),
+  },
+  {
+    title: translate({
+      message: "💻 Cross Platform",
+      id: "homepage.features.cross-platform.title",
+    }),
+    // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
+    description: (
+      <Translate id="homepage.features.cross-platform.text">
         By being written in Rust, we are able to cross-compile dora-rs into all
         platform with very little dependencies.
-      </>
+      </Translate>
     ),
   },
   {
-    title: "🔭 Observable",
+    title: translate({
+      message: "🔭 Observable",
+      id: "homepage.features.observable.title",
+    }),
     // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
     description: (
-      <>
+      <Translate id="homepage.features.observable.text">
         We provide log, tracing and metrics capabilities through opentelemetry
         to make debugging easy. You can also hot-reload your code in Python!
-      </>
+      </Translate>
     ),
   },
   {
-    title: "🧑‍🤝‍🧑 Community",
+    title: translate({
+      message: "🧑‍🤝‍🧑 Community",
+      id: "homepage.features.community.title",
+    }),
     // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
     description: (
-      <>
+      <Translate id="homepage.features.community.text">
         We're commited into making a dora a community-first project! We hope to
         help other learn and grow their knowledge about robotic application.
-      </>
+      </Translate>
     ),
   },
 ];
