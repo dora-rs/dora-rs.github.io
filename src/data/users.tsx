@@ -153,39 +153,51 @@ export const Tags: { [type in TagType]: Tag } = {
   //},
 
   object_detection: {
-    label: translate({ message: "object detection" }),
+    label: translate({
+      id: "showcase.tag.oject-detection.tag",
+      message: "object detection",
+    }),
     description: translate({
       message: "Open-Source Docusaurus sites can be useful for inspiration!",
-      id: "showcase.tag.opensource.description",
+      id: "showcase.tag.oject-detection.description",
     }),
     color: "#39ca30",
   },
 
   python: {
-    label: translate({ message: "Python" }),
+    label: translate({
+      id: "showcase.tag.python.tag",
+      message: "Python",
+    }),
     description: translate({
       message: "Docusaurus sites associated to a commercial product!",
-      id: "showcase.tag.product.description",
+      id: "showcase.tag.python.description",
     }),
     color: "#dfd545",
   },
 
   control: {
-    label: translate({ message: "Control" }),
+    label: translate({
+      id: "showcase.tag.control.tag",
+      message: "Control",
+    }),
     description: translate({
       message:
         "Beautiful Docusaurus sites, polished and standing out from the initial template!",
-      id: "showcase.tag.design.description",
+      id: "showcase.tag.control.description",
     }),
     color: "#a44fb7",
   },
 
   depth_estimation: {
-    label: translate({ message: "Depth Esimation" }),
+    label: translate({
+      id: "showcase.tag.depth-estimation.tag",
+      message: "Depth Esimation",
+    }),
     description: translate({
       message:
         "Translated Docusaurus sites using the internationalization support with more than 1 locale.",
-      id: "showcase.tag.i18n.description",
+      id: "showcase.tag.depth-estimation.description",
     }),
     color: "#127f82",
   },
