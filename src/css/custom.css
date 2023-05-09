@@ -28,10 +28,10 @@
 }
 
 [data-theme='dark'] {
-  --ifm-color-primary: #67d6ed;
-  --ifm-color-primary-dark: #49cee9;
-  --ifm-color-primary-darker: #39cae8;
-  --ifm-color-primary-darkest: #19b5d5;
+  --ifm-color-primary: #c6d3ff;
+  --ifm-color-primary-dark: #bac9f8;
+  --ifm-color-primary-darker: #adbef6;
+  --ifm-color-primary-darkest: #91a4e2;
   --ifm-color-primary-light: #85def1;
   --ifm-color-primary-lighter: #95e2f2;
   --ifm-color-primary-lightest: #c2eff8;
