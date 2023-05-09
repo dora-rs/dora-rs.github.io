@@ -13,15 +13,17 @@ function HomepageHeader() {
   return (
     <header className={clsx("hero", styles.heroBanner)}>
       <div className="container">
-        <img src="/img/logo.svg" width="400"></img>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/guides"
-          >
-            <Translate id="homepage.button.text">🔥 Get started</Translate>
-          </Link>
+        <div className="margin-left--xl margin-right--xl ">
+          <img src="/img/logo.svg" width="400"></img>
+          <p className="hero__subtitle">{siteConfig.tagline}</p>
+          <div className={styles.buttons}>
+            <Link
+              className="button button--secondary button--lg"
+              to="/docs/guides"
+            >
+              <Translate id="homepage.button.text">🔥 Get started</Translate>
+            </Link>
+          </div>
         </div>
       </div>
     </header>
