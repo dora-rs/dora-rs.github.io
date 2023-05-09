@@ -8,7 +8,7 @@ const DefaultLocale = "en";
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "dora-rs",
-  tagline: "A dataflow for robotic applications! 🚙🤖💻",
+  tagline: "🚙🤖💻 A dataflow for robotic applications!",
   favicon: "img/favicon.ico",
   markdown: {
     mermaid: true,
