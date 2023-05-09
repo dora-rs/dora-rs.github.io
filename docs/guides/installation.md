@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Installation
 
 This project is in early development, and many features have yet to be implemented with breaking changes. Please don't take for granted the current design. The installation process will be streamlined in the future.

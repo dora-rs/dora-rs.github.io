@@ -2,7 +2,7 @@
 
 The dora framework is structured into different components:
 
-![design diagram](overview.svg)
+![design diagram](/img/overview.svg)
 
 
 The following main components exist:

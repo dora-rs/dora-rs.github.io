@@ -1,7 +1,3 @@
----
-sidebar_position: 4
----
-
 # Full perception
 
 Let's add all `dora-drives` operators that works on image frame, which are:

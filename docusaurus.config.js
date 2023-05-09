@@ -3,6 +3,7 @@
 
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const DefaultLocale = "en";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -33,7 +34,7 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: "en",
-    locales: ["en"],
+    locales: ["en", "zh-CN"],
   },
 
   presets: [
@@ -58,8 +59,14 @@ const config = {
           },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+          editUrl: ({ locale, versionDocsDirPath, docPath }) => {
+            // Link to Crowdin for French docs
+            if (locale !== DefaultLocale) {
+              return `https://crowdin.com/dora-rs/${locale}`;
+            }
+            // Link to GitHub for English docs
+            return `https://github.com/dora-rs/dora-rs.github.io/edit/main/${versionDocsDirPath}/${docPath}`;
+          },
         },
         blog: {
           showReadingTime: true,
@@ -159,16 +166,16 @@ const config = {
             label: "GitHub",
             position: "right",
           },
-          //{
-          //type: "localeDropdown",
-          //position: "right",
-          //dropdownItemsAfter: [
-          //{
-          //to: "https://tauri.crowdin.com/documentation",
-          //label: "Help us translate",
-          //},
-          //],
-          //},
+          {
+            type: "localeDropdown",
+            position: "right",
+            dropdownItemsAfter: [
+              {
+                to: "https://crowdin.com/project/dora-rs",
+                label: "Help us translate",
+              },
+            ],
+          },
           //{
           //type: "docsVersionDropdown",
           //position: "right",

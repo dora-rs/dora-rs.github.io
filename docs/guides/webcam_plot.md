@@ -1,7 +1,3 @@
----
-sidebar_position: 3
----
-
 # Webcam Plot
 
 This first tutorial enables to stream a video stream from a webcam from scratch.
