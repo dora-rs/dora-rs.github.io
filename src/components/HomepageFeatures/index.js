@@ -6,7 +6,7 @@ import Heading from "@theme/Heading";
 
 const FeatureList = [
   {
-    title: "Declarative",
+    title: "🌳 Declarative",
     // Svg: require("@site/static/img/undraw_docusaurus_mountain.svg").default,
     description: (
       <>
@@ -16,24 +16,24 @@ const FeatureList = [
     ),
   },
   {
-    title: "Zero Copy",
+    title: "📁 Zero Copy",
     // Svg: require("@site/static/img/undraw_docusaurus_tree.svg").default,
     description: (
       <>Transfer message with no overhead as we do not perform any copy.</>
     ),
   },
   {
-    title: "Shared Memory",
+    title: "⭐ Shared Memory",
     // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
     description: <>Use shared memory on the same machine.</>,
   },
   {
-    title: "Polyglot",
+    title: "🎉 Polyglot",
     // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
     description: <>Available on Python, Rust, C and C++</>,
   },
   {
-    title: "Cross Platform",
+    title: "💻 Cross Platform",
     // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
     description: (
       <>
@@ -43,7 +43,7 @@ const FeatureList = [
     ),
   },
   {
-    title: "Observable",
+    title: "🔭 Observable",
     // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
     description: (
       <>
@@ -53,7 +53,7 @@ const FeatureList = [
     ),
   },
   {
-    title: "Community driven",
+    title: "🧑‍🤝‍🧑 Community",
     // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
     description: (
       <>
