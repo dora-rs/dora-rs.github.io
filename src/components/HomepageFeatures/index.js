@@ -8,65 +8,49 @@ import Translate, { translate } from "@docusaurus/Translate";
 const FeatureList = [
   {
     title: translate({
-      message: "🌳 Declarative",
-      id: "homepage.features.declarative.title",
-    }),
-    // Svg: require("@site/static/img/undraw_docusaurus_mountain.svg").default,
-    description: (
-      <Translate id="homepage.features.declarative.text">
-        Declarative dataflow enabling reusability and isolation. All nodes are
-        declared within a YAML configuration, which can be easily modified.
-      </Translate>
-    ),
-  },
-  {
-    title: translate({
-      message: "📁 Zero Copy",
-      id: "homepage.features.zero-copy.title",
-    }),
-    // Svg: require("@site/static/img/undraw_docusaurus_tree.svg").default,
-    description: (
-      <Translate id="homepage.features.zero-copy.text">
-        Transfer message with no overhead as we do not perform any copy.
-      </Translate>
-    ),
-  },
-  {
-    title: translate({
-      message: "⭐ shared memory",
+      message: "⭐ Zero Overhead",
       id: "homepage.features.shared-memory.title",
     }),
     // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
     description: (
       <Translate id="homepage.features.shared-memory.text">
-        Use shared memory on the same machine.
+        Transfer message with zero copy on shared memory! We use Arrow and our
+        own shared memory daemon to make lightspeed communnication on a single
+        machine.
       </Translate>
     ),
   },
   {
     title: translate({
-      message: "🎉 Polyglot",
-      id: "homepage.features.polyglot.title",
+      message: "🤯 Scalable",
+      id: "homepage.features.scale.title",
     }),
     // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
     description: (
-      <Translate id="homepage.features.polyglot.text">
-        Available on Python, Rust, C and C++
+      <Translate id="homepage.features.scale.text">
+        Built to scale accross machines and robots! We use YAML description to
+        make our software declarative in order to be distributable on multiple
+        machines.
       </Translate>
     ),
+    href: "docs/api/dataflow-config",
   },
   {
     title: translate({
-      message: "💻 Cross Platform",
-      id: "homepage.features.cross-platform.title",
+      message: "👨‍🏭 Fast Prototyping",
+      id: "homepage.features.prototyping.title",
     }),
     // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
     description: (
-      <Translate id="homepage.features.cross-platform.text">
-        By being written in Rust, we are able to cross-compile dora-rs into all
-        platform with very little dependencies.
-      </Translate>
+      <>
+        <Translate id="homepage.features.prototyping.text">
+          Use readily available nodes and operators from your YAML dataflow, so
+          that you don't need to bother copy pasting boilerplate code. You can
+          also tinker live using Python!
+        </Translate>
+      </>
     ),
+    href: "docs/guides/Development/hot-reload",
   },
   {
     title: translate({
@@ -76,10 +60,25 @@ const FeatureList = [
     // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
     description: (
       <Translate id="homepage.features.observable.text">
-        We provide log, tracing and metrics capabilities through opentelemetry
-        to make debugging easy. You can also hot-reload your code in Python!
+        Get logs, traces and metrics through our cli and scale using ops using
+        opentelemetry!
       </Translate>
     ),
+    href: "docs/guides/debugging/logs",
+  },
+  {
+    title: translate({
+      message: "💻 Large Support Matrix",
+      id: "homepage.features.cross-platform.title",
+    }),
+    // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
+    description: (
+      <Translate id="homepage.features.cross-platform.text">
+        By being written in Rust, we are available in Python, Rust, C and C++
+        but also accross platform and architecture!
+      </Translate>
+    ),
+    href: "docs/guides/support-matrix",
   },
   {
     title: translate({
@@ -93,10 +92,11 @@ const FeatureList = [
         help other learn and grow their knowledge about robotic application.
       </Translate>
     ),
+    href: "docs/community",
   },
 ];
 
-function Feature({ Svg, title, description }) {
+function Feature({ Svg, title, description, href }) {
   return (
     <div className="card shadow--md">
       {/* <div className="text--center">
@@ -110,11 +110,11 @@ function Feature({ Svg, title, description }) {
         </div>
         <p className={styles.showcaseCardBody}>{description}</p>
       </div>
-      {/*   <div className="card__footer">
-        <Link className={"button button--primary"} href={title}>
-          {title}
+      <div className="card__footer">
+        <Link className={"button button--primary"} href={href}>
+          <Translate id="homepage.button.text">Learn More</Translate>
         </Link>
-      </div> */}
+      </div>
     </div>
   );
 }
