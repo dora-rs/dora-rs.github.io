@@ -1,0 +1,129 @@
+---
+id: cli
+title: CLI
+---
+
+<!---
+This file is auto-generated using: 
+node .scripts/generate-cli-doc.js
+-->
+
+## `Main`
+
+```
+Usage: dora-cli <COMMAND>
+
+Commands:
+  check    Check if the coordinator and the daemon is running
+  graph    Generate a visualization of the given graph using mermaid.js. Use --open to open
+               browser
+  build    Run build commands provided in the given dataflow
+  new      Generate a new project, node or operator. Choose the language between Rust, Python, C
+               or C++
+  up       Spawn a coordinator and a daemon
+  destroy  Destroy running coordinator and daemon. If some dataflows are still running, they
+               will be stopped first
+  start    Start the given dataflow path. Attach a name to the running dataflow by using --name
+  stop     Stop the given dataflow UUID. If no id is provided, you will be able to choose
+               between the running dataflows
+  list     List running dataflows
+  logs     
+  help     Print this message or the help of the given subcommand(s)
+
+Options:
+  -h, --help     Print help
+  -V, --version  Print version
+```
+
+## `up`
+
+```
+Usage: dora-cli up [OPTIONS]
+
+Options:
+      --config <CONFIG>                      
+      --coordinator-path <COORDINATOR_PATH>  
+      --daemon-path <DAEMON_PATH>            
+  -h, --help                                 Print help
+```
+
+## `new`
+
+```
+Usage: dora-cli new [OPTIONS] <NAME> [PATH]
+
+Arguments:
+  <NAME>  
+  [PATH]  
+
+Options:
+      --kind <KIND>  [default: dataflow] [possible values: dataflow, operator, custom-node]
+      --lang <LANG>  [default: rust] [possible values: rust, python, c, cxx]
+  -h, --help         Print help
+```
+
+## `start`
+
+```
+Usage: dora-cli start [OPTIONS] <DATAFLOW>
+
+Arguments:
+  <DATAFLOW>  
+
+Options:
+      --name <NAME>  
+      --attach       
+      --hot-reload   
+  -h, --help         Print help
+```
+
+## `list`
+
+```
+Usage: dora-cli list
+
+Options:
+  -h, --help  Print help
+```
+
+## `logs`
+
+```
+Arguments:
+  <DATAFLOW>  
+  <NODE>      
+
+Options:
+  -h, --help  Print help
+```
+
+## `check`
+
+```
+Usage: dora-cli check [OPTIONS]
+
+Options:
+      --dataflow <DATAFLOW>  
+  -h, --help                 Print help
+```
+
+## `stop`
+
+```
+
+Usage: dora-cli stop [OPTIONS] [UUID]
+
+Arguments:
+  [UUID]  
+
+Options:
+      --name <NAME>  
+  -h, --help         Print help
+```
+
+## `version`
+
+```
+  Description
+    Returns the current version of dora
+```

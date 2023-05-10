@@ -124,11 +124,11 @@ const config = {
                 docId: "api/dataflow-config",
                 label: "Configuration",
               },
-              //{
-              //type: "doc",
-              //docId: "api/cli",
-              //label: "CLI",
-              //}
+              {
+                type: "doc",
+                docId: "api/cli",
+                label: "CLI",
+              },
             ],
           },
           {
