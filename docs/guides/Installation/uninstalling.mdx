@@ -1,0 +1,53 @@
+---
+sidebar_position: 3
+---
+
+# Uninstalling
+
+````mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="current-os" queryString>
+  <TabItem value="linux" label="Linux">
+
+```bash
+rm $(which dora)
+rm $(which dora-coordinator)
+rm $(which dora-daemon)
+pip uninstall dora-rs ## For Python API
+dora --help # This should fail
+```
+
+  </TabItem>
+  <TabItem value="macos" label="MacOS">
+
+```bash
+rm $(which dora)
+rm $(which dora-coordinator)
+rm $(which dora-daemon)
+pip uninstall dora-rs ## For Python API
+dora --help # This should fail
+```
+
+  </TabItem>
+  <TabItem value="windows" label="Windows">
+Remove dora, dora-coordinator and dora-daemon binary and run:
+
+```bash
+pip uninstall dora-rs
+```    
+
+  </TabItem>
+</Tabs>
+````
+
+
+## Cargo and Pip
+
+```bash
+cargo remove dora-cli
+cargo remove dora-coordinator
+cargo remove dora-daemon
+pip uninstall dora-rs ## For Python API
+```

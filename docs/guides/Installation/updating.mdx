@@ -1,0 +1,35 @@
+---
+sidebar_position: 2
+---
+
+# Updating
+
+Auto-update is only available on cargo at the moment.
+Please uninstall and reinstall dora if you wish to update dora with github release,
+but don't forget to update python package as well with:
+
+```bash
+pip install dora-rs --upgrade ## For Python API
+```
+
+## Cargo and Pip
+
+```bash
+cargo install dora-cli --force
+cargo install dora-coordinator --force
+cargo install dora-daemon --force
+pip install dora-rs --upgrade ## For Python API
+```
+
+## Source
+
+```bash
+## Go to dora local repository
+cd dora
+cargo build --release --all 
+
+## Python API
+cd apis/python/node
+maturin develop --release
+cd ../../..
+```
