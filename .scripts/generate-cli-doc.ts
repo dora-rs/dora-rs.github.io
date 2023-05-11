@@ -1,12 +1,13 @@
-const childProcess = require("child_process");
-const path = require("path");
-const fs = require("fs");
-const rustCliPath = path.join(__dirname, "../../dora/target/debug/dora-cli");
+import * as childProcess from "child_process";
+import * as path from "path";
+import * as fs from "fs";
+
+const rustCliPath = path.join(__dirname, "../../dora/target/release/dora-cli");
 const templatePath = path.join(__dirname, "../docs/.templates/cli.md");
 const targetPath = path.join(__dirname, "../docs/api/cli.md");
 const template = fs.readFileSync(templatePath, "utf8");
 
-const commands = [
+const commands: string[] = [
   "",
   "up",
   "new",
