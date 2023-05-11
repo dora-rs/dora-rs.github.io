@@ -9,7 +9,7 @@
 
 import { translate } from "@docusaurus/Translate";
 import { sortBy } from "@site/src/utils/jsUtils";
-
+import * as Users from "./operators.json";
 /*
  * ADD YOUR SITE TO THE DOCUSAURUS SHOWCASE
  *
@@ -43,88 +43,6 @@ export type TagType =
   //| "favorite"
   //
   "object_detection" | "python" | "depth_estimation" | "control";
-
-// Add sites to this list
-// prettier-ignore
-const Users: User[] = [
-  {
-    title: 'Yolov5 Operator',
-    description: 'Yolov5 object detection operator',
-    preview: '/img/agilets.png',
-    website: 'yolov5_operator',
-    source: 'https://github.com/dora-rs/dora-drives/blob/main/operators/yolov5_op.py',
-    tags: ['object_detection', 'python'],
-  },
-  {
-    title: 'Plot Operator',
-    description: 'Plot operator based on cv2',
-    preview: '/img/agilets.png',
-    website: 'plot_operator',
-    source: 'https://github.com/dora-rs/dora-drives/blob/main/operators/plot.py',
-    tags: ['python'],
-  },
-  {
-    title: 'PID Operator',
-    description: 'PID controller',
-    preview: '/img/agilets.png',
-    website: 'pid_control_operator',
-    source: 'https://github.com/dora-rs/dora-drives/blob/main/operators/pid_control_op.py',
-    tags: ['python', "control"],
-  },
-  {
-    title: 'Obstacle Location Operator',
-    description: 'Obstacle location based on LIDAR and 2D bounding boxes',
-    preview: '/img/agilets.png',
-    website: 'obstacle_location_operator',
-    source: 'https://github.com/dora-rs/dora-drives/blob/main/operators/obstacle_location_op.py',
-    tags: ['python'],
-  },
-  {
-    title: 'GPS Operator',
-    description: 'Waypoint generation based on current position and a opendrive map.',
-    preview: '/img/agilets.png',
-    website: 'obstacle_location_operator',
-    source: 'https://github.com/dora-rs/dora-drives/blob/main/carla/gps_op.py',
-    tags: ['python'],
-  },
-  {
-    title: 'FOT Operator',
-    description: 'Waypoint generation based on current position and frenet optimal trajectory planner.',
-    preview: '/img/agilets.png',
-    website: 'obstacle_location_operator',
-    source: 'https://github.com/dora-rs/dora-drives/blob/main/carla/gps_op.py',
-    tags: ['python'],
-  },
-  {
-    title: 'YOLOP Operator',
-    description: 'YOLOP lane and drivable area detection',
-    preview: '/img/agilets.png',
-    website: 'yolop_operator',
-    source: 'https://github.com/dora-rs/dora-drives/blob/main/operators/yolop_op.py',
-    tags: ['object_detection', 'python'],
-  },
-  {
-    title: 'MiDaS Operator',
-    description: 'MiDaS depth estimation',
-    preview: '/img/agilets.png',
-    website: 'midas_operator',
-    source: 'https://github.com/dora-rs/dora-drives/blob/main/operators/midas_op.py',
-    tags: ['depth_estimation', 'python'],
-  },
-  {
-    title: 'Webcam Operator',
-    description: 'Webcam Operator',
-    preview: '/img/agilets.png',
-    website: 'webcam_operator',
-    source: 'https://github.com/dora-rs/dora-drives/blob/main/operators/webcam_op.py',
-    tags: ['python'],
-  },
-
-  /*
-  Pro Tip: add your site in alphabetical order.
-  Appending your site here (at the end) is more likely to produce Git conflicts.
-   */
-];
 
 export type User = {
   title: string;
