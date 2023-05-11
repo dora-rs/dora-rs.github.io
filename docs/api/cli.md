@@ -8,9 +8,11 @@ This file is auto-generated using:
 node .scripts/generate-cli-doc.js
 -->
 
-## `Main`
+## Overview
 
 ```
+dora-rs cli client
+
 Usage: dora-cli <COMMAND>
 
 Commands:
@@ -38,6 +40,8 @@ Options:
 ## `up`
 
 ```
+Spawn a coordinator and a daemon
+
 Usage: dora-cli up [OPTIONS]
 
 Options:
@@ -50,6 +54,8 @@ Options:
 ## `new`
 
 ```
+Generate a new project, node or operator. Choose the language between Rust, Python, C or C++
+
 Usage: dora-cli new [OPTIONS] <NAME> [PATH]
 
 Arguments:
@@ -65,6 +71,8 @@ Options:
 ## `start`
 
 ```
+Start the given dataflow path. Attach a name to the running dataflow by using --name
+
 Usage: dora-cli start [OPTIONS] <DATAFLOW>
 
 Arguments:
@@ -80,6 +88,8 @@ Options:
 ## `list`
 
 ```
+List running dataflows
+
 Usage: dora-cli list
 
 Options:
@@ -89,6 +99,8 @@ Options:
 ## `logs`
 
 ```
+Usage: dora-cli logs <DATAFLOW> <NODE>
+
 Arguments:
   <DATAFLOW>  
   <NODE>      
@@ -100,6 +112,8 @@ Options:
 ## `check`
 
 ```
+Check if the coordinator and the daemon is running
+
 Usage: dora-cli check [OPTIONS]
 
 Options:
@@ -110,6 +124,8 @@ Options:
 ## `stop`
 
 ```
+Stop the given dataflow UUID. If no id is provided, you will be able to choose between the running
+dataflows
 
 Usage: dora-cli stop [OPTIONS] [UUID]
 
@@ -127,3 +143,5 @@ Options:
   Description
     Returns the current version of dora
 ```
+
+This command will show the current version of cora.

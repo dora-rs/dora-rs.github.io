@@ -25,7 +25,6 @@ for (const cmd of commands) {
     .execSync(`${rustCliPath} ${cmd} --help`)
     .toString()
     .split("\n");
-  output.splice(0, 2);
   output.splice(-1);
   doc = doc.replace(`{${cmd}}`, "```\n" + output.join("\n") + "\n```");
 }

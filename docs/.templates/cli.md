@@ -8,7 +8,7 @@ This file is auto-generated using:
 node .scripts/generate-cli-doc.js
 -->
 
-## `Main`
+## Overview
 
 {}
 
