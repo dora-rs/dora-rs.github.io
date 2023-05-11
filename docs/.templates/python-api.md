@@ -2,7 +2,7 @@
 
 <!---
 This file is auto-generated using:
-node .scripts/generate-python-api-doc.js
+npm run update-python-api                  
 -->
 
 
@@ -39,4 +39,4 @@ An operator requires an `on_event` method and requires to return a `DoraStatus` 
 Returns the current version of dora python API.
 ```
 
-This command will show the current version of cora.
+This command will show the current version of dora.

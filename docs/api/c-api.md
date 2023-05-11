@@ -9,7 +9,7 @@ The operator definition is composed of 3 functions, `dora_init_operator` that in
 ```c
 {{#include ../../examples/c-dataflow/operator.c:0:29}}
 ```
-### Try it out!
+#### Try it out!
 
 - Create an `operator.c` file:
 ```c
@@ -27,7 +27,7 @@ The operator definition is composed of 3 functions, `dora_init_operator` that in
 
 The custom node API allow you to integrate `dora` into your application. It allows you to retrieve input and send output in any fashion you want. 
 
-#### `init_dora_context_from_env`
+### `init_dora_context_from_env`
 
 `init_dora_context_from_env` initiate a node from environment variables set by `dora-coordinator` 
 
@@ -35,7 +35,7 @@ The custom node API allow you to integrate `dora` into your application. It allo
 void *dora_context = init_dora_context_from_env();
 ```
 
-#### `dora_next_event`
+### `dora_next_event`
 
 `dora_next_event` waits for the next event (e.g. an input). Use `read_dora_event_type` to read the event's type. Inputs are of type `DoraEventType_Input`. To extract the ID and data of an input event, use `read_dora_input_id`  and `read_dora_input_data` on the returned pointer. It is safe to ignore any events and handle only the events that are relevant to the node.
 
@@ -53,7 +53,7 @@ size_t data_len;
 read_dora_input_data(input, &data, &data_len);
 ```
 
-#### `dora_send_output`
+### `dora_send_output`
 
 `dora_send_output` send data from the node.
 
@@ -62,7 +62,7 @@ char out_id[] = "tick";
 char out_data[50];
 dora_send_output(dora_context, out_id, strlen(out_id), out_data, out_data_len);
 ```
-### Try it out!
+#### Try it out!
 
 - Create an `node.c` file:
 ```c

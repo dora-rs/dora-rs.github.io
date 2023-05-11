@@ -1,6 +1,6 @@
 <!---
 This file is auto-generated using:
-node .scripts/generate-cli-doc.js
+npm run update-cli
 -->
 
 ## Overview

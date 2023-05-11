@@ -1,6 +1,6 @@
 <!---
 This file is auto-generated using:
-node .scripts/generate-cli-doc.js
+npm run update-cli
 -->
 
 ## Overview
@@ -132,11 +132,10 @@ Options:
   -h, --help         Print help
 ```
 
-## `version`
+## `--version`
 
 ```
-  Description
-    Returns the current version of dora
+Returns the current version of dora
 ```
 
 This command will show the current version of cora.
