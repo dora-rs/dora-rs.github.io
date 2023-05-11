@@ -1,10 +1,5 @@
----
-id: cli
-title: CLI
----
-
 <!---
-This file is auto-generated using: 
+This file is auto-generated using:
 node .scripts/generate-cli-doc.js
 -->
 
@@ -40,11 +35,10 @@ node .scripts/generate-cli-doc.js
 
 {stop}
 
-## `version`
+## `--version`
 
 ```
-  Description
-    Returns the current version of dora
+Returns the current version of dora
 ```
 
 This command will show the current version of cora.

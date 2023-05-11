@@ -1,10 +1,5 @@
----
-id: cli
-title: CLI
----
-
 <!---
-This file is auto-generated using: 
+This file is auto-generated using:
 node .scripts/generate-cli-doc.js
 -->
 
