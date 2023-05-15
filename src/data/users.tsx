@@ -171,8 +171,11 @@ export const Tags: { [type in TagType]: Tag } = {
 };
 
 export const TagList = Object.keys(Tags) as TagType[];
+const usersArray: User[] = Users as User[];
+
 function sortUsers() {
-  let result = Users;
+  // Fix: adding default fix an issue with webpack.
+  let result = usersArray.default;
   // Sort by site name
   result = sortBy(result, (user) => user.title.toLowerCase());
   // Sort by favorite tag, favorites first
