@@ -62,7 +62,7 @@ node .scripts/generate-python-operator-doc.js
 
 Handle input.
         Args:
-            dora_input["id"](str): Id of the input declared in the yaml configuration
+            dora_input["id"]  (str): Id of the input declared in the yaml configuration
             dora_input["value"] (arrow.array(UInt8)): Bytes message of the input
             send_output (Callable[[str, bytes]]): Function enabling sending output back to dora.
         
@@ -79,7 +79,7 @@ Handle input.
     ):
         """Handle input.
         Args:
-            dora_input["id"](str): Id of the input declared in the yaml configuration
+            dora_input["id"]  (str): Id of the input declared in the yaml configuration
             dora_input["value"] (arrow.array(UInt8)): Bytes message of the input
             send_output (Callable[[str, bytes]]): Function enabling sending output back to dora.
         """

@@ -58,9 +58,9 @@ None
 ```python
 
     def on_event(
-            self,
-            dora_event: dict,
-            send_output: Callable[[str, bytes], None],
+        self,
+        dora_event: dict,
+        send_output: Callable[[str, bytes], None],
     ) -> DoraStatus:
         if dora_event["type"] == "INPUT":
             return self.on_input(dora_event, send_output)
@@ -76,7 +76,7 @@ None
 
 Handle image
         Args:
-            dora_input["id"](str): Id of the input declared in the yaml configuration
+            dora_input["id"]  (str): Id of the input declared in the yaml configuration
             dora_input["data"] (bytes): Bytes message of the input
             send_output (Callable[[str, bytes]]): Function enabling sending output back to dora.
         
@@ -87,13 +87,13 @@ Handle image
 ```python
 
     def on_input(
-            self,
-            dora_input: dict,
-            send_output: Callable[[str, bytes], None],
+        self,
+        dora_input: dict,
+        send_output: Callable[[str, bytes], None],
     ) -> DoraStatus:
         """Handle image
         Args:
-            dora_input["id"](str): Id of the input declared in the yaml configuration
+            dora_input["id"]  (str): Id of the input declared in the yaml configuration
             dora_input["data"] (bytes): Bytes message of the input
             send_output (Callable[[str, bytes]]): Function enabling sending output back to dora.
         """
@@ -118,14 +118,27 @@ Handle image
                 depth_output = prediction.cpu().numpy()
                 depth_min = depth_output.min()
                 depth_max = depth_output.max()
-                normalized_depth = 255 * (depth_output - depth_min) / (depth_max - depth_min)
+                normalized_depth = (
+                    255 * (depth_output - depth_min) / (depth_max - depth_min)
+                )
                 normalized_depth *= 3
-                depth_frame = np.repeat(np.expand_dims(normalized_depth, 2), 3, axis=2) / 3
-                depth_frame = cv2.applyColorMap(np.uint8(depth_frame), cv2.COLORMAP_INFERNO)
+                depth_frame = (
+                    np.repeat(np.expand_dims(normalized_depth, 2), 3, axis=2)
+                    / 3
+                )
+                depth_frame = cv2.applyColorMap(
+                    np.uint8(depth_frame), cv2.COLORMAP_INFERNO
+                )
                 height, width = depth_frame.shape[:2]
-                depth_frame_4 = np.dstack([depth_frame, np.ones((height, width), dtype="uint8") * 255])
+                depth_frame_4 = np.dstack(
+                    [depth_frame, np.ones((height, width), dtype="uint8") * 255]
+                )
 
-                send_output("depth_frame", depth_frame_4.tobytes(), dora_input["metadata"])
+                send_output(
+                    "depth_frame",
+                    depth_frame_4.tobytes(),
+                    dora_input["metadata"],
+                )
         return DoraStatus.CONTINUE
 
 
