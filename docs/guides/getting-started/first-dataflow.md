@@ -1,4 +1,4 @@
-# Getting Started
+# Creating your first dataflow
 
 ### Create a Rust workspace
 

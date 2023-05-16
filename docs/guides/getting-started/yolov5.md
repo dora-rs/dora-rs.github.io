@@ -49,4 +49,4 @@ dora start graphs/tutorials/webcam_yolov5.yaml --attach
     <img src="/img/webcam_yolov5.png" width="800"/>
 </p>
 
-> For more information on `yolov5`, go on [our `yolov5` detail page](/docs/nodes_operators/yolov5_operator.md)
+> For more information on `yolov5`, go on [our `yolov5` detail page](/docs/nodes_operators/yolov5_op.md)
