@@ -64,8 +64,16 @@ function getCardImage(user: User): string {
   return user.preview;
 }
 
+function getFileNameFromURL(urlString: string): string {
+  const url = new URL(urlString);
+  const filePath = url.pathname;
+  return filePath.split("/").at(-1);
+}
+
 function ShowcaseCard({ user }: { user: User }) {
   const image = getCardImage(user);
+
+  const module_name = getFileNameFromURL(user.source).replace(".py", "");
   return (
     <li key={user.title} className="card shadow--md">
       {/* 
@@ -78,7 +86,7 @@ function ShowcaseCard({ user }: { user: User }) {
       <div className="card__body">
         <div className={clsx(styles.showcaseCardHeader)}>
           <Heading as="h4" className={styles.showcaseCardTitle}>
-            <Link href={user.website} className={styles.showcaseCardLink}>
+            <Link href={module_name} className={styles.showcaseCardLink}>
               {user.title}
             </Link>
           </Heading>

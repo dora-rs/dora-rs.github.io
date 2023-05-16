@@ -6,14 +6,41 @@ const templatePath = path.join(
   __dirname,
   "../docs/.templates/python-operator.md"
 );
-import * as Operators from "../src/data/operators.json";
+import * as Users from "../src/data/operators.json";
+import { URL } from "url";
+
+function replaceWithEmptyString(value: any): string {
+  if ( value == 'None') {
+    return '';
+  }
+  return value;
+}
+
+function getFileNameFromURL(urlString: string): string {
+  const url = new URL(urlString);
+  const filePath = url.pathname;
+  return path.parse(filePath).name;
+}
+
 const template = fs.readFileSync(templatePath, "utf8");
 
-const modules = [
-  { name: "Node", methods: ["next", "__next__", "send_output"] },
-];
+export type TagType =
+  // DO NOT USE THIS TAG: we choose sites to add to favorites
+  //| "favorite"
+  //
+  "object_detection" | "python" | "depth_estimation" | "control";
 
-let doc = template;
+export type User = {
+  title: string;
+  description: string;
+  preview: string | null; // null = use our serverless screenshot service
+  website: string;
+  source: string;
+  tags: TagType[];
+};
+
+const usersArray: User[] = Users as User[];
+
 
 // Modify Env variable
 const env: NodeJS.ProcessEnv = {};
@@ -23,32 +50,61 @@ for (const key in process.env) {
   env[key] = process.env[key];
 }
 
-env["PYTHONPATH"] = "../dora-drives/operators";
+env["PYTHONPATH"] = `${process.env["PYTHONPATH"]}:../dora-drives/operators`;
 
-const operators: string[] = [];
-const methods: string[] = [];
+for (const op of usersArray) {
+  let doc = template;
+  console.log(`Generating: ${op.title}`);
+  doc = doc.replace(`{title}`, op.title);
+  const module_name = getFileNameFromURL(op.source);
+  const targetPath = path.join(
+    __dirname,
+    `../docs/nodes_operators/${module_name}.md`
+  );
+  var methods = ["__init__", "on_event", "on_input"];
 
-for (const op of operators) {
-  const targetPath = path.join(__dirname, `../docs/nodes_operators/${op}.md`);
   for (let i = 0; i < methods.length; i++) {
     const method = methods[i];
 
+    // Get docstring
     const output = childProcess
       .execSync(
-        `python -c "import dora; print(${op}.Operator.${method}.__doc__)"`,
+        `python -c "import ${module_name} ; print(${module_name}.Operator.${method}.__doc__)"`,
+        { env: env }
+      )
+      .toString()
+      .split("\n");
+    output.splice(-1);
+    doc = doc.replace(`{op.${method}}`, replaceWithEmptyString(output.join("\n")));
+
+    // Get source code
+    const output_source_code = childProcess
+      .execSync(
+        `python -c "import ${module_name}; import inspect; print(inspect.getsource(${module_name}.Operator.${method}))"`,
         { env: env }
       )
       .toString()
       .split("\n");
     output.splice(-1);
 
-    doc = doc.replace(`{${op}.Operator.${method}}`, output.join("\n"));
+    doc = doc.replace(
+      `{op.${method}.source_code}`,
+      output_source_code.join("\n")
+    );
   }
   const output = childProcess
-    .execSync(`python -c "import dora; print(dora.${op}.Operator.__doc__)"`)
+    .execSync(
+      `python -c "import ${module_name}; print(${module_name}.Operator.__doc__)"`,
+      { env: env }
+    )
     .toString()
     .split("\n");
   output.splice(-1);
-  doc = doc.replace(`{${modules[0].name}}`, output.join("\n"));
+  doc = doc.replace(`{op}`, output.join("\n"));
+
   fs.writeFileSync(targetPath, doc);
 }
+
+// Do I want it to look like docs.rs or scikit-learn? Yes maybe
+// Do I want to list source code ? Maybe not now
+// Do I want it to list all methods? Maybe not now

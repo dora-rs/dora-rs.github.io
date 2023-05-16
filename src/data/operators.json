@@ -32,19 +32,11 @@
     "tags": ["python"]
   },
   {
-    "title": "GPS Operator",
-    "description": "Waypoint generation based on current position and a opendrive map.",
-    "preview": "/img/agilets.png",
-    "website": "obstacle_location_operator",
-    "source": "https://github.com/dora-rs/dora-drives/blob/main/carla/gps_op.py",
-    "tags": ["python"]
-  },
-  {
     "title": "FOT Operator",
     "description": "Waypoint generation based on current position and frenet optimal trajectory planner.",
     "preview": "/img/agilets.png",
     "website": "obstacle_location_operator",
-    "source": "https://github.com/dora-rs/dora-drives/blob/main/carla/gps_op.py",
+    "source": "https://github.com/dora-rs/dora-drives/blob/main/carla/fot_op.py",
     "tags": ["python"]
   },
   {

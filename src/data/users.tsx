@@ -49,7 +49,7 @@ export type User = {
   description: string;
   preview: string | null; // null = use our serverless screenshot service
   website: string;
-  source: string | null;
+  source: string;
   tags: TagType[];
 };
 
