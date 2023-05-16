@@ -239,6 +239,15 @@ const config = {
         ],
         copyright: `Copyright © ${new Date().getFullYear()} dora-rs.`,
       },
+      algolia: {
+        // The application ID provided by Algolia
+        appId: "ZNAO6JQMLV",
+
+        // Public API key: it is safe to commit it
+        apiKey: "fbd9b5b34463d9152f1099f8b5b56dd3",
+
+        indexName: "dora-carsmos",
+      },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,

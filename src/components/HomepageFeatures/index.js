@@ -105,7 +105,7 @@ function Feature({ Svg, title, description, href }) {
       <div className="card__body">
         <div className={clsx(styles.showcaseCardHeader)}>
           <Heading as="h4" className={styles.showcaseCardTitle}>
-            <h3>{title}</h3>
+            {title}
           </Heading>
         </div>
         <p className={styles.showcaseCardBody}>{description}</p>
