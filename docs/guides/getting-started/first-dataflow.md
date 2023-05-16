@@ -1,125 +1,55 @@
-# Creating your first dataflow
+# Getting started
 
-### Create a Rust workspace
+1. Install `dora` binaries from GitHub releases
 
-- Initiate the workspace with:
-
-```bash
-mkdir my_first_dataflow
-cd my_first_dataflow
-```
-
-- Create the Cargo.toml file that will configure the entire workspace:
-
-`Cargo.toml`
-```toml
-[workspace]
-
-members = [
-    "rust-dataflow-example-node",
-]
-```  
-
-### Write your first node
-
-Let's write a node which sends the current time periodically. Let's make it after 100 iterations. The other nodes/operators will then exit as well because all sources closed.
-
-- Generate a new Rust binary (application):
+2. Create a new dataflow
 
 ```bash
-cargo new rust-dataflow-example-node
+dora new abc_project --lang python
+cd abc_project
 ```
 
-with `Cargo.toml`:
-```toml
-{{#include ../../examples/rust-dataflow/node/Cargo.toml}}
-```
-
-with `src/main.rs`:
-```rust
-{{#include ../../examples/rust-dataflow/node/src/main.rs}}
-```
-
-### Write your first operator 
-
-- Generate a new Rust library:
-
+This creates the following `abc_project` directory
 ```bash
-cargo new rust-dataflow-example-operator --lib
+.
+├── dataflow.yml
+├── node_1
+│   └── node_1.py
+├── op_1
+│   └── op_1.py
+└── op_2
+    └── op_2.py
 ```
 
-with `Cargo.toml`:
-```toml
-{{#include ../../examples/rust-dataflow/operator/Cargo.toml}}
-```
-
-with `src/lib.rs`:
-```rust
-{{#include ../../examples/rust-dataflow/operator/src/lib.rs}}
-```
-
-- And modify the root `Cargo.toml`:
-```toml=
-[workspace]
-
-members = [
-    "rust-dataflow-example-node",
-    "rust-dataflow-example-operator",
-]
-```
-
-
-
-### Write your sink node 
-
-Let's write a `logger` which will print incoming data.
-
-- Generate a new Rust binary (application):
-
+1. Start `dora-coordinator` and a `dora-deamon`
 ```bash
-cargo new sink_logger
+dora up 
 ```
 
-with `Cargo.toml`:
-```toml
-{{#include ../../examples/rust-dataflow/sink/Cargo.toml}}
-```
-
-with `src/main.rs`:
-```rust
-{{#include ../../examples/rust-dataflow/sink/src/main.rs}}
-```
-
-- And modify the root `Cargo.toml`:
-```toml=
-[workspace]
-
-members = [
-    "rust-dataflow-example-node",
-    "rust-dataflow-example-operator",
-    "rust-dataflow-example-sink"
-]
-```
-
-### Compile everything
-
+1. Start your dataflow
 ```bash
-cargo build --all --release
+dora start dataflow.yml
+# Output: c95d118b-cded-4531-a0e4-cd85b7c3916c
+```
+The output is the unique ID of the dataflow instance, which can be used to control it through the `dora` CLI.
+
+1. You will see in your `dora-coordinator` window operators receiving ticks.
+```bash
+Received input tick, with data: b''
+Received input tick, with data: b''
+Received input tick, with data: b''
+...
 ```
 
-
-### Write a graph definition
-
-Let's write the graph definition so that the nodes know who to communicate with.
-
-`dataflow.yml`
-```yaml
-{{#include ../../examples/rust-dataflow/dataflow.yml}}
+1. Stop your dataflow
+```bash
+dora stop c95d118b-cded-4531-a0e4-cd85b7c3916c
 ```
+(Pass the ID returned by `dora start` here.)
 
-### Run it!
+1. You can then add or modify operators or nodes. For adding nodes easily, you can use the `dora` CLI again:
 
-- Run the `dataflow`: 
-```bash 
-dora-daemon --run-dataflow dataflow.yml
-```
+- Run `dora new --kind operator --lang rust <name>` to create a new Rust operator named `<name>`.
+- Run `dora new --kind custom-node --lang rust <name>` to create a new custom node named `<name>`.
+
+You need to add the created operators/nodes to your dataflow YAML file.

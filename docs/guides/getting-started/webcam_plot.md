@@ -1,37 +1,25 @@
 # Webcam Plot
 
-This first tutorial enables to stream a video stream from a webcam from scratch.
+1. Download already implemented operators by putting links in the dataflow. This example will launch a webcam plot stream. 
 
-1. Fork this project
-
-```bash
-# Go to: https://github.com/dora-rs/dora-drives/fork
-#
-# Then clone your fork:
-git clone git@github.com:<USERNAME>/dora-drives.git
-
-# Add dora as a remote source to be able to fetch updates.
-git remote add dora git@github.com:dora-rs/dora-drives.git
+```yaml
+nodes:
+  - id: webcam
+    operator:
+      python: https://raw.githubusercontent.com/dora-rs/dora/main/examples/python-operator-dataflow/webcam.py
+      inputs:
+        tick: dora/timer/millis/100
+      outputs:
+        - image
+  - id: plot
+    operator:
+      python: https://raw.githubusercontent.com/dora-rs/dora/main/examples/python-operator-dataflow/plot.py
+      inputs:
+        image: webcam/image 
 ```
+> Make sure to have a webcam and cv2 install via: `pip install opencv-python`
 
-You will find the following folder structure
-```bash
-.
-├── graphs # Example graph
-├── operators # Exemple operators
-├── carla # Carla nodes and operators that requires the CARLA API
-├── ros # ROS based operators to bridge between ROS and dora
-├── docs # This docs folder. You can replace the src file to keep your operator documented.
-├── ... # utils folder
-```
-
-2. To be able to run dora, you will need to start `dora-coordinator` and `dora-daemon`:
-```bash
-# Start the `dora-coordinator` and `dora-daemon`. 
-dora up 
-```
-
-3. To start a dataflow, you just need to pass a dataflow path.
+2. You can start attached to the dataflow as follows:
 ```bash
 conda activate dora3.7
 dora start graphs/tutorials/webcam.yaml --attach --hot-reload --name webcam
@@ -45,13 +33,11 @@ dora start graphs/tutorials/webcam.yaml --attach --hot-reload --name webcam
 >
 > `--name`: enables you to name a dataflow that might be simpler to use than the UUID.
 
-4. You should see a small webcam open up!
+3. You should see a small webcam open up!
 > Make sure to have a webcam and cv2 install via: `pip install opencv-python`
 
 <p align="center">
     <img src="/img/webcam.png" width="800"/>
 </p>
 
-5. To stop your dataflow, you can use <kbd>ctrl</kbd>+<kbd>c</kbd>
-
-6. That's it! You know the basic of dora!
+4. To stop your dataflow, you can use <kbd>ctrl</kbd>+<kbd>c</kbd>

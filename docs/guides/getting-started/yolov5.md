@@ -2,12 +2,58 @@
 
 ## Making the video stream intelligent
 
-Let's add a `yolov5` object detection operator that has already been written for us in `./operators/yolov5_op.py`. This will help us detect object as bounding boxes within the webcam stream.
+Let's add a `yolov5` object detection operator, that you can [find as an example](https://raw.githubusercontent.com/dora-rs/dora/main/examples/python-operator-dataflow/object_detection.py). This will help us detect object as bounding boxes within the webcam stream.
 
 ```python
-# operators/yolov5_op.py
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
-{{#include ../../operators/yolov5_op.py }}
+from typing import Callable
+
+import cv2
+import numpy as np
+import pyarrow as pa
+import torch
+
+from dora import DoraStatus
+
+pa.array([])
+
+CAMERA_WIDTH = 640
+CAMERA_HEIGHT = 480
+
+
+class Operator:
+    """
+    Infering object from images
+    """
+
+    def __init__(self):
+        self.model = torch.hub.load("ultralytics/yolov5", "yolov5n")
+
+    def on_event(
+        self,
+        dora_event: dict,
+        send_output: Callable[[str, bytes], None],
+    ) -> DoraStatus:
+        """Handle image
+        Args:
+            dora_input (dict): Dict containing the "id", "data", and "metadata"
+            send_output (Callable[[str, bytes]]): Function enabling sending output back to dora.
+        """
+        if dora_event["type"] == "INPUT":
+            frame = (
+                dora_event["value"]
+                .to_numpy()
+                .reshape((CAMERA_HEIGHT, CAMERA_WIDTH, 3))
+            )
+            frame = frame[:, :, ::-1]  # OpenCV image (BGR to RGB)
+            results = self.model(frame)  # includes NMS
+            arrays = pa.array(
+                np.array(results.xyxy[0].cpu()).ravel().view(np.uint8)
+            )
+            send_output("bbox", arrays, dora_event["metadata"])
+            return DoraStatus.CONTINUE
 ```
 
 > Operators are composed of:
@@ -29,10 +75,30 @@ Let's add a `yolov5` object detection operator that has already been written for
 
 To add an operator within the dataflow. You need to explicit what the input and output are. You can reference node by their ids:
 
-```yaml
-# graphs/tutorials/webcam_yolov5.yaml
+```yaml {10-16}
+nodes:
+  - id: webcam
+    operator:
+      python: webcam.py
+      inputs:
+        tick: dora/timer/millis/100
+      outputs:
+        - image
 
-{{#include ../../graphs/tutorials/webcam_yolov5.yaml }}
+  - id: object_detection
+    operator:
+      python: object_detection.py
+      inputs:
+        image: webcam/image
+      outputs:
+        - bbox
+
+  - id: plot
+    operator:
+      python: plot.py
+      inputs:
+        image: webcam/image
+        bbox: object_detection/bbox
 ```
 
 In this case, we have connected the `webcam/image` output to the `image` input of yolov5. `yolov5/bbox` is then connected to the `plot/obstacles_bbox`.

@@ -97,7 +97,31 @@ Each operator must specify exactly one implementation. The implementation must f
 ## Example
 
 ```yaml
-{{#include ../../examples/rust-dataflow/dataflow.yml}}
+nodes:
+  - id: rust-node
+    custom:
+      build: cargo build -p rust-dataflow-example-node
+      source: ../../target/debug/rust-dataflow-example-node
+      inputs:
+        tick: dora/timer/millis/10
+      outputs:
+        - random
+  - id: runtime-node
+    operators:
+      - id: rust-operator
+        build: cargo build -p rust-dataflow-example-operator
+        shared-library: ../../target/debug/rust_dataflow_example_operator
+        inputs:
+          tick: dora/timer/millis/100
+          random: rust-node/random
+        outputs:
+          - status
+  - id: rust-sink
+    custom:
+      build: cargo build -p rust-dataflow-example-sink
+      source: ../../target/debug/rust-dataflow-example-sink
+      inputs:
+        message: runtime-node/rust-operator/status
 ```
 
 ## TODO: Integration with ROS 1/2
