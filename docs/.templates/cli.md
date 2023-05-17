@@ -35,6 +35,14 @@ npm run update-cli
 
 {stop}
 
+## `destroy`
+
+{destroy}
+
+## `graph`
+
+{graph}
+
 ## `--version`
 
 ```

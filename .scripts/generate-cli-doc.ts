@@ -16,6 +16,8 @@ const commands: string[] = [
   "logs",
   "check",
   "stop",
+  "destroy",
+  "graph",
   "--version",
 ];
 

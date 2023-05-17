@@ -24,7 +24,7 @@ Commands:
   stop     Stop the given dataflow UUID. If no id is provided, you will be able to choose
                between the running dataflows
   list     List running dataflows
-  logs     
+  logs     Show logs of a given dataflow and node
   help     Print this message or the help of the given subcommand(s)
 
 Options:
@@ -94,6 +94,8 @@ Options:
 ## `logs`
 
 ```
+Show logs of a given dataflow and node
+
 Usage: dora-cli logs <DATAFLOW> <NODE>
 
 Arguments:
@@ -130,6 +132,35 @@ Arguments:
 Options:
       --name <NAME>  
   -h, --help         Print help
+```
+
+## `destroy`
+
+```
+Destroy running coordinator and daemon. If some dataflows are still running, they will be stopped
+first
+
+Usage: dora-cli destroy [OPTIONS]
+
+Options:
+      --config <CONFIG>  
+  -h, --help             Print help
+```
+
+## `graph`
+
+```
+Generate a visualization of the given graph using mermaid.js. Use --open to open browser
+
+Usage: dora-cli graph [OPTIONS] <DATAFLOW>
+
+Arguments:
+  <DATAFLOW>  
+
+Options:
+      --mermaid  
+      --open     
+  -h, --help     Print help
 ```
 
 ## `--version`
