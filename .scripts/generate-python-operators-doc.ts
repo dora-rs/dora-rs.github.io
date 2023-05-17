@@ -55,7 +55,6 @@ env["PYTHONPATH"] = `${process.env["PYTHONPATH"]}:../dora-drives/operators`;
 for (const op of usersArray) {
   let doc = template;
   console.log(`Generating: ${op.title}`);
-  doc = doc.replace(`{title}`, op.title);
   const module_name = getFileNameFromURL(op.source);
   const targetPath = path.join(
     __dirname,
@@ -94,13 +93,13 @@ for (const op of usersArray) {
   }
   const output = childProcess
     .execSync(
-      `python -c "import ${module_name}; print(${module_name}.Operator.__doc__)"`,
+      `python -c "import ${module_name}; print(${module_name}.__doc__)"`,
       { env: env }
     )
     .toString()
     .split("\n");
   output.splice(-1);
-  doc = doc.replace(`{op}`, output.join("\n"));
+  doc = doc.replace(`{op}`, replaceWithEmptyString(output.join("\n")));
 
   fs.writeFileSync(targetPath, doc);
 }

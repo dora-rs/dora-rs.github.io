@@ -62,5 +62,13 @@
     "website": "webcam_operator",
     "source": "https://github.com/dora-rs/dora-drives/blob/main/operators/webcam_op.py",
     "tags": ["python"]
+  },
+  {
+    "title": "Strong Sort Operator",
+    "description": "Strong Sort Operator",
+    "preview": "/img/agilets.png",
+    "website": "strong_sort_op",
+    "source": "https://github.com/dora-rs/dora-drives/blob/main/operators/strong_sort_op.py",
+    "tags": ["object_detection", "python"]
   }
 ]

@@ -1,15 +1,12 @@
-# Webcam Operator
+
+
 
 <!---
 This file is auto-generated using:
 node .scripts/generate-python-operator-doc.js
 -->
 
-```
-
-    Compute a `control` based on the position and the waypoints of the car.
-    
-```
+## Methods
 
 ### `__init__()`
 
@@ -87,3 +84,8 @@ node .scripts/generate-python-operator-doc.js
 
 
 
+
+<!---
+This file is auto-generated using:
+node .scripts/generate-python-operator-doc.js
+-->

@@ -1,15 +1,12 @@
-# YOLOP Operator
+
+
 
 <!---
 This file is auto-generated using:
 node .scripts/generate-python-operator-doc.js
 -->
 
-```
-
-    Infering object from images
-    
-```
+## Methods
 
 ### `__init__()`
 
@@ -147,3 +144,8 @@ node .scripts/generate-python-operator-doc.js
 
 
 
+
+<!---
+This file is auto-generated using:
+node .scripts/generate-python-operator-doc.js
+-->

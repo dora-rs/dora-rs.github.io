@@ -1,15 +1,16 @@
-# Plot Operator
+
+ 
+# Plot operator
+
+Plot operator takes outputs from the graph and plot it on the camera frame.
+
 
 <!---
 This file is auto-generated using:
 node .scripts/generate-python-operator-doc.js
 -->
 
-```
-
-    Compute a `control` based on the position and the waypoints of the car.
-    
-```
+## Methods
 
 ### `__init__()`
 
@@ -449,3 +450,8 @@ node .scripts/generate-python-operator-doc.js
 
 
 
+
+<!---
+This file is auto-generated using:
+node .scripts/generate-python-operator-doc.js
+-->

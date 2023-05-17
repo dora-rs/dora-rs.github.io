@@ -28,7 +28,7 @@ const FeatureList = [
     // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
     description: (
       <Translate id="homepage.features.scale.text">
-        Built to scale accross machines and robots! We use YAML description to
+        Built to scale across machines and robots! We use YAML description to
         make our software declarative in order to be distributable on multiple
         machines.
       </Translate>
@@ -45,7 +45,7 @@ const FeatureList = [
       <>
         <Translate id="homepage.features.prototyping.text">
           Use readily available nodes and operators from your YAML dataflow, so
-          that you don't need to bother copy pasting boilerplate code. You can
+          that you don't need to bother copy-pasting boilerplate code. You can
           also tinker live using Python!
         </Translate>
       </>
@@ -74,8 +74,8 @@ const FeatureList = [
     // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
     description: (
       <Translate id="homepage.features.cross-platform.text">
-        By being written in Rust, we are available in Python, Rust, C and C++
-        but also accross platform and architecture!
+        dora is available in Python, Rust, C and C++ on most platforms and
+        architecture!
       </Translate>
     ),
     href: "docs/guides/support-matrix",
@@ -88,8 +88,8 @@ const FeatureList = [
     // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
     description: (
       <Translate id="homepage.features.community.text">
-        We're commited into making a dora a community-first project! We hope to
-        help other learn and grow their knowledge about robotic application.
+        We hope to make dora a community-driven project and help other learn
+        about robotics.
       </Translate>
     ),
     href: "docs/community",

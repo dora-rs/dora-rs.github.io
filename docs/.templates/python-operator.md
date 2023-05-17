@@ -1,13 +1,12 @@
-# {title}
+
+{op}
 
 <!---
 This file is auto-generated using:
 node .scripts/generate-python-operator-doc.js
 -->
 
-```
-{op}
-```
+## Methods
 
 ### `__init__()`
 
@@ -53,3 +52,8 @@ node .scripts/generate-python-operator-doc.js
 
 
 
+
+<!---
+This file is auto-generated using:
+node .scripts/generate-python-operator-doc.js
+-->
