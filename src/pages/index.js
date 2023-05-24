@@ -21,7 +21,7 @@ function HomepageHeader() {
         position: "top",
       },
       xaxis: {
-        categories: ["8", "40 kB", "400 kB", "4 MB", "40 MB"],
+        categories: ["8 B", "40 kB", "400 kB", "4 MB", "40 MB"],
         title: { text: "Message Size" },
       },
       yaxis: [
