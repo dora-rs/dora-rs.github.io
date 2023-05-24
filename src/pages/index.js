@@ -17,22 +17,63 @@ function HomepageHeader() {
       chart: {
         type: "line",
       },
-      xaxis: {
-        categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
+      legend: {
+        position: "top",
       },
+      xaxis: {
+        categories: ["8", "40 kB", "400 kB", "4 MB", "40 MB"],
+        title: { text: "Message Size" },
+      },
+      yaxis: [
+        {
+          //          logarithmic: true,
+          title: { text: "Latency (milliseconds)" },
+        },
+      ],
       stroke: {
-        curve: "smooth",
+        // curve: "smooth",
         width: [2, 2],
+      },
+      tooltip: {
+        y: {
+          formatter: function (val) {
+            return val + " ms";
+          },
+        },
+      },
+      annotations: {
+        xaxis: [
+          {
+            x: "400 kB",
+            strokeDashArray: 0,
+            borderColor: "#089f8f",
+            label: {
+              borderColor: "#089f8f",
+              text: "480p",
+            },
+          },
+          {
+            x: "4 MB",
+            strokeDashArray: 0,
+            borderColor: "#08737f",
+            label: {
+              borderColor: "#08737f",
+              text: "1080p",
+            },
+          },
+        ],
       },
     },
     series: [
       {
-        name: "Series A",
-        data: [1.4, 2, 2.5, 1.5, 2.5, 2.8, 3.8, 4.6],
+        name: "dora-rs",
+        data: [0.53, 0.41, 0.69, 2.18, 8.94],
+        color: "#3578e5",
       },
       {
-        name: "Series B",
-        data: [20, 29, 37, 36, 44, 45, 50, 58],
+        name: "ROS 2",
+        data: [0.71, 0.97, 4.94, 14.76, 153.11],
+        color: "#545454",
       },
     ],
   };
@@ -66,7 +107,7 @@ function HomepageHeader() {
           }}
         >
           <div className="margin-top--lg">
-            <h2>We're fast!</h2>
+            <h2>Latency for Python (Lower is better)</h2>
             <Chart options={state.options} series={state.series} width="100%" />
           </div>
         </div>
