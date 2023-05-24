@@ -4,7 +4,7 @@ import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
-import Chart from "react-apexcharts";
+import BrowserOnly from "@docusaurus/BrowserOnly";
 
 import styles from "./index.module.css";
 import Translate from "@docusaurus/Translate";
@@ -108,7 +108,18 @@ function HomepageHeader() {
         >
           <div className="margin-top--lg">
             <h2>Latency for Python (Lower is better)</h2>
-            <Chart options={state.options} series={state.series} width="100%" />
+            <BrowserOnly fallback={<div>Chart not supported</div>}>
+              {() => {
+                const Chart = require("react-apexcharts").default;
+                return (
+                  <Chart
+                    options={state.options}
+                    series={state.series}
+                    width="100%"
+                  />
+                );
+              }}
+            </BrowserOnly>
           </div>
         </div>
       </div>
