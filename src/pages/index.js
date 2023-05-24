@@ -62,6 +62,30 @@ function HomepageHeader() {
             },
           },
         ],
+        points: [
+          {
+            x: "40 MB",
+            y: 8.94,
+            marker: {
+              size: 8,
+              fillColor: "#fff",
+              strokeColor: "red",
+              radius: 2,
+              cssClass: "apexcharts-custom-class",
+            },
+            label: {
+              borderColor: "#FF4560",
+              offsetY: 0,
+              offsetX: -40,
+              style: {
+                color: "#fff",
+                background: "#FF4560",
+              },
+
+              text: "17x Faster than ROS 2",
+            },
+          },
+        ],
       },
     },
     series: [
