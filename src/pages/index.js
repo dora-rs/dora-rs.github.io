@@ -9,11 +9,14 @@ import BrowserOnly from "@docusaurus/BrowserOnly";
 import styles from "./index.module.css";
 import Translate from "@docusaurus/Translate";
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
 
   const state = {
-    options: {
+    options_python: {
       chart: {
         type: "line",
       },
@@ -28,6 +31,9 @@ function HomepageHeader() {
         {
           //          logarithmic: true,
           title: { text: "Latency (milliseconds)" },
+          max: 160,
+          min: 0,
+          tickAmount: 8,
         },
       ],
       stroke: {
@@ -88,7 +94,85 @@ function HomepageHeader() {
         ],
       },
     },
-    series: [
+    options_rust: {
+      chart: {
+        type: "line",
+      },
+      legend: {
+        position: "top",
+      },
+      xaxis: {
+        categories: ["8 B", "40 kB", "400 kB", "4 MB", "40 MB"],
+        title: { text: "Message Size" },
+      },
+      yaxis: [
+        {
+          //          logarithmic: true,
+          title: { text: "Latency (milliseconds)" },
+          max: 160,
+          min: 0,
+          tickAmount: 8,
+        },
+      ],
+      stroke: {
+        // curve: "smooth",
+        width: [2, 2],
+      },
+      tooltip: {
+        y: {
+          formatter: function (val) {
+            return val + " ms";
+          },
+        },
+      },
+      annotations: {
+        xaxis: [
+          {
+            x: "400 kB",
+            strokeDashArray: 0,
+            borderColor: "#089f8f",
+            label: {
+              borderColor: "#089f8f",
+              text: "480p",
+            },
+          },
+          {
+            x: "4 MB",
+            strokeDashArray: 0,
+            borderColor: "#08737f",
+            label: {
+              borderColor: "#08737f",
+              text: "1080p",
+            },
+          },
+        ],
+        points: [
+          {
+            x: "40 MB",
+            y: 4.49,
+            marker: {
+              size: 8,
+              fillColor: "#fff",
+              strokeColor: "red",
+              radius: 2,
+              cssClass: "apexcharts-custom-class",
+            },
+            label: {
+              borderColor: "#FF4560",
+              offsetY: 0,
+              offsetX: -40,
+              style: {
+                color: "#fff",
+                background: "#FF4560",
+              },
+
+              text: "10x Faster than ROS 2",
+            },
+          },
+        ],
+      },
+    },
+    series_python: [
       {
         name: "dora-rs",
         data: [0.53, 0.41, 0.69, 2.18, 8.94],
@@ -97,6 +181,18 @@ function HomepageHeader() {
       {
         name: "ROS 2",
         data: [0.71, 0.97, 4.94, 14.76, 153.11],
+        color: "#545454",
+      },
+    ],
+    series_rust: [
+      {
+        name: "dora-rs",
+        data: [0.28, 0.28, 0.34, 0.91, 4.49],
+        color: "#3578e5",
+      },
+      {
+        name: "ROS 2",
+        data: [0.44, 0.49, 0.48, 4.17, 40.99],
         color: "#545454",
       },
     ],
@@ -131,19 +227,37 @@ function HomepageHeader() {
           }}
         >
           <div className="margin-top--lg">
-            <h2>Latency for Python (Lower is better)</h2>
-            <BrowserOnly fallback={<div>Chart not supported</div>}>
-              {() => {
-                const Chart = require("react-apexcharts").default;
-                return (
-                  <Chart
-                    options={state.options}
-                    series={state.series}
-                    width="100%"
-                  />
-                );
-              }}
-            </BrowserOnly>
+            <h2>Latency (Lower is better)</h2>
+            <Tabs groupId="language" queryString>
+              <TabItem value="Python" label="Python API">
+                <BrowserOnly fallback={<div>Chart not supported</div>}>
+                  {() => {
+                    const Chart = require("react-apexcharts").default;
+                    return (
+                      <Chart
+                        options={state.options_python}
+                        series={state.series_python}
+                        width="100%"
+                      />
+                    );
+                  }}
+                </BrowserOnly>
+              </TabItem>
+              <TabItem value="Rust" label="Rust API">
+                <BrowserOnly fallback={<div>Chart not supported</div>}>
+                  {() => {
+                    const Chart = require("react-apexcharts").default;
+                    return (
+                      <Chart
+                        options={state.options_rust}
+                        series={state.series_rust}
+                        width="100%"
+                      />
+                    );
+                  }}
+                </BrowserOnly>
+              </TabItem>
+            </Tabs>
           </div>
         </div>
       </div>
