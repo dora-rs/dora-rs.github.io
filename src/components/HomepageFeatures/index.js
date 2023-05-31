@@ -11,6 +11,10 @@ const FeatureList = [
       message: "⭐ Zero Overhead",
       id: "homepage.features.shared-memory.title",
     }),
+    button: translate({
+      message: "⭐ Zero Overhead",
+      id: "homepage.features.shared-memory.button",
+    }),
     // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
     description: (
       <Translate id="homepage.features.shared-memory.text">
@@ -24,6 +28,10 @@ const FeatureList = [
     title: translate({
       message: "🤯 Scalable",
       id: "homepage.features.scale.title",
+    }),
+    button: translate({
+      message: "Dataflow specification",
+      id: "homepage.features.scale.button",
     }),
     // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
     description: (
@@ -39,6 +47,10 @@ const FeatureList = [
     title: translate({
       message: "👨‍🏭 Fast Prototyping",
       id: "homepage.features.prototyping.title",
+    }),
+    button: translate({
+      message: "Hot reloading",
+      id: "homepage.features.prototyping.button",
     }),
     // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
     description: (
@@ -57,6 +69,10 @@ const FeatureList = [
       message: "🔭 Observable",
       id: "homepage.features.observable.title",
     }),
+    button: translate({
+      message: "Logs",
+      id: "homepage.features.observable.button",
+    }),
     // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
     description: (
       <Translate id="homepage.features.observable.text">
@@ -69,6 +85,10 @@ const FeatureList = [
     title: translate({
       message: "💻 Large Support Matrix",
       id: "homepage.features.cross-platform.title",
+    }),
+    button: translate({
+      message: "Support Matrix",
+      id: "homepage.features.cross-platform.button",
     }),
     // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
     description: (
@@ -84,6 +104,10 @@ const FeatureList = [
       message: "🧑‍🤝‍🧑 Community",
       id: "homepage.features.community.title",
     }),
+    button: translate({
+      message: "Community",
+      id: "homepage.features.community.button",
+    }),
     // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
     description: (
       <Translate id="homepage.features.community.text">
@@ -95,7 +119,7 @@ const FeatureList = [
   },
 ];
 
-function Feature({ Svg, title, description, href }) {
+function Feature({ Svg, title, button, description, href }) {
   return (
     <div className="card shadow--md">
       {/* <div className="text--center">
@@ -111,7 +135,7 @@ function Feature({ Svg, title, description, href }) {
       </div>
       <div className="card__footer">
         <Link className={"button button--primary"} href={href}>
-          <Translate id="homepage.button.text">Learn More</Translate>
+          {button}
         </Link>
       </div>
     </div>
