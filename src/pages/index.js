@@ -5,7 +5,7 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import BrowserOnly from "@docusaurus/BrowserOnly";
-
+import Admonition from "@theme/Admonition";
 import styles from "./index.module.css";
 import Translate from "@docusaurus/Translate";
 
@@ -172,6 +172,84 @@ function HomepageHeader() {
         ],
       },
     },
+    options_cpp: {
+      chart: {
+        type: "line",
+      },
+      legend: {
+        position: "top",
+      },
+      xaxis: {
+        categories: ["8 B", "40 kB", "400 kB", "4 MB", "40 MB"],
+        title: { text: "Message Size" },
+      },
+      yaxis: [
+        {
+          //          logarithmic: true,
+          title: { text: "Latency (milliseconds)" },
+          max: 160,
+          min: 0,
+          tickAmount: 8,
+        },
+      ],
+      stroke: {
+        // curve: "smooth",
+        width: [2, 2],
+      },
+      tooltip: {
+        y: {
+          formatter: function (val) {
+            return val + " ms";
+          },
+        },
+      },
+      annotations: {
+        xaxis: [
+          {
+            x: "400 kB",
+            strokeDashArray: 0,
+            borderColor: "#089f8f",
+            label: {
+              borderColor: "#089f8f",
+              text: "480p",
+            },
+          },
+          {
+            x: "4 MB",
+            strokeDashArray: 0,
+            borderColor: "#08737f",
+            label: {
+              borderColor: "#08737f",
+              text: "1080p",
+            },
+          },
+        ],
+        points: [
+          {
+            x: "40 MB",
+            y: 4.49,
+            marker: {
+              size: 8,
+              fillColor: "#fff",
+              strokeColor: "red",
+              radius: 2,
+              cssClass: "apexcharts-custom-class",
+            },
+            label: {
+              borderColor: "#FF4560",
+              offsetY: 0,
+              offsetX: -70,
+              style: {
+                color: "#fff",
+                background: "#FF4560",
+              },
+
+              text: "Match ROS 2 C/C++ Shared Memory",
+            },
+          },
+        ],
+      },
+    },
     series_python: [
       {
         name: "dora-rs",
@@ -196,6 +274,18 @@ function HomepageHeader() {
         color: "#545454",
       },
     ],
+    series_cpp: [
+      {
+        name: "dora-rs",
+        data: [0.28, 0.28, 0.34, 0.91, 4.49],
+        color: "#3578e5",
+      },
+      {
+        name: "ROS 2",
+        data: [0.19, 0.29, 0.3, 0.67, 4.55],
+        color: "#545454",
+      },
+    ],
   };
 
   return (
@@ -210,7 +300,29 @@ function HomepageHeader() {
       >
         <div className="margin-right--md margin-bottom--xl">
           <img src="/img/logo.svg" width="400"></img>
-          <p className="hero__subtitle">{siteConfig.tagline}</p>
+          <div
+            style={{
+              width: "100%",
+              maxWidth: "600px",
+            }}
+          >
+            <p className="hero__subtitle">{siteConfig.tagline}</p>
+            <p>
+              In 2023, AI is booming! But robotic framework like ROS 2 hasn't
+              changed much in 20 years! Dora-rs tries to be this new robotic
+              software that brings modernity into robotic application.
+            </p>
+            <p>
+              And we can already show that dora-rs can provide better
+              performance!
+            </p>
+            <p>
+              Those performance improvement makes a world of difference for
+              beginners, AI Practictioners, and hobbyist, that has been limited
+              by the little support of Python in this field!
+            </p>
+            <p>And we have so many more features to show for dora-rs!</p>
+          </div>
           <div className={styles.buttons}>
             <Link
               className="button button--secondary button--lg"
@@ -256,6 +368,40 @@ function HomepageHeader() {
                     );
                   }}
                 </BrowserOnly>
+                <Admonition type="info">
+                  <Link to="https://github.com/haixuanTao/ros2_rust">
+                    Source code for ros2_rust
+                  </Link>
+                  <br />
+                  <Link to="https://github.com/dora-rs/dora/tree/main/examples/benchmark">
+                    Source code for dora-rs
+                  </Link>
+                </Admonition>
+              </TabItem>
+              <TabItem value="C/C++" label="C/C++ API">
+                <BrowserOnly fallback={<div>Chart not supported</div>}>
+                  {() => {
+                    const Chart = require("react-apexcharts").default;
+                    return (
+                      <Chart
+                        options={state.options_cpp}
+                        series={state.series_cpp}
+                        width="100%"
+                      />
+                    );
+                  }}
+                </BrowserOnly>
+                <Admonition type="info">
+                  ROS 2 shared memory is only available for C/C++.
+                  <br />
+                  <Link to="https://github.com/haixuanTao/ros2_shm_demo">
+                    Source code for ROS 2 benchmark.
+                  </Link>
+                  <br />
+                  <Link to="https://github.com/dora-rs/dora/tree/main/examples/benchmark">
+                    Source code for dora-rs
+                  </Link>
+                </Admonition>
               </TabItem>
             </Tabs>
           </div>
