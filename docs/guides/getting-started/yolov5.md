@@ -56,22 +56,23 @@ class Operator:
             return DoraStatus.CONTINUE
 ```
 
-> Operators are composed of:
->
-> `__init__` methods that help create the object.
->
-> `on_event` methods that is called when an event is received. 
-> There is currently 4 event types:
-> - `STOP`: meaning that the operator was signalled to stop.
-> - `INPUT`: meannig that an input was received.
->   - You can use `dora_event['id']`, to get the id. 
->   - You can use `dora_event['data']`, to get the data. 
->   - You can use `dora_event['meatadata']`, to get the metadata.
-> - `INPUT_CLOSED`: meannig that an input source was closed. This could be useful if the input is critical for the well behaviour of the operator.
-> - `ERROR`: meaning that error message was received.
-> - `UNKNOWN`: meaning that an unknown message was received.
->
-> We have encapsulated `input` event in a `on_input` method but this is not required.
+Operators are composed of:
+
+- `__init__` methods that help create the object.
+
+- `on_event` methods that is called when an event is received.
+
+  There is currently 4 event types:
+  - `STOP`: meaning that the operator was signalled to stop.
+  - `INPUT`: meannig that an input was received.
+    - You can use `dora_event['id']`, to get the id.
+    - You can use `dora_event['data']`, to get the data.
+  - You can use `dora_event['meatadata']`, to get the metadata.
+- `INPUT_CLOSED`: meannig that an input source was closed. This could be useful if the input is critical for the well behaviour of the operator.
+- `ERROR`: meaning that error message was received.
+- `UNKNOWN`: meaning that an unknown message was received.
+
+We have encapsulated `input` event in a `on_input` method but this is not required.
 
 To add an operator within the dataflow. You need to explicit what the input and output are. You can reference node by their ids:
 
@@ -105,7 +106,7 @@ In this case, we have connected the `webcam/image` output to the `image` input o
 
 Inputs are prefixed by the node name to be able to separate name conflicts.
 
-To run: 
+To run:
 
 ```bash
 dora up
