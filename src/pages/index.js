@@ -323,13 +323,31 @@ function HomepageHeader() {
             </p>
             <p>And we have so many more features to show for dora-rs!</p>
           </div>
+          <div style={{display: "flex", flexDirection: "row", justifyContent: "space-evenly",flexWrap: "wrap"}}>
           <div className={styles.buttons}>
             <Link
-              className="button button--secondary button--lg"
+                className="button button--secondary button--md margin-bottom--md"
               to="/docs/guides"
             >
-              <Translate id="homepage.button.text">🔥 Get started</Translate>
+                <Translate id="homepage.guide.button.text">🔥 Get started</Translate>
             </Link>
+            </div>
+            <div className={styles.buttons}>
+              <Link
+                className="button button--secondary button--md margin-bottom--md"
+                to="/docs/api/python-api"
+              >
+                <Translate id="homepage.python-api.button.text">🐍 Python API</Translate>
+              </Link>
+            </div>
+            <div className={styles.buttons}>
+              <Link
+                className="button button--secondary button--md"
+                to="https://docs.rs/dora-node-api/latest/dora_node_api/"
+              >
+                <Translate id="homepage.rust-api.button.text">🦀 Rust API</Translate>
+              </Link>
+            </div>
           </div>
         </div>
         <div
