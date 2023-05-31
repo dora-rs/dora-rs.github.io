@@ -131,12 +131,6 @@ const config = {
               },
             ],
           },
-          {
-            type: "docSidebar",
-            sidebarId: "references",
-            position: "left",
-            label: "References",
-          },
           //{
           //type: "docSidebar",
           //sidebarId: "showcase",
