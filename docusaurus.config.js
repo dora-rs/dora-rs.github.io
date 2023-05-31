@@ -206,6 +206,28 @@ const config = {
               },
             ],
           },
+          {
+            title: "Terms and policies",
+            items: [
+              {
+                label: "License",
+                href: "https://github.com/dora-rs/dora/blob/main/LICENSE",
+              },
+              {
+                label: "Privacy policy",
+                to: "docs/footers/privacy-policy",
+              },
+            ],
+          },
+          {
+            title: "Contact",
+            items: [
+              {
+                label: "Github Discussions",
+                href: "https://github.com/dora-rs/dora/discussions"
+              }
+            ]
+          }
           //    {
           //    title: "Community",
           //    items: [
