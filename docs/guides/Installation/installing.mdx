@@ -61,9 +61,12 @@ dora --help
 
 ```bash
 cargo install dora-cli
+alias dora='dora-cli'
 cargo install dora-coordinator
 cargo install dora-daemon
 pip install dora-rs ## For Python API
+
+dora --help
 ```
 
 ## Source
@@ -80,6 +83,8 @@ alias dora='dora-cli'
 cd apis/python/node
 maturin develop --release
 cd ../../..
+
+dora --help
 ```
 
 ## Manual
@@ -89,3 +94,4 @@ cd ../../..
 - Unzip the zip file and place it in your binary folder (e.g.: `$HOME/bin`).
 - Install the python wheel with pip. (e.g. `pip install 
 dora_rs-0.2.3-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl`)
+- Verify that dora is well installed by calling `dora --help` in your terminal. 

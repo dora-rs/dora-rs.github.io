@@ -4,6 +4,8 @@
 
 Let's add a `yolov5` object detection operator, that you can [find as an example](https://raw.githubusercontent.com/dora-rs/dora/main/examples/python-operator-dataflow/object_detection.py). This will help us detect object as bounding boxes within the webcam stream.
 
+1. Create a new `object_detection.py` python file with the following content
+
 ```python
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
@@ -58,9 +60,7 @@ class Operator:
 
 > Operators are composed of:
 >
-> `__init__` methods that help create the object.
->
-> `on_event` methods that is called when an event is received. 
+> `on_event` methods is called when an event is received. 
 > There is currently 4 event types:
 > - `STOP`: meaning that the operator was signalled to stop.
 > - `INPUT`: meannig that an input was received.
@@ -73,7 +73,7 @@ class Operator:
 >
 > We have encapsulated `input` event in a `on_input` method but this is not required.
 
-To add an operator within the dataflow. You need to explicit what the input and output are. You can reference node by their ids:
+2. Add an operator within the dataflow
 
 ```yaml {10-16}
 nodes:
@@ -105,7 +105,7 @@ In this case, we have connected the `webcam/image` output to the `image` input o
 
 Inputs are prefixed by the node name to be able to separate name conflicts.
 
-To run: 
+3. run
 
 ```bash
 dora up
@@ -116,3 +116,5 @@ dora start graphs/tutorials/webcam_yolov5.yaml --attach
 </p>
 
 > For more information on `yolov5`, go on [our `yolov5` detail page](/docs/nodes_operators/yolov5_op)
+
+The plot will show object detected in the image as bounding box with a label and a confidence score.
