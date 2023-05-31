@@ -4,7 +4,13 @@
 
 Let's add a `yolov5` object detection operator, that you can [find as an example](https://raw.githubusercontent.com/dora-rs/dora/main/examples/python-operator-dataflow/object_detection.py). This will help us detect object as bounding boxes within the webcam stream.
 
-1. Create a new `object_detection.py` python file with the following content
+1. Install required dependencies
+
+```bash
+pip install -r https://raw.githubusercontent.com/dora-rs/dora/v0.2.3/examples/python-operator-dataflow/requirements.txt
+```
+
+2. Create a new `object_detection.py` python file with the following content
 
 ```python
 #!/usr/bin/env python3
@@ -65,7 +71,8 @@ class Operator:
 > - `STOP`: meaning that the operator was signalled to stop.
 > - `INPUT`: meannig that an input was received.
 >   - You can use `dora_event['id']`, to get the id. 
->   - You can use `dora_event['data']`, to get the data. 
+>   - You can use `dora_event['data']`, to get the data as bytes. 
+>   - You can use `dora_event['value']`, to get the data as a zero-copy Uint8 arrow array. 
 >   - You can use `dora_event['meatadata']`, to get the metadata.
 > - `INPUT_CLOSED`: meannig that an input source was closed. This could be useful if the input is critical for the well behaviour of the operator.
 > - `ERROR`: meaning that error message was received.
@@ -73,7 +80,7 @@ class Operator:
 >
 > We have encapsulated `input` event in a `on_input` method but this is not required.
 
-2. Add an operator within the dataflow
+3. Add an operator within the dataflow
 
 ```yaml {10-16}
 nodes:
@@ -105,7 +112,7 @@ In this case, we have connected the `webcam/image` output to the `image` input o
 
 Inputs are prefixed by the node name to be able to separate name conflicts.
 
-3. run
+4. run
 
 ```bash
 dora up
