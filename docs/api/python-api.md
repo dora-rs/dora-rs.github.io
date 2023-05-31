@@ -12,6 +12,19 @@ The operator API is a framework for you to implement. The implemented operator w
 
 An operator requires an `on_event` method and requires to return a `DoraStatus` , depending of it needs to continue or stop.
 
+### Events
+
+There is currently 4 event types that the on_event method receives:
+- `STOP`: meaning that the operator was signalled to stop.
+- `INPUT`: meannig that an input was received.
+  - You can use `dora_event['id']`, to get the id. 
+  - You can use `dora_event['data']`, to get the data as bytes. 
+  - You can use `dora_event['value']`, to get the data as a zero-copy Uint8 arrow array. 
+  - You can use `dora_event['meatadata']`, to get the metadata.
+- `INPUT_CLOSED`: meannig that an input source was closed. This could be useful if the input is critical for the well behaviour of the operator.
+- `ERROR`: meaning that error message was received.
+- `UNKNOWN`: meaning that an unknown message was received.
+
 ### Example
 
 ```python
@@ -65,6 +78,7 @@ class Operator:
             send_output("bbox", arrays, dora_event["metadata"])
             return DoraStatus.CONTINUE
 ```
+
 
 > For Python, we recommend to allocate the operator on a single runtime. A runtime will share the same GIL with several operators making those operators run almost sequentially. See: [https://docs.rs/pyo3/latest/pyo3/marker/struct.Python.html#deadlocks](https://docs.rs/pyo3/latest/pyo3/marker/struct.Python.html#deadlocks)
 
