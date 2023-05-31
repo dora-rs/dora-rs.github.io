@@ -60,8 +60,7 @@ const FeatureList = [
     // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
     description: (
       <Translate id="homepage.features.observable.text">
-        Get logs, traces and metrics through our cli and scale using ops using
-        opentelemetry!
+        Get logs, traces and metrics through our cli and opentelemetry!
       </Translate>
     ),
     href: "docs/guides/debugging/logs",
