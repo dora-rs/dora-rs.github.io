@@ -106,7 +106,7 @@ In this case, we have connected the `webcam/image` output to the `image` input o
 
 Inputs are prefixed by the node name to be able to separate name conflicts.
 
-To run: 
+To run:
 
 ```bash
 dora up
