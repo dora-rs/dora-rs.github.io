@@ -12,7 +12,7 @@ const FeatureList = [
       id: "homepage.features.shared-memory.title",
     }),
     button: translate({
-      message: "⭐ Zero Overhead",
+      message: "Zero Overhead",
       id: "homepage.features.shared-memory.button",
     }),
     // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
