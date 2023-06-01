@@ -19,7 +19,7 @@ const FeatureList = [
     description: (
       <Translate id="homepage.features.shared-memory.text">
         Transfer message with zero copy on shared memory! We use Arrow and our
-        own shared memory daemon to make lightspeed communnication on a single
+        own shared memory daemon to make lightspeed communication on a single
         machine.
       </Translate>
     ),

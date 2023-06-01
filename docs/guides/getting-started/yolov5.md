@@ -64,21 +64,22 @@ class Operator:
             return DoraStatus.CONTINUE
 ```
 
-> Operators are composed of:
->
-> `on_event` methods is called when an event is received. 
-> There is currently 4 event types:
-> - `STOP`: meaning that the operator was signalled to stop.
-> - `INPUT`: meannig that an input was received.
->   - You can use `dora_event['id']`, to get the id. 
->   - You can use `dora_event['data']`, to get the data as bytes. 
->   - You can use `dora_event['value']`, to get the data as a zero-copy Uint8 arrow array. 
->   - You can use `dora_event['meatadata']`, to get the metadata.
-> - `INPUT_CLOSED`: meannig that an input source was closed. This could be useful if the input is critical for the well behaviour of the operator.
-> - `ERROR`: meaning that error message was received.
-> - `UNKNOWN`: meaning that an unknown message was received.
->
-> We have encapsulated `input` event in a `on_input` method but this is not required.
+Operators are composed of:
+
+`on_event` methods is called when an event is received. 
+There is currently 4 event types:
+- `STOP`: meaning that the operator was signalled to stop.
+- `INPUT`: meannig that an input was received.
+  - You can use `dora_event['id']`, to get the id. 
+  - You can use `dora_event['data']`, to get the data as bytes. 
+  - You can use `dora_event['value']`, to get the data as a zero-copy Uint8 arrow array. 
+  - You can use `dora_event['meatadata']`, to get the metadata.
+- `INPUT_CLOSED`: meannig that an input source was closed. This could be useful if the input is critical for the well behaviour of the operator.
+- `ERROR`: meaning that error message was received.
+- `UNKNOWN`: meaning that an unknown message was received.
+
+We have encapsulated `input` event in a `on_input` method but this is not required.
+
 
 3. Add an operator within the dataflow
 
@@ -125,3 +126,4 @@ dora start graphs/tutorials/webcam_yolov5.yaml --attach
 > For more information on `yolov5`, go on [our `yolov5` detail page](/docs/nodes_operators/yolov5_op)
 
 The plot will show object detected in the image as bounding box with a label and a confidence score.
+
