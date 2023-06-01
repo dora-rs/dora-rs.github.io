@@ -307,29 +307,45 @@ function HomepageHeader() {
             }}
           >
             <p className="hero__subtitle">{siteConfig.tagline}</p>
-            <p>
-              In 2023, AI is booming! But robotic framework like ROS 2 hasn't
-              changed much in 20 years! Dora-rs tries to be this new robotic
-              software that brings modernity into robotic application.
-            </p>
-            <p>
-              And we can already show that dora-rs can provide better
-              performance!
-            </p>
-            <p>
-              Those performance improvement makes a world of difference for
-              beginners, AI Practictioners, and hobbyist, that has been limited
-              by the little support of Python in this field!
-            </p>
-            <p>And we have so many more features to show for dora-rs!</p>
+            <p><Translate id="homepage.main.paragraph.first">
+              In 2023, AI is booming! Robotic framework however hasn't
+              changed much in years... This is why we create dora-rs! dora-rs is a new robotic
+              framework that brings modernity into robotic application.
+            </Translate> </p>
+            <p><Translate id="homepage.main.paragraph.second">
+              dora-rs can already show impressive
+              performance! This is the result of using our own shared memory server and Apache Arrow to achieve zero copy!
+            </Translate></p>
+            <p><Translate id="homepage.main.paragraph.third">
+              Those performance improvements make a world of difference for beginners, AI practitioners, and weekend hobbyists who have been limited by the lack of support for Python in this field!
+            </Translate></p>
+            <p><Translate id="homepage.main.paragraph.fourth">And that's only one example of the many innovative features that we can show for dora-rs!</Translate></p>
           </div>
-          <div className={styles.buttons}>
-            <Link
-              className="button button--secondary button--lg"
-              to="/docs/guides"
-            >
-              <Translate id="homepage.button.text">🔥 Get started</Translate>
-            </Link>
+          <div style={{display: "flex", flexDirection: "row", justifyContent: "space-evenly",flexWrap: "wrap"}}>
+            <div className={styles.buttons}>
+              <Link
+                className="button button--secondary button--md margin-bottom--md"
+                to="/docs/guides"
+              >
+                <Translate id="homepage.guide.button.text">🔥 Get started</Translate>
+              </Link>
+            </div>
+            <div className={styles.buttons}>
+              <Link
+                className="button button--secondary button--md margin-bottom--md"
+                to="/docs/api/python-api"
+              >
+                <Translate id="homepage.python-api.button.text">🐍 Python API</Translate>
+              </Link>
+            </div>
+            <div className={styles.buttons}>
+              <Link
+                className="button button--secondary button--md"
+                to="https://docs.rs/dora-node-api/latest/dora_node_api/"
+              >
+                <Translate id="homepage.rust-api.button.text">🦀 Rust API</Translate>
+              </Link>
+            </div>
           </div>
         </div>
         <div
