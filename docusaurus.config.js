@@ -218,7 +218,7 @@ const config = {
             items: [
               {
                 label: "Github Discussions",
-                href: "https://github.com/dora-rs/dora/discussions"
+                href: "https://github.com/orgs/dora-rs/discussions"
               }
             ]
           }

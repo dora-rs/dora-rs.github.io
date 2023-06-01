@@ -20,6 +20,6 @@ This Privacy Notice is intended to inform you about the collection, use, and dis
 
 9. Changes to this Notice: We may update this Privacy Notice from time to time to reflect changes in our practices or legal requirements. We encourage you to review this notice periodically for any updates. The effective date of the latest version will be indicated at the top of the notice.
 
-10. Contact Us: If you have any questions or concerns regarding this Privacy Notice or our privacy practices, please contact us at [insert contact information].
+10. Contact Us: If you have any questions or concerns regarding this Privacy Notice or our privacy practices, please contact us on https://github.com/orgs/dora-rs/discussions.
 
 By accessing and using our website, you acknowledge that you have read and understood this Privacy Notice and consent to the collection, use, and disclosure of your information as described herein.
