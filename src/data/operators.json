@@ -5,7 +5,10 @@
     "preview": "/img/agilets.png",
     "website": "yolov5_operator",
     "source": "https://github.com/dora-rs/dora-drives/blob/main/operators/yolov5_op.py",
-    "tags": ["object_detection", "python"]
+    "tags": [
+      "object_detection",
+      "python"
+    ]
   },
   {
     "title": "Plot Operator",
@@ -13,7 +16,9 @@
     "preview": "/img/agilets.png",
     "website": "plot_operator",
     "source": "https://github.com/dora-rs/dora-drives/blob/main/operators/plot.py",
-    "tags": ["python"]
+    "tags": [
+      "python"
+    ]
   },
   {
     "title": "PID Operator",
@@ -21,7 +26,10 @@
     "preview": "/img/agilets.png",
     "website": "pid_control_operator",
     "source": "https://github.com/dora-rs/dora-drives/blob/main/operators/pid_control_op.py",
-    "tags": ["python", "control"]
+    "tags": [
+      "python",
+      "control"
+    ]
   },
   {
     "title": "Obstacle Location Operator",
@@ -29,15 +37,19 @@
     "preview": "/img/agilets.png",
     "website": "obstacle_location_operator",
     "source": "https://github.com/dora-rs/dora-drives/blob/main/operators/obstacle_location_op.py",
-    "tags": ["python"]
+    "tags": [
+      "python"
+    ]
   },
   {
     "title": "FOT Operator",
     "description": "Waypoint generation based on current position and frenet optimal trajectory planner.",
     "preview": "/img/agilets.png",
     "website": "obstacle_location_operator",
-    "source": "https://github.com/dora-rs/dora-drives/blob/main/carla/fot_op.py",
-    "tags": ["python"]
+    "source": "https://github.com/dora-rs/dora-drives/blob/main/operators/fot_op.py",
+    "tags": [
+      "python"
+    ]
   },
   {
     "title": "YOLOP Operator",
@@ -45,7 +57,10 @@
     "preview": "/img/agilets.png",
     "website": "yolop_operator",
     "source": "https://github.com/dora-rs/dora-drives/blob/main/operators/yolop_op.py",
-    "tags": ["object_detection", "python"]
+    "tags": [
+      "object_detection",
+      "python"
+    ]
   },
   {
     "title": "MiDaS Operator",
@@ -53,7 +68,10 @@
     "preview": "/img/agilets.png",
     "website": "midas_operator",
     "source": "https://github.com/dora-rs/dora-drives/blob/main/operators/midas_op.py",
-    "tags": ["depth_estimation", "python"]
+    "tags": [
+      "depth_estimation",
+      "python"
+    ]
   },
   {
     "title": "Webcam Operator",
@@ -61,7 +79,9 @@
     "preview": "/img/agilets.png",
     "website": "webcam_operator",
     "source": "https://github.com/dora-rs/dora-drives/blob/main/operators/webcam_op.py",
-    "tags": ["python"]
+    "tags": [
+      "python"
+    ]
   },
   {
     "title": "Strong Sort Operator",
@@ -69,6 +89,9 @@
     "preview": "/img/agilets.png",
     "website": "strong_sort_op",
     "source": "https://github.com/dora-rs/dora-drives/blob/main/operators/strong_sort_op.py",
-    "tags": ["object_detection", "python"]
+    "tags": [
+      "object_detection",
+      "python"
+    ]
   }
 ]

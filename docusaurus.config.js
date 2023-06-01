@@ -131,12 +131,6 @@ const config = {
               },
             ],
           },
-          {
-            type: "docSidebar",
-            sidebarId: "references",
-            position: "left",
-            label: "References",
-          },
           //{
           //type: "docSidebar",
           //sidebarId: "showcase",
@@ -224,7 +218,7 @@ const config = {
             items: [
               {
                 label: "Github Discussions",
-                href: "https://github.com/dora-rs/dora/discussions"
+                href: "https://github.com/orgs/dora-rs/discussions"
               }
             ]
           }
