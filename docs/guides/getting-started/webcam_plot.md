@@ -9,6 +9,7 @@ This example will launch a webcam plot stream.
     ```bash
     wget https://raw.githubusercontent.com/dora-rs/dora/main/examples/python-operator-dataflow/webcam.py
     wget https://raw.githubusercontent.com/dora-rs/dora/main/examples/python-operator-dataflow/plot.py
+    wget https://raw.githubusercontent.com/dora-rs/dora/main/examples/python-operator-dataflow/utils.py
     ```
 
 3. Create a new `dataflow.yaml` file that will hold our dataflow definition:
