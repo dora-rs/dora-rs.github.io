@@ -12,9 +12,9 @@ import TabItem from '@theme/TabItem';
   <TabItem value="linux" label="Linux">
 
 ```bash
-rm $(which dora)
-rm $(which dora-coordinator)
-rm $(which dora-daemon)
+sudo rm $(which dora)
+sudo rm $(which dora-coordinator)
+sudo rm $(which dora-daemon)
 pip uninstall dora-rs ## For Python API
 dora --help # This should fail
 ```
@@ -23,9 +23,9 @@ dora --help # This should fail
   <TabItem value="macos" label="MacOS">
 
 ```bash
-rm $(which dora)
-rm $(which dora-coordinator)
-rm $(which dora-daemon)
+sudo rm $(which dora)
+sudo rm $(which dora-coordinator)
+sudo rm $(which dora-daemon)
 pip uninstall dora-rs ## For Python API
 dora --help # This should fail
 ```
