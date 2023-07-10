@@ -46,13 +46,12 @@
        4 │     metadata: {'open_telemetry_context': ''}
        5 │ 
     ─────┴─────────────────────────────────────────────
-    ...
     ```
 6. Stop your dataflow
     ```bash
     dora stop --name first-dataflow
     ```
-    (Pass the ID returned by `dora start` here.)
+    (Pass the ID or name returned by `dora start` here.)
 
 7. You can then add or modify operators or nodes. For adding nodes easily, you can use the `dora` CLI again:
 
