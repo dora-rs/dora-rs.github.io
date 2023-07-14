@@ -1,0 +1,78 @@
+---
+sidebar_position: 2
+---
+
+# Carla Simulator
+
+Let's try to use a car simulator to not only do perception but also control.
+
+In the rest of the tutorial, we will accept that you have a carla simulator running at `localhost:2000` the default carla configuration.
+
+Check out [Carla Simulator installation page](https://carla.readthedocs.io/en/latest/start_quickstart/)
+
+
+Once the simulator is up and running, We can then switch from the webcam to the simulator in our graph.
+
+```yaml
+nodes:
+  - id: oasis_agent
+    custom:
+      inputs:
+        tick: dora/timer/millis/400
+      outputs:
+        - position
+        - speed
+        - image
+        - objective_waypoints
+        - lidar_pc
+        - opendrive
+      source: shell
+      # With Carla_source_node
+      args: python3 ../../carla/carla_source_node.py
+      #
+      # Or with the OASIS AGENT
+      #
+      # args: >
+        # python3 $SIMULATE --output 
+        # --oasJson --criteriaConfig $CRITERIA
+        # --openscenario $XOSC
+        # --agent $TEAM_AGENT
+        # --agentConfig $TEAM_AGENT_CONF
+        # --destination $DESTINATION
+  
+  - id: yolov5
+    operator: 
+      outputs:
+        - bbox
+      inputs:
+        image: oasis_agent/image
+      python: ../../operators/yolov5_op.py
+
+  - id: plot
+    operator:
+      python: ../../operators/plot.py
+      inputs:
+        image: oasis_agent/image
+        obstacles_bbox: yolov5/bbox
+        position: oasis_agent/position
+```
+
+To run:
+
+```bash
+dora up
+dora start graphs/oasis/oasis_agent_yolov5.yaml --attach
+```
+
+You should see a window showing the view from a camera within the carla simulator. On this camera stream, you should see object detection happenning.
+
+You can <kbd>ctrl</kbd>+<kbd>c</kbd> to kill your running 
+dataflow.
+
+
+<p align="center">
+    <img src="/img/yolov5.png" width="800"/>
+</p>
+
+
+> This very first step is done to show you how to connect carla simulator with dora. It does not provide any control to move the car.

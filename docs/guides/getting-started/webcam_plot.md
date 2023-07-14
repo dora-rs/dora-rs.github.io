@@ -2,7 +2,7 @@
 
 This example will launch a webcam plot stream. 
 
-1. Make sure to have a webcam and cv2 install via: `pip install opencv-python`
+1. Make sure to have a webcam and cv2 install via: `pip install numpy opencv-python pyarrow`
 
 2. Download two pre-implemted operators from our repository
 
