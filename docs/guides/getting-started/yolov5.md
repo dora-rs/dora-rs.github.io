@@ -60,7 +60,7 @@ Let's add a `yolov5` object detection operator, that you can [find as an example
                     np.array(results.xyxy[0].cpu()).ravel().view(np.uint8)
                 )
                 send_output("bbox", arrays, dora_event["metadata"])
-                return DoraStatus.CONTINUE
+            return DoraStatus.CONTINUE
     ```
 
     Operators are composed of:
@@ -76,8 +76,6 @@ Let's add a `yolov5` object detection operator, that you can [find as an example
     - `INPUT_CLOSED`: meannig that an input source was closed. This could be useful if the input is critical for the well behaviour of the operator.
     - `ERROR`: meaning that error message was received.
     - `UNKNOWN`: meaning that an unknown message was received.
-
-    We have encapsulated `input` event in a `on_input` method but this is not required.
 
 
 3. Add an operator within the dataflow
@@ -116,7 +114,7 @@ Let's add a `yolov5` object detection operator, that you can [find as an example
 
     ```bash
     dora up
-    dora start graphs/tutorials/webcam_yolov5.yaml --attach
+    dora start dataflow.yml --attach
     ```
     <p align="center">
         <img src="/img/webcam_yolov5.png" width="800"/>
