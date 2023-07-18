@@ -12,7 +12,7 @@ This example will launch a webcam plot stream.
     wget https://raw.githubusercontent.com/dora-rs/dora/main/examples/python-operator-dataflow/utils.py
     ```
 
-3. Create a new `dataflow.yaml` file that will hold our dataflow definition:
+3. Create a new `dataflow.yml` file or replace the existing file with the following nodes:
 
     ```yaml
     nodes:
@@ -34,7 +34,7 @@ This example will launch a webcam plot stream.
 
 4. Start attached to the dataflow as follows:
     ```bash
-    dora start dataflow.yaml --attach --hot-reload --name webcam
+    dora start dataflow.yml --attach --hot-reload --name webcam
     ```
 
     > - `--attach`: enables you to wait for the dataflow to finish 
