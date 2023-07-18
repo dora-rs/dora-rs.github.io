@@ -12,6 +12,12 @@ The operator API is a framework for you to implement. The implemented operator w
 
 An operator requires an `on_event` method and requires to return a `DoraStatus` , depending of it needs to continue or stop.
 
+To send an output from the operator, use `send_output: Callable[[str, bytes | pa.UInt8Array, dict], None]` input method:
+- the first argument is the `output_id` as defined in your dataflow.
+- the second argument is the data as either bytes or pyarrow.UInt8Array for zero copy.
+- the third argument is dora metadata if you want ot link the tracing from one input into an output.
+`e.g.:  send_output("bbox", pa.array([100], type=pa.uint8()), dora_event["metadata"])`
+
 ### Example
 
 ```python
@@ -44,12 +50,12 @@ class Operator:
     def on_event(
         self,
         dora_event: dict,
-        send_output: Callable[[str, bytes], None],
+        send_output: Callable[[str, bytes | pa.UInt8Array, dict], None],
     ) -> DoraStatus:
         """Handle image
         Args:
             dora_input (dict): Dict containing the "id", "data", and "metadata"
-            send_output (Callable[[str, bytes]]): Function enabling sending output back to dora.
+            send_output Callable[[str, bytes | pa.UInt8Array, dict], None]: Function enabling sending output back to dora.
         """
         if dora_event["type"] == "INPUT":
             frame = (
