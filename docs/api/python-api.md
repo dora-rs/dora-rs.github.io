@@ -25,13 +25,21 @@ There is currently 4 event types that the on_event method receives:
 - `ERROR`: meaning that error message was received.
 - `UNKNOWN`: meaning that an unknown message was received.
 
+### `send_output`
+
+To send an output from the operator, use `send_output: Callable[[str, bytes | pa.UInt8Array, dict], None]` input method:
+- the first argument is the `output_id` as defined in your dataflow.
+- the second argument is the data as either bytes or pyarrow.UInt8Array for zero copy.
+- the third argument is dora metadata if you want ot link the tracing from one input into an output.
+`e.g.:  send_output("bbox", pa.array([100], type=pa.uint8()), dora_event["metadata"])`
+
 ### Example
 
 ```python
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from typing import Callable
+from typing import Callable, Optional
 
 import cv2
 import numpy as np
@@ -57,12 +65,17 @@ class Operator:
     def on_event(
         self,
         dora_event: dict,
-        send_output: Callable[[str, bytes], None],
+        send_output: Callable[[str, bytes | pa.UInt8Array, Optional[dict]], None],
     ) -> DoraStatus:
         """Handle image
         Args:
             dora_input (dict): Dict containing the "id", "data", and "metadata"
-            send_output (Callable[[str, bytes]]): Function enabling sending output back to dora.
+            send_output Callable[[str, bytes | pa.UInt8Array, Optional[dict]], None]: 
+                Function for sending output to the dataflow:
+                - First argument is the `output_id`
+                - Second argument is the data as either bytes or `pa.UInt8Array` 
+                - Third argument is dora metadata dict
+                e.g.: `send_output("bbox", pa.array([100], type=pa.uint8()), dora_event["metadata"])`
         """
         if dora_event["type"] == "INPUT":
             frame = (
@@ -78,7 +91,6 @@ class Operator:
             send_output("bbox", arrays, dora_event["metadata"])
             return DoraStatus.CONTINUE
 ```
-
 
 > For Python, we recommend to allocate the operator on a single runtime. A runtime will share the same GIL with several operators making those operators run almost sequentially. See: [https://docs.rs/pyo3/latest/pyo3/marker/struct.Python.html#deadlocks](https://docs.rs/pyo3/latest/pyo3/marker/struct.Python.html#deadlocks)
 

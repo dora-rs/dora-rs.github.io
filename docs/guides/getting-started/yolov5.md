@@ -7,7 +7,7 @@ Let's add a `yolov5` object detection operator, that you can [find as an example
 1. Install required dependencies
 
     ```bash
-    pip install -r https://raw.githubusercontent.com/dora-rs/dora/v0.2.3/examples/python-operator-dataflow/requirements.txt
+    pip install -r https://raw.githubusercontent.com/dora-rs/dora/v0.2.4/examples/python-operator-dataflow/requirements.txt
     ```
 
 2. Create a new `object_detection.py` python file with the following content
@@ -16,7 +16,7 @@ Let's add a `yolov5` object detection operator, that you can [find as an example
     #!/usr/bin/env python3
     # -*- coding: utf-8 -*-
 
-    from typing import Callable
+    from typing import Callable, Optional
 
     import cv2
     import numpy as np
@@ -41,12 +41,12 @@ Let's add a `yolov5` object detection operator, that you can [find as an example
         def on_event(
             self,
             dora_event: dict,
-            send_output: Callable[[str, bytes], None],
+            send_output: Callable[[str, bytes, Optional[dict]], None],
         ) -> DoraStatus:
             """Handle image
             Args:
                 dora_input (dict): Dict containing the "id", "data", and "metadata"
-                send_output (Callable[[str, bytes]]): Function enabling sending output back to dora.
+                send_output (Callable[[str, bytes, Oprional[dict]]]): Function enabling sending output back to dora.
             """
             if dora_event["type"] == "INPUT":
                 frame = (

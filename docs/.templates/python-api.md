@@ -12,6 +12,21 @@ The operator API is a framework for you to implement. The implemented operator w
 
 An operator requires an `on_event` method and requires to return a `DoraStatus` , depending of it needs to continue or stop.
 
+### Events
+
+There is currently 4 event types that the on_event method receives:
+- `STOP`: meaning that the operator was signalled to stop.
+- `INPUT`: meannig that an input was received.
+  - You can use `dora_event['id']`, to get the id. 
+  - You can use `dora_event['data']`, to get the data as bytes. 
+  - You can use `dora_event['value']`, to get the data as a zero-copy Uint8 arrow array. 
+  - You can use `dora_event['meatadata']`, to get the metadata.
+- `INPUT_CLOSED`: meannig that an input source was closed. This could be useful if the input is critical for the well behaviour of the operator.
+- `ERROR`: meaning that error message was received.
+- `UNKNOWN`: meaning that an unknown message was received.
+
+### `send_output`
+
 To send an output from the operator, use `send_output: Callable[[str, bytes | pa.UInt8Array, dict], None]` input method:
 - the first argument is the `output_id` as defined in your dataflow.
 - the second argument is the data as either bytes or pyarrow.UInt8Array for zero copy.
@@ -24,7 +39,7 @@ To send an output from the operator, use `send_output: Callable[[str, bytes | pa
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from typing import Callable
+from typing import Callable, Optional
 
 import cv2
 import numpy as np
@@ -50,12 +65,17 @@ class Operator:
     def on_event(
         self,
         dora_event: dict,
-        send_output: Callable[[str, bytes | pa.UInt8Array, dict], None],
+        send_output: Callable[[str, bytes | pa.UInt8Array, Optional[dict]], None],
     ) -> DoraStatus:
         """Handle image
         Args:
             dora_input (dict): Dict containing the "id", "data", and "metadata"
-            send_output Callable[[str, bytes | pa.UInt8Array, dict], None]: Function enabling sending output back to dora.
+            send_output Callable[[str, bytes | pa.UInt8Array, Optional[dict]], None]: 
+                Function for sending output to the dataflow:
+                - First argument is the `output_id`
+                - Second argument is the data as either bytes or `pa.UInt8Array` 
+                - Third argument is dora metadata dict
+                e.g.: `send_output("bbox", pa.array([100], type=pa.uint8()), dora_event["metadata"])`
         """
         if dora_event["type"] == "INPUT":
             frame = (
