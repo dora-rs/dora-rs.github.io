@@ -33,17 +33,17 @@ nodes:
         - lidar_pc
         - opendrive
       source: shell
-      args: >
-        python3 $SIMULATE --output 
-        --oasJson --criteriaConfig $CRITERIA
-        --openscenario $XOSC
-        --agent $TEAM_AGENT
-        --agentConfig $TEAM_AGENT_CONF
-        --destination $DESTINATION
+      # args: >
+      #   python3 $SIMULATE --output 
+      #   --oasJson --criteriaConfig $CRITERIA
+      #   --openscenario $XOSC
+      #   --agent $TEAM_AGENT
+      #   --agentConfig $TEAM_AGENT_CONF
+      #   --destination $DESTINATION
       #
       # or for Carla Standalone:
       #
-      # args: python3 ../../carla/carla_source_node.py
+      args: python3 ../../carla/carla_source_node.py
 
   - id: carla_gps_op
     operator:
@@ -110,7 +110,7 @@ nodes:
 To run a running car example:
 ```bash
 dora up
-dora start graphs/oasis/oasis_agent.yaml --attach
+dora start graphs/oasis/oasis_full.yaml --attach
 ```
 
 😎 We now have a working autonomous car!
