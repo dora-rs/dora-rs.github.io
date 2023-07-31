@@ -13,12 +13,13 @@ Check out [Carla Simulator installation page](https://carla.readthedocs.io/en/la
 The quickest way is to use docker with:
 ```bash
 docker pull carlasim/carla:0.9.13
-docker run --privileged --gpus all --net=host -e DISPLAY=$DISPLAY carlasim/carla:0.9.13 /bin/bash ./CarlaUE4.sh -carla-server -world-port=2000 
+docker run --privileged --gpus all --net=host -e DISPLAY=$DISPLAY carlasim/carla:0.9.13 /bin/bash ./CarlaUE4.sh -carla-server -world-port=2000 -RenderOffScreen
 # More info at https://carla.readthedocs.io/en/latest/build_docker/
 ```
 
 
-Once the simulator is up and running, We can then switch from the webcam to the simulator in our graph.
+Once the simulator is up and running, We can add the code within the [getting started](/docs/guides/getting-started/first-dataflow) to detect obstacles on our way.
+To do that we only need to replace the webcam node that is sending the image. In this case the oasis agent is connected to the carla server and can send the current front ego vehicle camera within the simulator into the dataflow.
 
 ```yaml
 nodes:
