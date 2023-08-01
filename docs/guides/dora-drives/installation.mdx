@@ -18,12 +18,6 @@ sidebar_position: 1
 git clone git@github.com:dora-rs/dora-drives.git
 cd dora-drives
 
-export DORA_DEP_HOME=<PATH TO A PARENT FOLDER> # Ex: $HOME/Documents
-export DORA_DEP_HOME=$HOME/Documents
-export PYLOT_HOME=$DORA_DEP_HOME
-export PYTHONPATH=$PYTHONPATH:$DORA_DEP_HOME/dependencies
-
-
 ## Add missing linux dependencies
 sudo apt-get -y update 
 sudo apt-get -y install apt-utils git curl clang wget
@@ -38,9 +32,6 @@ pip install --upgrade pip
 pip install -r install_requirements.txt
 pip install -r requirements.txt
 
-chmod +x ./scripts/*
-./scripts/install.sh
-
 ## Installing dora if its not already installed
 sudo wget https://github.com/dora-rs/dora/releases/download/v0.2.4/dora-v0.2.4-x86_64-Linux.zip && sudo unzip dora-v0.2.4-x86_64-Linux.zip -d /usr/local/bin 
 ``` 
@@ -50,6 +41,5 @@ sudo wget https://github.com/dora-rs/dora/releases/download/v0.2.4/dora-v0.2.4-x
 
 ```bash
 conda remove --name dora3.7 --all
-sudo rm -rf $DORA_DEP_HOME/dependencies
 rm ~/.local/bin/dora*
 ```
