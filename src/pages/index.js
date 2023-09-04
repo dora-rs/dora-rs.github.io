@@ -321,7 +321,7 @@ function HomepageHeader() {
             </Translate></p>
             <p><Translate id="homepage.main.paragraph.fourth">And that's only one example of the many innovative features that we can show for dora-rs!</Translate></p>
           </div>
-          <div style={{display: "flex", flexDirection: "row", justifyContent: "space-evenly",flexWrap: "wrap"}}>
+          <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly", flexWrap: "wrap" }}>
             <div className={styles.buttons}>
               <Link
                 className="button button--secondary button--md margin-bottom--md"

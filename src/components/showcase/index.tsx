@@ -39,7 +39,7 @@ const TITLE = translate({ message: "dora-rs nodes and operators" });
 const DESCRIPTION = translate({
   message: "List of operators already implemented by the community",
 });
-const SUBMIT_URL = "https://github.com/dora-rs/dora/discussions";
+const SUBMIT_URL = "https://discord.com/channels/1146393916472561734/1148336336294662196";
 
 type UserState = {
   scrollTopPosition: number;
