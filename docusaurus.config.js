@@ -150,15 +150,15 @@ const config = {
           //label: "Nodes and Operators",
           //},
           {
-            to: "docs/community",
+            href: "https://discord.gg/ucY3AMeu",
             position: "left",
-            label: "Community",
+            label: "Discord",
           },
           // { to: "/blog", label: "About", position: "left" },
           {
             href: "https://github.com/dora-rs/dora",
             label: "GitHub",
-            position: "right",
+            position: "left",
           },
           {
             type: "localeDropdown",
@@ -216,6 +216,10 @@ const config = {
           {
             title: "Contact",
             items: [
+              {
+                label: "Discord",
+                href: "https://discord.gg/ucY3AMeu"
+              },
               {
                 label: "Github Discussions",
                 href: "https://github.com/orgs/dora-rs/discussions"

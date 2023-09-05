@@ -105,7 +105,7 @@ const FeatureList = [
       id: "homepage.features.community.title",
     }),
     button: translate({
-      message: "Community",
+      message: "Discord",
       id: "homepage.features.community.button",
     }),
     // Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
@@ -115,7 +115,7 @@ const FeatureList = [
         about robotics.
       </Translate>
     ),
-    href: "docs/community",
+    href: "https://discord.gg/ucY3AMeu",
   },
 ];
 
