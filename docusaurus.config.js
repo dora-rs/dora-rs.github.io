@@ -149,12 +149,12 @@ const config = {
           //position: "left",
           //label: "Nodes and Operators",
           //},
+          { to: "/blog", label: "Blog", position: "left" },
           {
             href: "https://discord.gg/ucY3AMeu",
             position: "left",
             label: "Discord",
           },
-          // { to: "/blog", label: "About", position: "left" },
           {
             href: "https://github.com/dora-rs/dora",
             label: "GitHub",
@@ -271,6 +271,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ['rust'],
       },
     }),
 };
