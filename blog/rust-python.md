@@ -127,9 +127,9 @@ Now the issue is that:
 - `PyBytes` might also probably need to be reconverted into other useful types.
 - `PyBytes` needs a copy to be created.
 
-We can try to solve this with [Apache Arrow](arrow.apache.org/).
+We can try to solve this with [Apache Arrow](https://arrow.apache.org/).
 
-### Implementation 3: [Apache Arrow](arrow.apache.org/)
+### Implementation 3: [Apache Arrow](https://arrow.apache.org/)
 
 Apache Arrow is a universal memory format available in many languages. 
 
