@@ -5,8 +5,6 @@ description: Rust-Python FFI.
 
 ---
 
-[<img alt="github" src="https://img.shields.io/badge/blopost_ffi-fff?labelColor=000&logo=github" height="20"></img>](https://github.com/haixuantao/blogpost_ffi)
-[![GitHub stars](https://img.shields.io/github/stars/haixuanTao/blogpost_ffi?style=social&label=Star&maxAge=2592000)](https://github.com/haixuanTao/blogpost_ffi/)
 
 Writing a rust library that is usable in multiple languages is not easy...
 
