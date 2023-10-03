@@ -19,7 +19,7 @@ docker run --privileged --gpus all --net=host -e DISPLAY=$DISPLAY carlasim/carla
 
 
 Once the simulator is up and running, We can add the code within the [getting started](/docs/guides/getting-started/first-dataflow) to detect obstacles on our way.
-To do that we only need to replace the webcam node that is sending the image. In this case the oasis agent is connected to the carla server and can send the current front ego vehicle camera within the simulator into the dataflow.
+To do that we only need to replace the webcam node that is sending the image. The oasis agent is connected to the carla server and captures images from the front camera of the ego vehicle. We can use this agent instaad of the webcam to send image data to the downstream operators in the dataflow graph.
 
 ```yaml
 nodes:
