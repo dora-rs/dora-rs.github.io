@@ -497,7 +497,7 @@ All optimization above have already been implemented within [dora-rs](https://gi
 
 You're very welcome to check out [dora-rs](https://github.com/dora-rs/dora) if bridging languages in a dataflow is your usecase.
 
-We just recently opened a Discord and you can reach out there for literally any question, even just for a quick chat: https://discord.gg/ucY3AMeu
+We just recently opened a Discord and you can reach out there for literally any question, even just for a quick chat: https://discord.gg/DXJ6edAtym
 
 I'm also going to present this FFI work at [GOSIM Workshop in Shanghai on the 23rd of Sept 2023](https://workshop2023.gosim.org/schedule#auto)!
 

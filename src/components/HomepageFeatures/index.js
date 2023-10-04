@@ -115,7 +115,7 @@ const FeatureList = [
         about robotics.
       </Translate>
     ),
-    href: "https://discord.gg/ucY3AMeu",
+    href: "https://discord.gg/DXJ6edAtym",
   },
 ];
 

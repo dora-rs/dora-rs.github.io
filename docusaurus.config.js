@@ -151,7 +151,7 @@ const config = {
           //},
           { to: "/blog", label: "Blog", position: "left" },
           {
-            href: "https://discord.gg/ucY3AMeu",
+            href: "https://discord.gg/DXJ6edAtym",
             position: "left",
             label: "Discord",
           },
@@ -218,7 +218,7 @@ const config = {
             items: [
               {
                 label: "Discord",
-                href: "https://discord.gg/ucY3AMeu"
+                href: "https://discord.gg/DXJ6edAtym"
               },
               {
                 label: "Github Discussions",
