@@ -109,6 +109,10 @@ class Operator:
 
 {Node.send_output}
 
+### `.dataflow_descriptor()`
+
+{Node.dataflow_descriptor}
+
 ### `.__version__`
 
 ```

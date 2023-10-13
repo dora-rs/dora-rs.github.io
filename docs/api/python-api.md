@@ -114,17 +114,21 @@ node = Node()
 ### `.next()`
 
 `.next()` gives you the next input that the node has received.
-It blocks until the next input becomes available.
+It blocks until the next event becomes available.
 It will return `None` when all senders has been dropped.
 
 ```python
-input_id, value, metadata = node.next()
+event = node.next()
 ```
 
-You can also iterate over the node in a loop
+You can also iterate over the event stream with a loop
 
 ```python
-for input_id, value, metadata in node:
+for event in node:
+   match event["type"]:
+       case "INPUT":
+           match event["id"]:
+                case "image":
 ```
 
 ### `.send_output(output_id, data, metadata)`
@@ -142,6 +146,12 @@ Args:
 node.send_output("string", b"string", {"open_telemetry_context": "7632e76"})
 ```
 
+
+### `.dataflow_descriptor()`
+
+Returns the full dataflow descriptor that this node is part of.
+
+This method returns the parsed dataflow YAML file.
 
 ### `.__version__`
 

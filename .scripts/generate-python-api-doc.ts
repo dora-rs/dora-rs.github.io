@@ -12,7 +12,7 @@ interface Module {
 }
 
 const modules: Module[] = [
-  { name: 'Node', methods: ['next', '__next__', 'send_output'] },
+  { name: 'Node', methods: ['next', '__next__', 'send_output', 'dataflow_descriptor', "merge_external_events"] },
 ];
 
 let doc = template;
