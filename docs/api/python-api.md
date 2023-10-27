@@ -27,9 +27,9 @@ There is currently 4 event types that the on_event method receives:
 
 ### `send_output`
 
-To send an output from the operator, use `send_output: Callable[[str, bytes | pa.UInt8Array, dict], None]` input method:
+To send an output from the operator, use `send_output: Callable[[str, bytes | pa.Array, dict], None]` input method:
 - the first argument is the `output_id` as defined in your dataflow.
-- the second argument is the data as either bytes or pyarrow.UInt8Array for zero copy.
+- the second argument is the data as either bytes or pyarrow.Array for zero copy.
 - the third argument is dora metadata if you want ot link the tracing from one input into an output.
 `e.g.:  send_output("bbox", pa.array([100], type=pa.uint8()), dora_event["metadata"])`
 
@@ -65,15 +65,15 @@ class Operator:
     def on_event(
         self,
         dora_event: dict,
-        send_output: Callable[[str, bytes | pa.UInt8Array, Optional[dict]], None],
+        send_output: Callable[[str, bytes | pa.Array, Optional[dict]], None],
     ) -> DoraStatus:
         """Handle image
         Args:
             dora_input (dict): Dict containing the "id", "data", and "metadata"
-            send_output Callable[[str, bytes | pa.UInt8Array, Optional[dict]], None]: 
+            send_output Callable[[str, bytes | pa.Array, Optional[dict]], None]: 
                 Function for sending output to the dataflow:
                 - First argument is the `output_id`
-                - Second argument is the data as either bytes or `pa.UInt8Array` 
+                - Second argument is the data as either bytes or `pa.Array` 
                 - Third argument is dora metadata dict
                 e.g.: `send_output("bbox", pa.array([100], type=pa.uint8()), dora_event["metadata"])`
         """
