@@ -80,7 +80,7 @@ Let's add a `yolov5` object detection operator, that you can [find as an example
 
 3. Add an operator within the dataflow
 
-    ```yaml {10-16}
+    ```yaml {10-16,23}
     nodes:
       - id: webcam
         operator:
