@@ -17,7 +17,7 @@ node .scripts/generate-python-operator-doc.js
 
 ```python
     def __init__(self):
-        self.video_capture = cv2.VideoCapture(0)
+        self.video_capture = cv2.VideoCapture(int(DEVICE_INDEX))
         self.video_capture.set(cv2.CAP_PROP_FRAME_WIDTH, OUTPUT_WIDTH)
         self.video_capture.set(cv2.CAP_PROP_FRAME_HEIGHT, OUTPUT_HEIGHT)
 
@@ -70,7 +70,7 @@ node .scripts/generate-python-operator-doc.js
             frame = cv2.cvtColor(frame, cv2.COLOR_BGR2BGRA)
             send_output(
                 "image",
-                pa.array(frame.ravel().view(np.uint8)),
+                pa.array(frame.ravel()),
                 dora_input["metadata"],
             )
         else:

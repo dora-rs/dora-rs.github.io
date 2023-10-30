@@ -130,7 +130,7 @@ node .scripts/generate-python-operator-doc.js
         send_output: Callable[[str, bytes], None],
     ):
         if "lidar_pc" == dora_input["id"]:
-            point_cloud = np.array(dora_input["value"]).view(np.float32)
+            point_cloud = np.array(dora_input["value"])
             point_cloud = point_cloud.reshape((-1, 3))
 
             # From Velodyne axis to Camera axis
@@ -149,9 +149,7 @@ node .scripts/generate-python-operator-doc.js
             # Remove ground points. Above lidar only ( bottom = y < 1.0 )
             above_ground_point_index = np.where(point_cloud[:, 1] < 1.0)
             point_cloud = point_cloud[above_ground_point_index]
-            self.ground_point_cloud = point_cloud[
-                above_ground_point_index == False
-            ]
+            self.ground_point_cloud = point_cloud[above_ground_point_index == False]
 
             # 3D array -> 2D array with index_x -> pixel x, index_y -> pixel_y, value -> z
             camera_point_cloud = local_points_to_camera_view(
@@ -166,22 +164,16 @@ node .scripts/generate-python-operator-doc.js
 
         elif "position" == dora_input["id"]:
             # Add sensor transform
-            self.position = dora_input["value"].to_numpy().view(np.float32)
+            self.position = dora_input["value"].to_numpy()
             self.extrinsic_matrix = get_extrinsic_matrix(
                 get_projection_matrix(self.position)
             )
 
         elif "lanes" == dora_input["id"]:
-            lanes = (
-                np.array(dora_input["value"])
-                .view(np.int32)
-                .reshape((-1, 60, 2))
-            )
+            lanes = np.array(dora_input["value"]).reshape((-1, 60, 2))
 
             knnr = KNeighborsRegressor(n_neighbors=4)
-            knnr.fit(
-                self.camera_ground_point_cloud[:, :2], self.ground_point_cloud
-            )
+            knnr.fit(self.camera_ground_point_cloud[:, :2], self.ground_point_cloud)
 
             processed_lanes = []
             for lane in lanes:
@@ -194,13 +186,9 @@ node .scripts/generate-python-operator-doc.js
                         np.ones((lane_location.shape[0], 1)),
                     )
                 )
-                lane_location = np.dot(lane_location, self.extrinsic_matrix.T)[
-                    :, :3
-                ]
+                lane_location = np.dot(lane_location, self.extrinsic_matrix.T)[:, :3]
                 processed_lanes.append(lane_location)
-            processed_lanes = pa.array(
-                np.array(processed_lanes, np.float32).ravel().view(np.uint8)
-            )
+            processed_lanes = pa.array(np.array(processed_lanes, np.float32).ravel())
 
             send_output("global_lanes", processed_lanes, dora_input["metadata"])
 
@@ -209,9 +197,7 @@ node .scripts/generate-python-operator-doc.js
                 return DoraStatus.CONTINUE
 
             # bbox = np.array([[min_x, max_x, min_y, max_y, confidence, label], ... n_bbox ... ])
-            self.obstacles_bbox = (
-                np.array(dora_input["value"]).view(np.int32).reshape((-1, 6))
-            )
+            self.obstacles_bbox = np.array(dora_input["value"]).reshape((-1, 6))
 
             obstacles_with_location = []
             for obstacle_bb in self.obstacles_bbox:
@@ -244,17 +230,13 @@ node .scripts/generate-python-operator-doc.js
                 predictions = get_predictions(
                     self.obstacles_bbox, obstacles_with_location
                 )
-                predictions_bytes = pa.array(
-                    np.array(predictions, np.float32).ravel().view(np.uint8)
-                )
+                predictions_bytes = pa.array(np.array(predictions, np.float32).ravel())
 
-                send_output(
-                    "obstacles", predictions_bytes, dora_input["metadata"]
-                )
+                send_output("obstacles", predictions_bytes, dora_input["metadata"])
             else:
                 send_output(
                     "obstacles",
-                    pa.array(np.array([]).ravel().view(np.uint8)),
+                    pa.array(np.array([]).ravel()),
                     dora_input["metadata"],
                 )
         return DoraStatus.CONTINUE

@@ -137,15 +137,15 @@ Handle input.
         """
 
         if "position" == dora_input["id"]:
-            self.position = dora_input["value"].to_numpy().view(np.float32)
+            self.position = dora_input["value"].to_numpy()
             return DoraStatus.CONTINUE
 
         elif dora_input["id"] == "speed":
-            self.speed = np.array(dora_input["value"]).view(np.float32)
+            self.speed = np.array(dora_input["value"])
             return DoraStatus.CONTINUE
 
         elif "waypoints" == dora_input["id"]:
-            waypoints = dora_input["value"].to_numpy().view(np.float32)
+            waypoints = dora_input["value"].to_numpy()
             waypoints = waypoints.reshape((-1, 3))
 
             self.target_speeds = waypoints[:, 2]
@@ -158,17 +158,13 @@ Handle input.
         if len(self.waypoints) == 0:
             send_output(
                 "control",
-                pa.array(
-                    np.array([0, 0, 1], np.float16).view(np.uint8).ravel()
-                ),
+                pa.array(np.array([0, 0, 1], np.float16).ravel()),
                 self.metadata,
             )
             return DoraStatus.CONTINUE
 
         [x, y, _, rx, ry, rz, rw] = self.position
-        [_, _, yaw] = R.from_quat([rx, ry, rz, rw]).as_euler(
-            "xyz", degrees=False
-        )
+        [_, _, yaw] = R.from_quat([rx, ry, rz, rw]).as_euler("xyz", degrees=False)
         distances = pairwise_distances(self.waypoints, np.array([[x, y]])).T[0]
 
         index = distances > MIN_PID_WAYPOINT_DISTANCE
@@ -200,11 +196,7 @@ Handle input.
 
         send_output(
             "control",
-            pa.array(
-                np.array([throttle, target_angle, brake], np.float16).view(
-                    np.uint8
-                )
-            ),
+            pa.array(np.array([throttle, target_angle, brake], np.float16)),
             self.metadata,
         )
         return DoraStatus.CONTINUE
