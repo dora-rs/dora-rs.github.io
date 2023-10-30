@@ -162,40 +162,31 @@ node .scripts/generate-python-operator-doc.js
         dora_input: dict,
         send_output: Callable[[str, bytes], None],
     ):
-
         if dora_input["id"] == "position":
             self.last_position = self.position
-            self.position = np.array(dora_input["value"]).view(np.float32)
+            self.position = np.array(dora_input["value"])
             if len(self.last_position) == 0:
                 self.last_position = self.position
             return DoraStatus.CONTINUE
 
         elif dora_input["id"] == "speed":
-            self.speed = np.array(dora_input["value"]).view(np.float32)
+            self.speed = np.array(dora_input["value"])
             return DoraStatus.CONTINUE
 
         elif dora_input["id"] == "obstacles":
-            obstacles = (
-                np.array(dora_input["value"]).view(np.float32).reshape((-1, 5))
-            )
+            obstacles = np.array(dora_input["value"]).reshape((-1, 5))
             if len(self.last_obstacles) > 0:
-                self.obstacles = np.concatenate(
-                    [self.last_obstacles, obstacles]
-                )
+                self.obstacles = np.concatenate([self.last_obstacles, obstacles])
             else:
                 self.obstacles = obstacles
 
         elif dora_input["id"] == "global_lanes":
-            lanes = (
-                np.array(dora_input["value"])
-                .view(np.float32)
-                .reshape((-1, 60, 3))
-            )
+            lanes = np.array(dora_input["value"]).reshape((-1, 60, 3))
             self.lanes = lanes
             return DoraStatus.CONTINUE
 
         elif "gps_waypoints" == dora_input["id"]:
-            waypoints = np.array(dora_input["value"]).view(np.float32)
+            waypoints = np.array(dora_input["value"])
             waypoints = waypoints.reshape((-1, 3))[:, :2]
             self.gps_waypoints = waypoints
             return DoraStatus.CONTINUE
@@ -213,9 +204,7 @@ node .scripts/generate-python-operator-doc.js
             return DoraStatus.CONTINUE
 
         [x, y, z, rx, ry, rz, rw] = self.position
-        [_, _, yaw] = R.from_quat([rx, ry, rz, rw]).as_euler(
-            "xyz", degrees=False
-        )
+        [_, _, yaw] = R.from_quat([rx, ry, rz, rw]).as_euler("xyz", degrees=False)
 
         gps_obstacles = get_obstacle_list(
             self.position, self.obstacles, self.gps_waypoints
@@ -255,18 +244,14 @@ node .scripts/generate-python-operator-doc.js
         if not success:
             initial_conditions["wp"] = initial_conditions["wp"][:5]
             print(f"fot failed. stopping with {initial_conditions}.")
-            target_distance = LA.norm(
-                self.gps_waypoints[-1] - self.position[:2]
-            )
+            target_distance = LA.norm(self.gps_waypoints[-1] - self.position[:2])
             print(f"Distance to target: {target_distance}")
             for obstacle in self.obstacles:
-                print(
-                    f"obstacles:{obstacle}, label: {LABELS[int(obstacle[-1])]}"
-                )
+                print(f"obstacles:{obstacle}, label: {LABELS[int(obstacle[-1])]}")
 
             send_output(
                 "waypoints",
-                pa.array(np.array([x, y, 0.0], np.float32).view(np.uint8)),
+                pa.array(np.array([x, y, 0.0], np.float32)),
                 dora_input["metadata"],
             )
             return DoraStatus.CONTINUE
@@ -280,7 +265,7 @@ node .scripts/generate-python-operator-doc.js
         )
         send_output(
             "waypoints",
-            pa.array(self.outputs.ravel().view(np.uint8)),
+            pa.array(self.outputs.ravel()),
             dora_input["metadata"],
         )
         return DoraStatus.CONTINUE
