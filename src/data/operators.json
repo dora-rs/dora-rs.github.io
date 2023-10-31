@@ -2,7 +2,7 @@
   {
     "title": "Yolov5 Operator",
     "description": "Yolov5 object detection operator",
-    "preview": "/img/agilets.png",
+    "preview": "https://i.imgur.com/hPrazyl.jpg",
     "website": "yolov5_operator",
     "source": "https://github.com/dora-rs/dora-drives/blob/main/operators/yolov5_op.py",
     "tags": [
@@ -13,7 +13,7 @@
   {
     "title": "Plot Operator",
     "description": "Plot operator based on cv2",
-    "preview": "/img/agilets.png",
+    "preview": "https://i.imgur.com/ekEgDL5.png",
     "website": "plot_operator",
     "source": "https://github.com/dora-rs/dora-drives/blob/main/operators/plot.py",
     "tags": [
@@ -23,7 +23,7 @@
   {
     "title": "PID Operator",
     "description": "PID controller",
-    "preview": "/img/agilets.png",
+    "preview": "https://i.imgur.com/AEmoZ7k.gif",
     "website": "pid_control_operator",
     "source": "https://github.com/dora-rs/dora-drives/blob/main/operators/pid_control_op.py",
     "tags": [
@@ -34,7 +34,7 @@
   {
     "title": "Obstacle Location Operator",
     "description": "Obstacle location based on LIDAR and 2D bounding boxes",
-    "preview": "/img/agilets.png",
+    "preview": "https://i.imgur.com/Aq33qy5.png",
     "website": "obstacle_location_operator",
     "source": "https://github.com/dora-rs/dora-drives/blob/main/operators/obstacle_location_op.py",
     "tags": [
@@ -44,7 +44,7 @@
   {
     "title": "FOT Operator",
     "description": "Waypoint generation based on current position and frenet optimal trajectory planner.",
-    "preview": "/img/agilets.png",
+    "preview": "https://i.imgur.com/klQitzg.png",
     "website": "obstacle_location_operator",
     "source": "https://github.com/dora-rs/dora-drives/blob/main/operators/fot_op.py",
     "tags": [
@@ -54,7 +54,7 @@
   {
     "title": "YOLOP Operator",
     "description": "YOLOP lane and drivable area detection",
-    "preview": "/img/agilets.png",
+    "preview": "https://i.imgur.com/I531NIT.gif",
     "website": "yolop_operator",
     "source": "https://github.com/dora-rs/dora-drives/blob/main/operators/yolop_op.py",
     "tags": [
@@ -65,7 +65,7 @@
   {
     "title": "MiDaS Operator",
     "description": "MiDaS depth estimation",
-    "preview": "/img/agilets.png",
+    "preview": "https://i.imgur.com/UrF9iPN.png",
     "website": "midas_operator",
     "source": "https://github.com/dora-rs/dora-drives/blob/main/operators/midas_op.py",
     "tags": [
@@ -76,7 +76,7 @@
   {
     "title": "Webcam Operator",
     "description": "Webcam Operator",
-    "preview": "/img/agilets.png",
+    "preview": "https://i.imgur.com/CC0IW3i.png",
     "website": "webcam_operator",
     "source": "https://github.com/dora-rs/dora-drives/blob/main/operators/webcam_op.py",
     "tags": [
@@ -86,7 +86,7 @@
   {
     "title": "Strong Sort Operator",
     "description": "Strong Sort Operator",
-    "preview": "/img/agilets.png",
+    "preview": "https://i.imgur.com/ozO1y7l.gif",
     "website": "strong_sort_op",
     "source": "https://github.com/dora-rs/dora-drives/blob/main/operators/strong_sort_op.py",
     "tags": [

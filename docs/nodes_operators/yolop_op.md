@@ -1,4 +1,39 @@
 
+ 
+# yolop operator
+
+`yolop` recognizes lanes, and drivable area from a specific images.
+
+More info here: [https://github.com/hustvl/YOLOP](https://github.com/hustvl/YOLOP)
+
+You can also choose to allocate the model in GPU using the environment variable:
+- `PYTORCH_DEVICE: cuda # or cpu`
+
+## Inputs
+
+- image: HEIGHT x WIDTH x BGR array.
+
+## Outputs
+
+- drivable_area: drivable area as contour points
+- lanes: lanes as 60 points representing the lanes
+
+## Example plot ( lanes in red, drivable area in green)
+
+![Imgur](https://i.imgur.com/I531NIT.gif)
+
+## Graph Description
+
+```yaml
+  - id: yolop
+    operator: 
+      outputs:
+        - lanes
+        - drivable_area
+      inputs:
+        image: webcam/image
+      python: ../../operators/yolop_op.py
+```
 
 
 <!---
@@ -64,7 +99,6 @@ node .scripts/generate-python-operator-doc.js
         dora_input: dict,
         send_output: Callable[[str, bytes], None],
     ) -> DoraStatus:
-
         # inference
         frame = cv2.imdecode(
             np.frombuffer(
@@ -95,9 +129,7 @@ node .scripts/generate-python-operator-doc.js
         # )
         # det = det_pred[0]
 
-        da_predict = da_seg_out[
-            :, :, pad_h : (h0 - pad_h), pad_w : (w0 - pad_w)
-        ]
+        da_predict = da_seg_out[:, :, pad_h : (h0 - pad_h), pad_w : (w0 - pad_w)]
         da_seg_mask = torch.nn.functional.interpolate(
             da_predict, scale_factor=1 / ratio, mode="bilinear"
         )
@@ -111,17 +143,11 @@ node .scripts/generate-python-operator-doc.js
         if len(contours) != 0:
             contour = max(contours, key=cv2.contourArea)
             contour = contour.astype(np.int32)
-            send_output(
-                "drivable_area", contour.tobytes(), dora_input["metadata"]
-            )
+            send_output("drivable_area", contour.tobytes(), dora_input["metadata"])
         else:
-            send_output(
-                "drivable_area", np.array([]).tobytes(), dora_input["metadata"]
-            )
+            send_output("drivable_area", np.array([]).tobytes(), dora_input["metadata"])
 
-        ll_predict = ll_seg_out[
-            :, :, pad_h : (h0 - pad_h), pad_w : (w0 - pad_w)
-        ]
+        ll_predict = ll_seg_out[:, :, pad_h : (h0 - pad_h), pad_w : (w0 - pad_w)]
 
         ll_seg_mask = torch.nn.functional.interpolate(
             ll_predict, scale_factor=1 / ratio, mode="bilinear"

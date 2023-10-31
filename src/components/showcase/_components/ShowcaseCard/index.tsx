@@ -76,13 +76,11 @@ function ShowcaseCard({ user }: { user: User }) {
   const module_name = getFileNameFromURL(user.source).replace(".py", "");
   return (
     <li key={user.title} className="card shadow--md">
-      {/* 
       <div className={clsx("card__image", styles.showcaseCardImage)}>
         <Link href={user.website} className={styles.showcaseCardLink}>
-          <img src={user.preview} alt={user.title} />
+          <img src={user.preview} alt=" " />
         </Link>
       </div>
-  */}
       <div className="card__body">
         <div className={clsx(styles.showcaseCardHeader)}>
           <Heading as="h4" className={styles.showcaseCardTitle}>
