@@ -2,27 +2,26 @@
 sidebar_position: 1
 ---
 
-
 # Installation
 
-|Software|Version Tested|Installation Guide|
-|--------|-------|------------------|
-|Linux|Ubuntu 20.04 <||
-|Conda|22.11.1||
-|Pytorch|1.11|Installation below|
-|NVIDIA Driver|515.86.01||
-|CUDA|11.7||
-|dora-rs|0.2.6|Installation below|
+| Software      | Version Tested | Installation Guide |
+| ------------- | -------------- | ------------------ |
+| Linux         | Ubuntu 20.04 < |                    |
+| Conda         | 22.11.1        |                    |
+| Pytorch       | 1.11           | Installation below |
+| NVIDIA Driver | 515.86.01      |                    |
+| CUDA          | 11.7           |                    |
+| dora-rs       | 0.3.0          | Installation below |
 
 ```bash
 git clone git@github.com:dora-rs/dora-drives.git
 cd dora-drives
 
 ## Add missing linux dependencies
-sudo apt-get -y update 
+sudo apt-get -y update
 sudo apt-get -y install apt-utils git curl clang wget
 sudo apt-get install -y cmake unzip libpng-dev libgeos-dev python3-opencv libomp-dev
-sudo apt-get -y --fix-missing update && sudo apt-get install --fix-missing -y libcudnn8 libqt5core5a libeigen3-dev cmake qtbase5-dev libpng16-16 libtiff5 python3-tk libgeos-dev build-essential libopenblas-dev libssl-dev 
+sudo apt-get -y --fix-missing update && sudo apt-get install --fix-missing -y libcudnn8 libqt5core5a libeigen3-dev cmake qtbase5-dev libpng16-16 libtiff5 python3-tk libgeos-dev build-essential libopenblas-dev libssl-dev
 
 ## Installing dependencies
 conda create -n dora3.7 python=3.7 -y
@@ -33,9 +32,8 @@ pip install -r install_requirements.txt
 pip install -r requirements.txt
 
 ## Installing dora if its not already installed
-sudo wget https://github.com/dora-rs/dora/releases/download/v0.2.6/dora-v0.2.6-x86_64-Linux.zip && sudo unzip dora-v0.2.6-x86_64-Linux.zip -d /usr/local/bin 
-``` 
-
+sudo wget https://github.com/dora-rs/dora/releases/download/v0.3.0/dora-v0.3.0-x86_64-Linux.zip && sudo unzip dora-v0.3.0-x86_64-Linux.zip -d /usr/local/bin
+```
 
 ### Uninstalling package
 

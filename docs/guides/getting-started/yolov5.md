@@ -7,7 +7,7 @@ Let's add a `yolov5` object detection operator, that you can [find as an example
 1. Install required dependencies
 
    ```bash
-   pip install -r https://raw.githubusercontent.com/dora-rs/dora/v0.2.6/examples/python-operator-dataflow/requirements.txt
+   pip install -r https://raw.githubusercontent.com/dora-rs/dora/v0.3.0/examples/python-operator-dataflow/requirements.txt
    ```
 
 2. Create a new `object_detection.py` python file with the following content
