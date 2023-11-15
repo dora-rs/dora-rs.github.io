@@ -2,7 +2,7 @@
 
 ## Making the video stream intelligent
 
-Let's add a `yolov5` object detection operator, that you can [find as an example](https://raw.githubusercontent.com/dora-rs/dora/main/examples/python-operator-dataflow/object_detection.py). This will help us detect object as bounding boxes within the webcam stream.
+Let's add a `yolov5` object detection operator, that you can [find as an example](https://raw.githubusercontent.com/dora-rs/dora/v0.3.0/examples/python-operator-dataflow/object_detection.py). This will help us detect object as bounding boxes within the webcam stream.
 
 1. Install required dependencies
 
@@ -12,11 +12,15 @@ Let's add a `yolov5` object detection operator, that you can [find as an example
 
 2. Create a new `object_detection.py` python file with the following content
 
+   ```bash
+   wget https://raw.githubusercontent.com/dora-rs/dora/v0.3.0/examples/python-operator-dataflow/object_detection.py
+   ```
+
+   `object_detection.py`:
+
    ```python
    #!/usr/bin/env python3
    # -*- coding: utf-8 -*-
-
-   from typing import Callable, Optional
 
    import cv2
    import numpy as np
@@ -40,8 +44,8 @@ Let's add a `yolov5` object detection operator, that you can [find as an example
 
        def on_event(
            self,
-           dora_event: dict,
-           send_output: Callable[[str, bytes | pa.Array, Optional[dict]], None],
+           dora_event,
+           send_output,
        ) -> DoraStatus:
            if dora_event["type"] == "INPUT":
                return self.on_input(dora_event, send_output)
@@ -49,12 +53,12 @@ Let's add a `yolov5` object detection operator, that you can [find as an example
 
        def on_input(
            self,
-           dora_input: dict,
-           send_output: Callable[[str, bytes | pa.array, Optional[dict]], None],
+           dora_input,
+           send_output,
        ) -> DoraStatus:
            """Handle image
            Args:
-               dora_input (dict): Dict containing the "id", "value", and "metadata"
+               dora_input (dict) containing the "id", "value", and "metadata"
                send_output Callable[[str, bytes | pa.Array, Optional[dict]], None]:
                    Function for sending output to the dataflow:
                    - First argument is the `output_id`
@@ -87,6 +91,12 @@ Let's add a `yolov5` object detection operator, that you can [find as an example
    - `UNKNOWN`: meaning that an unknown message was received.
 
 3. Add an operator within the dataflow
+
+   ```bash
+   wget https://raw.githubusercontent.com/dora-rs/dora/v0.3.0/examples/python-operator-dataflow/dataflow.yaml
+   ```
+
+   `dataflow.yaml`:
 
    ```yaml {10-16,23}
    nodes:
