@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 sudo rm $(which dora)
 sudo rm $(which dora-coordinator)
 sudo rm $(which dora-daemon)
-pip uninstall dora-rs ## For Python API
+pip uninstall dora-rs
 dora --help # This should fail
 ```
 
@@ -26,7 +26,7 @@ dora --help # This should fail
 sudo rm $(which dora)
 sudo rm $(which dora-coordinator)
 sudo rm $(which dora-daemon)
-pip uninstall dora-rs ## For Python API
+pip uninstall dora-rs
 dora --help # This should fail
 ```
 
@@ -36,12 +36,11 @@ Remove dora, dora-coordinator and dora-daemon binary and run:
 
 ```bash
 pip uninstall dora-rs
-```    
+```
 
   </TabItem>
 </Tabs>
 ````
-
 
 ## Cargo and Pip
 
@@ -49,5 +48,5 @@ pip uninstall dora-rs
 cargo remove dora-cli
 cargo remove dora-coordinator
 cargo remove dora-daemon
-pip uninstall dora-rs ## For Python API
+pip uninstall dora-rs
 ```
