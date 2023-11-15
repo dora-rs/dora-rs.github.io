@@ -20,7 +20,7 @@ export DORA_VERSION=v0.3.0 # Check for the latest release
 export ARCHITECTURE=$(uname -m)
 wget https://github.com/dora-rs/dora/releases/download/${DORA_VERSION}/dora-${DORA_VERSION}-${ARCHITECTURE}-Linux.zip
 unzip dora-${DORA_VERSION}-${ARCHITECTURE}-Linux.zip
-pip install dora-rs==${DORA_VERSION} ## For Python API
+pip install dora-rs==${DORA_VERSION}
 PATH=$PATH:$(pwd)
 dora --help
 ```
@@ -33,7 +33,7 @@ export DORA_VERSION=v0.3.0 # Check for the latest release
 export ARCHITECTURE=$(uname -m)
 wget https://github.com/dora-rs/dora/releases/download/${DORA_VERSION}/dora-${DORA_VERSION}-${ARCHITECTURE}-macOS.zip
 unzip dora-${DORA_VERSION}-${ARCHITECTURE}-macOS.zip
-pip install dora-rs==${DORA_VERSION} ## For Python API
+pip install dora-rs==${DORA_VERSION}
 PATH=$PATH:$(pwd)
 dora --help
 ```
@@ -46,7 +46,7 @@ set DORA_VERSION=v0.3.0 # Check for the latest release
 set ARCHITECTURE=x86_64
 wget https://github.com/dora-rs/dora/releases/download/%DORA_VERSION%/dora-%DORA_VERSION%-%ARCHITECTURE%-Windows.zip
 unzip dora-%DORA_VERSION%-%ARCHITECTURE%-Windows.zip
-pip install dora-rs==%DORA_VERSION% ## For Python API
+pip install dora-rs==%DORA_VERSION%
 set PATH=%PATH%:%cd%
 dora --help
 ```
