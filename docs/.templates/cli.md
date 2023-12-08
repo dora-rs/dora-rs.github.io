@@ -49,4 +49,4 @@ npm run update-cli
 Returns the current version of dora
 ```
 
-This command will show the current version of cora.
+This command will show the current version of dora.
