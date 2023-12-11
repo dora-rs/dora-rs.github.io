@@ -20,7 +20,7 @@ There is currently 4 event types that the on_event method receives:
   - You can use `dora_event['id']`, to get the id.
   - You can use `dora_event['data']`, to get the data as bytes.
   - You can use `dora_event['value']`, to get the data as a zero-copy Uint8 arrow array.
-  - You can use `dora_event['meatadata']`, to get the metadata.
+  - You can use `dora_event['metadata']`, to get the metadata.
 - `INPUT_CLOSED`: meannig that an input source was closed. This could be useful if the input is critical for the well behaviour of the operator.
 - `ERROR`: meaning that error message was received.
 - `UNKNOWN`: meaning that an unknown message was received.
