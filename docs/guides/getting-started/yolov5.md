@@ -84,7 +84,7 @@ Let's add a `yolov5` object detection operator, that you can [find as an example
    - `INPUT`: meannig that an input was received.
      - You can use `dora_event['id']`, to get the id.
      - You can use `dora_event['data']`, to get the data as bytes.
-     - You can use `dora_event['value']`, to get the data as a zero-copy Uint8 arrow array.
+     - You can use `dora_event['value']`, to get the data as arrow array.
      - You can use `dora_event['metadata']`, to get the metadata.
    - `INPUT_CLOSED`: meannig that an input source was closed. This could be useful if the input is critical for the well behaviour of the operator.
    - `ERROR`: meaning that error message was received.
