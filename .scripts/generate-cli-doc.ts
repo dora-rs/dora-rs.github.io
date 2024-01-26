@@ -2,7 +2,7 @@ import * as childProcess from "child_process";
 import * as path from "path";
 import * as fs from "fs";
 
-const rustCliPath = path.join(__dirname, "../../dora/target/release/dora-cli");
+const rustCliPath = path.join(__dirname, "../../dora/target/release/dora");
 const templatePath = path.join(__dirname, "../docs/.templates/cli.md");
 const targetPath = path.join(__dirname, "../docs/api/cli.md");
 const template = fs.readFileSync(templatePath, "utf8");

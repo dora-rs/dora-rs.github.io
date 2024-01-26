@@ -8,24 +8,28 @@ npm run update-cli
 ```
 dora-rs cli client
 
-Usage: dora-cli <COMMAND>
+Usage: dora <COMMAND>
 
 Commands:
-  check    Check if the coordinator and the daemon is running
-  graph    Generate a visualization of the given graph using mermaid.js. Use --open to open
-               browser
-  build    Run build commands provided in the given dataflow
-  new      Generate a new project, node or operator. Choose the language between Rust, Python, C
-               or C++
-  up       Spawn a coordinator and a daemon
-  destroy  Destroy running coordinator and daemon. If some dataflows are still running, they
-               will be stopped first
-  start    Start the given dataflow path. Attach a name to the running dataflow by using --name
-  stop     Stop the given dataflow UUID. If no id is provided, you will be able to choose
-               between the running dataflows
-  list     List running dataflows
-  logs     Show logs of a given dataflow and node
-  help     Print this message or the help of the given subcommand(s)
+  check        Check if the coordinator and the daemon is running
+  graph        Generate a visualization of the given graph using mermaid.js. Use --open to open
+                   browser
+  build        Run build commands provided in the given dataflow
+  new          Generate a new project, node or operator. Choose the language between Rust,
+                   Python, C or C++
+  up           Spawn a coordinator and a daemon
+  destroy      Destroy running coordinator and daemon. If some dataflows are still running, they
+                   will be stopped first
+  start        Start the given dataflow path. Attach a name to the running dataflow by using
+                   --name
+  stop         Stop the given dataflow UUID. If no id is provided, you will be able to choose
+                   between the running dataflows
+  list         List running dataflows
+  logs         Show logs of a given dataflow and node
+  daemon       Run daemon
+  runtime      Run runtime
+  coordinator  Run coordinator
+  help         Print this message or the help of the given subcommand(s)
 
 Options:
   -h, --help     Print help
@@ -37,13 +41,11 @@ Options:
 ```
 Spawn a coordinator and a daemon
 
-Usage: dora-cli up [OPTIONS]
+Usage: dora up [OPTIONS]
 
 Options:
-      --config <CONFIG>                      
-      --coordinator-path <COORDINATOR_PATH>  
-      --daemon-path <DAEMON_PATH>            
-  -h, --help                                 Print help
+      --config <CONFIG>  
+  -h, --help             Print help
 ```
 
 ## `new`
@@ -51,7 +53,7 @@ Options:
 ```
 Generate a new project, node or operator. Choose the language between Rust, Python, C or C++
 
-Usage: dora-cli new [OPTIONS] <NAME> [PATH]
+Usage: dora new [OPTIONS] <NAME> [PATH]
 
 Arguments:
   <NAME>  
@@ -68,7 +70,7 @@ Options:
 ```
 Start the given dataflow path. Attach a name to the running dataflow by using --name
 
-Usage: dora-cli start [OPTIONS] <DATAFLOW>
+Usage: dora start [OPTIONS] <DATAFLOW>
 
 Arguments:
   <DATAFLOW>  
@@ -85,7 +87,7 @@ Options:
 ```
 List running dataflows
 
-Usage: dora-cli list
+Usage: dora list
 
 Options:
   -h, --help  Print help
@@ -96,7 +98,7 @@ Options:
 ```
 Show logs of a given dataflow and node
 
-Usage: dora-cli logs <DATAFLOW> <NODE>
+Usage: dora logs <DATAFLOW> <NODE>
 
 Arguments:
   <DATAFLOW>  
@@ -111,7 +113,7 @@ Options:
 ```
 Check if the coordinator and the daemon is running
 
-Usage: dora-cli check [OPTIONS]
+Usage: dora check [OPTIONS]
 
 Options:
       --dataflow <DATAFLOW>  
@@ -124,7 +126,7 @@ Options:
 Stop the given dataflow UUID. If no id is provided, you will be able to choose between the running
 dataflows
 
-Usage: dora-cli stop [OPTIONS] [UUID]
+Usage: dora stop [OPTIONS] [UUID]
 
 Arguments:
   [UUID]  
@@ -140,7 +142,7 @@ Options:
 Destroy running coordinator and daemon. If some dataflows are still running, they will be stopped
 first
 
-Usage: dora-cli destroy [OPTIONS]
+Usage: dora destroy [OPTIONS]
 
 Options:
       --config <CONFIG>  
@@ -152,7 +154,7 @@ Options:
 ```
 Generate a visualization of the given graph using mermaid.js. Use --open to open browser
 
-Usage: dora-cli graph [OPTIONS] <DATAFLOW>
+Usage: dora graph [OPTIONS] <DATAFLOW>
 
 Arguments:
   <DATAFLOW>  
