@@ -1,8 +1,8 @@
-# Yolov5
+# Yolov8
 
 ## Making the video stream intelligent
 
-Let's add a `yolov5` object detection operator, that you can [find as an example](https://raw.githubusercontent.com/dora-rs/dora/v0.3.2/examples/python-operator-dataflow/object_detection.py). This will help us detect object as bounding boxes within the webcam stream.
+Let's add a `yolov8` object detection operator, that you can [find as an example](https://raw.githubusercontent.com/dora-rs/dora/v0.3.2/examples/python-operator-dataflow/object_detection.py). This will help us detect object as bounding boxes within the webcam stream.
 
 1. Install required dependencies
 
@@ -22,17 +22,17 @@ Let's add a `yolov5` object detection operator, that you can [find as an example
    #!/usr/bin/env python3
    # -*- coding: utf-8 -*-
 
-   import cv2
    import numpy as np
    import pyarrow as pa
-   import torch
 
    from dora import DoraStatus
+   from ultralytics import YOLO
 
    pa.array([])
 
    CAMERA_WIDTH = 640
    CAMERA_HEIGHT = 480
+
 
    class Operator:
        """
@@ -40,7 +40,7 @@ Let's add a `yolov5` object detection operator, that you can [find as an example
        """
 
        def __init__(self):
-           self.model = torch.hub.load("ultralytics/yolov5", "yolov5n")
+           self.model = YOLO("yolov8n.pt")
 
        def on_event(
            self,
@@ -58,7 +58,7 @@ Let's add a `yolov5` object detection operator, that you can [find as an example
        ) -> DoraStatus:
            """Handle image
            Args:
-               dora_input (dict) containing the "id", "value", and "metadata"
+               dora_input (dict) containing the "id", value, and "metadata"
                send_output Callable[[str, bytes | pa.Array, Optional[dict]], None]:
                    Function for sending output to the dataflow:
                    - First argument is the `output_id`
@@ -70,8 +70,14 @@ Let's add a `yolov5` object detection operator, that you can [find as an example
            frame = dora_input["value"].to_numpy().reshape((CAMERA_HEIGHT, CAMERA_WIDTH, 3))
            frame = frame[:, :, ::-1]  # OpenCV image (BGR to RGB)
            results = self.model(frame)  # includes NMS
-           arrays = pa.array(np.array(results.xyxy[0].cpu()).ravel())
-           send_output("bbox", arrays, dora_input["metadata"])
+           # Process results
+           boxes = np.array(results[0].boxes.xyxy.cpu())
+           conf = np.array(results[0].boxes.conf.cpu())
+           label = np.array(results[0].boxes.cls.cpu())
+           # concatenate them together
+           arrays = np.concatenate((boxes, conf[:, None], label[:, None]), axis=1)
+
+           send_output("bbox", pa.array(arrays.ravel()), dora_input["metadata"])
            return DoraStatus.CONTINUE
    ```
 
@@ -124,7 +130,7 @@ Let's add a `yolov5` object detection operator, that you can [find as an example
            bbox: object_detection/bbox
    ```
 
-   In this case, we have connected the `webcam/image` output to the `image` input of yolov5. `yolov5/bbox` is then connected to the `plot/obstacles_bbox`.
+   In this case, we have connected the `webcam/image` output to the `image` input of yolov8. `object_detection/bbox` is then connected to the `plot/obstacles_bbox`.
 
    Inputs are prefixed by the node name to be able to separate name conflicts.
 
@@ -138,7 +144,5 @@ Let's add a `yolov5` object detection operator, that you can [find as an example
    <p align="center">
        <img src="/img/webcam_yolov5.png" width="800"/>
    </p>
-
-   > For more information on `yolov5`, go on [our `yolov5` detail page](/docs/nodes_operators/yolov5_op)
 
    The plot will show object detected in the image as bounding box with a label and a confidence score.

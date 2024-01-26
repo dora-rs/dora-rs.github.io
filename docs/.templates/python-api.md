@@ -27,7 +27,7 @@ There is currently 4 event types that the on_event method receives:
 
 ### `send_output`
 
-To send an output from the operator, use `send_output: Callable[[str, bytes | pa.Array, dict], None]` input method:
+To send an output from the operator, use `send_output: Callable[[str, pa.Array, dict], None]` input method:
 
 - the first argument is the `output_id` as defined in your dataflow.
 - the second argument is the data as either bytes or pyarrow.Array for zero copy.
@@ -40,14 +40,12 @@ To send an output from the operator, use `send_output: Callable[[str, bytes | pa
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from typing import Callable, Optional
 
-import cv2
 import numpy as np
 import pyarrow as pa
-import torch
 
 from dora import DoraStatus
+from ultralytics import YOLO
 
 pa.array([])
 
@@ -61,7 +59,7 @@ class Operator:
     """
 
     def __init__(self):
-        self.model = torch.hub.load("ultralytics/yolov5", "yolov5n")
+        self.model = YOLO("yolov8n.pt")
 
     def on_event(
         self,
@@ -70,7 +68,7 @@ class Operator:
     ) -> DoraStatus:
         """Handle image
         Args:
-            dora_input (dict) containing the "id", "data", and "metadata"
+            dora_input (dict) containing the "id", value, and "metadata"
             send_output Callable[[str, bytes | pa.Array, Optional[dict]], None]:
                 Function for sending output to the dataflow:
                 - First argument is the `output_id`
@@ -79,18 +77,20 @@ class Operator:
                 e.g.: `send_output("bbox", pa.array([100], type=pa.uint8()), dora_event["metadata"])`
         """
         if dora_event["type"] == "INPUT":
-            frame = (
-                dora_event["value"]
-                .to_numpy()
-                .reshape((CAMERA_HEIGHT, CAMERA_WIDTH, 3))
-            )
-            frame = frame[:, :, ::-1]  # OpenCV image (BGR to RGB)
-            results = self.model(frame)  # includes NMS
-            arrays = pa.array(
-                np.array(results.xyxy[0].cpu()).ravel().view(np.uint8)
-            )
-            send_output("bbox", arrays, dora_event["metadata"])
-            return DoraStatus.CONTINUE
+
+
+        frame = dora_input["value"].to_numpy().reshape((CAMERA_HEIGHT, CAMERA_WIDTH, 3))
+        frame = frame[:, :, ::-1]  # OpenCV image (BGR to RGB)
+        results = self.model(frame)  # includes NMS
+        # Process results
+        boxes = np.array(results[0].boxes.xyxy.cpu())
+        conf = np.array(results[0].boxes.conf.cpu())
+        label = np.array(results[0].boxes.cls.cpu())
+        # concatenate them together
+        arrays = np.concatenate((boxes, conf[:, None], label[:, None]), axis=1)
+
+        send_output("bbox", pa.array(arrays.ravel()), dora_input["metadata"])
+        return DoraStatus.CONTINUE
 ```
 
 > For Python, we recommend to allocate the operator on a single runtime. A runtime will share the same GIL with several operators making those operators run almost sequentially. See: [https://docs.rs/pyo3/latest/pyo3/marker/struct.Python.html#deadlocks](https://docs.rs/pyo3/latest/pyo3/marker/struct.Python.html#deadlocks)
