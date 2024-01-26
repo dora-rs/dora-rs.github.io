@@ -10,21 +10,20 @@ Currently exported metrics **per node**:
 - [x] Memory usage
 - [x] Disk usage
 
-If you are using an NVIDIA GPU, we also retrieve the data from `nvml`, which include **per node**:
+If you are using an NVIDIA GPU, we will include **per node**:
 
 - [x] GPU memory usage
 
 ## Future Metrics
 
-- [ ] Battery level and usage
-- [ ] Global CPU, Memory, Disk usage
-- [ ] GPU power usage
-- [ ] GPU utilization
-- [ ] Temperature of CPU, GPU
+- [ ] Battery level and power usage.
+- [ ] Global CPU, GPU, RAM, GPU RAM, Disk usage.
+- [ ] Temperature of CPU, GPU.
+- [ ] Power usage of CPU, GPU.
 
-## InfluxDB, telegraf
+## InfluxDB and telegraf backend
 
-To use dora with InfluxDB, just install ["telegraf"](https://docs.influxdata.com/telegraf/v1/install/)
+To use dora with InfluxDB, just install [`telegraf`](https://docs.influxdata.com/telegraf/v1/install/)
 
 And launch it as a background task as follow:
 

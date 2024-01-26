@@ -12,7 +12,7 @@ We're not using any backend for archiving logs yet! We're closely watching opent
 
 We are planning to improve the integration of logs with opentelemetry-logs and so this feature is still a bit experimental.
 
-If you want to have a realtime feed of your logs, you can also use experimentally the following features:
+If you want to have a realtime feed of your logs, you can also use experimentally the following command:
 
 ```bash
 watch -n 0.1 tail -n 20 /tmp/<DATAFLOW_ID>-<NODE_ID>.txt
