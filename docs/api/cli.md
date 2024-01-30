@@ -98,10 +98,10 @@ Options:
 ```
 Show logs of a given dataflow and node
 
-Usage: dora logs <DATAFLOW> <NODE>
+Usage: dora logs [DATAFLOW] <NODE>
 
 Arguments:
-  <DATAFLOW>  
+  [DATAFLOW]  
   <NODE>      
 
 Options:

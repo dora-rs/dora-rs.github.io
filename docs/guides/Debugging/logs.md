@@ -3,7 +3,15 @@
 To access logs you need to use:
 
 ```bash
-dora logs <DATAFLOW_ID or DATAFLOW_NAME> <NODE_ID>
+dora logs [DATAFLOW] <NODE>
+```
+
+The dataflow ID is optional.
+
+An example command is the following:
+
+```bash
+dora logs webcam
 ```
 
 This enables us to retrieve logs locally or from a remote machine.
