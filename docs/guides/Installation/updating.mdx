@@ -16,8 +16,6 @@ pip install dora-rs --upgrade
 
 ```bash
 cargo install dora-cli
-cargo install dora-coordinator
-cargo install dora-daemon
 pip install dora-rs --upgrade
 ```
 
@@ -26,10 +24,8 @@ pip install dora-rs --upgrade
 ```bash
 ## Go to dora local repository
 cd dora
-cargo build --release --all
+cargo build --release -p dora-cli
 
 ## Python API
-cd apis/python/node
-maturin develop --release
-cd ../../..
+maturin develop -m apis/python/node/Cargo.toml --release
 ```

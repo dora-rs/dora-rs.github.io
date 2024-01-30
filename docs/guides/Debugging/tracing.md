@@ -4,7 +4,7 @@ You can easily integrate jaeger tracing by providing `DORA_JAEGER_TRACING` envir
 
 ```bash
 export DORA_JAEGER_TRACING=172.17.0.1:6831 # Jaeger backend address
-dora up 
+dora up
 dora start dataflow.yml
 ```
 

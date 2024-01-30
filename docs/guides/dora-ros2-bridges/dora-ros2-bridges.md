@@ -9,7 +9,6 @@ One of the main issue with ROS2 is the complex build system. It would have been 
 
 Current robotic community uses a lot of ROS2 for building robots. It's hard for them to switch entirely from ROS2. Building easy-to-use bridge for ROS 2 helps provide a simpler way to integrate and transition projects to/from dora. This also makes it easy to reuse ROS2 sensor node that does not provide any other API.
 
-
 ## Getting Started in Python
 
 The following example can operate a simulation of the ROS2 turtlebot using dora.
@@ -35,13 +34,13 @@ topic_qos = dora.experimental.ros2_bridge.Ros2QosPolicies(
 
 # Create a publisher to cmd_vel topic
 turtle_twist_topic = ros2_node.create_topic(
-    "/turtle1/cmd_vel", "geometry_msgs::Twist", topic_qos
+    "/turtle1/cmd_vel", "geometry_msgs/Twist", topic_qos
 )
 twist_writer = ros2_node.create_publisher(turtle_twist_topic)
 
 # Create a listener to pose topic
 turtle_pose_topic = ros2_node.create_topic(
-    "/turtle1/pose", "turtlesim::Pose", topic_qos
+    "/turtle1/pose", "turtlesim/Pose", topic_qos
 )
 pose_reader = ros2_node.create_subscription(turtle_pose_topic)
 

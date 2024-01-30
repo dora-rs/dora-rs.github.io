@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
   <TabItem value="linux" label="Linux">
 
 ```bash
-export DORA_VERSION=v0.3.0 # Check for the latest release
+export DORA_VERSION=v0.3.2 # Check for the latest release
 export ARCHITECTURE=$(uname -m)
 wget https://github.com/dora-rs/dora/releases/download/${DORA_VERSION}/dora-${DORA_VERSION}-${ARCHITECTURE}-Linux.zip
 unzip dora-${DORA_VERSION}-${ARCHITECTURE}-Linux.zip
@@ -29,7 +29,7 @@ dora --help
   <TabItem value="macos" label="MacOS">
 
 ```bash
-export DORA_VERSION=v0.3.0 # Check for the latest release
+export DORA_VERSION=v0.3.2 # Check for the latest release
 export ARCHITECTURE=$(uname -m)
 wget https://github.com/dora-rs/dora/releases/download/${DORA_VERSION}/dora-${DORA_VERSION}-${ARCHITECTURE}-macOS.zip
 unzip dora-${DORA_VERSION}-${ARCHITECTURE}-macOS.zip
@@ -42,7 +42,7 @@ dora --help
   <TabItem value="windows" label="Windows">
 
 ```bash
-set DORA_VERSION=v0.3.0 # Check for the latest release
+set DORA_VERSION=v0.3.2 # Check for the latest release
 set ARCHITECTURE=x86_64
 wget https://github.com/dora-rs/dora/releases/download/%DORA_VERSION%/dora-%DORA_VERSION%-%ARCHITECTURE%-Windows.zip
 unzip dora-%DORA_VERSION%-%ARCHITECTURE%-Windows.zip
@@ -59,9 +59,6 @@ dora --help
 
 ```bash
 cargo install dora-cli
-alias dora='dora-cli'
-cargo install dora-coordinator
-cargo install dora-daemon
 pip install dora-rs
 
 dora --help
@@ -70,17 +67,14 @@ dora --help
 ## Source
 
 ```bash
-## dora, dora-coordinator, dora-daemon
+## dora binary
 git clone https://github.com/dora-rs/dora.git
 cd dora
-cargo build --release --all
+cargo build --release -p dora-cli
 PATH=$PATH:$(pwd)/target/release
-alias dora='dora-cli'
 
 ## Python API
-cd apis/python/node
-maturin develop --release
-cd ../../..
+maturin develop -m apis/python/node/Cargo.toml
 
 dora --help
 ```

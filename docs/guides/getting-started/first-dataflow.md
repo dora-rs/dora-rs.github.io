@@ -37,15 +37,10 @@
     ```
     In this example, the output is going to be:
     ```bash
-    ─────┬────────────────────────────────────────────────────────
-         │ Logs from custom-node_1.
-    ─────┼────────────────────────────────────────────────────────
-       1 │ Node received:
-       2 │     id: tick,
-       3 │     value: None,
-       4 │     metadata: {'open_telemetry_context': ''}
-       5 │ 
-    ─────┴────────────────────────────────────────────────────────
+    Node received:
+        id: tick,
+        value: 0 nulls,
+        metadata: {'open_telemetry_context': ''}
     ```
 6. Stop your dataflow
     ```bash
