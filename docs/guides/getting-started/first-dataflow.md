@@ -33,7 +33,7 @@
 
 5. You can check the logs with:
     ```bash
-    dora logs first-dataflow custom-node_1
+    dora logs custom-node_1
     ```
     In this example, the output is going to be:
     ```bash
