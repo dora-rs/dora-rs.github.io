@@ -33,7 +33,6 @@ Let's add a `yolov8` object detection operator, that you can [find as an example
    CAMERA_WIDTH = 640
    CAMERA_HEIGHT = 480
 
-
    class Operator:
        def __init__(self):
            self.model = YOLO("yolov8n.pt")
