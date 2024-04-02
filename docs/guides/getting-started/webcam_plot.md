@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # Webcam Plot
 
 This example will launch a webcam plot stream.
@@ -7,9 +11,9 @@ This example will launch a webcam plot stream.
 2. Download two pre-implemted operators from our repository
 
    ```bash
-   wget https://raw.githubusercontent.com/dora-rs/dora/v0.3.2/examples/python-operator-dataflow/webcam.py
-   wget https://raw.githubusercontent.com/dora-rs/dora/v0.3.2/examples/python-operator-dataflow/plot.py
-   wget https://raw.githubusercontent.com/dora-rs/dora/v0.3.2/examples/python-operator-dataflow/utils.py
+   wget raw.githubusercontent.com/dora-rs/dora/v0.3.2/examples/python-operator-dataflow/webcam.py
+   wget raw.githubusercontent.com/dora-rs/dora/v0.3.2/examples/python-operator-dataflow/plot.py
+   wget raw.githubusercontent.com/dora-rs/dora/v0.3.2/examples/python-operator-dataflow/utils.py
    ```
 
 3. Create a new `dataflow.yml` file or replace the existing file with the following nodes:
