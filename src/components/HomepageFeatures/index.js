@@ -97,7 +97,7 @@ const FeatureList = [
         architecture!
       </Translate>
     ),
-    href: "docs/guides/support-table",
+    href: "docs/guides/support-matrix",
   },
   {
     title: translate({
