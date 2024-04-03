@@ -21,7 +21,15 @@ If you are using an NVIDIA GPU, we will include **per node**:
 - [ ] Temperature of CPU, GPU.
 - [ ] Power usage of CPU, GPU.
 
-## InfluxDB and telegraf backend
+## Opentelemetry
+
+Opentelemetry makes it possible to monitor logs, traces, and metrics with the same abstraction in a language agnostic and backend agnostic.
+
+<p align="center">
+    <img src="/img/opentelemetry.png" width="80%"/>
+</p>
+
+## Example: InfluxDB
 
 To use dora with InfluxDB, just install [`telegraf`](https://docs.influxdata.com/telegraf/v1/install/)
 
@@ -30,3 +38,9 @@ And launch it as a background task as follow:
 ```bash
 telegraf --config <CONFIG> # ex: https://eu-central-1-1.aws.cloud2.influxdata.com/api/v2/telegrafs/0c25fb61
 ```
+
+## Result
+
+<p align="center">
+    <img src="/img/influxdb.png" width="100%"/>
+</p>
