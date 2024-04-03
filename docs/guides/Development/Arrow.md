@@ -11,13 +11,12 @@ import pyarrow as pa
 
 ## ...
 
-received_data = dora_event["value"]
-assert isinstance(received_data, pa.Array)
-assert isinstance(received_data.to_pylist(), list)
-assert isinstance(received_data.to_numpy(), np.ndarray) # Zero-Copy Read Only
-assert isinstance(received_data.to_pandas(), pd.Series)
+arrow_array = dora_event["value"]
+list = arrow_array.to_pylist()
+numpy_array = arrow_array.to_numpy() # Zero-Copy Read Only
+pandas_series = arrow_array.to_pandas()
 
-send_output(pa.array([]))
+send_output("topic", arrow_array)
 ```
 
 <p align="center">
