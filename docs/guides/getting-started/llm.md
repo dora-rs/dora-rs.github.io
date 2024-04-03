@@ -116,13 +116,13 @@ dora up
 dora start dataflow.yml --attach
 ```
 
-## Speech to text
+## `record` speech to text
 
 The keyboard will record every key input of the keyboard.
 
 If the keyboard receive submit the keyword `record`, the microphone is going to be triggered and the audio is going to be transcripted using OpenAI whisper.
 
-## **Change** Code
+## `change` source node
 
 The code modification flow works by first submitting an instruction with the keyword `change`. The instruction is then going to be passed on the vectorDB to retrieve the closest node source code for it to be changed.
 
@@ -132,13 +132,13 @@ This later triggers a hot-reloading sequence for the node to be reloaded.
 
 The end result should correspond to the instruction.
 
-## **Ask** a question to the assistant
+## `ask` a question to the assistant
 
 You can ask a question to the assistant by submitting the keyword `ask`.
 
 The question is then going to be passed to the LLM which will reply in the window.
 
-## **Send** a message directly into the dataflow
+## `send` a message to the dataflow
 
 You can also send a message directly to the dataflow by using the keyword `send` and then specifying the data that you want set.
 
