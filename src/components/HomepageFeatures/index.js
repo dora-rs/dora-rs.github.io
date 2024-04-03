@@ -79,7 +79,7 @@ const FeatureList = [
         Get logs, traces and metrics through our cli and opentelemetry!
       </Translate>
     ),
-    href: "docs/guides/debugging/logs",
+    href: "docs/guides/Debugging/logs",
   },
   {
     title: translate({
@@ -97,7 +97,7 @@ const FeatureList = [
         architecture!
       </Translate>
     ),
-    href: "docs/guides/support-matrix",
+    href: "docs/guides/support-table",
   },
   {
     title: translate({
