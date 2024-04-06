@@ -1,6 +1,12 @@
 # Logs
 
-To access logs you need to use:
+To access logs you can check the out folder:
+
+```bash
+cat out/<DATAFLOW_ID>/<NODE_ID>.txt
+```
+
+You can also use:
 
 ```bash
 dora logs [DATAFLOW] <NODE>
@@ -23,5 +29,5 @@ We are planning to improve the integration of logs with opentelemetry-logs and s
 If you want to have a realtime feed of your logs, you can also use experimentally the following command:
 
 ```bash
-watch -n 0.1 tail -n 20 /tmp/<DATAFLOW_ID>-<NODE_ID>.txt
+watch -n 0.1 tail -n 20 /out/<DATAFLOW_ID>/<NODE_ID>.txt
 ```

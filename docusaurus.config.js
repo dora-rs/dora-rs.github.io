@@ -218,14 +218,14 @@ const config = {
             items: [
               {
                 label: "Discord",
-                href: "https://discord.gg/DXJ6edAtym"
+                href: "https://discord.gg/DXJ6edAtym",
               },
               {
                 label: "Github Discussions",
-                href: "https://github.com/orgs/dora-rs/discussions"
-              }
-            ]
-          }
+                href: "https://github.com/orgs/dora-rs/discussions",
+              },
+            ],
+          },
           //    {
           //    title: "Community",
           //    items: [
@@ -271,7 +271,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ['rust'],
+        additionalLanguages: ["rust"],
       },
     }),
 };

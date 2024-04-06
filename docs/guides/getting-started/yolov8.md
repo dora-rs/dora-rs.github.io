@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # Yolov8
 
 ## Making the video stream intelligent
@@ -7,6 +11,8 @@ Let's add a `yolov8` object detection operator, that you can [find as an example
 1. Install required dependencies
 
    ```bash
+   conda create -n example_env python=3.11
+   conda activate test_env
    pip install -r https://raw.githubusercontent.com/dora-rs/dora/v0.3.2/examples/python-operator-dataflow/requirements.txt
    ```
 

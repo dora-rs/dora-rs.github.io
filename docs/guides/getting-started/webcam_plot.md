@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # Webcam Plot
 
 This example will launch a webcam plot stream.
