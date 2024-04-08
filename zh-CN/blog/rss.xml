@@ -4,7 +4,7 @@
         <title>dora-rs Blog</title>
         <link>https://dora.carsmos.ai/zh-CN/blog</link>
         <description>dora-rs Blog</description>
-        <lastBuildDate>Mon, 08 Apr 2024 15:23:26 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 08 Apr 2024 20:41:47 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -12,7 +12,7 @@
             <title><![CDATA[Rust-Python FFI]]></title>
             <link>https://dora.carsmos.ai/zh-CN/blog/rust-python</link>
             <guid>https://dora.carsmos.ai/zh-CN/blog/rust-python</guid>
-            <pubDate>Mon, 08 Apr 2024 15:23:26 GMT</pubDate>
+            <pubDate>Mon, 08 Apr 2024 20:41:47 GMT</pubDate>
             <description><![CDATA[Rust-Python FFI.]]></description>
             <content:encoded><![CDATA[<p>Writing a rust library that is usable in multiple languages is not easy...</p>
 <p>This blogpost recollects things I have encountered while building <a href="https://github.com/webonnx/wonnx" target="_blank" rel="noopener noreferrer">wonnx</a> and <a href="https://github.com/dora-rs/dora" target="_blank" rel="noopener noreferrer">dora-rs</a>. I am going to use Rust-Python FFI through <code>pyo3</code> as an example. You can then extrapolate those issues to other languages FFI.</p>
