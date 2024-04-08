@@ -132,6 +132,10 @@ This later triggers a hot-reloading sequence for the node to be reloaded.
 
 The end result should correspond to the instruction.
 
+<p align="center">
+    <img src="/img/RAG.svg" width="800"/>
+</p>
+
 ## `ask` a question to the assistant
 
 You can ask a question to the assistant by submitting the keyword `ask`.
