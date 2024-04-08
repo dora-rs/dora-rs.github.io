@@ -8,7 +8,7 @@ This example will launch a webcam plot stream.
 
 1. Make sure to have a webcam and cv2 install via: `pip install numpy opencv-python pyarrow`
 
-2. Download two pre-implemted operators from our repository
+2. Download two pre-implemented operators from our repository in a new folder `webcam_project`
 
    ```bash
    wget https://raw.githubusercontent.com/dora-rs/dora/v0.3.2/examples/python-operator-dataflow/webcam.py
