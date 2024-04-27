@@ -309,7 +309,7 @@ function HomepageHeader() {
             <p className="hero__subtitle">{siteConfig.tagline}</p>
             <p><Translate id="homepage.main.paragraph.first">
               In 2023, AI is booming! Robotic framework however hasn't
-              changed much in years... This is why we create dora-rs! dora-rs is a new robotic
+              changed much in years... This is why we created dora-rs! dora-rs is a new robotic
               framework that brings modernity into robotic application.
             </Translate> </p>
             <p><Translate id="homepage.main.paragraph.second">
