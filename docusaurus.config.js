@@ -53,7 +53,6 @@ const config = {
               (item) =>
                 // This makes sure that the landing pages are not duplicated in the sidebars
                 item.id !== "guides/readme" &&
-                item.id !== "micro_tutorials/readme" &&
                 item.id !== "references/readme" &&
                 item.id !== "showcase/readme"
             );
@@ -100,13 +99,6 @@ const config = {
             sidebarId: "guides",
             position: "left",
             label: "Guides",
-            to: "",
-          },
-          {
-            type: "docSidebar",
-            sidebarId: "micro_tutorials",
-            position: "left",
-            label: "Micro Tutorials",
             to: "",
           },
           {

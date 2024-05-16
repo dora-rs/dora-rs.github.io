@@ -37,9 +37,6 @@ sidebar_position: 1
    Your node is very bare bones right now but here is an explanation of what is going on in it by default.  
    - This section imports and initializes the node.
    ```python
-   #!/usr/bin/env python3
-   # -*- coding: utf-8 -*-
-
    from dora import Node
 
    node = Node()
@@ -60,10 +57,8 @@ sidebar_position: 1
 
    Since this is the talker node we are going to make it send an output to another node. To accomplish this we only need to add one line.
    ```python
-     #!/usr/bin/env python3
-     # -*- coding: utf-8 -*-
-
      from dora import Node
+     import pyarrow as pa
 
      node = Node()
 
@@ -75,20 +70,17 @@ sidebar_position: 1
          value: {event["value"]},
          metadata: {event["metadata"]}"""
          )
-         node.send_output("speech", b"Hello World", None) # add this line
+         node.send_output("speech", pa.array(["Hello World"])) # add this line
    ```
    This line is looks complex so lets break it down.  
-   - We are using the `send_output` method to send a string as bytes to the listener node. 
+   - We are using the `send_output` method to send a string as an arrow array to the listener node. 
    - The first argument is the id of the output we want to send to be referenced later in the dataflow. 
-   - The second argument is the value of the output with a b in front to specify that it is to be sent in bytes. 
-   - The third argument is the metadata of the output which is not necessary for this tutorial.
+   - The second argument, `pa.array(["Hello World"])`, uses Apache Arrow to handle the data. Here, `pa.array` creates an Arrow array from the list `["Hello World"]`.
+   - The third argument for metadata is omitted here, indicating that no additional data about the transmission is necessary for this tutorial.
 5. Adjust the listener node  
    
-   Change the name of node_1 to listener.  For this file we need to do a bit more than we needed to in the talker file.
+   Change the name of node_1 to listener.
    ```python
-     #!/usr/bin/env python3
-     # -*- coding: utf-8 -*-
-
      from dora import Node
      import pyarrow as pa
 
@@ -96,18 +88,14 @@ sidebar_position: 1
 
      event = node.next()
      if event["type"] == "INPUT":
-         message_list = event["value"].to_pylist()
-         message_bytes = bytes(message_list)
-         formatted_message = message_bytes.decode("utf-8")
+         message = event["value"][0].as_py()
          print(
-             f"""I heard {formatted_message}"""
+             f"""I heard {message}"""
          )
    ```
-   Let's break this down line by line.  
-   - `message_list = event["value"].to_pylist()` This line converts the value of the input into a python list. Since the Apache Arrow data is not a native python format we need to convert it to one before we can manipulate it in any other way with python.  
-   - `message_bytes = bytes(message_list)` The message list is a list of integers, since it was originally sent as bytes we need to convert it back to bytes before it can be decoded.
-   - `formatted_message = message_bytes.decode("utf-8")` The message bytes are now a bytes object, we need to decode it to a string before we can print it out.
-   - `f"""I heard {formatted_message}"""` This line is a python string format. It is a way to insert variables into a string. In this case we are inserting the `formatted_message` variable into the string.
+   Let's break down the key line in this script.  
+   - The `event["value"]` contains an Apache Arrow array, which is a structured way to handle complex data efficiently. By accessing `[0]`, we retrieve the first element of this array.
+   - The `.as_py()` method converts the Arrow element directly into a native Python data type.  
 
 
 6. Running the dataflow  
