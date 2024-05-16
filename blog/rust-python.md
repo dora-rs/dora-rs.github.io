@@ -503,5 +503,5 @@ I'm also going to present this FFI work at [GOSIM Workshop in Shanghai on the 23
 
 For more info on `dora-rs`:
 - Github: https://github.com/dora-rs/dora
-- Website: https://dora.carsmos.ai/
+- Website: https://www.dora-rs.ai/
 - Discord: https://discord.gg/XqhQaN8P 
