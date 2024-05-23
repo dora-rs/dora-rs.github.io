@@ -299,7 +299,7 @@ function HomepageHeader() {
         }}
       >
         <div className="margin-right--md margin-bottom--xl">
-          <img src="/img/logo.svg" width="400"></img>
+          <img src="/img/logo.png" width="400"></img>
           <div
             style={{
               width: "100%",
