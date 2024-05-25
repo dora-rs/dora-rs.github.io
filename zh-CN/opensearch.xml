@@ -4,8 +4,8 @@
   <ShortName>dora-rs</ShortName>
   <Description>Search dora-rs</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">https://dora.carsmos.ai/zh-CN/img/favicon.ico</Image>
-  <Url type="text/html" method="get" template="https://dora.carsmos.ai/zh-CN/search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://dora.carsmos.ai/zh-CN/opensearch.xml" />
-  <moz:SearchForm>https://dora.carsmos.ai/zh-CN/</moz:SearchForm>
+  <Image width="16" height="16" type="image/x-icon">https://dora-rs.ai/zh-CN/img/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://dora-rs.ai/zh-CN/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://dora-rs.ai/zh-CN/opensearch.xml" />
+  <moz:SearchForm>https://dora-rs.ai/zh-CN/</moz:SearchForm>
 </OpenSearchDescription>
