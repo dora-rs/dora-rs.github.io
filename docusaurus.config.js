@@ -16,7 +16,7 @@ const config = {
   themes: ["@docusaurus/theme-mermaid"],
 
   // Set the production url of your site here
-  url: "https://dora.carsmos.ai",
+  url: "https://dora-rs.ai",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
