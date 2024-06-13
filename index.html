@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    // Check if the current hostname is dora.carsmos.ai
+    if (window.location.hostname === "dora.carsmos.ai") {
+      // Extract the pathname
+      var pathname = window.location.pathname;
+      
+      // Redirect to the corresponding path on dora-rs.ai
+      window.location.href = "https://dora-rs.ai" + pathname;
+    }
+  </script>
+</head>
+<body>
+  <p>If you are not redirected automatically, follow this <a id="redirect-link" href="https://dora-rs.ai/docs/guides">link to the guide</a>.</p>
+  <script>
+    // Update the link in case JavaScript didn't execute before
+    document.getElementById("redirect-link").href = "https://dora-rs.ai" + window.location.pathname;
+  </script>
+</body>
+</html>
