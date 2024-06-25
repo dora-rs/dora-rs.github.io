@@ -136,13 +136,3 @@ int main()
       ```
       Also: On Windows, the output file should have an `.exe` extension: `--output build/c_node.exe`
 - Repeat the previous step for the `sink.c` executable
-
-- Link it in your graph as:
-
-```yaml
-- id: c_sink
-  custom:
-    source: build/c_sink
-    inputs:
-      counter: runtime-node/c_operator/counter
-```
