@@ -46,7 +46,7 @@ const sidebars = {
   nodes_operators: [
     {
       type: "category",
-      label: "Nodes and Operators",
+      label: "Nodes Hub",
       // link: { type: "doc", id: "operators/readme" },
       items: [
         {
