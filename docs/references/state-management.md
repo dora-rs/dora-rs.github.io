@@ -35,6 +35,7 @@ To share state between operators, dora provides access to a node-local key-value
 ```rust
 fn kvs_write(key: &str, value: Vec<u8>)
 ```
+
 ```rust
 fn kvs_read(key: &str) -> Vec<u8>
 ```
@@ -44,9 +45,8 @@ Todo:
 - Consistency?
 - Anna?
 
+## Node
 
-## Custom Nodes
+Nodes have full control over the execution, so they can implement their own state management. Shared state can be accessed through the `kvs_read` and `kvs_write` functions of the dora library, which are equivalent to the respective functions provided by the dora runtime.
 
-Custom nodes have full control over the execution, so they can implement their own state management. Shared state can be accessed through the `kvs_read` and `kvs_write` functions of the dora library, which are equivalent to the respective functions provided by the dora runtime.
-
-Since custom nodes cannot use the recovery feature of the dora runtime, the `save_state`/`restore_state` functions are not available for them.
+Since nodes cannot use the recovery feature of the dora runtime, the `save_state`/`restore_state` functions are not available for them.

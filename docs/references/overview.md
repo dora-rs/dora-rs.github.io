@@ -16,14 +16,7 @@ The following main components exist:
 
 There are two ways to implement an operation in dora: Either as a dora operator, or as a custom nodes. Both approaches have their advantages and drawbacks, as explained below. In general, it is recommended to create dora operators and only use custom nodes when necessary.
 
-Operators have the following advantages:
-
-- They can use a wide range of advanced functionality provided by the dora runtime nodes. This includes special scheduling strategies and features such as deadlines.
-- They are _light-weight_, so they only occupy minimal amounts of memory. This makes it possible to run thousands of operators on the same machine.
-- They can use runtime-managed state storage, for robustness or for sharing state with other operators.
-- They _share the address space_ with other operators on the same node, which makes communication much faster.
-
-Custom nodes provide a different set of advantages:
+Nodes provide a different set of advantages:
 
 - Each node is a separate, isolated process, which can be important for security-critical operations.
 - They support pinned resources. For example, a CPU core can be pinned to a custom node through the dataflow configuration file.
