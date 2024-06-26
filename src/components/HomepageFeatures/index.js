@@ -56,9 +56,9 @@ const FeatureList = [
     description: (
       <>
         <Translate id="homepage.features.prototyping.text">
-          Use readily available nodes and operators from your YAML dataflow, so
-          that you don't need to bother copy-pasting boilerplate code. You can
-          also tinker live using Python!
+          Use readily available nodes from your YAML dataflow, so that you don't
+          need to bother copy-pasting boilerplate code. You can also tinker live
+          using Python!
         </Translate>
       </>
     ),

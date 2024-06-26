@@ -35,11 +35,12 @@ import ShowcaseTooltip from "./_components/ShowcaseTooltip";
 
 import styles from "./styles.module.css";
 
-const TITLE = translate({ message: "dora-rs nodes and operators" });
+const TITLE = translate({ message: "dora-rs nodes hub" });
 const DESCRIPTION = translate({
-  message: "List of operators already implemented by the community",
+  message: "List of Nodes already implemented by the community",
 });
-const SUBMIT_URL = "https://discord.com/channels/1146393916472561734/1148336336294662196";
+const SUBMIT_URL =
+  "https://discord.com/channels/1146393916472561734/1148336336294662196";
 
 type UserState = {
   scrollTopPosition: number;
@@ -126,7 +127,7 @@ function ShowcaseHeader() {
       <p>{DESCRIPTION}</p>
       <Link className="button button--primary" to={SUBMIT_URL}>
         <Translate id="showcase.header.button">
-          🙏 Please add your Operators or Nodes
+          🙏 Please add your Nodes
         </Translate>
       </Link>
     </section>
