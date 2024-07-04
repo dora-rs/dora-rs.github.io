@@ -6,20 +6,20 @@ sidebar_position: 3
 
 ## Making the video stream intelligent
 
-Let's add a `yolov8` object detection operator, that you can [find as an example](https://raw.githubusercontent.com/dora-rs/dora/v0.3.2/examples/python-operator-dataflow/object_detection.py). This will help us detect object as bounding boxes within the webcam stream.
+Let's add a `yolov8` object detection operator, that you can [find as an example](https://raw.githubusercontent.com/dora-rs/dora/v0.3.5/examples/python-operator-dataflow/object_detection.py). This will help us detect object as bounding boxes within the webcam stream.
 
 1. Install required dependencies
 
    ```bash
    conda create -n example_env python=3.11
    conda activate test_env
-   pip install -r https://raw.githubusercontent.com/dora-rs/dora/v0.3.2/examples/python-operator-dataflow/requirements.txt
+   pip install -r https://raw.githubusercontent.com/dora-rs/dora/v0.3.5/examples/python-operator-dataflow/requirements.txt
    ```
 
 2. Create a new `object_detection.py` python file with the following content
 
    ```bash
-   wget https://raw.githubusercontent.com/dora-rs/dora/v0.3.2/examples/python-operator-dataflow/object_detection.py
+   wget https://raw.githubusercontent.com/dora-rs/dora/v0.3.5/examples/python-operator-dataflow/object_detection.py
    ```
 
    `object_detection.py`:
@@ -90,7 +90,7 @@ Let's add a `yolov8` object detection operator, that you can [find as an example
 3. Add an operator within the dataflow
 
    ```bash
-   wget https://raw.githubusercontent.com/dora-rs/dora/v0.3.2/examples/python-operator-dataflow/dataflow.yaml
+   wget https://raw.githubusercontent.com/dora-rs/dora/v0.3.5/examples/python-operator-dataflow/dataflow.yaml
    ```
 
    `dataflow.yaml`:
