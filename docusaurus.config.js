@@ -140,14 +140,14 @@ const config = {
           {
             type: "docSidebar",
             sidebarId: "nodes_operators",
-            label: "Nodes and Operators",
+            label: "Nodes Hub",
             position: "left",
           },
           //{
           //type: "docSidebar",
           //sidebarId: "operators",
           //position: "left",
-          //label: "Nodes and Operators",
+          //label: "Nodes",
           //},
           { to: "/blog", label: "Blog", position: "left" },
           {

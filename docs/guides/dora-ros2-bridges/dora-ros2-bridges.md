@@ -66,8 +66,8 @@ for i in range(500):
 
         # In this case ROS2 event
         case "external":
-            pose = event.inner()[0].as_py()
-            dora_node.send_output("turtle_pose", event.inner())
+            pose = event["value"][0].as_py()
+            dora_node.send_output("turtle_pose", event["value"])
 ```
 
 ## Getting started in Rust

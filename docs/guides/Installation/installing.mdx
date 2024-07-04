@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
   <TabItem value="linux" label="Linux">
 
 ```bash
-export DORA_VERSION=v0.3.2 # Check for the latest release
+export DORA_VERSION=v0.3.5 # Check for the latest release
 export ARCHITECTURE=$(uname -m)
 wget https://github.com/dora-rs/dora/releases/download/${DORA_VERSION}/dora-${DORA_VERSION}-${ARCHITECTURE}-Linux.zip
 unzip dora-${DORA_VERSION}-${ARCHITECTURE}-Linux.zip
@@ -29,7 +29,7 @@ dora --help
   <TabItem value="macos" label="MacOS">
 
 ```bash
-export DORA_VERSION=v0.3.2 # Check for the latest release
+export DORA_VERSION=v0.3.5 # Check for the latest release
 export ARCHITECTURE=$(uname -m)
 wget https://github.com/dora-rs/dora/releases/download/${DORA_VERSION}/dora-${DORA_VERSION}-${ARCHITECTURE}-macOS.zip
 unzip dora-${DORA_VERSION}-${ARCHITECTURE}-macOS.zip
@@ -42,7 +42,7 @@ dora --help
   <TabItem value="windows" label="Windows">
 
 ```bash
-set DORA_VERSION=v0.3.2 # Check for the latest release
+set DORA_VERSION=v0.3.5 # Check for the latest release
 set ARCHITECTURE=x86_64
 wget https://github.com/dora-rs/dora/releases/download/%DORA_VERSION%/dora-%DORA_VERSION%-%ARCHITECTURE%-Windows.zip
 unzip dora-%DORA_VERSION%-%ARCHITECTURE%-Windows.zip
@@ -85,7 +85,7 @@ dora --help
 - download both the `zip` and `whl` file corresponding to your architecture and OS.
 - Unzip the zip file and place it in your binary folder (e.g.: `$HOME/bin`).
 - Install the python wheel with pip. (e.g. `pip install 
-dora_rs-0.2.3-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl`)
+dora_rs-0.3.5-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl`)
 - Verify that dora is well installed by calling `dora --help` in your terminal.
 
 ---
