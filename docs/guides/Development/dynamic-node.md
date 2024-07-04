@@ -1,10 +1,10 @@
 # Dynamic Node
 
-Dynamic node aims to make dora development simpler by just using default python or cargo to run a node.
+Run node by calling python, jupyter or cargo. All you have to do is specify that the node is dynamic in the dataflow and specify the node id within the node code and you will be able to run the node natively without using `dora start`.
 
 ## Getting Started
 
-Let's imagine this one node example:
+You can try this mininal one node example:
 
 ```yaml
 nodes:
@@ -14,40 +14,46 @@ nodes:
       tick: dora/timer/millis/50
 ```
 
-You can paste the following in your terminal
+- By copying this dataflow on your computer, you can paste the following in your terminal:
 
 ```bash
-echo "nodes:\n  - id: node_0\n    path: dynamic\n    inputs:\n      tick: dora/timer/millis/50" > dataflow.yml
+echo -e "nodes:\n  - id: node_0\n    path: dynamic\n    inputs:\n      tick: dora/timer/millis/50" > dataflow.yaml
 ```
 
-You can use python to access it in your terminal:
+- Then starting the dataflow
+
+```bash
+dora start dataflow.yaml
+```
+
+- Then using one of the following method to start the node:
+
+### Using interactive python:
 
 ```python
->>> python3
-
+$ python
 >>> from dora import Node
-
->>> node = Node("node_0") # <-- Note that you need to specify the node id.
-
+>>> node = Node("node_0")
 >>> event = node.next()
-
->>> print(event)
-# {'metadata': {'open_telemetry_context': ''}, 'value': <pyarrow.lib.NullArray object at 0x738bbcb28460>
-# 0 nulls, 'id': 'tick', 'type': 'INPUT', 'kind': 'dora'}
+>>> event
+{'id': 'tick', 'type': 'INPUT', 'value': <pyarrow.lib.NullArray object at 0x7bda86924460>
+0 nulls, 'kind': 'dora', 'metadata': {'open_telemetry_context': ''}}
 ```
 
-You can use it in your Jupyter Notebook:
-
-<img src="/img/jupyter.png"/>
-
-## Getting started Rust
-
-You can also just use rust with
+### Using Python
 
 ```bash
-cargo run -p my_node
+$ python my_script.py # <-- node = Node("node_0")
+# Log will appear in your terminal
 ```
 
-### Exit behaviour
+### Using Rust
 
-Exiting will not close the node.
+```bash
+$ cargo run my_node # <-- DoraNode::init_from_node_id(node_id);
+# Log will appear in your terminal
+```
+
+### Using a jupyter notebook
+
+![python](https://raw.githubusercontent.com/dora-rs/dora-rs.github.io/833f06023329439f5c7d4b6b610c080135d6d09e/static/img/jupyter.png)
