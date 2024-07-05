@@ -333,7 +333,7 @@ function HomepageHeader() {
             <div className={styles.buttons}>
               <Link
                 className="button button--secondary button--md margin-bottom--md"
-                to="/docs/api/python-api"
+                to="https://dora-rs.ai/python-api.html"
               >
                 <Translate id="homepage.python-api.button.text">🐍 Python API</Translate>
               </Link>

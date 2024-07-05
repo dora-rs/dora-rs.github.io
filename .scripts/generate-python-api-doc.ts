@@ -1,42 +1,67 @@
-import * as childProcess from 'child_process';
-import * as path from 'path';
-import * as fs from 'fs';
+import { exec } from "child_process";
+import { rm } from "fs/promises";
 
-const templatePath = path.join(__dirname, '../docs/.templates/python-api.md');
-const targetPath = path.join(__dirname, '../docs/api/python-api.md');
-const template = fs.readFileSync(templatePath, 'utf8');
+// Define the folder and file paths
+const outDir = "out";
+const staticFile = "static/python-api.html";
 
-interface Module {
-  name: string;
-  methods: string[];
-}
-
-const modules: Module[] = [
-  { name: 'Node', methods: ['next', '__next__', 'send_output', 'dataflow_descriptor', "merge_external_events"] },
+// Define the system commands
+const commands = [
+  "pdoc dora.dora -o out",
+  "cp out/dora/dora.html static/python-api.html",
 ];
 
-let doc = template;
+// Function to execute a command and return a Promise
+const execCommand = (command: string): Promise<void> => {
+  return new Promise((resolve, reject) => {
+    exec(command, (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error executing command "${command}":`, error);
+        reject(error);
+        return;
+      }
 
-for (const module of modules) {
-  for (let i = 0; i < module.methods.length; i++) {
-    const method = module.methods[i];
+      if (stderr) {
+        console.error(
+          `Standard error output for command "${command}":`,
+          stderr
+        );
+        reject(stderr);
+        return;
+      }
 
-    const output = childProcess
-      .execSync(
-        `python -c "import dora; print(dora.${module.name}.${method}.__doc__)"`
-      )
-      .toString()
-      .split('\n');
-    output.splice(-1);
+      console.log(`Standard output for command "${command}":`, stdout);
+      resolve();
+    });
+  });
+};
 
-    doc = doc.replace(`{${module.name}.${method}}`, output.join('\n'));
+// Function to remove a directory or file if it exists
+const removeIfExists = async (path: string): Promise<void> => {
+  try {
+    await rm(path, { recursive: true, force: true });
+    console.log(`Removed ${path}`);
+  } catch (error) {
+    console.error(`Error removing ${path}:`, error);
   }
-  const output = childProcess
-    .execSync(`python -c "import dora; print(dora.${module.name}.__doc__)"`)
-    .toString()
-    .split('\n');
-  output.splice(-1);
-  doc = doc.replace(`{${module.name}}`, output.join('\n'));
-}
+};
 
-fs.writeFileSync(targetPath, doc);
+const run = async (): Promise<void> => {
+  try {
+    // Remove the output directory if it exists
+    await removeIfExists(outDir);
+
+    // Execute each command in sequence
+    for (const command of commands) {
+      await execCommand(command);
+    }
+
+    // Remove the output directory again after the commands have run
+    await removeIfExists(outDir);
+  } catch (error) {
+    console.error("Error during execution:", error);
+  }
+};
+
+// Run the main function
+run();

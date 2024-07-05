@@ -105,8 +105,7 @@ const config = {
             label: "API",
             items: [
               {
-                type: "doc",
-                docId: "api/python-api",
+                href: "https://dora-rs.ai/python-api.html", // For dev: "http://localhost:3000/python-api.html",
                 label: "Python",
               },
               {
