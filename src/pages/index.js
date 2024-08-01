@@ -324,7 +324,7 @@ function HomepageHeader() {
           <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly", flexWrap: "wrap" }}>
             <div className={styles.buttons}>
               <Link
-                className="button button--secondary button--md ma rgin-bottom--md"
+                className="button button--secondary button--md margin-bottom--md"
                 to="/docs/guides"
               >
                 <Translate id="homepage.guide.button.text">🔥 Get started</Translate>
