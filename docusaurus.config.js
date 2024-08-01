@@ -125,11 +125,11 @@
                   {
                     type: "doc",  
                     docId: "api/dataflow-config",
-                    label: "Configuration",       
+                    label: "Configuration",
                   },
                   {
                     type: "doc",
-                    docId: "api/cli",   
+                    docId: "api/cli",
                     label: "CLI",
                   },
                 ],
