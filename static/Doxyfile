@@ -1,0 +1,77 @@
+# Doxyfile 1.8.20
+
+# 项目基本信息
+PROJECT_NAME           = "我的项目"
+PROJECT_NUMBER         = "1.0"
+OUTPUT_DIRECTORY       = html
+CREATE_SUBDIRS         = NO
+OPTIMIZE_OUTPUT_FOR_C  = NO
+OPTIMIZE_OUTPUT_JAVA   = NO
+
+# 文档语言
+OUTPUT_LANGUAGE        = English
+USE_MDFILE_AS_MAINPAGE = README.md
+
+# 提取设置
+EXTRACT_ALL            = NO
+EXTRACT_PRIVATE        = NO
+EXTRACT_PACKAGE        = NO
+EXTRACT_STATIC         = NO
+EXTRACT_LOCAL_CLASSES  = NO
+EXTRACT_LOCAL_METHODS  = NO
+EXTRACT_ANON_NSPACES   = NO
+
+# 输入文件
+INPUT                  = . # 指向当前目录
+FILE_PATTERNS          = *.md # 只包括Markdown文件
+RECURSIVE              = NO
+
+# 源码浏览
+SOURCE_BROWSER         = NO
+INLINE_SOURCES         = NO
+STRIP_CODE_COMMENTS    = NO
+REFERENCED_BY_RELATION = NO
+REFERENCES_RELATION    = NO
+REFERENCES_LINK_SOURCE = NO
+USE_HTAGS              = NO
+
+# HTML输出
+GENERATE_HTML          = YES
+HTML_OUTPUT            = . # 输出到当前目录
+HTML_FILE_EXTENSION    = .html
+HTML_HEADER            = 
+HTML_FOOTER            = 
+HTML_STYLESHEET        = 
+
+# LaTeX 输出
+GENERATE_LATEX         = NO
+
+# 图形设置
+HAVE_DOT               = NO
+CLASS_DIAGRAMS         = NO
+CALL_GRAPH             = NO
+CALLER_GRAPH           = NO
+GRAPHICAL_HIERARCHY    = NO
+DIRECTORY_GRAPH        = NO
+DOT_IMAGE_FORMAT       = png
+INTERACTIVE_SVG        = NO
+
+# 其他配置
+GENERATE_TREEVIEW      = YES
+# 移除过时的配置项
+# USE_INLINE_TREES     = NO
+TOC_INCLUDE_HEADINGS   = 0
+GENERATE_TODOLIST      = NO
+GENERATE_TESTLIST      = NO
+GENERATE_BUGLIST       = NO
+GENERATE_DEPRECATEDLIST= NO
+ENABLE_PREPROCESSING   = NO
+MACRO_EXPANSION        = NO
+EXPAND_ONLY_PREDEF     = NO
+PREDEFINED             = 
+EXPAND_AS_DEFINED      =
+SKIP_FUNCTION_MACROS   = YES
+ALIASES                = 
+# 如果没有自定义样式表，可以注释掉这行
+# HTML_EXTRA_STYLESHEET = myStylesheet.css
+
