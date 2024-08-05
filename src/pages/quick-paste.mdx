@@ -1,0 +1,38 @@
+````mdx-code-block
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+
+<Tabs groupId="current-os" queryString>
+  <TabItem value="linux" label="Linux">
+
+<CodeBlock language="bash">{"curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/dora-rs/dora/main/install.sh | bash -s -- --tag 0.3.5-fix7"}</CodeBlock>
+
+  </TabItem>
+  <TabItem value="macos" label="MacOS">
+
+<CodeBlock language="bash">{"curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/dora-rs/dora/main/install.sh | bash -s -- --tag 0.3.5-fix7"}</CodeBlock>
+
+  </TabItem>
+  <TabItem value="windows" label="Windows">
+
+```bash
+set DORA_VERSION=v0.3.5 # Check for the latest release
+set ARCHITECTURE=x86_64
+wget https://github.com/dora-rs/dora/releases/download/%DORA_VERSION%/dora-%DORA_VERSION%-%ARCHITECTURE%-Windows.zip
+unzip dora-%DORA_VERSION%-%ARCHITECTURE%-Windows.zip
+pip install dora-rs==%DORA_VERSION%
+set PATH=%PATH%:%cd%
+dora --help
+```
+
+  </TabItem>
+  <TabItem value="cargo" label="Cargo and Pip">
+<CodeBlock language="bash">{"pip install dora-rs\ncargo install dora-cli --locked"}</CodeBlock>
+
+  </TabItem>
+</Tabs>
+
+
+````

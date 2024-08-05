@@ -33,6 +33,7 @@
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.0",
     "react-dom": "^18.2.0",
+    "react-player": "^2.16.0",
     "zero-md": "^2.4.0"
   },
   "devDependencies": {
