@@ -1,14 +1,7 @@
 .container {
-  display: flex;
-  flex-direction: column;
 }
 
 .row {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  row-gap: 2rem;
 }
 
 .h1 {
@@ -22,7 +15,6 @@
 
 /* Hero */
 .hero {
-  display: flex;
   justify-content: center;
   align-items: stretch;
   padding: 4rem 0;
@@ -35,10 +27,7 @@
 }
 
 .heroContainer {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  flex-shrink: 0;
   max-width: min(50rem, 100%);
 }
 
@@ -243,4 +232,11 @@
     flex: 0 1 100%;
     text-align: center;
   }
+}
+
+#my_youtube_embed {
+  -moz-box-shadow: rgba(0, 0, 0, 0.4) 3px 3px 10px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 3px 3px 10px;
+  -o-box-shadow: rgba(0, 0, 0, 0.4) 3px 3px 10px;
+  box-shadow: rgba(0, 0, 0, 0.4) 3px 3px 10px;
 }
