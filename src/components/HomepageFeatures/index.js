@@ -144,7 +144,7 @@ function Feature({ Svg, title, button, description, href }) {
 
 export default function HomepageFeatures() {
   return (
-    <section className="margin-top--lg margin-bottom--xl">
+    <section className="margin-top--xl margin-bottom--xl">
       <div className="container margin-top--lg ">
         <ul className={clsx("clean-list", styles.showcaseList)}>
           {FeatureList.map((props, idx) => (

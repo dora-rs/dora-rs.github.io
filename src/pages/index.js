@@ -291,97 +291,61 @@ function HomepageHeader() {
       },
     ],
   };
-  let height = "530px";
-  let url = "https://youtube.com/shorts/OsFjvhdEaJs";
+  let height = "590px";
+  let urls = [
+    "https://www.youtube.com/shorts/XGLy1uFMTnU",
+    "https://youtube.com/shorts/wDfQb7SBZgs",
+    "https://youtube.com/shorts/kqwIuiikyJU",
+    "https://youtube.com/shorts/O7ZQXZh0zjk",
+  ];
+  let phone = false;
   if (typeof window !== "undefined" && window.innerWidth < 960) {
-    height = "640px";
-    url = "https://youtube.com/shorts/OsFjvhdEaJs";
+    height = "670px";
+    urls = ["https://youtube.com/shorts/OsFjvhdEaJs"];
+    phone = true;
   }
 
   return (
     <header>
-      <div className="container  ">
+      <div className="container" style={{ padding: 0 }}>
         <div style={{ display: "flex" }}>
-          <div
-            className="player__wrapper"
-            style={{ height: height, position: "relative", margin: "auto" }}
-          >
-            <ReactPlayer
-              url="https://www.youtube.com/shorts/XGLy1uFMTnU"
-              className="player"
-              width="100%"
-              height="100%"
-              playing={true}
-              loop={true}
-              playsinline={true}
-              volume={0.5}
-              muted={true}
-              config={{ youtube: { playerVars: { disablekb: 1 } } }}
-            />
-          </div>
-          <div
-            className="player__wrapper"
-            style={{ height: height, position: "relative", margin: "auto" }}
-          >
-            <ReactPlayer
-              url="https://youtube.com/shorts/wDfQb7SBZgs"
-              className="player"
-              width="100%"
-              height="100%"
-              playing={true}
-              loop={true}
-              playsinline={true}
-              volume={0.5}
-              muted={true}
-              config={{ youtube: { playerVars: { disablekb: 1 } } }}
-            />
-          </div>
-          <div
-            className="player__wrapper"
-            style={{ height: height, position: "relative", margin: "auto" }}
-          >
-            <ReactPlayer
-              url="https://youtube.com/shorts/kqwIuiikyJU"
-              className="player"
-              width="100%"
-              height="100%"
-              playing={true}
-              loop={true}
-              playsinline={true}
-              volume={0.5}
-              muted={true}
-              config={{ youtube: { playerVars: { disablekb: 1 } } }}
-            />
-          </div>
-          <div
-            className="player__wrapper"
-            style={{ height: height, position: "relative", margin: "auto" }}
-          >
-            <ReactPlayer
-              url="https://youtube.com/shorts/O7ZQXZh0zjk"
-              className="player"
-              width="100%"
-              height="100%"
-              playing={true}
-              loop={true}
-              playsinline={true}
-              volume={0.5}
-              muted={true}
-              config={{ youtube: { playerVars: { disablekb: 1 } } }}
-            />
-          </div>
+          {urls.map((url) => (
+            <div
+              className="player__wrapper"
+              style={{
+                height: height,
+                position: "relative",
+                margin: "auto",
+                width: "100%",
+                aspectRatio: "auto",
+              }}
+            >
+              <ReactPlayer
+                url={url}
+                className="player"
+                width="100%"
+                height="100%"
+                playing={true}
+                loop={true}
+                playsinline={true}
+                volume={0.5}
+                muted={true}
+                config={{ youtube: { playerVars: { disablekb: 1 } } }}
+              />
+            </div>
+          ))}
         </div>
       </div>
       <div
-        className="container margin-bottom--xl margin-top--xl"
+        className="container margin-bottom--sm"
         style={{
           position: "relative",
-          bottom: height === "740px" ? "0px" : "0px",
+          bottom: !phone ? "0px" : "180px",
           left: "0",
           right: "0",
           padding: "20px",
           color: "black",
-          background: "rgba(255, 255, 255, 0.9)",
+          background: "rgba(255, 255, 255, 1)",
         }}
       >
         <p
@@ -413,7 +377,7 @@ function HomepageHeader() {
                 much in years... This is why we created dora-rs! dora-rs is a
                 new robotic framework that brings modernity into robotic
                 application.
-              </Translate>{" "}
+              </Translate>
             </p>
             <p>
               <Translate id="homepage.main.paragraph.second">
@@ -559,12 +523,19 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
+      title={`${siteConfig.title}`}
+      description="dora-rs a new robotic framework that brings modernity into robotic application."
     >
       <HomepageHeader />
       <main>
+        <Heading as="h2" className="hero__title text--center">
+          Features
+        </Heading>
         <HomepageFeatures />
+        <Heading as="h2" className="hero__title text--center">
+          Reviews
+        </Heading>
+        <Reviews />
       </main>
     </Layout>
   );
