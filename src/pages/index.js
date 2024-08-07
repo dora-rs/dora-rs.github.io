@@ -14,7 +14,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import ReactPlayer from "react-player";
 import Heading from "@theme/Heading";
-import QuickPaste from "./quick-paste.mdx";
+import Scripts from "./installation-scripts.mdx";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -337,7 +337,7 @@ function HomepageHeader() {
         </div>
       </div>
       <div
-        className="container margin-bottom--sm"
+        className="container margin-bottom--xl"
         style={{
           position: "relative",
           bottom: !phone ? "0px" : "180px",
@@ -354,7 +354,46 @@ function HomepageHeader() {
         >
           {siteConfig.tagline}
         </p>
-        <QuickPaste></QuickPaste>
+        <Scripts />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-evenly",
+            flexWrap: "wrap",
+          }}
+        >
+          <div className={styles.buttons}>
+            <Link
+              className="button button--secondary button--md margin-bottom--md"
+              to="/docs/guides"
+            >
+              <Translate id="homepage.guide.button.text">
+                🔥 Get started
+              </Translate>
+            </Link>
+          </div>
+          <div className={styles.buttons}>
+            <Link
+              className="button button--secondary button--md margin-bottom--md"
+              to="https://dora-rs.ai/python-api.html"
+            >
+              <Translate id="homepage.python-api.button.text">
+                🐍 Python API
+              </Translate>
+            </Link>
+          </div>
+          <div className={styles.buttons}>
+            <Link
+              className="button button--secondary button--md"
+              to="https://docs.rs/dora-node-api/latest/dora_node_api/"
+            >
+              <Translate id="homepage.rust-api.button.text">
+                🦀 Rust API
+              </Translate>
+            </Link>
+          </div>
+        </div>
       </div>
       <div
         className="container"
@@ -399,45 +438,6 @@ function HomepageHeader() {
                 we can show for dora-rs!
               </Translate>
             </p>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-evenly",
-              flexWrap: "wrap",
-            }}
-          >
-            <div className={styles.buttons}>
-              <Link
-                className="button button--secondary button--md margin-bottom--md"
-                to="/docs/guides"
-              >
-                <Translate id="homepage.guide.button.text">
-                  🔥 Get started
-                </Translate>
-              </Link>
-            </div>
-            <div className={styles.buttons}>
-              <Link
-                className="button button--secondary button--md margin-bottom--md"
-                to="https://dora-rs.ai/python-api.html"
-              >
-                <Translate id="homepage.python-api.button.text">
-                  🐍 Python API
-                </Translate>
-              </Link>
-            </div>
-            <div className={styles.buttons}>
-              <Link
-                className="button button--secondary button--md"
-                to="https://docs.rs/dora-node-api/latest/dora_node_api/"
-              >
-                <Translate id="homepage.rust-api.button.text">
-                  🦀 Rust API
-                </Translate>
-              </Link>
-            </div>
           </div>
         </div>
         <div
