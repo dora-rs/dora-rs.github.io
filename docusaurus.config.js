@@ -88,11 +88,11 @@ const config = {
       // Replace with your project's social card
       image: "img/docusaurus-social-card.jpg",
       navbar: {
-        title: "dora-rs",
-        //logo: {
-        //alt: "My Site Logo",
-        //src: "img/logo.svg",
-        //},
+        title: "",
+        logo: {
+          alt: "dora-rs Logo",
+          src: "img/logo.png",
+        },
         items: [
           {
             type: "docSidebar",
@@ -270,7 +270,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ["rust"],
+        additionalLanguages: ["rust", "python"],
       },
     }),
 };
