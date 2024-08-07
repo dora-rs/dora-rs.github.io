@@ -198,6 +198,10 @@ const config = {
                 href: "https://github.com/dora-rs/dora",
               },
               {
+                label: "dora-lerobot",
+                href: "https://github.com/dora-rs/dora-lerobot",
+              },
+              {
                 label: "dora-drives",
                 href: "https://github.com/dora-rs/dora-drives",
               },
