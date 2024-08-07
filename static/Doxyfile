@@ -3,7 +3,7 @@
 # 项目基本信息
 PROJECT_NAME           = "我的项目"
 PROJECT_NUMBER         = "1.0"
-OUTPUT_DIRECTORY       = html
+OUTPUT_DIRECTORY       = cpp
 CREATE_SUBDIRS         = NO
 OPTIMIZE_OUTPUT_FOR_C  = NO
 OPTIMIZE_OUTPUT_JAVA   = NO
