@@ -25,7 +25,7 @@
     "@docusaurus/preset-classic": "^3.2.0",
     "@docusaurus/theme-mermaid": "^3.2.0",
     "@docusaurus/theme-search-algolia": "^3.2.0",
-    "@fontsource/abeezee": "^4.5.10",
+    "@fontsource/work-sans": "^5.0.18",
     "apexcharts": "^3.40.0",
     "bootstrap-icons": "^1.10.5",
     "clsx": "^1.2.1",
