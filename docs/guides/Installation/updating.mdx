@@ -9,22 +9,22 @@ Please uninstall and reinstall dora if you wish to update dora with github relea
 but don't forget to update python package as well with:
 
 ```bash
+cargo install dora-cli --locked
 pip install dora-rs --upgrade
 ```
 
-## Cargo and Pip
+## Updating to latest source
 
 ```bash
-cargo install dora-cli
-pip install dora-rs --upgrade
-```
+dora destroy
+sudo rm $(which dora)
+pip uninstall dora-rs
 
-## Source
-
-```bash
-## Go to dora local repository
+## dora binary
+git clone https://github.com/dora-rs/dora.git
 cd dora
 cargo build --release -p dora-cli
+PATH=$PATH:$(pwd)/target/release
 
 ## Python API
 maturin develop -m apis/python/node/Cargo.toml --release

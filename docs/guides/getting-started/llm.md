@@ -9,12 +9,12 @@ sidebar_position: 4
 Let's add additional operators:
 
 ```bash
-wget https://raw.githubusercontent.com/dora-rs/dora/v0.3.5/examples/python-operator-dataflow/keyboard_op.py
-wget https://raw.githubusercontent.com/dora-rs/dora/v0.3.5/examples/python-operator-dataflow/microphone_op.py
-wget https://raw.githubusercontent.com/dora-rs/dora/v0.3.5/examples/python-operator-dataflow/whisper_op.py
-wget https://raw.githubusercontent.com/dora-rs/dora/v0.3.5/examples/python-operator-dataflow/sentence_transformers_op.py
-wget https://raw.githubusercontent.com/dora-rs/dora/v0.3.5/examples/python-operator-dataflow/llm_op.py
-wget https://raw.githubusercontent.com/dora-rs/dora/v0.3.5/examples/python-operator-dataflow/file_saver_op.py
+wget https://raw.githubusercontent.com/dora-rs/dora/v0.3.6/examples/python-operator-dataflow/keyboard_op.py
+wget https://raw.githubusercontent.com/dora-rs/dora/v0.3.6/examples/python-operator-dataflow/microphone_op.py
+wget https://raw.githubusercontent.com/dora-rs/dora/v0.3.6/examples/python-operator-dataflow/whisper_op.py
+wget https://raw.githubusercontent.com/dora-rs/dora/v0.3.6/examples/python-operator-dataflow/sentence_transformers_op.py
+wget https://raw.githubusercontent.com/dora-rs/dora/v0.3.6/examples/python-operator-dataflow/llm_op.py
+wget https://raw.githubusercontent.com/dora-rs/dora/v0.3.6/examples/python-operator-dataflow/file_saver_op.py
 ```
 
 and the dataflow configuration:

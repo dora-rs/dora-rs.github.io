@@ -1,0 +1,82 @@
+````mdx-code-block
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+
+<Tabs groupId="current-os" queryString>
+  <TabItem value="linux" label="Linux">
+
+  - Paste the following line in a terminal
+
+<CodeBlock language="bash">{"curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/dora-rs/dora/main/install.sh | bash"}</CodeBlock>
+
+  </TabItem>
+  <TabItem value="macos" label="MacOS">
+
+  - Paste the following line in a terminal
+
+<CodeBlock language="bash">{"curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/dora-rs/dora/main/install.sh | bash"}</CodeBlock>
+
+  </TabItem>
+  <TabItem value="windows" label="Windows">
+
+  - Paste the following lines in a terminal
+```bash
+set DORA_VERSION=v0.3.6 # Check for the latest release
+set ARCHITECTURE=x86_64
+wget https://github.com/dora-rs/dora/releases/download/%DORA_VERSION%/dora-%DORA_VERSION%-%ARCHITECTURE%-pc-windows-msvc.zip
+unzip dora-%DORA_VERSION%-%ARCHITECTURE%-pc-windows-msvc.zip
+set PATH=%PATH%:%cd%
+dora --help
+```
+
+  </TabItem>
+  <TabItem value="cargo" label="Cargo">
+
+```bash
+cargo install dora-cli # In case of issues, you can try to add `--locked`
+
+dora --help
+```
+
+  </TabItem>
+  <TabItem value="source" label="Source">
+
+- Clone and build source
+
+```bash
+## dora binary
+git clone https://github.com/dora-rs/dora.git
+cd dora
+cargo build --release -p dora-cli
+PATH=$PATH:$(pwd)/target/release
+```
+
+- To develop python library
+
+```bash
+# pip install maturin
+
+## Python API
+maturin develop -m apis/python/node/Cargo.toml
+```
+
+- To test dora installation
+
+```bash
+dora --help
+```
+
+  </TabItem>
+  <TabItem value="github" label="Github Releases">
+
+  - Go on [our release page](https://github.com/dora-rs/dora/releases)
+  - download both the `zip` and `whl` file corresponding to your architecture and OS.
+  - Unzip the zip file and place it in your binary folder (e.g.: `$HOME/bin`).
+  - Verify that dora is well installed by calling `dora --help` in your terminal.
+
+  </TabItem>
+</Tabs>
+
+````

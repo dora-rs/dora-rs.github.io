@@ -4,6 +4,8 @@ import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
+import Reviews from "@site/src/components/Reviews";
+import Talks from "@site/src/components/Talks";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 import Admonition from "@theme/Admonition";
 import styles from "./index.module.css";
@@ -11,6 +13,9 @@ import Translate from "@docusaurus/Translate";
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
+import ReactPlayer from "react-player";
+import Heading from "@theme/Heading";
+import Scripts from "./installation-scripts.mdx";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -287,9 +292,110 @@ function HomepageHeader() {
       },
     ],
   };
+  let height = "590px";
+  let urls = [
+    "https://www.youtube.com/shorts/XGLy1uFMTnU",
+    "https://youtube.com/shorts/wDfQb7SBZgs",
+    "https://youtube.com/shorts/kqwIuiikyJU",
+    "https://youtube.com/shorts/O7ZQXZh0zjk",
+  ];
+  let phone = false;
+  if (typeof window !== "undefined" && window.innerWidth < 960) {
+    height = "670px";
+    urls = ["https://youtube.com/shorts/OsFjvhdEaJs"];
+    phone = true;
+  }
 
   return (
-    <header className={clsx("hero", styles.heroBanner)}>
+    <header>
+      <div className="container" style={{ padding: 0 }}>
+        <div style={{ display: "flex" }}>
+          {urls.map((url) => (
+            <div
+              className="player__wrapper"
+              style={{
+                height: height,
+                position: "relative",
+                margin: "auto",
+                width: "100%",
+                aspectRatio: "auto",
+              }}
+            >
+              <ReactPlayer
+                url={url}
+                className="player"
+                width="100%"
+                height="100%"
+                playing={true}
+                loop={true}
+                playsinline={true}
+                volume={0.5}
+                muted={true}
+                config={{ youtube: { playerVars: { disablekb: 1 } } }}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+      <div
+        className="container margin-bottom--xl"
+        style={{
+          position: "relative",
+          bottom: !phone ? "0px" : "180px",
+          left: "0",
+          right: "0",
+          padding: "20px",
+          color: "black",
+          background: "rgba(255, 255, 255, 1)",
+        }}
+      >
+        <p
+          className="hero__subtitle"
+          style={{ fontSize: "xx-large", textAlign: "center" }}
+        >
+          {siteConfig.tagline}
+        </p>
+        <Scripts />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-evenly",
+            flexWrap: "wrap",
+          }}
+        >
+          <div className={styles.buttons}>
+            <Link
+              className="button button--secondary button--md margin-bottom--md"
+              to="/docs/guides"
+            >
+              <Translate id="homepage.guide.button.text">
+                🔥 Get started
+              </Translate>
+            </Link>
+          </div>
+          <div className={styles.buttons}>
+            <Link
+              className="button button--secondary button--md margin-bottom--md"
+              to="https://dora-rs.ai/python-api.html"
+            >
+              <Translate id="homepage.python-api.button.text">
+                🐍 Python API
+              </Translate>
+            </Link>
+          </div>
+          <div className={styles.buttons}>
+            <Link
+              className="button button--secondary button--md"
+              to="https://docs.rs/dora-node-api/latest/dora_node_api/"
+            >
+              <Translate id="homepage.rust-api.button.text">
+                🦀 Rust API
+              </Translate>
+            </Link>
+          </div>
+        </div>
+      </div>
       <div
         className="container"
         style={{
@@ -299,53 +405,40 @@ function HomepageHeader() {
         }}
       >
         <div className="margin-right--md margin-bottom--xl">
-          <img src="/img/logo.png" width="400"></img>
           <div
             style={{
               width: "100%",
               maxWidth: "600px",
             }}
           >
-            <p className="hero__subtitle">{siteConfig.tagline}</p>
-            <p><Translate id="homepage.main.paragraph.first">
-              In 2024, AI is booming! Robotic framework however hasn't
-              changed much in years... This is why we created dora-rs! dora-rs is a new robotic
-              framework that brings modernity into robotic application.
-            </Translate> </p>
-            <p><Translate id="homepage.main.paragraph.second">
-              dora-rs can already show impressive
-              performance! This is the result of using our own shared memory server and Apache Arrow to achieve zero copy!
-            </Translate></p>
-            <p><Translate id="homepage.main.paragraph.third">
-              Those performance improvements make a world of difference for beginners, AI practitioners, and weekend hobbyists who have been limited by the lack of support for Python in this field!
-            </Translate></p>
-            <p><Translate id="homepage.main.paragraph.fourth">And that's only one example of the many innovative features that we can show for dora-rs!</Translate></p>
-          </div>
-          <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly", flexWrap: "wrap" }}>
-            <div className={styles.buttons}>
-              <Link
-                className="button button--secondary button--md margin-bottom--md"
-                to="/docs/guides"
-              >
-                <Translate id="homepage.guide.button.text">🔥 Get started</Translate>
-              </Link>
-            </div>
-            <div className={styles.buttons}>
-              <Link
-                className="button button--secondary button--md margin-bottom--md"
-                to="https://dora-rs.ai/python-api.html"
-              >
-                <Translate id="homepage.python-api.button.text">🐍 Python API</Translate>
-              </Link>
-            </div>
-            <div className={styles.buttons}>
-              <Link
-                className="button button--secondary button--md"
-                to="https://docs.rs/dora-node-api/latest/dora_node_api/"
-              >
-                <Translate id="homepage.rust-api.button.text">🦀 Rust API</Translate>
-              </Link>
-            </div>
+            <p>
+              <Translate id="homepage.main.paragraph.first">
+                In 2024, AI is booming! Robotic framework however hasn't changed
+                much in years... This is why we created dora-rs! dora-rs is a
+                new robotic framework that brings modernity into robotic
+                application.
+              </Translate>
+            </p>
+            <p>
+              <Translate id="homepage.main.paragraph.second">
+                dora-rs can already show impressive performance! This is the
+                result of using our own shared memory server and Apache Arrow to
+                achieve zero copy!
+              </Translate>
+            </p>
+            <p>
+              <Translate id="homepage.main.paragraph.third">
+                Those performance improvements make a world of difference for
+                beginners, AI practitioners, and weekend hobbyists who have been
+                limited by the lack of support for Python in this field!
+              </Translate>
+            </p>
+            <p>
+              <Translate id="homepage.main.paragraph.fourth">
+                And that's only one example of the many innovative features that
+                we can show for dora-rs!
+              </Translate>
+            </p>
           </div>
         </div>
         <div
@@ -354,7 +447,7 @@ function HomepageHeader() {
             maxWidth: "600px",
           }}
         >
-          <div className="margin-top--lg">
+          <div className="">
             <h2>Latency (Lower is better)</h2>
             <Tabs groupId="language" queryString>
               <TabItem value="Python" label="Python API">
@@ -431,12 +524,23 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
+      title={`${siteConfig.title}`}
+      description="dora-rs a new robotic framework that brings modernity into robotic application."
     >
       <HomepageHeader />
       <main>
+        <Heading as="h2" className="hero__title text--center">
+          Features
+        </Heading>
         <HomepageFeatures />
+        <Heading as="h2" className="hero__title text--center">
+          Reviews
+        </Heading>
+        <Reviews />
+        <Heading as="h2" className="hero__title text--center">
+          Talks
+        </Heading>
+        <Talks />
       </main>
     </Layout>
   );

@@ -4,100 +4,10 @@ sidebar_position: 1
 
 # Installing
 
-## Github Releases
+There is multiple ways to install dora:
 
-Install `dora` binaries from GitHub releases:
+```mdx-code-block
+import Scripts from "@site/src/pages/installation-scripts.mdx";
 
-````mdx-code-block
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-<Tabs groupId="current-os" queryString>
-  <TabItem value="linux" label="Linux">
-
-```bash
-export DORA_VERSION=v0.3.5 # Check for the latest release
-export ARCHITECTURE=$(uname -m)
-wget https://github.com/dora-rs/dora/releases/download/${DORA_VERSION}/dora-${DORA_VERSION}-${ARCHITECTURE}-Linux.zip
-unzip dora-${DORA_VERSION}-${ARCHITECTURE}-Linux.zip
-pip install dora-rs==${DORA_VERSION}
-PATH=$PATH:$(pwd)
-dora --help
+<Scripts/>
 ```
-
-  </TabItem>
-  <TabItem value="macos" label="MacOS">
-
-```bash
-export DORA_VERSION=v0.3.5 # Check for the latest release
-export ARCHITECTURE=$(uname -m)
-wget https://github.com/dora-rs/dora/releases/download/${DORA_VERSION}/dora-${DORA_VERSION}-${ARCHITECTURE}-macOS.zip
-unzip dora-${DORA_VERSION}-${ARCHITECTURE}-macOS.zip
-pip install dora-rs==${DORA_VERSION}
-PATH=$PATH:$(pwd)
-dora --help
-```
-
-  </TabItem>
-  <TabItem value="windows" label="Windows">
-
-```bash
-set DORA_VERSION=v0.3.5 # Check for the latest release
-set ARCHITECTURE=x86_64
-wget https://github.com/dora-rs/dora/releases/download/%DORA_VERSION%/dora-%DORA_VERSION%-%ARCHITECTURE%-Windows.zip
-unzip dora-%DORA_VERSION%-%ARCHITECTURE%-Windows.zip
-pip install dora-rs==%DORA_VERSION%
-set PATH=%PATH%:%cd%
-dora --help
-```
-
-  </TabItem>
-</Tabs>
-````
-
-## Cargo and Pip
-
-```bash
-cargo install dora-cli # In case of issues, you can try to add `--locked`
-pip install dora-rs
-
-dora --help
-```
-
-## Source
-
-```bash
-## dora binary
-git clone https://github.com/dora-rs/dora.git
-cd dora
-cargo build --release -p dora-cli
-PATH=$PATH:$(pwd)/target/release
-
-## Python API
-maturin develop -m apis/python/node/Cargo.toml
-
-dora --help
-```
-
-## Manual
-
-- Go on [our release page](https://github.com/dora-rs/dora/releases)
-- download both the `zip` and `whl` file corresponding to your architecture and OS.
-- Unzip the zip file and place it in your binary folder (e.g.: `$HOME/bin`).
-- Install the python wheel with pip. (e.g. `pip install 
-dora_rs-0.3.5-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl`)
-- Verify that dora is well installed by calling `dora --help` in your terminal.
-
----
-
-## Video Tutorial
-
-<iframe
-  width="560"
-  height="315"
-  src="https://www.youtube.com/embed/47Bl-aGakgg"
-  title="YouTube video player"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  allowfullscreen
-></iframe>
