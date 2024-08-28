@@ -9,21 +9,21 @@ import CodeBlock from '@theme/CodeBlock';
 
   - Paste the following line in a terminal
 
-<CodeBlock language="bash">{"curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/dora-rs/dora/main/install.sh | bash -s -- --tag 0.3.5-fix7"}</CodeBlock>
+<CodeBlock language="bash">{"curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/dora-rs/dora/main/install.sh | bash"}</CodeBlock>
 
   </TabItem>
   <TabItem value="macos" label="MacOS">
 
   - Paste the following line in a terminal
 
-<CodeBlock language="bash">{"curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/dora-rs/dora/main/install.sh | bash -s -- --tag 0.3.5-fix7"}</CodeBlock>
+<CodeBlock language="bash">{"curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/dora-rs/dora/main/install.sh | bash"}</CodeBlock>
 
   </TabItem>
   <TabItem value="windows" label="Windows">
 
   - Paste the following lines in a terminal
 ```bash
-set DORA_VERSION=v0.3.5 # Check for the latest release
+set DORA_VERSION=v0.3.6 # Check for the latest release
 set ARCHITECTURE=x86_64
 wget https://github.com/dora-rs/dora/releases/download/%DORA_VERSION%/dora-%DORA_VERSION%-%ARCHITECTURE%-Windows.zip
 unzip dora-%DORA_VERSION%-%ARCHITECTURE%-Windows.zip
@@ -76,8 +76,6 @@ dora --help
   - Go on [our release page](https://github.com/dora-rs/dora/releases)
   - download both the `zip` and `whl` file corresponding to your architecture and OS.
   - Unzip the zip file and place it in your binary folder (e.g.: `$HOME/bin`).
-  - Install the python wheel with pip. (e.g. `pip install
-  dora_rs-0.3.5-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl`)
   - Verify that dora is well installed by calling `dora --help` in your terminal.
 
   </TabItem>
