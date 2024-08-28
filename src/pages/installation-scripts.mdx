@@ -25,9 +25,8 @@ import CodeBlock from '@theme/CodeBlock';
 ```bash
 set DORA_VERSION=v0.3.6 # Check for the latest release
 set ARCHITECTURE=x86_64
-wget https://github.com/dora-rs/dora/releases/download/%DORA_VERSION%/dora-%DORA_VERSION%-%ARCHITECTURE%-Windows.zip
-unzip dora-%DORA_VERSION%-%ARCHITECTURE%-Windows.zip
-pip install dora-rs==%DORA_VERSION%
+wget https://github.com/dora-rs/dora/releases/download/%DORA_VERSION%/dora-%DORA_VERSION%-%ARCHITECTURE%-pc-windows-msvc.zip
+unzip dora-%DORA_VERSION%-%ARCHITECTURE%-pc-windows-msvc.zip
 set PATH=%PATH%:%cd%
 dora --help
 ```
@@ -37,7 +36,6 @@ dora --help
 
 ```bash
 cargo install dora-cli # In case of issues, you can try to add `--locked`
-pip install dora-rs
 
 dora --help
 ```
