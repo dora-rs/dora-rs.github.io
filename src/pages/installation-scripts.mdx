@@ -23,13 +23,9 @@ import CodeBlock from '@theme/CodeBlock';
 
   - Paste the following lines in a terminal
 ```bash
-set DORA_VERSION=v0.3.6 # Check for the latest release
-set ARCHITECTURE=x86_64
-wget https://github.com/dora-rs/dora/releases/download/%DORA_VERSION%/dora-%DORA_VERSION%-%ARCHITECTURE%-pc-windows-msvc.zip
-unzip dora-%DORA_VERSION%-%ARCHITECTURE%-pc-windows-msvc.zip
-set PATH=%PATH%:%cd%
-dora --help
+powershell -c "irm https://raw.githubusercontent.com/dora-rs/dora/main/install.ps1 | iex"
 ```
+- If you use VSCode, make sure to restart VSCode for the change to happen.
 
   </TabItem>
   <TabItem value="cargo" label="Cargo">
