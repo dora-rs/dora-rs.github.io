@@ -25,8 +25,65 @@ import CodeBlock from '@theme/CodeBlock';
 ```bash
 powershell -c "irm https://raw.githubusercontent.com/dora-rs/dora/main/install.ps1 | iex"
 ```
-- If you use VSCode, make sure to restart VSCode for the change to happen.
+  - If you use VSCode, make sure to restart VSCode for the change to happen.
 
+  </TabItem>
+  <TabItem value="nix" label="Nix Package">
+  - Create a file with this content:
+```nix
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+pkgs.rustPlatform.buildRustPackage rec {
+  pname = "dora-cli";
+  version = "0.3.6";
+
+  src = pkgs.fetchFromGitHub {
+    owner = "dora-rs";
+    repo = "dora";
+    rev = "v${version}";
+    hash = "sha256-YwEqwA7Eqz7ZJYFfKoPTWkmgsudKpoATcFE6OOwxpbU=";
+  };
+
+  cargoHash = "sha256-AkungKYGHMK/tUfzh0d88zRRkQfshus7xOHzdtYAT/I=";
+  nativeBuildInputs = [pkgs.pkg-config];
+  buildInputs = [pkgs.openssl];
+  OPENSSL_NO_VENDOR = 1;
+  buildPhase = ''
+    cargo build --release -p dora-cli
+  '';
+  installPhase = ''
+    mkdir -p $out/bin
+    cp target/release/dora $out/bin
+  '';
+  doCheck = false;
+
+  meta = {
+    description = "Making robotic applications fast and simple!";
+    homepage = "https://dora-rs.ai/";
+    changelog = "https://github.com/dora-rs/dora/blob/main/Changelog.md";
+    mainProgram = "dora";
+    license = lib.licenses.asl20;
+  };
+}
+```
+  - And import it, for example, with home-manager:
+```nix
+{
+  config,
+  pkgs,
+  ...
+}: {
+  # snip
+  home.packages = with pkgs; [
+    # snip
+    (import ./dora.nix {inherit config pkgs lib ;})
+  ];
+}
+```
   </TabItem>
   <TabItem value="cargo" label="Cargo">
 
