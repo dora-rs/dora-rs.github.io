@@ -25,8 +25,63 @@ import CodeBlock from '@theme/CodeBlock';
 ```bash
 powershell -c "irm https://raw.githubusercontent.com/dora-rs/dora/main/install.ps1 | iex"
 ```
-- If you use VSCode, make sure to restart VSCode for the change to happen.
+  - If you use VSCode, make sure to restart VSCode for the change to happen.
 
+  </TabItem>
+  <TabItem value="nix" label="Nix[OS]">
+  - To make a base dev-shell (Recommended):
+```nix
+{
+  description = "A base dev-shell flake";
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    dora-rs = {
+      url = "github:dora-rs/dora";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+  outputs = {
+    self,
+    nixpkgs,
+    dora-rs,
+  }: let
+    system = "x86_64-linux";
+    #        ↑ Swap it for your system as needed
+    pkgs = nixpkgs.legacyPackages.${system};
+  in {
+    devShells.${system}.default = pkgs.mkShell {
+      buildInputs = [
+        dora-rs.packages.${system}.dora-cli
+      ];
+    };
+  };
+}
+```
+  - To add to a system-config flake:
+  1. First, add this to your inputs
+```nix
+    dora-rs = {
+      url = "github:dora-rs/dora";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+```
+  2. ...and add to your packages array. E.g. adding to your home-manager config:
+```nix
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}: {
+  home.packages = with pkgs; [
+    inputs.dora-rs.packages.x86_64-linux.dora-cli
+  ];
+}
+```
+  - To install ([not recommended](https://stop-using-nix-env.privatevoid.net/))
+```
+nix-env --install "github:dora-rs/dora"
+```
   </TabItem>
   <TabItem value="cargo" label="Cargo">
 
