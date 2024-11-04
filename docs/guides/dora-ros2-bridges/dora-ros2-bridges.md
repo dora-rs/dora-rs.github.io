@@ -20,15 +20,15 @@ It does not requires any compilation from colcon and only needs to be run with d
 import dora
 from dora import Node
 
-ros2_context = dora.experimental.ros2_bridge.Ros2Context()
+ros2_context = dora.Ros2Context()
 ros2_node = ros2_context.new_node(
     "turtle_teleop", # name
     "/ros2_demo", # namespace
-    dora.experimental.ros2_bridge.Ros2NodeOptions(rosout=True),
+    dora.Ros2NodeOptions(rosout=True),
 )
 
 # Define a ROS2 QOS
-topic_qos = dora.experimental.ros2_bridge.Ros2QosPolicies(
+topic_qos = dora.Ros2QosPolicies(
     reliable=True, max_blocking_time=0.1
 )
 
