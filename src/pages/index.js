@@ -42,8 +42,8 @@ function HomepageHeader() {
         },
       ],
       stroke: {
-        // curve: "smooth",
-        width: [2, 2],
+        curve: "monotoneCubic",
+        width: [3, 3],
       },
       tooltip: {
         y: {
@@ -72,6 +72,15 @@ function HomepageHeader() {
               text: "1080p",
             },
           },
+          {
+            x: "40 MB",
+            strokeDashArray: 0,
+            borderColor: "#08737f",
+            label: {
+              borderColor: "#08737f",
+              text: "4K",
+            },
+          },
         ],
         points: [
           {
@@ -80,18 +89,14 @@ function HomepageHeader() {
             marker: {
               size: 8,
               fillColor: "#fff",
-              strokeColor: "red",
+              strokeColor: "#3578e5",
               radius: 2,
               cssClass: "apexcharts-custom-class",
             },
             label: {
-              borderColor: "#FF4560",
+              borderColor: "#3578e5",
               offsetY: 0,
               offsetX: -40,
-              style: {
-                color: "#fff",
-                background: "#FF4560",
-              },
 
               text: "17x Faster than ROS 2",
             },
@@ -120,8 +125,8 @@ function HomepageHeader() {
         },
       ],
       stroke: {
-        // curve: "smooth",
-        width: [2, 2],
+        curve: "monotoneCubic",
+        width: [3, 3],
       },
       tooltip: {
         y: {
@@ -150,6 +155,15 @@ function HomepageHeader() {
               text: "1080p",
             },
           },
+          {
+            x: "40 MB",
+            strokeDashArray: 0,
+            borderColor: "#08737f",
+            label: {
+              borderColor: "#08737f",
+              text: "4K",
+            },
+          },
         ],
         points: [
           {
@@ -158,20 +172,104 @@ function HomepageHeader() {
             marker: {
               size: 8,
               fillColor: "#fff",
-              strokeColor: "red",
+              strokeColor: "#3578e5",
               radius: 2,
               cssClass: "apexcharts-custom-class",
             },
             label: {
-              borderColor: "#FF4560",
+              borderColor: "#3578e5",
               offsetY: 0,
               offsetX: -40,
-              style: {
-                color: "#fff",
-                background: "#FF4560",
-              },
-
               text: "10x Faster than ROS 2",
+            },
+          },
+        ],
+      },
+    },
+    options_cuda: {
+      chart: {
+        type: "bar",
+      },
+      bar: {
+        horizontal: false,
+        columnWidth: "55%",
+        borderRadius: 5,
+        borderRadiusApplication: "end",
+      },
+      legend: {
+        position: "top",
+      },
+      xaxis: {
+        categories: ["8 B", "40 kB", "400 kB", "4 MB", "40 MB"],
+        title: { text: "Message Size" },
+      },
+      yaxis: [
+        {
+          //          logarithmic: true,
+          title: { text: "Latency (milliseconds)" },
+          max: 30,
+          min: 0,
+          tickAmount: 10,
+        },
+      ],
+      stroke: {
+        curve: "monotoneCubic",
+        width: [3, 3],
+      },
+      tooltip: {
+        y: {
+          formatter: function (val) {
+            return val + " ms";
+          },
+        },
+      },
+      annotations: {
+        xaxis: [
+          {
+            x: "400 kB",
+            strokeDashArray: 0,
+            borderColor: "#089f8f",
+            label: {
+              borderColor: "#089f8f",
+              text: "480p",
+            },
+          },
+          {
+            x: "4 MB",
+            strokeDashArray: 0,
+            borderColor: "#08737f",
+            label: {
+              borderColor: "#08737f",
+              text: "1080p",
+            },
+          },
+          {
+            x: "40 MB",
+            strokeDashArray: 0,
+            borderColor: "#08737f",
+            label: {
+              borderColor: "#08737f",
+              text: "4K",
+            },
+          },
+        ],
+        points: [
+          {
+            x: "40 MB",
+            y: 1.09,
+            marker: {
+              size: 8,
+              fillColor: "#fff",
+              strokeColor: "green",
+              radius: 2,
+              cssClass: "apexcharts-custom-class",
+            },
+            label: {
+              borderColor: "#3578e5",
+              offsetY: 0,
+              offsetX: -40,
+
+              text: "20x Faster using CUDA IPC",
             },
           },
         ],
@@ -198,8 +296,8 @@ function HomepageHeader() {
         },
       ],
       stroke: {
-        // curve: "smooth",
-        width: [2, 2],
+        curve: "monotoneCubic",
+        width: [3, 3],
       },
       tooltip: {
         y: {
@@ -228,6 +326,15 @@ function HomepageHeader() {
               text: "1080p",
             },
           },
+          {
+            x: "40 MB",
+            strokeDashArray: 0,
+            borderColor: "#08737f",
+            label: {
+              borderColor: "#08737f",
+              text: "4K",
+            },
+          },
         ],
         points: [
           {
@@ -236,7 +343,7 @@ function HomepageHeader() {
             marker: {
               size: 8,
               fillColor: "#fff",
-              strokeColor: "red",
+              strokeColor: "#3578e5",
               radius: 2,
               cssClass: "apexcharts-custom-class",
             },
@@ -244,10 +351,6 @@ function HomepageHeader() {
               borderColor: "#FF4560",
               offsetY: 0,
               offsetX: -70,
-              style: {
-                color: "#fff",
-                background: "#FF4560",
-              },
 
               text: "Match ROS 2 C/C++ Shared Memory",
             },
@@ -277,6 +380,18 @@ function HomepageHeader() {
         name: "ROS 2",
         data: [0.44, 0.49, 0.48, 4.17, 40.99],
         color: "#545454",
+      },
+    ],
+    series_cuda: [
+      {
+        name: "CUDA->Shared Memory->CUDA",
+        data: [0.641, 0.658, 0.933, 3.146, 23.968],
+        color: "#3578e5",
+      },
+      {
+        name: "CUDA->CUDA",
+        data: [0.737, 0.708, 0.721, 0.826, 1.05],
+        color: "#76B900",
       },
     ],
     series_cpp: [
@@ -408,7 +523,7 @@ function HomepageHeader() {
           <div
             style={{
               width: "100%",
-              maxWidth: "600px",
+              fontSize: "large",
             }}
           >
             <p>
@@ -441,14 +556,23 @@ function HomepageHeader() {
             </p>
           </div>
         </div>
+      </div>
+      <br />
+      <div
+        className="container"
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+        }}
+      >
         <div
           style={{
-            width: "100%",
-            maxWidth: "600px",
+            width: "49%",
           }}
         >
           <div className="">
-            <h2>Latency (Lower is better)</h2>
+            <h2>Dora CPU Latency (Lower is better)</h2>
             <Tabs groupId="language" queryString>
               <TabItem value="Python" label="Python API">
                 <BrowserOnly fallback={<div>Chart not supported</div>}>
@@ -463,6 +587,12 @@ function HomepageHeader() {
                     );
                   }}
                 </BrowserOnly>
+                <Admonition type="info">
+                  Source code:
+                  <Link to="https://github.com/dora-rs/dora-benchmark/">
+                    dora-benchmark
+                  </Link>
+                </Admonition>
               </TabItem>
               <TabItem value="Rust" label="Rust API">
                 <BrowserOnly fallback={<div>Chart not supported</div>}>
@@ -482,7 +612,7 @@ function HomepageHeader() {
                     Source code for ros2_rust
                   </Link>
                   <br />
-                  <Link to="https://github.com/dora-rs/dora/tree/main/examples/benchmark">
+                  <Link to="https://github.com/dora-rs/dora-benchmark/">
                     Source code for dora-rs
                   </Link>
                 </Admonition>
@@ -509,6 +639,43 @@ function HomepageHeader() {
                   <br />
                   <Link to="https://github.com/dora-rs/dora/tree/main/examples/benchmark">
                     Source code for dora-rs
+                  </Link>
+                </Admonition>
+              </TabItem>
+            </Tabs>
+          </div>
+        </div>
+        <div
+          style={{
+            width: "49%",
+            margin: "auto",
+          }}
+        >
+          <div className="">
+            <h2>Dora GPU Latency (Lower is better)</h2>
+            <Tabs groupId="GPU" queryString>
+              <TabItem value="PyTorch CUDA" label="PyTorch CUDA">
+                <BrowserOnly fallback={<div>Chart not supported</div>}>
+                  {() => {
+                    const Chart = require("react-apexcharts").default;
+                    return (
+                      <Chart
+                        options={state.options_cuda}
+                        series={state.series_cuda}
+                        width="100%"
+                      />
+                    );
+                  }}
+                </BrowserOnly>
+
+                <Admonition type="tip">
+                  Dora now support CUDA zero copy for Pytorch 🔥 See:
+                  <Link to="docs/guides/Development/Cuda">Documentation</Link>
+                </Admonition>
+                <Admonition type="info">
+                  Source code:
+                  <Link to="https://github.com/dora-rs/dora-benchmark/">
+                    dora-benchmark
                   </Link>
                 </Admonition>
               </TabItem>
