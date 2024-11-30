@@ -568,7 +568,9 @@ function HomepageHeader() {
       >
         <div
           style={{
-            width: "49%",
+            width: "100%",
+            maxWidth: "600px",
+            margin: "0 auto 0 auto",
           }}
         >
           <div className="">
@@ -647,8 +649,9 @@ function HomepageHeader() {
         </div>
         <div
           style={{
-            width: "49%",
-            margin: "auto",
+            maxWidth: "600px",
+            width: "100%",
+            margin: "0 auto 0 auto",
           }}
         >
           <div className="">
@@ -669,7 +672,7 @@ function HomepageHeader() {
                 </BrowserOnly>
 
                 <Admonition type="tip">
-                  Dora now support CUDA zero copy for Pytorch 🔥 See:
+                  Dora now support CUDA zero copy for Pytorch 🔥 <br /> See:
                   <Link to="docs/guides/Development/Cuda">Documentation</Link>
                 </Admonition>
                 <Admonition type="info">
