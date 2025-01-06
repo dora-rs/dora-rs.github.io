@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Speech to Text",
+    "description": "Transform speech to text.",
+    "preview": "/img/whisper.png.avif",
+    "website": "stt",
+    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/main/examples/speech-to-text/README.md",
+    "tags": [
+      "object_detection",
+      "python"
+    ]
+  },
+  {
+    "title": "Vision Language Model",
+    "description": "Use a VLM to understand images.",
+    "preview": "https://github.com/QwenLM/Qwen-VL/raw/master/assets/logo.jpg",
+    "website": "vlm",
+    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/main/examples/vlm/README.md",
+    "tags": [
+      "python"
+    ]
+  }
+]

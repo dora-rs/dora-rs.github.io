@@ -10,6 +10,8 @@
 import { translate } from "@docusaurus/Translate";
 import { sortBy } from "@site/src/utils/jsUtils";
 import * as Users from "./operators.json";
+import * as Examples from "./examples.json";
+import * as Nodes from "./nodes.json";
 /*
  * ADD YOUR SITE TO THE DOCUSAURUS SHOWCASE
  *
@@ -172,6 +174,9 @@ export const Tags: { [type in TagType]: Tag } = {
 
 export const TagList = Object.keys(Tags) as TagType[];
 const usersArray: User[] = Users as User[];
+const ExamplesArray: User[] = Examples as User[];
+const NodesArray: User[] = Nodes as User[];
+
 
 function sortUsers() {
   // Fix: adding default fix an issue with webpack.
@@ -184,3 +189,28 @@ function sortUsers() {
 }
 
 export const sortedUsers = sortUsers();
+
+function sortExamples() {
+  // Fix: adding default fix an issue with webpack.
+  let result = ExamplesArray.default;
+  // Sort by site name
+  result = sortBy(result, (user) => user.title.toLowerCase());
+  // Sort by favorite tag, favorites first
+  result = sortBy(result, (user) => !user.tags.includes("favorite"));
+  console.log(result);
+  return result;
+}
+
+export const sortedExamples = sortExamples();
+
+function sortNodes() {
+  // Fix: adding default fix an issue with webpack.
+  let result = NodesArray.default;
+  // Sort by site name
+  result = sortBy(result, (user) => user.title.toLowerCase());
+  // Sort by favorite tag, favorites first
+  result = sortBy(result, (user) => !user.tags.includes("favorite"));
+  return result;
+}
+
+export const sortedNodes = sortNodes();

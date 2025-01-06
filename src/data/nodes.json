@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Whisper",
+    "description": "Transcribe audio to text",
+    "preview": "/img/whisper.png.avif",
+    "website": "stt",
+    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/main/node-hub/dora-distil-whisper/README.md",
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "title": "Qwenvl",
+    "description": "Vision Language Model",
+    "preview": "https://github.com/QwenLM/Qwen-VL/raw/master/assets/logo.jpg",
+    "website": "vlm",
+    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/main/node-hub/dora-qwenvl/README.md",
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "title": "Sidero VAD",
+    "description": "Voice Activity Detection",
+    "preview": "https://user-images.githubusercontent.com/12515440/89997349-b3523080-dc94-11ea-9906-ca2e8bc50535.png",
+    "website": "vlm",
+    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/main/node-hub/dora-vad/README.md",
+    "tags": [
+      "python"
+    ]
+  }
+]
