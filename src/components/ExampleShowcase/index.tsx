@@ -152,7 +152,7 @@ function useSiteCountPlural() {
     );
 }
 
-function ShowcaseFilters({sortedExamples} : {sortedExamples: User[]}) {
+function ShowcaseFilters({ sortedExamples }: { sortedExamples: User[] }) {
   const filteredUsers = useFilteredUsers(sortedExamples);
   const siteCountPlural = useSiteCountPlural();
   return (
@@ -244,7 +244,7 @@ function SearchBar() {
   );
 }
 
-function ShowcaseCards({sortedExamples} : {sortedExamples: User[]}) {
+function ShowcaseCards({ sortedExamples }: { sortedExamples: User[] }) {
   const filteredUsers = useFilteredUsers(sortedExamples);
 
   if (filteredUsers.length === 0) {
@@ -269,6 +269,13 @@ function ShowcaseCards({sortedExamples} : {sortedExamples: User[]}) {
           <SearchBar />
         </div>
         <ul className={clsx("clean-list", styles.showcaseList)}>
+          {TagList.map((tag, i) => {
+            <div>
+              {filteredUsers.map((user) => (
+                <ShowcaseCard key={user.title} user={user} />
+              ))}
+            </div>;
+          })}
           {filteredUsers.map((user) => (
             <ShowcaseCard key={user.title} user={user} />
           ))}
@@ -288,7 +295,6 @@ export function NodeShowcase(): JSX.Element {
   );
 }
 
-
 export default function ExampleShowcase(): JSX.Element {
   return (
     <div>
@@ -298,4 +304,3 @@ export default function ExampleShowcase(): JSX.Element {
     </div>
   );
 }
-

@@ -6,7 +6,7 @@
     "website": "yolov5_operator",
     "source": "https://github.com/dora-rs/dora-drives/blob/main/operators/yolov5_op.py",
     "tags": [
-      "object_detection",
+      "cv",
       "python"
     ]
   },
@@ -58,7 +58,7 @@
     "website": "yolop_operator",
     "source": "https://github.com/dora-rs/dora-drives/blob/main/operators/yolop_op.py",
     "tags": [
-      "object_detection",
+      "cv",
       "python"
     ]
   },
@@ -90,7 +90,7 @@
     "website": "strong_sort_op",
     "source": "https://github.com/dora-rs/dora-drives/blob/main/operators/strong_sort_op.py",
     "tags": [
-      "object_detection",
+      "cv",
       "python"
     ]
   }

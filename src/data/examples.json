@@ -4,9 +4,9 @@
     "description": "Transform speech to text.",
     "preview": "/img/whisper.png.avif",
     "website": "stt",
-    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/main/examples/speech-to-text/README.md",
+    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/examples/speech-to-text/README.md",
     "tags": [
-      "object_detection",
+      "cv",
       "python"
     ]
   },
@@ -15,7 +15,28 @@
     "description": "Use a VLM to understand images.",
     "preview": "https://github.com/QwenLM/Qwen-VL/raw/master/assets/logo.jpg",
     "website": "vlm",
-    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/main/examples/vlm/README.md",
+    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/examples/vlm/README.md",
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "title": "YOLO",
+    "description": "Use YOLO to detect object within image.",
+    "preview": "https://github.com/ultralytics/docs/releases/download/0/ultralytics-yolov8-banner.avif",
+    "website": "yolo",
+    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/examples/python-dataflow/README.md",
+    "tags": [
+      "python",
+      "cv"
+    ]
+  },
+  {
+    "title": "Webcam",
+    "description": "Simple webcam plot example",
+    "preview": "https://github.com/ultralytics/docs/releases/download/0/ultralytics-yolov8-banner.avif",
+    "website": "webcam",
+    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/examples/camera/README.md",
     "tags": [
       "python"
     ]

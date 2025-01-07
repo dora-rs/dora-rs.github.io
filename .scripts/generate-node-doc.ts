@@ -54,7 +54,10 @@ const env: NodeJS.ProcessEnv = {};
 
 for (const example of examplesArray) {
   const module_name = getFileNameFromURL(example.source);
-  const targetPath = path.join(__dirname, `../docs/nodes/${example.title}.md`);
+  const targetPath = path.join(
+    __dirname,
+    `../docs/nodes/${example.website}.md`
+  );
   // Download the file from the URL and put it in the target.
   downloadFile(example.source, targetPath);
   console.log(targetPath);

@@ -22,6 +22,7 @@ import { sortBy } from "@site/src/utils/jsUtils";
 import Heading from "@theme/Heading";
 import Tooltip from "../ShowcaseTooltip";
 import styles from "./styles.module.css";
+import CodeBlock from "@theme/CodeBlock";
 
 const TagComp = React.forwardRef<HTMLLIElement, Tag>(
   ({ label, color, description }, ref) => (
@@ -77,9 +78,18 @@ function ShowcaseCard({ user }: { user: User }) {
   return (
     <li key={user.title} className="card shadow--md">
       <div className={clsx("card__image", styles.showcaseCardImage)}>
-        <Link href={module_name} className={styles.showcaseCardLink}>
-          <img src={user.preview} alt=" " />
-        </Link>
+        {user.preview && (
+          <Link
+            href={module_name}
+            className={styles.showcaseCardLink}
+            style={{ height: "150px", display: "flex" }}
+          >
+            <img src={user.preview} style={{ margin: "auto" }} alt=" " />
+          </Link>
+        )}
+        {user.preview == null && (
+          <h2 className={styles.showcaseCardHeaderNoImage}>{user.title}</h2>
+        )}
       </div>
       <div className="card__body">
         <div className={clsx(styles.showcaseCardHeader)}>
@@ -87,11 +97,14 @@ function ShowcaseCard({ user }: { user: User }) {
             <Link href={module_name} className={styles.showcaseCardLink}>
               {user.title}
             </Link>
+            {user.author && (
+              <em style={{ color: "grey" }}> by {user.author}</em>
+            )}
           </Heading>
           {user.tags.includes("favorite") && (
             <FavoriteIcon svgClass={styles.svgIconFavorite} size="small" />
           )}
-          {user.source && (
+          {user.github && (
             <Link
               href={user.source}
               className={clsx(
@@ -99,14 +112,25 @@ function ShowcaseCard({ user }: { user: User }) {
                 styles.showcaseCardSrcBtn
               )}
             >
-              <Translate id="showcase.card.sourceLink">source</Translate>
+              <img src="/img/github.svg" width="20px"></img>
             </Link>
           )}
         </div>
         <p className={styles.showcaseCardBody}>{user.description}</p>
+        {user.install && (
+          <div>
+            <small>
+              <em>Use it with:</em>
+            </small>
+            <CodeBlock language="yaml">{user.install}</CodeBlock>
+          </div>
+        )}
       </div>
       <ul className={clsx("card__footer", styles.cardFooter)}>
-        <ShowcaseCardTag tags={user.tags} />
+        <div>{user.downloads && <img src={user.downloads}></img>}</div>
+        <div>
+          <ShowcaseCardTag tags={user.tags} />
+        </div>
       </ul>
     </li>
   );

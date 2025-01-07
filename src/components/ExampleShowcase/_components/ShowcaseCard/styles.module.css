@@ -9,13 +9,29 @@
   overflow: hidden;
   height: 150px;
   border-bottom: 2px solid var(--ifm-color-emphasis-200);
-
+  text-align: center;
+  vertical-align: baseline;
+  justify-content: center;
+  object-fit: cover;
 }
 
 .showcaseCardHeader {
   display: flex;
   align-items: center;
   margin-bottom: 12px;
+  
+}
+
+.showcaseCardHeaderNoImage {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  height: 150px;
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+
+  background: linear-gradient(20deg, rgba(69, 164, 252, 0.65) 0%, rgba(55, 29, 253, 0) 50%, rgba(69, 164, 252, 0.654) 100%); 
 }
 
 .showcaseCardTitle {
@@ -74,6 +90,7 @@
 .cardFooter {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .tag {

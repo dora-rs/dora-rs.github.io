@@ -3,8 +3,12 @@
     "title": "Whisper",
     "description": "Transcribe audio to text",
     "preview": "/img/whisper.png.avif",
-    "website": "stt",
-    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/main/node-hub/dora-distil-whisper/README.md",
+    "website": "whisper",
+    "github": "https://github.com/dora-rs/dora/blob/main/node-hub/dora-vad",
+    "author": "dora",
+    "downloads": "https://img.shields.io/pypi/dm/dora-distil-whisper",
+    "install": "- id: dora-distil-whisper\n  build: pip install dora-distil-whisper\n  path: dora-distil-whisper\n  inputs: \n    tick: <NODE>/audio\n  outputs: \n    - text",
+    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/dora-distil-whisper/README.md",
     "tags": [
       "python"
     ]
@@ -13,20 +17,182 @@
     "title": "Qwenvl",
     "description": "Vision Language Model",
     "preview": "https://github.com/QwenLM/Qwen-VL/raw/master/assets/logo.jpg",
-    "website": "vlm",
-    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/main/node-hub/dora-qwenvl/README.md",
+    "website": "qwenvl",
+    "author": "dora",
+    "downloads": "https://img.shields.io/pypi/dm/dora-qwenvl",
+    "install": "- id: dora-qwenvl\n  build: pip install dora-qwenvl\n  path: dora-qwenvl\n  inputs: \n    text: <NODE>/text\n    image: <NODE>/image\n  outputs: \n    - text",
+    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/dora-qwenvl/README.md",
     "tags": [
       "python"
     ]
   },
   {
-    "title": "Sidero VAD",
+    "title": "Silero VAD",
     "description": "Voice Activity Detection",
     "preview": "https://user-images.githubusercontent.com/12515440/89997349-b3523080-dc94-11ea-9906-ca2e8bc50535.png",
-    "website": "vlm",
-    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/main/node-hub/dora-vad/README.md",
+    "website": "silero",
+    "author": "dora",
+    "downloads": "https://img.shields.io/pypi/dm/dora-vad",
+    "install": "- id: dora-vad\n  build: pip install dora-vad\n  path: dora-vad\n  inputs: \n    tick: <NODE>/audio\n  outputs: \n    - audio",
+    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/dora-vad/README.md",
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "title": "Microphone",
+    "description": "Audio from microphone",
+    "author": "dora",
+    "website": "microphone",
+    "downloads": "https://img.shields.io/pypi/dm/dora-microphone",
+    "install": "- id: dora-microphone\n  build: pip install dora-microphone\n  path: dora-microphone\n  inputs: \n    tick: dora/timer/millis/50\n  outputs: \n    - audio",
+    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/dora-microphone/README.md",
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "title": "Rerun",
+    "description": "Visualization tool",
+    "author": "dora",
+    "website": "rerun",
+    "downloads": "https://img.shields.io/pypi/dm/dora-rerun",
+    "install": "- id: dora-rerun\n  build: pip install dora-rerun\n  path: dora-rerun\n  inputs: \n    image: <NODE>/image\n    text: <NODE>/text",
+    "preview": "https://user-images.githubusercontent.com/1148717/218141237-0442d2b5-ed22-42bf-9321-10af1b894507.png",
+    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/dora-rerun/README.md",
+    "tags": [
+      "rust"
+    ]
+  },
+  {
+    "title": "Video Capture",
+    "description": "Image stream from Camera",
+    "author": "dora",
+    "website": "opencv-video-capture",
+    "install": "- id: opencv-video-capture\n  build: pip install opencv-video-capture\n  path: opencv-video-capture\n  inputs: \n    tick: dora/timer/millis/50\n  outputs: \n    - image",
+    "downloads": "https://img.shields.io/pypi/dm/opencv-video-capture",
+    "preview": "https://opencv.org/wp-content/uploads/2020/07/OpenCV_logo_no_text-1.svg",
+    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/opencv-video-capture/README.md",
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "title": "Yolov8",
+    "description": "Object detection",
+    "author": "dora",
+    "website": "yolo",
+    "install": "- id: dora-yolo\n  build: pip install dora-yolo\n  path: dora-yolo\n  inputs: \n    image: <NODE>/image\n  outputs: \n    - bbox",
+    "downloads": "https://img.shields.io/pypi/dm/dora-yolo",
+    "preview": "https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png",
+    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/dora-yolo/README.md",
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "title": "Plot",
+    "description": "Simple OpenCV plot visualization",
+    "author": "dora",
+    "website": "opencv-plot",
+    "install": "- id: opencv-plot\n  build: pip install opencv-plot\n  path: opencv-plot\n  inputs: \n    image: <NODE>/image\n    text: <NODE>/text",
+    "downloads": "https://img.shields.io/pypi/dm/dora-yolo",
+    "preview": "https://opencv.org/wp-content/uploads/2020/07/OpenCV_logo_no_text-1.svg",
+    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/opencv-plot/README.md",
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "title": "PyRealsense",
+    "description": "Image and depth from Realsense",
+    "author": "dora",
+    "website": "pyrealsense",
+    "install": "- id: dora-pyrealsense\n  build: pip install dora-pyrealsense\n  path: dora-pyrealsense\n  inputs: \n    tick: dora/timer/millis/50\n  outputs: \n    - image\n    - depth",
+    "downloads": "https://img.shields.io/pypi/dm/dora-pyrealsense",
+    "preview": "https://user-images.githubusercontent.com/41145062/193884336-c30397be-2cac-45da-ba34-07e7db9843e8.png",
+    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/dora-pyrealsense/README.md",
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "title": "PyOrbbeckSDK",
+    "description": "Image and depth from Orbbeck Camera",
+    "author": "dora",
+    "website": "pyorbbecsdk",
+    "install": "- id: dora-pyorbbecksdk\n  build: pip install dora-pyorbbecksdk\n  path: dora-pyorbbecksdk\n  inputs: \n    tick: dora/timer/millis/50\n  outputs: \n    - image\n    - depth\n    - image_depth",
+    "downloads": "https://img.shields.io/pypi/dm/dora-pyorbbecksdk",
+    "preview": "https://new-orbbec3d-s3.s3.amazonaws.com/wp-content/uploads/2024/06/03120334/右45度-e1717416268437-300x153.png",
+    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/dora-pyorbbecksdk/README.md",
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "title": "Keyboard",
+    "description": "Keyboard char listener",
+    "author": "dora",
+    "website": "keyboard",
+    "install": "- id: dora-keyboard\n  build: pip install dora-keyboard\n  path: dora-keyboard\n  inputs: \n    tick: dora/timer/millis/1000\n  outputs: \n    - char",
+    "downloads": "https://img.shields.io/pypi/dm/dora-keyboard",
+    "preview": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/LenovoKeyboard.jpg/220px-LenovoKeyboard.jpg",
+    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/dora-keyboard/README.md",
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "title": "Agilex Piper",
+    "description": "Agilex arm client",
+    "author": "dora",
+    "website": "piper",
+    "install": "- id: dora-piper\n  build: pip install dora-piper\n  path: dora-keyboard\n  inputs: \n    tick: dora/timer/millis/20\n    joint_action: <NODE>/jointstate\n  outputs: \n    - jointstate",
+    "downloads": "https://img.shields.io/pypi/dm/dora-piper",
+    "preview": "https://global.agilex.ai/cdn/shop/files/PIPER0814.00_00_37_00.Still004.jpg?v=1724743157&width=3840",
+    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/dora-keyboard/README.md",
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "title": "Opus MT",
+    "description": "Translate text between language",
+    "author": "dora",
+    "website": "opus",
+    "install": "- id: dora-opus\n  build: pip install dora-opus\n  path: dora-opus\n  inputs: \n    text: <NODE>/text\n  outputs: \n    - text\n  env:\n    SOURCE_LANGUAGE: en\n    TARGET_LANGUAGE: fr",
+    "downloads": "https://img.shields.io/pypi/dm/dora-opus",
+    "preview": "https://github.com/Helsinki-NLP/Opus-MT/raw/master/img/opus_mt.png",
+    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/dora-opus/README.md",
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "title": "Llama Factory Recorder",
+    "description": "Record data to train LLM and VLM",
+    "author": "dora",
+    "website": "llama-factory-recorder",
+    "install": "- id: llama-factory-recorder\n  build: pip install llama-factory-recorder\n  path: llama-factory-recorder\n  inputs: \n    image: <NODE>/image\n    text: <NODE>/text\n    ground_truth: <NODE>/text\n  outputs: \n    - text",
+    "downloads": "https://img.shields.io/pypi/dm/llama-factory-recorder",
+    "preview": "https://github.com/hiyouga/LLaMA-Factory/blob/main/assets/logo.png?raw=true",
+    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/llama-factory-recorder/README.md",
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "title": "RDT-1B",
+    "description": "Infer policy using Robotic Diffusion Transformer",
+    "author": "dora",
+    "website": "rdt",
+    "install": "- id: dora-rdt-1b\n  build: pip install dora-rdt-1b\n  path: dora-rdt-1b\n  inputs: \n    image: <NODE>/image\n    jointstate: <NODE>/jointstate\n  outputs: \n    - action",
+    "downloads": "https://img.shields.io/pypi/dm/dora-rdt-1b",
+    "preview": "https://github.com/thu-ml/RoboticsDiffusionTransformer/raw/main/assets/head.png",
+    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/dora-rdt-1b/README.md",
     "tags": [
       "python"
     ]
   }
+
 ]

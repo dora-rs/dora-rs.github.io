@@ -44,12 +44,16 @@ export type TagType =
   // DO NOT USE THIS TAG: we choose sites to add to favorites
   //| "favorite"
   //
-  "object_detection" | "python" | "depth_estimation" | "control";
+  "cv" | "python" | "depth" | "control" | "rust";
 
 export type User = {
   title: string;
   description: string;
-  preview: string | null; // null = use our serverless screenshot service
+  preview: string | null;
+  author: string | null;
+  github: string | null;
+  downloads: string | null;
+  install: string | null;
   website: string;
   source: string;
   tags: TagType[];
@@ -72,7 +76,7 @@ export const Tags: { [type in TagType]: Tag } = {
   //color: "#e9669e",
   //},
 
-  object_detection: {
+  cv: {
     label: translate({
       id: "showcase.tag.oject-detection.tag",
       message: "object detection",
@@ -96,6 +100,15 @@ export const Tags: { [type in TagType]: Tag } = {
     color: "#dfd545",
   },
 
+  rust: {
+    label: "rust",
+    description: translate({
+      message: "Docusaurus sites associated to a commercial product!",
+      id: "showcase.tag.rust.description",
+    }),
+    color: "#333e2e",
+  },
+
   control: {
     label: translate({
       id: "showcase.tag.control.tag",
@@ -109,7 +122,7 @@ export const Tags: { [type in TagType]: Tag } = {
     color: "#a44fb7",
   },
 
-  depth_estimation: {
+  depth: {
     label: translate({
       id: "showcase.tag.depth-estimation.tag",
       message: "Depth Esimation",
@@ -176,7 +189,6 @@ export const TagList = Object.keys(Tags) as TagType[];
 const usersArray: User[] = Users as User[];
 const ExamplesArray: User[] = Examples as User[];
 const NodesArray: User[] = Nodes as User[];
-
 
 function sortUsers() {
   // Fix: adding default fix an issue with webpack.
