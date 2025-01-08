@@ -44,7 +44,28 @@ export type TagType =
   // DO NOT USE THIS TAG: we choose sites to add to favorites
   //| "favorite"
   //
-  "cv" | "python" | "depth" | "control" | "rust";
+  "python" | "depth" | "control" | "rust" | "audio" | "video" | "image";
+
+export const CategoriesNodes = [
+  "Camera",
+  "Peripheral",
+  "Actuator",
+  "Chassis",
+  "Arm",
+  "Robot",
+  "Voice Activity Detection",
+  "Speech to Text",
+  "Object Detection",
+  "Vision Language Model",
+  "Large Language Model",
+  "Vision Language Action",
+  "Translation",
+  "Text to Speech",
+  "Recorder",
+  "Visualization",
+  "Simulator",
+];
+export const CategoriesExamples = ["Computer Audition", "Computer Vision"];
 
 export type User = {
   title: string;
@@ -54,6 +75,7 @@ export type User = {
   github: string | null;
   downloads: string | null;
   install: string | null;
+  category: string | null;
   website: string;
   source: string;
   tags: TagType[];
@@ -76,14 +98,14 @@ export const Tags: { [type in TagType]: Tag } = {
   //color: "#e9669e",
   //},
 
-  cv: {
+  image: {
     label: translate({
-      id: "showcase.tag.oject-detection.tag",
-      message: "object detection",
+      id: "showcase.tag.image.tag",
+      message: "image",
     }),
     description: translate({
-      message: "Open-Source Docusaurus sites can be useful for inspiration!",
-      id: "showcase.tag.oject-detection.description",
+      message: "Computer vision related nodes!",
+      id: "showcase.tag.image.description",
     }),
     color: "#39ca30",
   },
@@ -91,7 +113,7 @@ export const Tags: { [type in TagType]: Tag } = {
   python: {
     label: translate({
       id: "showcase.tag.python.tag",
-      message: "Python",
+      message: "python",
     }),
     description: translate({
       message: "Docusaurus sites associated to a commercial product!",
@@ -112,7 +134,7 @@ export const Tags: { [type in TagType]: Tag } = {
   control: {
     label: translate({
       id: "showcase.tag.control.tag",
-      message: "Control",
+      message: "control",
     }),
     description: translate({
       message:
@@ -124,36 +146,36 @@ export const Tags: { [type in TagType]: Tag } = {
 
   depth: {
     label: translate({
-      id: "showcase.tag.depth-estimation.tag",
-      message: "Depth Esimation",
+      id: "showcase.tag.depth.tag",
+      message: "depth",
     }),
     description: translate({
       message:
         "Translated Docusaurus sites using the internationalization support with more than 1 locale.",
-      id: "showcase.tag.depth-estimation.description",
+      id: "showcase.tag.depth.description",
     }),
     color: "#127f82",
   },
 
-  //versioning: {
-  //label: translate({ message: "Versioning" }),
-  //description: translate({
-  //message:
-  //"Docusaurus sites using the versioning feature of the docs plugin to manage multiple versions.",
-  //id: "showcase.tag.versioning.description",
-  //}),
-  //color: "#fe6829",
-  //},
+  audio: {
+    label: translate({ message: "audio" }),
+    description: translate({
+      message:
+        "Docusaurus sites using the versioning feature of the docs plugin to manage multiple versions.",
+      id: "showcase.tag.audio.description",
+    }),
+    color: "#fe6829",
+  },
 
-  //large: {
-  //label: translate({ message: "Large" }),
-  //description: translate({
-  //message:
-  //"Very large Docusaurus sites, including many more pages than the average!",
-  //id: "showcase.tag.large.description",
-  //}),
-  //color: "#8c2f00",
-  //},
+  text: {
+    label: translate({ message: "text" }),
+    description: translate({
+      message:
+        "Very large Docusaurus sites, including many more pages than the average!",
+      id: "showcase.tag.large.description",
+    }),
+    color: "#8c2f00",
+  },
 
   //meta: {
   //label: translate({ message: "Meta" }),

@@ -5,10 +5,16 @@
     "preview": "/img/whisper.png.avif",
     "website": "stt",
     "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/examples/speech-to-text/README.md",
-    "tags": [
-      "cv",
-      "python"
-    ]
+    "tags": ["audio", "python"],
+    "category": "Computer Audition"
+  },
+  {
+    "title": "Translation",
+    "description": "Translate audio in real time.",
+    "website": "stt",
+    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/examples/translation/README.md",
+    "tags": ["audio", "python"],
+    "category": "Computer Audition"
   },
   {
     "title": "Vision Language Model",
@@ -16,9 +22,8 @@
     "preview": "https://github.com/QwenLM/Qwen-VL/raw/master/assets/logo.jpg",
     "website": "vlm",
     "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/examples/vlm/README.md",
-    "tags": [
-      "python"
-    ]
+    "tags": ["python", "image"],
+    "category": "Computer Vision"
   },
   {
     "title": "YOLO",
@@ -26,19 +31,16 @@
     "preview": "https://github.com/ultralytics/docs/releases/download/0/ultralytics-yolov8-banner.avif",
     "website": "yolo",
     "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/examples/python-dataflow/README.md",
-    "tags": [
-      "python",
-      "cv"
-    ]
+    "tags": ["python", "image"],
+    "category": "Computer Vision"
   },
   {
     "title": "Webcam",
     "description": "Simple webcam plot example",
-    "preview": "https://github.com/ultralytics/docs/releases/download/0/ultralytics-yolov8-banner.avif",
+    "preview": "https://upload.wikimedia.org/wikipedia/commons/3/35/AdventWebcam.jpg",
     "website": "webcam",
     "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/examples/camera/README.md",
-    "tags": [
-      "python"
-    ]
+    "tags": ["python", "image"],
+    "category": "Computer Vision"
   }
 ]

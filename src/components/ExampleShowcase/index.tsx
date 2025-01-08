@@ -34,6 +34,7 @@ import ShowcaseCard from "./_components/ShowcaseCard";
 import ShowcaseTooltip from "./_components/ShowcaseTooltip";
 
 import styles from "./styles.module.css";
+import { CategoriesNodes, CategoriesExamples } from "../../data/users";
 
 const TITLE = translate({ message: "dora-rs nodes hub" });
 const DESCRIPTION = translate({
@@ -244,7 +245,13 @@ function SearchBar() {
   );
 }
 
-function ShowcaseCards({ sortedExamples }: { sortedExamples: User[] }) {
+function ShowcaseCards({
+  sortedExamples,
+  Categories,
+}: {
+  sortedExamples: User[];
+  Categories: String[];
+}) {
   const filteredUsers = useFilteredUsers(sortedExamples);
 
   if (filteredUsers.length === 0) {
@@ -268,18 +275,26 @@ function ShowcaseCards({ sortedExamples }: { sortedExamples: User[] }) {
         >
           <SearchBar />
         </div>
-        <ul className={clsx("clean-list", styles.showcaseList)}>
-          {TagList.map((tag, i) => {
-            <div>
-              {filteredUsers.map((user) => (
-                <ShowcaseCard key={user.title} user={user} />
-              ))}
-            </div>;
+        <div>
+          {Categories.map((category) => {
+            let categoryUsers = filteredUsers.filter(
+              (user) => user.category == category
+            );
+            if (categoryUsers.length === 0) {
+              return null;
+            }
+            return (
+              <div>
+                <Heading as="h2">{category}</Heading>
+                <ul className={clsx("clean-list", styles.showcaseList)}>
+                  {categoryUsers.map((user) => (
+                    <ShowcaseCard key={user.title} user={user} />
+                  ))}
+                </ul>
+              </div>
+            );
           })}
-          {filteredUsers.map((user) => (
-            <ShowcaseCard key={user.title} user={user} />
-          ))}
-        </ul>
+        </div>
       </div>
     </section>
   );
@@ -290,7 +305,10 @@ export function NodeShowcase(): JSX.Element {
     <div>
       <ShowcaseHeader />
       <ShowcaseFilters sortedExamples={sortedNodes} />
-      <ShowcaseCards sortedExamples={sortedNodes} />
+      <ShowcaseCards
+        sortedExamples={sortedNodes}
+        Categories={CategoriesNodes}
+      />
     </div>
   );
 }
@@ -300,7 +318,10 @@ export default function ExampleShowcase(): JSX.Element {
     <div>
       <ShowcaseHeader />
       <ShowcaseFilters sortedExamples={sortedExamples} />
-      <ShowcaseCards sortedExamples={sortedExamples} />
+      <ShowcaseCards
+        sortedExamples={sortedExamples}
+        Categories={CategoriesExamples}
+      />
     </div>
   );
 }

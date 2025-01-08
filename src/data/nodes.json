@@ -9,9 +9,8 @@
     "downloads": "https://img.shields.io/pypi/dm/dora-distil-whisper",
     "install": "- id: dora-distil-whisper\n  build: pip install dora-distil-whisper\n  path: dora-distil-whisper\n  inputs: \n    tick: <NODE>/audio\n  outputs: \n    - text",
     "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/dora-distil-whisper/README.md",
-    "tags": [
-      "python"
-    ]
+    "tags": ["python", "audio"],
+    "category": "Speech to Text"
   },
   {
     "title": "Qwenvl",
@@ -22,34 +21,32 @@
     "downloads": "https://img.shields.io/pypi/dm/dora-qwenvl",
     "install": "- id: dora-qwenvl\n  build: pip install dora-qwenvl\n  path: dora-qwenvl\n  inputs: \n    text: <NODE>/text\n    image: <NODE>/image\n  outputs: \n    - text",
     "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/dora-qwenvl/README.md",
-    "tags": [
-      "python"
-    ]
+    "tags": ["python", "image", "text"],
+    "category": "Vision Language Model"
   },
   {
     "title": "Silero VAD",
-    "description": "Voice Activity Detection",
+    "description": "Silero Voice activity detection",
     "preview": "https://user-images.githubusercontent.com/12515440/89997349-b3523080-dc94-11ea-9906-ca2e8bc50535.png",
     "website": "silero",
     "author": "dora",
     "downloads": "https://img.shields.io/pypi/dm/dora-vad",
     "install": "- id: dora-vad\n  build: pip install dora-vad\n  path: dora-vad\n  inputs: \n    tick: <NODE>/audio\n  outputs: \n    - audio",
     "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/dora-vad/README.md",
-    "tags": [
-      "python"
-    ]
+    "tags": ["python", "audio"],
+    "category": "Voice Activity Detection"
   },
   {
     "title": "Microphone",
     "description": "Audio from microphone",
     "author": "dora",
     "website": "microphone",
+    "preview": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8EPOj0PAu4yyERZg4ncm-vMgBqaU5lSP6_Q&s",
     "downloads": "https://img.shields.io/pypi/dm/dora-microphone",
     "install": "- id: dora-microphone\n  build: pip install dora-microphone\n  path: dora-microphone\n  inputs: \n    tick: dora/timer/millis/50\n  outputs: \n    - audio",
     "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/dora-microphone/README.md",
-    "tags": [
-      "python"
-    ]
+    "tags": ["python", "audio"],
+    "category": "Peripheral"
   },
   {
     "title": "Rerun",
@@ -60,9 +57,8 @@
     "install": "- id: dora-rerun\n  build: pip install dora-rerun\n  path: dora-rerun\n  inputs: \n    image: <NODE>/image\n    text: <NODE>/text",
     "preview": "https://user-images.githubusercontent.com/1148717/218141237-0442d2b5-ed22-42bf-9321-10af1b894507.png",
     "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/dora-rerun/README.md",
-    "tags": [
-      "rust"
-    ]
+    "tags": ["rust", "text", "image", "depth"],
+    "category": "Visualization"
   },
   {
     "title": "Video Capture",
@@ -73,9 +69,8 @@
     "downloads": "https://img.shields.io/pypi/dm/opencv-video-capture",
     "preview": "https://opencv.org/wp-content/uploads/2020/07/OpenCV_logo_no_text-1.svg",
     "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/opencv-video-capture/README.md",
-    "tags": [
-      "python"
-    ]
+    "tags": ["python", "image"],
+    "category": "Camera"
   },
   {
     "title": "Yolov8",
@@ -86,9 +81,8 @@
     "downloads": "https://img.shields.io/pypi/dm/dora-yolo",
     "preview": "https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png",
     "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/dora-yolo/README.md",
-    "tags": [
-      "python"
-    ]
+    "tags": ["python", "image"],
+    "category": "Object Detection"
   },
   {
     "title": "Plot",
@@ -99,9 +93,8 @@
     "downloads": "https://img.shields.io/pypi/dm/dora-yolo",
     "preview": "https://opencv.org/wp-content/uploads/2020/07/OpenCV_logo_no_text-1.svg",
     "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/opencv-plot/README.md",
-    "tags": [
-      "python"
-    ]
+    "tags": ["python", "image", "text"],
+    "category": "Visualization"
   },
   {
     "title": "PyRealsense",
@@ -112,9 +105,8 @@
     "downloads": "https://img.shields.io/pypi/dm/dora-pyrealsense",
     "preview": "https://user-images.githubusercontent.com/41145062/193884336-c30397be-2cac-45da-ba34-07e7db9843e8.png",
     "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/dora-pyrealsense/README.md",
-    "tags": [
-      "python"
-    ]
+    "tags": ["python", "image", "depth"],
+    "category": "Camera"
   },
   {
     "title": "PyOrbbeckSDK",
@@ -125,9 +117,8 @@
     "downloads": "https://img.shields.io/pypi/dm/dora-pyorbbecksdk",
     "preview": "https://new-orbbec3d-s3.s3.amazonaws.com/wp-content/uploads/2024/06/03120334/右45度-e1717416268437-300x153.png",
     "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/dora-pyorbbecksdk/README.md",
-    "tags": [
-      "python"
-    ]
+    "tags": ["python", "image", "depth"],
+    "category": "Camera"
   },
   {
     "title": "Keyboard",
@@ -138,12 +129,11 @@
     "downloads": "https://img.shields.io/pypi/dm/dora-keyboard",
     "preview": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/LenovoKeyboard.jpg/220px-LenovoKeyboard.jpg",
     "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/dora-keyboard/README.md",
-    "tags": [
-      "python"
-    ]
+    "tags": ["python", "text"],
+    "category": "Peripheral"
   },
   {
-    "title": "Agilex Piper",
+    "title": "Agilex - Piper",
     "description": "Agilex arm client",
     "author": "dora",
     "website": "piper",
@@ -151,9 +141,8 @@
     "downloads": "https://img.shields.io/pypi/dm/dora-piper",
     "preview": "https://global.agilex.ai/cdn/shop/files/PIPER0814.00_00_37_00.Still004.jpg?v=1724743157&width=3840",
     "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/dora-keyboard/README.md",
-    "tags": [
-      "python"
-    ]
+    "tags": ["python"],
+    "category": "Arm"
   },
   {
     "title": "Opus MT",
@@ -164,9 +153,8 @@
     "downloads": "https://img.shields.io/pypi/dm/dora-opus",
     "preview": "https://github.com/Helsinki-NLP/Opus-MT/raw/master/img/opus_mt.png",
     "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/dora-opus/README.md",
-    "tags": [
-      "python"
-    ]
+    "tags": ["python", "text"],
+    "category": "Translation"
   },
   {
     "title": "Llama Factory Recorder",
@@ -177,9 +165,8 @@
     "downloads": "https://img.shields.io/pypi/dm/llama-factory-recorder",
     "preview": "https://github.com/hiyouga/LLaMA-Factory/blob/main/assets/logo.png?raw=true",
     "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/llama-factory-recorder/README.md",
-    "tags": [
-      "python"
-    ]
+    "tags": ["python", "image", "text"],
+    "category": "Recorder"
   },
   {
     "title": "RDT-1B",
@@ -190,9 +177,173 @@
     "downloads": "https://img.shields.io/pypi/dm/dora-rdt-1b",
     "preview": "https://github.com/thu-ml/RoboticsDiffusionTransformer/raw/main/assets/head.png",
     "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/dora-rdt-1b/README.md",
-    "tags": [
-      "python"
-    ]
+    "tags": ["python", "image", "text"],
+    "category": "Vision Language Action"
+  },
+  {
+    "title": "Dynamixel",
+    "description": "Dynamixel Client",
+    "author": "Enzo Levan",
+    "website": "dynamixel",
+    "preview": "https://robots.ros.org/assets/img/robots/dynamixel/dynamixel.png",
+    "source": "https://github.com/dora-rs/dora-lerobot/tree/main/node-hub/dynamixel-client/README.md?raw=true",
+    "tags": ["python"],
+    "category": "Actuator"
+  },
+  {
+    "title": "Feetech",
+    "description": "Feetech Client",
+    "author": "Enzo Levan",
+    "website": "feetech",
+    "preview": "https://media.licdn.com/dms/image/v2/C5612AQGpeiwwIPDqaw/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1647414552058?e=2147483647&v=beta&t=QoHYcvm7pla6ptYtg3daKPAGRRctKGEkIGkBrGyE25Y",
+    "source": "https://github.com/dora-rs/dora-lerobot/tree/main/node-hub/feetech-client/README.md?raw=true",
+    "tags": ["python"],
+    "category": "Actuator"
+  },
+  {
+    "title": "Mujoco",
+    "description": "Mujoco Simulator",
+    "author": "Enzo Levan",
+    "website": "mujoco",
+    "preview": "https://github.com/google-deepmind/mujoco/raw/main/banner.png",
+    "source": "https://github.com/dora-rs/dora-lerobot/tree/main/node-hub/mujoco-client/README.md?raw=true",
+    "tags": ["python"],
+    "category": "Simulator"
+  },
+  {
+    "title": "Lebai - LM3",
+    "description": "Lebai client",
+    "author": "dora",
+    "website": "lebai",
+    "preview": "https://l-www.lebai.ltd/2015/07/1-495x400.jpg",
+    "source": "https://github.com/dora-rs/dora-lerobot/tree/main/node-hub/lebai-client/README.md?raw=true",
+    "tags": ["python"],
+    "category": "Arm"
+  },
+  {
+    "title": "Alex Koch - Low Cost Robot",
+    "description": "Alex Koch - Low Cost Robot Client",
+    "author": "dora",
+    "website": "alex-koch-low-cost-robot",
+    "preview": "https://github.com/AlexanderKoch-Koch/low_cost_robot/raw/main/pictures/robot_portait.jpg",
+    "source": "https://github.com/dora-rs/dora-lerobot/blob/main/robots/alexk-lcr/README.md?raw=true",
+    "tags": ["python"],
+    "category": "Arm"
+  },
+  {
+    "title": "Trossen - Aloha",
+    "description": "Aloha client",
+    "author": "dora",
+    "website": "aloha",
+    "preview": "https://static.wixstatic.com/media/d3716d_7d9108b35b194e3c806cc260fcfd7268~mv2.jpg/v1/fill/w_1000,h_659,al_c,q_85,usm_0.66_1.00_0.01/d3716d_7d9108b35b194e3c806cc260fcfd7268~mv2.jpg",
+    "source": "https://github.com/dora-rs/dora-lerobot/blob/main/robots/aloha/README.md?raw=true",
+    "tags": ["python"],
+    "category": "Robot"
+  },
+  {
+    "title": "Pollen - Reachy 2",
+    "description": "Reachy 2 client",
+    "author": "dora",
+    "website": "reachy2",
+    "preview": "https://www.lejournaldesentreprises.com/sites/lejournaldesentreprises.com/files/styles/landscape_web_lg_1x/public/2024-11/Reachy-2-sait-reprer-un-objet-le-saisir-et-le-m-15512511.jpeg?itok=syrnHhWx",
+    "source": "https://github.com/dora-rs/dora-lerobot/blob/main/robots/reachy/README.md?raw=true",
+    "tags": ["python"],
+    "category": "Robot"
+  },
+  {
+    "title": "Carla",
+    "description": "Carla Simulator",
+    "author": "dora",
+    "website": "carla",
+    "preview": "https://media.licdn.com/dms/image/v2/D4D1BAQHyb4EFail-wQ/company-background_10000/company-background_10000/0/1663774857825/carla_simulator_cover?e=2147483647&v=beta&t=AmftWPQMtfni1t_RXUvqqkQJqxKK_I54BoHpLLSwjWE",
+    "source": "https://github.com/dora-rs/dora-drives/README.md?raw=true",
+    "tags": ["python"],
+    "category": "Simulator"
+  },
+  {
+    "title": "Pollen - Reachy 1",
+    "description": "Reachy 1 Client",
+    "author": "dora",
+    "website": "reachy1",
+    "install": "- id: dora-reachy1\n  build: pip install dora-reachy1\n  path: dora-reachy1",
+    "preview": "https://www.aquitaineonline.com/images/stories/Economie_Industrie_2021/Reachy_01.jpg",
+    "source": "https://github.com/dora-rs/dora-lerobot/tree/main/node-hub/dora-reachy1/README.md?raw=true",
+    "tags": ["python"],
+    "category": "Robot"
+  },
+  {
+    "title": "DJI - Robomaster S1",
+    "description": "Robomaster Client",
+    "author": "dora",
+    "website": "robomaster-s1",
+    "preview": "https://m.media-amazon.com/images/I/61K2UXjfHwL.jpg",
+    "source": "https://huggingface.co/datasets/dora-rs/dora-robomaster/raw/main/README.md",
+    "tags": ["python"],
+    "category": "Chassis"
+  },
+  {
+    "title": "Agilex - UGV",
+    "description": "Robomaster Client",
+    "author": "dora",
+    "website": "robomaster-s1",
+    "downloads": "https://img.shields.io/pypi/dm/dora-ugv",
+    "preview": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvTwJ589Zudgva9TIQ79ddJ8wHUq2_jmrUZg&s",
+    "source": "https://github.com/dora-rs/dora/blob/main/node-hub/dora-ugv/README.md?raw=true",
+    "tags": ["python"],
+    "category": "Chassis"
+  },
+  {
+    "title": "Dora Kit Car",
+    "description": "Open Source Chassis",
+    "author": "dora",
+    "website": "dora-kit-car",
+    "downloads": "https://img.shields.io/pypi/dm/dora-kit-car",
+    "preview": "https://github.com/RuPingCen/mick_robot_chassis/raw/master/README.assets/fengmian.gif",
+    "source": "https://github.com/dora-rs/dora/blob/main/node-hub/dora-kit-car/README.md?raw=true",
+    "tags": ["python"],
+    "category": "Chassis"
+  },
+  {
+    "title": "ArgosTranslate",
+    "description": "Open Source translation engine",
+    "author": "dora",
+    "website": "argotranslate",
+    "downloads": "https://img.shields.io/pypi/dm/dora-argotranslate",
+    "install": "- id: dora-argotranslate\n  build: pip install dora-argotranslate\n  path: dora-argotranslate\n  inputs: \n    text: <NODE>/text\n  outputs: \n    - text\n  env:\n    SOURCE_LANGUAGE: en\n    TARGET_LANGUAGE: fr",
+    "preview": "https://avatars.githubusercontent.com/u/48267258?v=4",
+    "source": "https://github.com/dora-rs/dora/blob/main/node-hub/dora-argotranslate/README.md?raw=true",
+    "tags": ["python"],
+    "category": "Translation"
+  },
+  {
+    "title": "InternVL",
+    "description": "InternVL is a vision language model",
+    "author": "dora",
+    "website": "internvl",
+    "downloads": "https://img.shields.io/pypi/dm/dora-internvl",
+    "preview": "https://private-user-images.githubusercontent.com/23737120/379689418-930e6814-8a9f-43e1-a284-118a5732daa4.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzYzNDcwODEsIm5iZiI6MTczNjM0Njc4MSwicGF0aCI6Ii8yMzczNzEyMC8zNzk2ODk0MTgtOTMwZTY4MTQtOGE5Zi00M2UxLWEyODQtMTE4YTU3MzJkYWE0LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMDglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTA4VDE0MzMwMVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTM3YTUyM2UyMDc5ZmMxNjk5NWZmNzg4ZjgxN2VkNzIyOTFmYjc2OGJiZGJlOWQ1Y2Q4NWU2OTJhYmRjMzZhZjUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.uiWkdjPEgeUJkiCVNii9Huh4M1ykJ2Cm_FVcTDcldYs",
+    "source": "https://github.com/dora-rs/dora/blob/main/node-hub/dora-internvl/README.md?raw=true",
+    "tags": ["python"],
+    "category": "Vision Language Model"
+  },
+  {
+    "title": "LeRobot Recorder",
+    "description": "LeRobot Recorder helper",
+    "author": "dora",
+    "website": "lerobot-dashboard",
+    "preview": "https://cdn-uploads.huggingface.co/production/uploads/631ce4b244503b72277fc89f/MNkMdnJqyPvOAEg20Mafg.png",
+    "source": "https://github.com/dora-rs/dora/blob/main/node-hub/dora-internvl/README.md?raw=true",
+    "tags": ["python"],
+    "category": "Recorder"
+  },
+  {
+    "title": "Gymnamsium",
+    "description": "Experimental OpenAI Gymnasium bridge",
+    "author": "dora",
+    "website": "gymnasium",
+    "preview": "https://raw.githubusercontent.com/Farama-Foundation/Gymnasium/main/gymnasium-text.png",
+    "source": "https://github.com/dora-rs/dora-lerobot/blob/main/gym_dora/README.md/README.md?raw=true",
+    "tags": ["python"],
+    "category": "Simulator"
   }
-
 ]
