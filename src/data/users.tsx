@@ -74,6 +74,9 @@ export type User = {
   author: string | null;
   github: string | null;
   downloads: string | null;
+  last_commit: string | null;
+  last_release: string | null;
+  license: string | null;
   install: string | null;
   category: string | null;
   website: string;

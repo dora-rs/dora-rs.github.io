@@ -127,7 +127,32 @@ function ShowcaseCard({ user }: { user: User }) {
         )}
       </div>
       <ul className={clsx("card__footer", styles.cardFooter)}>
-        <div>{user.downloads && <img src={user.downloads}></img>}</div>
+        <div>
+          {user.downloads && (
+            <img className="margin-right--sm" src={user.downloads}></img>
+          )}
+          {user.last_commit && (
+            <img
+              className="margin-right--sm"
+              alt="GitHub last commit"
+              src={user.last_commit}
+            ></img>
+          )}
+          {user.last_release && (
+            <img
+              className="margin-right--sm"
+              alt="GitHub last release"
+              src={user.last_release}
+            ></img>
+          )}
+          {user.license && (
+            <img
+              className="margin-right--sm"
+              alt="GitHub license"
+              src={user.license}
+            ></img>
+          )}
+        </div>
         <div>
           <ShowcaseCardTag tags={user.tags} />
         </div>
