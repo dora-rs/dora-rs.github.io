@@ -4,7 +4,7 @@
     "description": "Transcribe audio to text",
     "preview": "/img/whisper.png.avif",
     "website": "whisper",
-    "github": "https://github.com/dora-rs/dora/blob/main/node-hub/dora-vad",
+    "github": "https://github.com/dora-rs/dora/blob/main/node-hub/dora-distil-whisper",
     "author": "dora",
     "downloads": "https://img.shields.io/pypi/dm/dora-distil-whisper",
     "install": "- id: dora-distil-whisper\n  build: pip install dora-distil-whisper\n  path: dora-distil-whisper\n  inputs: \n    tick: <NODE>/audio\n  outputs: \n    - text",
@@ -170,10 +170,10 @@
     "description": "Agilex arm client",
     "author": "dora",
     "website": "piper",
-    "install": "- id: dora-piper\n  build: pip install dora-piper\n  path: dora-keyboard\n  inputs: \n    tick: dora/timer/millis/20\n    joint_action: <NODE>/jointstate\n  outputs: \n    - jointstate",
+    "install": "- id: dora-piper\n  build: pip install dora-piper\n  path: dora-piper\n  inputs: \n    tick: dora/timer/millis/20\n    joint_action: <NODE>/jointstate\n  outputs: \n    - jointstate",
     "downloads": "https://img.shields.io/pypi/dm/dora-piper",
     "preview": "https://global.agilex.ai/cdn/shop/files/PIPER0814.00_00_37_00.Still004.jpg?v=1724743157&width=3840",
-    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/dora-keyboard/README.md",
+    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/node-hub/dora-piper/README.md",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=node-hub%2Fdora-piper",
     "last_release": "https://img.shields.io/pypi/v/dora-piper",
     "license": "https://img.shields.io/pypi/l/dora-piper",
@@ -231,7 +231,7 @@
     "author": "Enzo Levan",
     "website": "dynamixel",
     "preview": "https://robots.ros.org/assets/img/robots/dynamixel/dynamixel.png",
-    "source": "https://github.com/dora-rs/dora-lerobot/tree/main/node-hub/dynamixel-client/README.md?raw=true",
+    "source": "https://github.com/dora-rs/dora-lerobot/blob/main/node-hub/dynamixel-client/README.md?raw=true",
     "tags": ["python"],
     "category": "Actuator"
   },
@@ -241,7 +241,7 @@
     "author": "Enzo Levan",
     "website": "feetech",
     "preview": "https://media.licdn.com/dms/image/v2/C5612AQGpeiwwIPDqaw/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1647414552058?e=2147483647&v=beta&t=QoHYcvm7pla6ptYtg3daKPAGRRctKGEkIGkBrGyE25Y",
-    "source": "https://github.com/dora-rs/dora-lerobot/tree/main/node-hub/feetech-client/README.md?raw=true",
+    "source": "https://github.com/dora-rs/dora-lerobot/blob/main/node-hub/feetech-client/README.md?raw=true",
     "tags": ["python"],
     "category": "Actuator"
   },
@@ -251,7 +251,7 @@
     "author": "Enzo Levan",
     "website": "mujoco",
     "preview": "https://github.com/google-deepmind/mujoco/raw/main/banner.png",
-    "source": "https://github.com/dora-rs/dora-lerobot/tree/main/node-hub/mujoco-client/README.md?raw=true",
+    "source": "https://github.com/dora-rs/dora-lerobot/blob/main/node-hub/mujoco-client/README.md?raw=true",
     "tags": ["python"],
     "category": "Simulator"
   },
@@ -261,7 +261,7 @@
     "author": "dora",
     "website": "lebai",
     "preview": "https://l-www.lebai.ltd/2015/07/1-495x400.jpg",
-    "source": "https://github.com/dora-rs/dora-lerobot/tree/main/node-hub/lebai-client/README.md?raw=true",
+    "source": "https://github.com/dora-rs/dora-lerobot/blob/main/node-hub/lebai-client/README.md?raw=true",
     "tags": ["python"],
     "category": "Arm"
   },
@@ -312,7 +312,7 @@
     "website": "reachy1",
     "install": "- id: dora-reachy1\n  build: pip install dora-reachy1\n  path: dora-reachy1",
     "preview": "https://www.aquitaineonline.com/images/stories/Economie_Industrie_2021/Reachy_01.jpg",
-    "source": "https://github.com/dora-rs/dora-lerobot/tree/main/node-hub/dora-reachy1/README.md?raw=true",
+    "source": "https://github.com/dora-rs/dora-lerobot/blob/main/node-hub/dora-reachy1/README.md?raw=true",
     "tags": ["python"],
     "category": "Robot"
   },
@@ -399,7 +399,7 @@
     "author": "dora",
     "website": "gymnasium",
     "preview": "https://raw.githubusercontent.com/Farama-Foundation/Gymnasium/main/gymnasium-text.png",
-    "source": "https://github.com/dora-rs/dora-lerobot/blob/main/gym_dora/README.md/README.md?raw=true",
+    "source": "https://github.com/dora-rs/dora-lerobot/blob/main/gym_dora/README.md?raw=true",
     "tags": ["python"],
     "category": "Simulator"
   }
