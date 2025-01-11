@@ -5,7 +5,7 @@
     "preview": "/img/whisper.png.avif",
     "website": "stt",
     "install": "dora build https://raw.githubusercontent.com/dora-rs/dora/main/examples/speech-to-text/whisper.yml\ndora run https://raw.githubusercontent.com/dora-rs/dora/main/examples/speech-to-text/whisper.yml",
-    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/examples/speech-to-text/README.md",
+    "source": "https://github.com/dora-rs/dora/blob/main/examples/speech-to-text",
     "tags": ["audio", "python"],
     "category": "Audio",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Fspeech-to-text"
@@ -14,7 +14,7 @@
     "title": "Translation",
     "description": "Translate audio in real time.",
     "website": "translation",
-    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/examples/translation/README.md",
+    "source": "https://github.com/dora-rs/dora/blob/main/examples/translation",
     "tags": ["audio", "python"],
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Ftranslation",
     "category": "Audio"
@@ -24,7 +24,7 @@
     "description": "Use a VLM to understand images.",
     "preview": "https://github.com/QwenLM/Qwen-VL/raw/master/assets/logo.jpg",
     "website": "vlm",
-    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/examples/vlm/README.md",
+    "source": "https://github.com/dora-rs/dora/blob/main/examples/vlm",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Fvlm",
     "tags": ["python", "image"],
     "category": "Vision"
@@ -34,7 +34,7 @@
     "description": "Use YOLO to detect object within image.",
     "preview": "https://github.com/ultralytics/docs/releases/download/0/ultralytics-yolov8-banner.avif",
     "website": "yolo",
-    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/examples/python-dataflow/README.md",
+    "source": "https://github.com/dora-rs/dora/blob/main/examples/python-dataflow",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Fpython-dataflow",
     "tags": ["python", "image"],
     "category": "Vision"
@@ -44,7 +44,7 @@
     "description": "Simple webcam plot example",
     "preview": "https://upload.wikimedia.org/wikipedia/commons/3/35/AdventWebcam.jpg",
     "website": "webcam",
-    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/examples/camera/README.md",
+    "source": "https://github.com/dora-rs/dora/blob/main/examples/camera",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Fcamera",
     "tags": ["python", "image"],
     "category": "Vision"
@@ -53,7 +53,7 @@
     "title": "Piper RDT",
     "description": "Piper RDT Pipeline",
     "website": "piper",
-    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/examples/piper/README.md",
+    "source": "https://github.com/dora-rs/dora/blob/main/examples/piper",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Fpiper",
     "preview": "https://global.agilex.ai/cdn/shop/files/PIPER0814.00_00_37_00.Still004.jpg?v=1724743157&width=3840",
     "tags": ["python", "image"],
@@ -74,7 +74,7 @@
     "description": "Example with C node",
     "website": "c-example",
     "preview": "https://iq.direct/images/C-programming.png",
-    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/examples/c-dataflow/README.md",
+    "source": "https://github.com/dora-rs/dora/blob/main/examples/c-dataflow",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Fc-dataflow",
     "tags": [],
     "category": "Tutorial"
@@ -84,7 +84,7 @@
     "description": "Example with C++ node",
     "website": "c++-example",
     "preview": "https://repository-images.githubusercontent.com/124365799/7d888300-6a39-11ea-9025-fd5574f062c7",
-    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/examples/c++-dataflow/README.md",
+    "source": "https://github.com/dora-rs/dora/blob/main/examples/c++-dataflow",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Fc%2b%2b-dataflow",
     "tags": [],
     "category": "Tutorial"
@@ -94,7 +94,7 @@
     "description": "Example using CMake",
     "website": "cmake-example",
     "preview": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-IsFXHxaLnZWam5sEJvnUZAzGMyGzXfOKMmIX9XeugcL45yTIuizNbaYi4Y-obbI14A&usqp=CAU",
-    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/examples/cmake-dataflow/README.md",
+    "source": "https://github.com/dora-rs/dora/blob/main/examples/cmake-dataflow",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Fcmake-dataflow",
     "tags": [],
     "category": "Tutorial"
@@ -104,7 +104,7 @@
     "description": "Example using CUDA Zero Copy",
     "website": "cuda-example",
     "preview": "https://d29g4g2dyqv443.cloudfront.net/sites/default/files/akamai/ros-dp-nitros.gif",
-    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/examples/cuda-benchmark/README.md",
+    "source": "https://github.com/dora-rs/dora/blob/main/examples/cuda-benchmark",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Fcuda-benchmark",
     "tags": [],
     "category": "Tutorial"
@@ -114,7 +114,7 @@
     "description": "Example using Rust",
     "website": "rust-example",
     "preview": "https://raw.githubusercontent.com/rust-lang/www.rust-lang.org/master/static/images/rust-social-wide-light.svg",
-    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/examples/rust-dataflow/README.md",
+    "source": "https://github.com/dora-rs/dora/blob/main/examples/rust-dataflow",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Frust-dataflow",
     "tags": [],
     "category": "Tutorial"
@@ -124,7 +124,7 @@
     "description": "Example using Python",
     "website": "python-example",
     "preview": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Python_logo_and_wordmark.svg",
-    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/examples/python-dataflow/README.md",
+    "source": "https://github.com/dora-rs/dora/blob/main/examples/python-dataflow",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Fpython-dataflow",
     "tags": [],
     "category": "Tutorial"
@@ -134,7 +134,7 @@
     "description": "Example using Python ROS2",
     "website": "python-ros2-example",
     "preview": "https://www.aranacorp.com/wp-content/uploads/python-ros2.png",
-    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/examples/python-ros2-dataflow/README.md",
+    "source": "https://github.com/dora-rs/dora/blob/main/examples/python-ros2-dataflow",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Fpython-ros2-dataflow",
     "tags": [],
     "category": "Tutorial"
@@ -144,7 +144,7 @@
     "description": "Example using Rust ROS2",
     "website": "rust-ros2-example",
     "preview": "https://robonomics.network/assets/static/cover.d57b2e8.268586f3596831daf0d2d0fa2c885458.jpg",
-    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/examples/rust-ros2-dataflow/README.md",
+    "source": "https://github.com/dora-rs/dora/blob/main/examples/rust-ros2-dataflow",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Frust-ros2-dataflow",
     "tags": [],
     "category": "Tutorial"
@@ -154,7 +154,7 @@
     "description": "Example using C++ ROS2",
     "website": "c++-ros2-example",
     "preview": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnC1cXYAAjFUjNAogVCAr8HrAmumbx9nEnhg&s",
-    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/examples/c++-ros2-dataflow/README.md",
+    "source": "https://github.com/dora-rs/dora/blob/main/examples/c++-ros2-dataflow",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Fc%2b%2b-ros2-dataflow",
     "tags": [],
     "category": "Tutorial"
@@ -164,7 +164,7 @@
     "description": "CPU Benchmark of dora-rs",
     "website": "cpu-benchmark",
     "preview": "https://github.com/user-attachments/assets/3285d183-7560-40e1-ac02-30fee0f120cb",
-    "source": "https://github.com/dora-rs/dora-benchmark/blob/main/README.md?raw=true",
+    "source": "https://github.com/dora-rs/dora-benchmark/blob/main",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora-benchmark",
     "tags": [],
     "category": "Benchmark"
@@ -174,7 +174,7 @@
     "description": "GPU Benchmark of dora-rs",
     "website": "gpu-benchmark",
     "preview": "https://github.com/user-attachments/assets/d64370fc-b0ba-46af-be83-19d3c772ada6",
-    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/examples/cuda-benchmark/README.md",
+    "source": "https://github.com/dora-rs/dora/blob/main/examples/cuda-benchmark",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Fcuda-benchmark",
     "tags": [],
     "category": "Benchmark"

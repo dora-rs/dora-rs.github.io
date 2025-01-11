@@ -82,8 +82,8 @@ const nodes: User[] = nodess as User[];
 console.log("saving: " + nodess[1].source);
 
 nodess.map((node) => {
-  const module_name = getFileNameFromURL(node.source);
+  const module_name = getFileNameFromURL(node.source + "/README.md?raw=true");
   const targetPath = path.join(__dirname, `../docs/nodes/${node.website}.md`);
   // Download the file from the URL and put it in the target.
-  downloadFile(node.source, targetPath);
+  downloadFile(node.source + "/README.md?raw=true", targetPath);
 });

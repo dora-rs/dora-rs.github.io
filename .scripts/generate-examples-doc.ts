@@ -86,11 +86,13 @@ const env: NodeJS.ProcessEnv = {};
 
 Examples.map((example) => {
   console.log("saving: " + example.title);
-  const module_name = getFileNameFromURL(example.source);
+  const module_name = getFileNameFromURL(
+    example.source + "/README.md?raw=true"
+  );
   const targetPath = path.join(
     __dirname,
     `../docs/examples/${example.website}.md`
   );
   // Download the file from the URL and put it in the target.
-  downloadFile(example.source, targetPath);
+  downloadFile(example.source + "/README.md?raw=true", targetPath);
 });

@@ -104,7 +104,7 @@ function ShowcaseCard({ user }: { user: User }) {
           {user.tags.includes("favorite") && (
             <FavoriteIcon svgClass={styles.svgIconFavorite} size="small" />
           )}
-          {user.github && (
+          {user.source && (
             <Link
               href={user.source}
               className={clsx(
