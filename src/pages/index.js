@@ -456,12 +456,12 @@ function HomepageHeader() {
         className="container margin-bottom--xl"
         style={{
           position: "relative",
-          bottom: !phone ? "0px" : "180px",
           left: "0",
           right: "0",
           padding: "20px",
           backgroundColor: "var(--ifm-card-background-color)",
-          borderRadius: "var(--ifm-card-border-radius)",
+          borderBottomLeftRadius: "var(--ifm-card-border-radius)",
+          borderBottomRightRadius: "var(--ifm-card-border-radius)",
           boxShadow: "var(--ifm-global-shadow-lw)"
         }}
       >
