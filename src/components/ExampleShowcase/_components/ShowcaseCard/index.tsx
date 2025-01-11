@@ -120,7 +120,7 @@ function ShowcaseCard({ user }: { user: User }) {
         {user.install && (
           <div>
             <small>
-              <em>Use it with:</em>
+              <em>Try it with:</em>
             </small>
             <CodeBlock language="yaml">{user.install}</CodeBlock>
           </div>

@@ -389,7 +389,7 @@
     "author": "dora",
     "website": "lerobot-dashboard",
     "preview": "https://cdn-uploads.huggingface.co/production/uploads/631ce4b244503b72277fc89f/MNkMdnJqyPvOAEg20Mafg.png",
-    "source": "https://github.com/dora-rs/dora/blob/main/node-hub/dora-internvl/README.md?raw=true",
+    "source": "https://github.com/dora-rs/dora-lerobot/blob/main/node-hub/lerobot-dashboard/README.md?raw=true",
     "tags": ["python"],
     "category": "Recorder"
   },

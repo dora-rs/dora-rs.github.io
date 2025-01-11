@@ -65,7 +65,13 @@ export const CategoriesNodes = [
   "Visualization",
   "Simulator",
 ];
-export const CategoriesExamples = ["Computer Audition", "Computer Vision"];
+export const CategoriesExamples = [
+  "Audio",
+  "Vision",
+  "Training",
+  "Tutorial",
+  "Benchmark",
+];
 
 export type User = {
   title: string;

@@ -1,6 +1,6 @@
 import * as path from "path";
 import * as fs from "fs";
-import * as Examples from "../src/data/examples.json";
+import Examples from "../src/data/examples.json";
 import { URL } from "url";
 import * as https from "https";
 import * as http from "http";
@@ -11,38 +11,70 @@ function getFileNameFromURL(urlString: string): string {
   return path.parse(filePath).name;
 }
 
-function downloadFile(url: string, targetPath: string) {
+function downloadFile(url, targetPath, visited = new Set()) {
   const protocol = url.startsWith("https") ? https : http;
 
   protocol
     .get(url, (response) => {
-      if (response.statusCode !== 200) {
-        console.log("link not ok");
-        return;
+      if (
+        response.statusCode >= 300 &&
+        response.statusCode < 400 &&
+        response.headers.location
+      ) {
+        const redirectUrl = response.headers.location;
+
+        if (visited.has(redirectUrl)) {
+          console.error(`Redirect loop detected to ${redirectUrl}`);
+          return;
+        }
+
+        visited.add(redirectUrl);
+        downloadFile(redirectUrl, targetPath, visited);
+      } else if (response.statusCode === 200) {
+        const fileStream = fs.createWriteStream(targetPath);
+        response.pipe(fileStream);
+
+        fileStream.on("finish", () => {
+          fileStream.close();
+        });
+
+        fileStream.on("error", (err) => {
+          console.error(`Error writing to file: ${err.message}`);
+          fileStream.close();
+          fs.unlink(targetPath, () => {
+            console.log("Incomplete file deleted.");
+          });
+        });
+      } else {
+        console.error(
+          url + `: Failed to download file. HTTP Status: ${response.statusCode}`
+        );
+        response.resume(); // Consume response data to free up memory
       }
-
-      const fileStream = fs.createWriteStream(targetPath);
-      response.pipe(fileStream);
-
-      fileStream.on("finish", () => {
-        fileStream.close();
-      });
-
-      fileStream.on("error", (err) => {});
     })
-    .on("error", (err) => {});
+    .on("error", (err) => {
+      console.error(`Request error: ${err.message}`);
+    });
 }
 
 export type TagType =
-  | "object_detection"
-  | "python"
-  | "depth_estimation"
-  | "control";
+  // DO NOT USE THIS TAG: we choose sites to add to favorites
+  //| "favorite"
+  //
+  "python" | "depth" | "control" | "rust" | "audio" | "video" | "image";
 
 export type User = {
   title: string;
   description: string;
   preview: string | null;
+  author: string | null;
+  github: string | null;
+  downloads: string | null;
+  last_commit: string | null;
+  last_release: string | null;
+  license: string | null;
+  install: string | null;
+  category: string | null;
   website: string;
   source: string;
   tags: TagType[];
@@ -52,7 +84,8 @@ const examplesArray: User[] = Examples as User[];
 
 const env: NodeJS.ProcessEnv = {};
 
-for (const example of examplesArray) {
+Examples.map((example) => {
+  console.log("saving: " + example.title);
   const module_name = getFileNameFromURL(example.source);
   const targetPath = path.join(
     __dirname,
@@ -60,5 +93,4 @@ for (const example of examplesArray) {
   );
   // Download the file from the URL and put it in the target.
   downloadFile(example.source, targetPath);
-  console.log(targetPath);
-}
+});
