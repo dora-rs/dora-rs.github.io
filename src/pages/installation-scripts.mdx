@@ -29,10 +29,13 @@ import CodeBlock from '@theme/CodeBlock';
   <TabItem value="windows" label="Windows">
 
   - Paste the following lines in a terminal
-```bash
-powershell -c "irm https://raw.githubusercontent.com/dora-rs/dora/main/install.ps1 | iex"
-```
+<CodeBlock language="powershell">{"powershell -c 'irm https://raw.githubusercontent.com/dora-rs/dora/main/install.ps1 | iex'"}</CodeBlock>
   - If you use VSCode, make sure to restart VSCode for the change to happen.
+
+  </TabItem>
+  <TabItem value="cargo" label="Cargo">
+
+<CodeBlock language="bash">{"cargo install dora-cli # In case of issues, try: `--locked`"}</CodeBlock>
 
   </TabItem>
   <TabItem value="nix" label="Nix[OS]">
@@ -90,15 +93,6 @@ powershell -c "irm https://raw.githubusercontent.com/dora-rs/dora/main/install.p
 nix-env --install "github:dora-rs/dora"
 ```
   </TabItem>
-  <TabItem value="cargo" label="Cargo">
-
-```bash
-cargo install dora-cli # In case of issues, you can try to add `--locked`
-
-dora --help
-```
-
-  </TabItem>
   <TabItem value="source" label="Source">
 
 - Clone and build source
@@ -130,7 +124,7 @@ dora --help
   <TabItem value="github" label="Github Releases">
 
   - Go on [our release page](https://github.com/dora-rs/dora/releases)
-  - download both the `zip` and `whl` file corresponding to your architecture and OS.
+  - download the `zip` file corresponding to your architecture and OS.
   - Unzip the zip file and place it in your binary folder (e.g.: `$HOME/bin`).
   - Verify that dora is well installed by calling `dora --help` in your terminal.
 

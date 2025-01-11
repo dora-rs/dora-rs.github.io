@@ -142,8 +142,14 @@ const config = {
           //},
           {
             type: "docSidebar",
-            sidebarId: "nodes_operators",
-            label: "Nodes Hub",
+            sidebarId: "nodes",
+            label: "Node Hub",
+            position: "left",
+          },
+          {
+            type: "docSidebar",
+            sidebarId: "examples",
+            label: "Examples",
             position: "left",
           },
           //{
@@ -278,7 +284,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ["rust", "python"],
+        additionalLanguages: ["rust", "python", "bash", "powershell"],
       },
     }),
 };

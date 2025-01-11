@@ -10,6 +10,8 @@
 import { translate } from "@docusaurus/Translate";
 import { sortBy } from "@site/src/utils/jsUtils";
 import * as Users from "./operators.json";
+import * as Examples from "./examples.json";
+import * as Nodes from "./nodes.json";
 /*
  * ADD YOUR SITE TO THE DOCUSAURUS SHOWCASE
  *
@@ -42,12 +44,47 @@ export type TagType =
   // DO NOT USE THIS TAG: we choose sites to add to favorites
   //| "favorite"
   //
-  "object_detection" | "python" | "depth_estimation" | "control";
+  "python" | "depth" | "control" | "rust" | "audio" | "video" | "image";
+
+export const CategoriesNodes = [
+  "Camera",
+  "Peripheral",
+  "Actuator",
+  "Chassis",
+  "Arm",
+  "Robot",
+  "Voice Activity Detection",
+  "Speech to Text",
+  "Object Detection",
+  "Vision Language Model",
+  "Large Language Model",
+  "Vision Language Action",
+  "Translation",
+  "Text to Speech",
+  "Recorder",
+  "Visualization",
+  "Simulator",
+];
+export const CategoriesExamples = [
+  "Audio",
+  "Vision",
+  "Training",
+  "Tutorial",
+  "Benchmark",
+];
 
 export type User = {
   title: string;
   description: string;
-  preview: string | null; // null = use our serverless screenshot service
+  preview: string | null;
+  author: string | null;
+  github: string | null;
+  downloads: string | null;
+  last_commit: string | null;
+  last_release: string | null;
+  license: string | null;
+  install: string | null;
+  category: string | null;
   website: string;
   source: string;
   tags: TagType[];
@@ -70,14 +107,14 @@ export const Tags: { [type in TagType]: Tag } = {
   //color: "#e9669e",
   //},
 
-  object_detection: {
+  image: {
     label: translate({
-      id: "showcase.tag.oject-detection.tag",
-      message: "object detection",
+      id: "showcase.tag.image.tag",
+      message: "image",
     }),
     description: translate({
-      message: "Open-Source Docusaurus sites can be useful for inspiration!",
-      id: "showcase.tag.oject-detection.description",
+      message: "Computer vision related nodes!",
+      id: "showcase.tag.image.description",
     }),
     color: "#39ca30",
   },
@@ -85,7 +122,7 @@ export const Tags: { [type in TagType]: Tag } = {
   python: {
     label: translate({
       id: "showcase.tag.python.tag",
-      message: "Python",
+      message: "python",
     }),
     description: translate({
       message: "Docusaurus sites associated to a commercial product!",
@@ -94,10 +131,19 @@ export const Tags: { [type in TagType]: Tag } = {
     color: "#dfd545",
   },
 
+  rust: {
+    label: "rust",
+    description: translate({
+      message: "Docusaurus sites associated to a commercial product!",
+      id: "showcase.tag.rust.description",
+    }),
+    color: "#333e2e",
+  },
+
   control: {
     label: translate({
       id: "showcase.tag.control.tag",
-      message: "Control",
+      message: "control",
     }),
     description: translate({
       message:
@@ -107,38 +153,38 @@ export const Tags: { [type in TagType]: Tag } = {
     color: "#a44fb7",
   },
 
-  depth_estimation: {
+  depth: {
     label: translate({
-      id: "showcase.tag.depth-estimation.tag",
-      message: "Depth Esimation",
+      id: "showcase.tag.depth.tag",
+      message: "depth",
     }),
     description: translate({
       message:
         "Translated Docusaurus sites using the internationalization support with more than 1 locale.",
-      id: "showcase.tag.depth-estimation.description",
+      id: "showcase.tag.depth.description",
     }),
     color: "#127f82",
   },
 
-  //versioning: {
-  //label: translate({ message: "Versioning" }),
-  //description: translate({
-  //message:
-  //"Docusaurus sites using the versioning feature of the docs plugin to manage multiple versions.",
-  //id: "showcase.tag.versioning.description",
-  //}),
-  //color: "#fe6829",
-  //},
+  audio: {
+    label: translate({ message: "audio" }),
+    description: translate({
+      message:
+        "Docusaurus sites using the versioning feature of the docs plugin to manage multiple versions.",
+      id: "showcase.tag.audio.description",
+    }),
+    color: "#fe6829",
+  },
 
-  //large: {
-  //label: translate({ message: "Large" }),
-  //description: translate({
-  //message:
-  //"Very large Docusaurus sites, including many more pages than the average!",
-  //id: "showcase.tag.large.description",
-  //}),
-  //color: "#8c2f00",
-  //},
+  text: {
+    label: translate({ message: "text" }),
+    description: translate({
+      message:
+        "Very large Docusaurus sites, including many more pages than the average!",
+      id: "showcase.tag.large.description",
+    }),
+    color: "#8c2f00",
+  },
 
   //meta: {
   //label: translate({ message: "Meta" }),
@@ -172,6 +218,8 @@ export const Tags: { [type in TagType]: Tag } = {
 
 export const TagList = Object.keys(Tags) as TagType[];
 const usersArray: User[] = Users as User[];
+const ExamplesArray: User[] = Examples as User[];
+const NodesArray: User[] = Nodes as User[];
 
 function sortUsers() {
   // Fix: adding default fix an issue with webpack.
@@ -184,3 +232,27 @@ function sortUsers() {
 }
 
 export const sortedUsers = sortUsers();
+
+function sortExamples() {
+  // Fix: adding default fix an issue with webpack.
+  let result = ExamplesArray.default;
+  // Sort by site name
+  result = sortBy(result, (user) => user.title.toLowerCase());
+  // Sort by favorite tag, favorites first
+  result = sortBy(result, (user) => !user.tags.includes("favorite"));
+  return result;
+}
+
+export const sortedExamples = sortExamples();
+
+function sortNodes() {
+  // Fix: adding default fix an issue with webpack.
+  let result = NodesArray.default;
+  // Sort by site name
+  result = sortBy(result, (user) => user.title.toLowerCase());
+  // Sort by favorite tag, favorites first
+  result = sortBy(result, (user) => !user.tags.includes("favorite"));
+  return result;
+}
+
+export const sortedNodes = sortNodes();

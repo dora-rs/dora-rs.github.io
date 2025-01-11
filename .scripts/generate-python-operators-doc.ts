@@ -103,7 +103,3 @@ for (const op of usersArray) {
 
   fs.writeFileSync(targetPath, doc);
 }
-
-// Do I want it to look like docs.rs or scikit-learn? Yes maybe
-// Do I want to list source code ? Maybe not now
-// Do I want it to list all methods? Maybe not now
