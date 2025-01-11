@@ -119,10 +119,12 @@ function ShowcaseCard({ user }: { user: User }) {
         <p className={styles.showcaseCardBody}>{user.description}</p>
         {user.install && (
           <div>
-            <small>
-              <em>Try it with:</em>
-            </small>
-            <CodeBlock language="yaml">{user.install}</CodeBlock>
+            <details>
+              <summary>
+                <em>Try it with...</em>
+              </summary>
+              <CodeBlock language="yaml">{user.install}</CodeBlock>
+            </details>
           </div>
         )}
       </div>
