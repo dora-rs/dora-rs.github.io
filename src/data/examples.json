@@ -4,7 +4,6 @@
     "description": "Transform speech to text.",
     "preview": "/img/whisper.png.avif",
     "website": "stt",
-    "install": "dora build https://raw.githubusercontent.com/dora-rs/dora/main/examples/speech-to-text/whisper.yml\ndora run https://raw.githubusercontent.com/dora-rs/dora/main/examples/speech-to-text/whisper.yml",
     "source": "https://github.com/dora-rs/dora/blob/main/examples/speech-to-text",
     "tags": ["audio", "python"],
     "category": "Audio",
