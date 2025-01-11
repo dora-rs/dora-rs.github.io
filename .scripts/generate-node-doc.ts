@@ -79,7 +79,6 @@ function downloadFile(url, targetPath, visited = new Set()) {
 }
 
 const nodes: User[] = nodess as User[];
-console.log("saving: " + nodess[1].source);
 
 nodess.map((node) => {
   const module_name = getFileNameFromURL(node.source + "/README.md?raw=true");

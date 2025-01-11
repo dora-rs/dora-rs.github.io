@@ -102,7 +102,6 @@ function filterUsers(
 }
 
 function useFilteredUsers(sortedExamples: User[]) {
-  console.log(sortedExamples);
   const location = useLocation<UserState>();
   const [operator, setOperator] = useState<Operator>("OR");
   // On SSR / first mount (hydration) no tag is selected

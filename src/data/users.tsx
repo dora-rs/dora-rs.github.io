@@ -240,7 +240,6 @@ function sortExamples() {
   result = sortBy(result, (user) => user.title.toLowerCase());
   // Sort by favorite tag, favorites first
   result = sortBy(result, (user) => !user.tags.includes("favorite"));
-  console.log(result);
   return result;
 }
 

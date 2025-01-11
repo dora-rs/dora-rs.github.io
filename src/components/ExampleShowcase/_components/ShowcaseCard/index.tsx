@@ -74,7 +74,7 @@ function getFileNameFromURL(urlString: string): string {
 function ShowcaseCard({ user }: { user: User }) {
   const image = getCardImage(user);
 
-  const module_name = user.website;
+  const module_name = user.source;
   return (
     <li key={user.title} className="card shadow--md">
       <div className={clsx("card__image", styles.showcaseCardImage)}>
