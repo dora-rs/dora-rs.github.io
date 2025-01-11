@@ -63,8 +63,8 @@
     "title": "LeRobot - Alexander Koch",
     "description": "Piper RDT Pipeline",
     "website": "lerobot",
-    "source": "https://raw.githubusercontent.com/dora-rs/dora/refs/heads/improve-speech-to-text-example/examples/piper/README.md",
-    "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Fpiper",
+    "source": "https://raw.githubusercontent.com/dora-rs/dora-lerobot/refs/heads/main/README.md",
+    "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora-lerobot",
     "preview": "https://cdn-uploads.huggingface.co/production/uploads/631ce4b244503b72277fc89f/MNkMdnJqyPvOAEg20Mafg.png",
     "tags": ["python", "image"],
     "category": "Training"
