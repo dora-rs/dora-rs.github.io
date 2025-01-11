@@ -460,8 +460,9 @@ function HomepageHeader() {
           left: "0",
           right: "0",
           padding: "20px",
-          color: "black",
-          background: "rgba(255, 255, 255, 1)",
+          backgroundColor: "var(--ifm-card-background-color)",
+          borderRadius: "var(--ifm-card-border-radius)",
+          boxShadow: "var(--ifm-global-shadow-lw)"
         }}
       >
         <p
