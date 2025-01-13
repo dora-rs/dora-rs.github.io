@@ -280,7 +280,9 @@ function ShowcaseCards({
             }
             return (
               <div>
-                <Heading as="h2">{category}</Heading>
+                <Heading as="h2" id={"#" + category}>
+                  {category}
+                </Heading>
                 <ul className={clsx("clean-list", styles.showcaseList)}>
                   {categoryUsers.map((user) => (
                     <ShowcaseCard key={user.title} user={user} />
