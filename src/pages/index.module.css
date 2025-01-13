@@ -1,3 +1,10 @@
+* {
+  /* Fix scrolling issue on Iphone:
+  See: https://stackoverflow.com/questions/16587723/embedding-youtube-video-has-scrolling-issues-on-iphone
+  */
+  -webkit-overflow-scrolling: touch;
+}
+
 .container {
 }
 
