@@ -36,12 +36,11 @@ import ShowcaseTooltip from "./_components/ShowcaseTooltip";
 import styles from "./styles.module.css";
 import { CategoriesNodes, CategoriesExamples } from "../../data/users";
 
-const TITLE = translate({ message: "dora-rs nodes hub" });
-const DESCRIPTION = translate({
-  message: "List of Nodes already implemented by the community",
-});
-const SUBMIT_URL =
-  "https://discord.com/channels/1146393916472561734/1148336336294662196";
+const SUBMIT_NODE_URL =
+  "https://github.com/dora-rs/dora-rs.github.io/blob/main/src/data/nodes.json";
+
+const SUBMIT_EXAMPLE_URL =
+  "https://github.com/dora-rs/dora-rs.github.io/blob/main/src/data/examples.json";
 
 type UserState = {
   scrollTopPosition: number;
@@ -122,14 +121,11 @@ function useFilteredUsers(sortedExamples: User[]) {
   );
 }
 
-function ShowcaseHeader() {
+function ShowcaseHeader({ text, url }: { text: string; url: string }) {
   return (
     <section className="margin-top--lg margin-bottom--lg text--center">
-      <p>{DESCRIPTION}</p>
-      <Link className="button button--primary" to={SUBMIT_URL}>
-        <Translate id="showcase.header.button">
-          🙏 Please add your Nodes
-        </Translate>
+      <Link className="button button--primary" to={url}>
+        {text}
       </Link>
     </section>
   );
@@ -302,7 +298,7 @@ function ShowcaseCards({
 export function NodeShowcase(): JSX.Element {
   return (
     <div>
-      <ShowcaseHeader />
+      <ShowcaseHeader url={SUBMIT_NODE_URL} text="Showcase your nodes 🔥" />
       <ShowcaseFilters sortedExamples={sortedNodes} />
       <ShowcaseCards
         sortedExamples={sortedNodes}
@@ -315,7 +311,7 @@ export function NodeShowcase(): JSX.Element {
 export default function ExampleShowcase(): JSX.Element {
   return (
     <div>
-      <ShowcaseHeader />
+      <ShowcaseHeader url={SUBMIT_NODE_URL} text="Showcase your examples 🔥" />
       <ShowcaseFilters sortedExamples={sortedExamples} />
       <ShowcaseCards
         sortedExamples={sortedExamples}
