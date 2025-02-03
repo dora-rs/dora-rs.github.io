@@ -4,13 +4,20 @@ sidebar_position: 2
 
 # Updating
 
-Auto-update is only available on cargo at the moment.
+Auto-update is only available on cargo or pip at the moment.
 Please uninstall and reinstall dora if you wish to update dora with github release,
 but don't forget to update python package as well with:
 
+- `pip`
+
+```bash
+pip install dora-rs-cli --upgrade
+```
+
+- `cargo`
+
 ```bash
 cargo install dora-cli --locked
-pip install dora-rs --upgrade
 ```
 
 ## Updating to latest source

@@ -8,13 +8,25 @@ sidebar_position: 3
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs groupId="current-os" queryString>
+<Tabs groupId="current-os"  queryString>
+  <TabItem value="pip" label="Pip">
+
+```bash
+pip uninstall dora-rs-cli
+```
+
+  </TabItem>
+  <TabItem value="cargo" label="Cargo">
+
+```bash
+cargo remove dora-cli
+```
+
+  </TabItem>
   <TabItem value="linux" label="Linux">
 
 ```bash
 sudo rm $(which dora)
-pip uninstall dora-rs
-dora --help # This should fail
 ```
 
   </TabItem>
@@ -22,25 +34,12 @@ dora --help # This should fail
 
 ```bash
 sudo rm $(which dora)
-pip uninstall dora-rs
-dora --help # This should fail
 ```
 
   </TabItem>
   <TabItem value="windows" label="Windows">
-Remove dora binary and run:
-
-```bash
-pip uninstall dora-rs
-```
+Remove dora binary.
 
   </TabItem>
 </Tabs>
 ````
-
-## Cargo and Pip
-
-```bash
-cargo remove dora-cli
-pip uninstall dora-rs
-```
