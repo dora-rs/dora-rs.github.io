@@ -33,5 +33,5 @@ You can overwrite an environment using, the following tricks:
 ```yaml
 - id: dora-vad
   path: shell
-  args: conda activate base && python my_script.py
+  args: /path/to/python my_script.py
 ```
