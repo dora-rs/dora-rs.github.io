@@ -35,3 +35,18 @@ You can overwrite an environment using, the following tricks:
   path: shell
   args: /path/to/python my_script.py
 ```
+
+## Using `uv` with `--uv` flag
+
+In order to avoid having to activate and deactivate environment you can create an environment using:
+
+```bash
+uv venv
+```
+
+And run dora pipeline without activating environment with:
+
+```bash
+dora build dataflow.yml --uv
+dora run dataflow.yml --uv
+```
