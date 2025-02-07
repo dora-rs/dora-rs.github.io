@@ -15,23 +15,44 @@ sidebar_position: 1
    This creates the following `conversation_py` directory
 
    ```bash
-   .
    ├── dataflow.yml
-   ├── node_1
-   │   └── node_1.py
-   ├── op_1
-   │   └── op_1.py
-   └── op_2
-       └── op_2.py
+   ├── listener-1
+   │   ├── README.md
+   │   ├── listener_1
+   │   │   ├── __init__.py
+   │   │   ├── __main__.py
+   │   │   └── main.py
+   │   ├── pyproject.toml
+   │   └── tests
+   │       └── test_listener_1.py
+   ├── talker-1
+   │   ├── README.md
+   │   ├── pyproject.toml
+   │   ├── talker_1
+   │   │   ├── __init__.py
+   │   │   ├── __main__.py
+   │   │   └── main.py
+   │   └── tests
+   │       └── test_talker_1.py
+   └── talker-2
+       ├── README.md
+       ├── pyproject.toml
+       ├── talker_2
+       │   ├── __init__.py
+       │   ├── __main__.py
+       │   └── main.py
+       └── tests
+          └── test_talker_2.py
    ```
-
-   You may delete the two operators named op_1 and op_2 but keep node_1 as we will use it later.
 
 2. Go ahead and add another node to the workspace with
+
    ```bash
-    dora new --kind custom-node talker --lang python
+    dora new --kind node talker --lang python
    ```
+
    Now open up the `talker.py` file in your text editor.
+
 3. How the default node works
 
    Your node is very bare bones right now but here is an explanation of what is going on in it by default.
@@ -115,18 +136,16 @@ sidebar_position: 1
    ```yaml
    nodes:
      - id: talker
-       custom:
-         source: talker/talker.py
-         inputs:
-           tick: dora/timer/secs/1
-         outputs:
-           - speech
+       path: talker/talker/main.py
+       inputs:
+         tick: dora/timer/secs/1
+       outputs:
+         - speech
 
      - id: listener
-       custom:
-         source: listener/listener.py
-         inputs:
-           speech: talker/speech
+       path: listener-1/listener_1/main.py
+       inputs:
+         speech: talker/speech
    ```
 
    Before we run the dataflow, let's go over it really quick.
@@ -137,22 +156,8 @@ sidebar_position: 1
 
    Now lets run the dataflow.
 
-   - In the terminal run
-
    ```bash
-   dora up
-   ```
-
-   - Then run
-
-   ```bash
-   dora start dataflow.yml --name conversation
-   ```
-
-   - The dataflow will run one loop and then stop. Now you will run
-
-   ```bash
-   dora logs conversation listener
+   dora run dataflow.yml --name conversation
    ```
 
    - You should see the listener node print out the message `"I heard Hello World"`.
