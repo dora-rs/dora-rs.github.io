@@ -47,6 +47,14 @@ All the source code and instructions are contained within dora-rs repository: ht
 
 The code is 100% open source and is aimed at being 100% reusable on other hardware using dora-rs by just replacing: `reachy-left-arm, reachy-right-arm, reachy-camera and reachy-head`. Albeit, porting this code might not be 100% easy as of now, and further work need to be done.
 
+## Computer requirements
+
+This run on both:
+
+- MacOS with ~ 20G of RAM but without SAM2 as SAM2 is only available on nvidia for now.
+- Linux with ~ 10G of Nvidia VRAM and ~16G of Nvidia VRAM using SAM2.
+- I have not tried Windows but should run as well.
+
 ## Annex: Rerun
 
 <iframe src="https://app.rerun.io/version/0.21.0/index.html?url=https://huggingface.co/datasets/haixuantao/rerun_dataset/resolve/main/final_data.rrd" width="100%" height="700px"></iframe>
