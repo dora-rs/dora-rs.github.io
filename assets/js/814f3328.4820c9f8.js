@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdora_rs_github_io=self.webpackChunkdora_rs_github_io||[]).push([[7472],{55513:t=>{t.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Rust-Python FFI","permalink":"/blog/rust-python","unlisted":false}]}')}}]);

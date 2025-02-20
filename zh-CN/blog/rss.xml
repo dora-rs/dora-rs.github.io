@@ -4,15 +4,67 @@
         <title>dora-rs Blog</title>
         <link>https://dora-rs.ai/zh-CN/blog</link>
         <description>dora-rs Blog</description>
-        <lastBuildDate>Fri, 07 Feb 2025 10:38:02 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 20 Feb 2025 15:20:34 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
         <item>
+            <title><![CDATA[Reachy2 Speech-to-Grasp]]></title>
+            <link>https://dora-rs.ai/zh-CN/blog/reachy-qwenvl-sam2</link>
+            <guid>https://dora-rs.ai/zh-CN/blog/reachy-qwenvl-sam2</guid>
+            <pubDate>Thu, 20 Feb 2025 15:20:34 GMT</pubDate>
+            <description><![CDATA[Using reachy2 with QwenVL2 and SAM2 in order to create a robust universal* grasper. *We currently does not optimise for grasp pose, but it is going to come]]></description>
+            <content:encoded><![CDATA[<p>Reachy grasping demo showcase how by combining multiple AI models together we can create a robot able to grasp object on a table from our speech autonomously.</p>
+<p>This is performed with 100% open source code.</p>
+<p>This approach also has the advantage of not be dependent on any environemnt finetuning meaning it can work pretty much anywhere with any robot out of the box.</p>
+<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>提示</div><div class="admonitionContent_BuS1"><h2 class="anchor anchorWithStickyNavbar_LWe7" id="grasping-limitation">Grasping limitation<a href="https://dora-rs.ai/zh-CN/blog/reachy-qwenvl-sam2#grasping-limitation" class="hash-link" aria-label="直接链接至  Grasping limitation" title="直接链接至  Grasping limitation">​</a></h2><ul>
+<li>Grasping is limited to small concave object that fits in reachy's claws.</li>
+<li>Grasping always has a fixed rotation angle pose.</li>
+<li>Current trajectory are predetermined.</li>
+</ul><p>By universal grasping, we want to focus on the fact that the object can be any object as long as we can define it using a generalistic prompt as opposed to previous approach dependant on predefined label.</p></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="main-ideas">Main ideas<a href="https://dora-rs.ai/zh-CN/blog/reachy-qwenvl-sam2#main-ideas" class="hash-link" aria-label="直接链接至  Main ideas" title="直接链接至  Main ideas">​</a></h2>
+<ul>
+<li>Convert audio to a sequence using <strong>Silero VAD</strong></li>
+<li>Convert the sequence to text using <strong>OpenAI Whisper</strong></li>
+<li>Convert the user's text and the rgb image from <strong>Orbecc Gemini 336 Camera (camera torso)</strong> into a bounding box using <strong>QwenVL 2.5</strong></li>
+<li>Convert the bounding box into a masks using <strong>Meta SAM2</strong>.</li>
+<li>Convert the masks and the depth image of <strong>Orbecc Gemini 336 Camera</strong> into a position using efficient <strong>rust</strong> code powered by <strong>dora-rs.</strong></li>
+<li>Go to the position using inverse kinematics provided by <strong>Pollen Robotics</strong>.</li>
+<li>Go to predetermined position and come back in a scripted way. (In the future we plan to automate this. )</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="demo-features-that-are-technically-not-necessary">Demo features that are technically not necessary<a href="https://dora-rs.ai/zh-CN/blog/reachy-qwenvl-sam2#demo-features-that-are-technically-not-necessary" class="hash-link" aria-label="直接链接至  Demo features that are technically not necessary" title="直接链接至  Demo features that are technically not necessary">​</a></h2>
+<ul>
+<li>We have added head movement by searching for people when idle.</li>
+<li>We have made the head look at the predicted bounding box when the object is identified.</li>
+<li>We have made the robot turn left/right and releasing object into the box in a predetermined way in order to make people imagine follow up possibility.</li>
+<li>We have used both arms of the robot also using only one would also work, although, the grasping area given a fixed mobile base would be greatly reduced.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="source-code">Source Code<a href="https://dora-rs.ai/zh-CN/blog/reachy-qwenvl-sam2#source-code" class="hash-link" aria-label="直接链接至  Source Code" title="直接链接至  Source Code">​</a></h2>
+<p>All the source code and instructions are contained within dora-rs repository: <a href="https://github.com/dora-rs/dora/pull/784" target="_blank" rel="noopener noreferrer">https://github.com/dora-rs/dora/pull/784</a></p>
+<p>The code is 100% open source and is aimed at being 100% reusable on other hardware using dora-rs by just replacing: <code>reachy-left-arm, reachy-right-arm, reachy-camera and reachy-head</code>. Albeit, porting this code might not be 100% easy as of now, and further work need to be done.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="annex-rerun">Annex: Rerun<a href="https://dora-rs.ai/zh-CN/blog/reachy-qwenvl-sam2#annex-rerun" class="hash-link" aria-label="直接链接至  Annex: Rerun" title="直接链接至  Annex: Rerun">​</a></h2>
+<iframe src="https://app.rerun.io/version/0.21.0/index.html?url=https://huggingface.co/datasets/haixuantao/rerun_dataset/resolve/main/final_data.rrd" width="100%" height="700px"></iframe>
+<p>In the above iframe, the important information are:</p>
+<ul>
+<li><code>/text_whisper</code>: correspond to <strong>whisper</strong> audio transcription.</li>
+<li><code>/text_response</code>: correspond to the bounding box given as plain text from <strong>QwenVL 2.5</strong></li>
+<li><code>camera_torso</code>: correspond to <strong>Orbecc Gemini 336 Depth Camera</strong> rgb image.</li>
+<li><code>camera_torso</code> bounding box: correspond to the QwenVL bounding box projected on the image that is going to be used to grasp object. The prediction is done at regular interval and does not disappear. Sorry if it can be a bit confusing.</li>
+<li><code>camera_left</code> bounding box: correspond to the QwenVL bounding box for detecting humans for head movement and is strictly a gimmick feature.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="annex-graph-of-nodes-running-in-parallel">Annex: Graph of nodes running in parallel<a href="https://dora-rs.ai/zh-CN/blog/reachy-qwenvl-sam2#annex-graph-of-nodes-running-in-parallel" class="hash-link" aria-label="直接链接至  Annex: Graph of nodes running in parallel" title="直接链接至  Annex: Graph of nodes running in parallel">​</a></h2>
+<!-- -->
+<p>The above graph correspond to the exact communication channels between the nodes that are running concurrently.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="annex-video">Annex: Video<a href="https://dora-rs.ai/zh-CN/blog/reachy-qwenvl-sam2#annex-video" class="hash-link" aria-label="直接链接至  Annex: Video" title="直接链接至  Annex: Video">​</a></h2>
+<video controls="" src="https://huggingface.co/datasets/haixuantao/rerun_dataset/resolve/main/761752120155.mp4" width="100%"></video>
+<p>In case you want to hire or buy reachy, you can send him an email at <a href="mailto:reachy@1ms.ai" target="_blank" rel="noopener noreferrer">reachy@1ms.ai</a></p>]]></content:encoded>
+        </item>
+        <item>
             <title><![CDATA[Rust-Python FFI]]></title>
             <link>https://dora-rs.ai/zh-CN/blog/rust-python</link>
             <guid>https://dora-rs.ai/zh-CN/blog/rust-python</guid>
-            <pubDate>Fri, 07 Feb 2025 10:38:02 GMT</pubDate>
+            <pubDate>Thu, 20 Feb 2025 15:20:34 GMT</pubDate>
             <description><![CDATA[Rust-Python FFI.]]></description>
             <content:encoded><![CDATA[<p>Writing a rust library that is usable in multiple languages is not easy...</p>
 <p>This blogpost recollects things I have encountered while building <a href="https://github.com/webonnx/wonnx" target="_blank" rel="noopener noreferrer">wonnx</a> and <a href="https://github.com/dora-rs/dora" target="_blank" rel="noopener noreferrer">dora-rs</a>. I am going to use Rust-Python FFI through <code>pyo3</code> as an example. You can then extrapolate those issues to other languages FFI.</p>
