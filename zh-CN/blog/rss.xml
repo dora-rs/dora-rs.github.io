@@ -4,7 +4,7 @@
         <title>dora-rs Blog</title>
         <link>https://dora-rs.ai/zh-CN/blog</link>
         <description>dora-rs Blog</description>
-        <lastBuildDate>Thu, 20 Feb 2025 15:20:34 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 20 Feb 2025 15:38:28 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -12,7 +12,7 @@
             <title><![CDATA[Reachy2 Speech-to-Grasp]]></title>
             <link>https://dora-rs.ai/zh-CN/blog/reachy-qwenvl-sam2</link>
             <guid>https://dora-rs.ai/zh-CN/blog/reachy-qwenvl-sam2</guid>
-            <pubDate>Thu, 20 Feb 2025 15:20:34 GMT</pubDate>
+            <pubDate>Thu, 20 Feb 2025 15:38:28 GMT</pubDate>
             <description><![CDATA[Using reachy2 with QwenVL2 and SAM2 in order to create a robust universal* grasper. *We currently does not optimise for grasp pose, but it is going to come]]></description>
             <content:encoded><![CDATA[<p>Reachy grasping demo showcase how by combining multiple AI models together we can create a robot able to grasp object on a table from our speech autonomously.</p>
 <p>This is performed with 100% open source code.</p>
@@ -43,6 +43,13 @@
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="source-code">Source Code<a href="https://dora-rs.ai/zh-CN/blog/reachy-qwenvl-sam2#source-code" class="hash-link" aria-label="直接链接至  Source Code" title="直接链接至  Source Code">​</a></h2>
 <p>All the source code and instructions are contained within dora-rs repository: <a href="https://github.com/dora-rs/dora/pull/784" target="_blank" rel="noopener noreferrer">https://github.com/dora-rs/dora/pull/784</a></p>
 <p>The code is 100% open source and is aimed at being 100% reusable on other hardware using dora-rs by just replacing: <code>reachy-left-arm, reachy-right-arm, reachy-camera and reachy-head</code>. Albeit, porting this code might not be 100% easy as of now, and further work need to be done.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="computer-requirements">Computer requirements<a href="https://dora-rs.ai/zh-CN/blog/reachy-qwenvl-sam2#computer-requirements" class="hash-link" aria-label="直接链接至  Computer requirements" title="直接链接至  Computer requirements">​</a></h2>
+<p>This run on both:</p>
+<ul>
+<li>MacOS with ~ 20G of RAM but without SAM2 as SAM2 is only available on nvidia for now.</li>
+<li>Linux with ~ 10G of Nvidia VRAM and ~16G of Nvidia VRAM using SAM2.</li>
+<li>I have not tried Windows but should run as well.</li>
+</ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="annex-rerun">Annex: Rerun<a href="https://dora-rs.ai/zh-CN/blog/reachy-qwenvl-sam2#annex-rerun" class="hash-link" aria-label="直接链接至  Annex: Rerun" title="直接链接至  Annex: Rerun">​</a></h2>
 <iframe src="https://app.rerun.io/version/0.21.0/index.html?url=https://huggingface.co/datasets/haixuantao/rerun_dataset/resolve/main/final_data.rrd" width="100%" height="700px"></iframe>
 <p>In the above iframe, the important information are:</p>
@@ -64,7 +71,7 @@
             <title><![CDATA[Rust-Python FFI]]></title>
             <link>https://dora-rs.ai/zh-CN/blog/rust-python</link>
             <guid>https://dora-rs.ai/zh-CN/blog/rust-python</guid>
-            <pubDate>Thu, 20 Feb 2025 15:20:34 GMT</pubDate>
+            <pubDate>Thu, 20 Feb 2025 15:38:28 GMT</pubDate>
             <description><![CDATA[Rust-Python FFI.]]></description>
             <content:encoded><![CDATA[<p>Writing a rust library that is usable in multiple languages is not easy...</p>
 <p>This blogpost recollects things I have encountered while building <a href="https://github.com/webonnx/wonnx" target="_blank" rel="noopener noreferrer">wonnx</a> and <a href="https://github.com/dora-rs/dora" target="_blank" rel="noopener noreferrer">dora-rs</a>. I am going to use Rust-Python FFI through <code>pyo3</code> as an example. You can then extrapolate those issues to other languages FFI.</p>
