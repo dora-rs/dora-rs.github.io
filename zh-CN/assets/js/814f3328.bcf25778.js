@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdora_rs_github_io=self.webpackChunkdora_rs_github_io||[]).push([[7472],{55513:e=>{e.exports=JSON.parse('{"title":"\u6700\u8fd1\u5e16\u5b50","items":[{"title":"Reachy2 Speech-to-Grasp","permalink":"/zh-CN/blog/reachy-qwenvl-sam2","unlisted":false},{"title":"Rust-Python FFI","permalink":"/zh-CN/blog/rust-python","unlisted":false}]}')}}]);
