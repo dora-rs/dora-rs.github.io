@@ -13,15 +13,15 @@ categories_order = [
     "Chassis",
     "Arm",
     "Robot",
-    "Voice Activity Detection",
-    "Speech to Text",
-    "Vision Language Model",
-    "Large Language Model",
-    "Vision Language Action",
+    "Voice Activity Detection(VAD)",
+    "Speech to Text(STT)",
     "Object Detection",
     "Segmentation",
+    "Large Language Model(LLM)",
+    "Vision Language Model(VLM)",
+    "Vision Language Action(VLA)",
     "Translation",
-    "Text to Speech",
+    "Text to Speech(TTS)",
     "Recorder",
     "Visualization",
     "Simulator",
@@ -47,24 +47,21 @@ df["title"] = df.apply(
     axis=1,
 )
 
-# Combine shields into one column with markdown image syntax
-df["shields"] = df.apply(
-    lambda row: (f"![Downloads]({row['downloads']}) " if row["downloads"] else "")
-    + (f"![License]({row['license']}) " if row["license"] else "")
-    + (f"![Release]({row['last_release']})" if row["last_release"] else ""),
-    axis=1,
-)
+# Convert shields to markdown image syntax
+df["downloads"] = df["downloads"].apply(lambda x: f"![Downloads]({x})" if x else "")
+df["license"] = df["license"].apply(lambda x: f"![License]({x})" if x else "")
+df["last_release"] = df["last_release"].apply(lambda x: f"![Release]({x})" if x else "")
 
 
 # Function to generate a markdown table for a single category
 def generate_category_table(category, group):
     table = (
         f"### {category}\n\n"
-        "| Title | Description | Shields |\n"
-        "|-------|-------------|---------|\n"
+        "| Title | Support | Description | Downloads | License | Release | \n"
+        "|-------|---------|-------------|-----------|---------|---------|\n"
     )
     for _, row in group.iterrows():
-        table += f"| {row['title']} | {row['description']} | {row['shields']} |\n"
+        table += f"| {row['title']} | {row['support']} | {row['description']} | {row['downloads']} | {row['license']} | {row['last_release']} |\n"
     return table + "\n"
 
 

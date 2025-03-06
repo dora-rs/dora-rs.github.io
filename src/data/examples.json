@@ -1,6 +1,6 @@
 [
   {
-    "title": "Speech to Text",
+    "title": "Speech to Text(STT)",
     "description": "Transform speech to text.",
     "preview": "/img/whisper.png.avif",
     "website": "stt",
@@ -19,7 +19,7 @@
     "category": "Audio"
   },
   {
-    "title": "Vision Language Model",
+    "title": "Vision Language Model(VLM)",
     "description": "Use a VLM to understand images.",
     "preview": "https://github.com/QwenLM/Qwen-VL/raw/master/assets/logo.jpg",
     "website": "vlm",

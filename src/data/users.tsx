@@ -53,15 +53,15 @@ export const CategoriesNodes = [
   "Chassis",
   "Arm",
   "Robot",
-  "Voice Activity Detection",
-  "Speech to Text",
-  "Vision Language Model",
-  "Large Language Model",
-  "Vision Language Action",
+  "Voice Activity Detection(VAD)",
+  "Speech to Text(STT)",
+  "Vision Language Model(VLM)",
+  "Large Language Model(LLM)",
+  "Vision Language Action(VLA)",
   "Object Detection",
   "Segmentation",
   "Translation",
-  "Text to Speech",
+  "Text to Speech(TTS)",
   "Recorder",
   "Visualization",
   "Simulator",
@@ -89,6 +89,7 @@ export type User = {
   website: string;
   source: string;
   tags: TagType[];
+  support: string | null;
 };
 
 export type Tag = {
