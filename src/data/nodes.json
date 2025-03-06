@@ -1,5 +1,21 @@
 [
   {
+    "title": "PyAudio(Speaker)",
+    "description": "Output audio from speaker",
+    "preview": "https://people.csail.mit.edu/hubert/pyaudio/images/snake-300.png",
+    "website": "pyaudio",
+    "github": "https://github.com/dora-rs/dora/blob/main/node-hub/dora-pyaudio",
+    "author": "dora",
+    "downloads": "https://img.shields.io/pypi/dm/dora-pyaudio",
+    "install": "- id: dora-pyaudio\n  build: pip install dora-pyaudio\n  path: dora-pyaudio\n  inputs: \n    tick: <NODE>/audio",
+    "source": "https://github.com/dora-rs/dora/blob/main/node-hub/dora-pyaudio",
+    "tags": ["python", "audio"],
+    "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=node-hub%2Fdora-pyaudio",
+    "last_release": "https://img.shields.io/pypi/v/dora-pyaudio",
+    "license": "https://img.shields.io/pypi/l/dora-pyaudio",
+    "category": "Peripheral"
+  },
+  {
     "title": "Whisper",
     "description": "Transcribe audio to text",
     "preview": "/img/whisper.png.avif",
