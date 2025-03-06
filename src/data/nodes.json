@@ -351,7 +351,11 @@
     "author": "dora",
     "website": "reachy2",
     "preview": "https://www.lejournaldesentreprises.com/sites/lejournaldesentreprises.com/files/styles/landscape_web_lg_1x/public/2024-11/Reachy-2-sait-reprer-un-objet-le-saisir-et-le-m-15512511.jpeg?itok=syrnHhWx",
-    "source": "https://github.com/dora-rs/dora-lerobot/blob/main/robots/reachy",
+    "downloads": "https://img.shields.io/pypi/dm/dora-reachy2",
+    "source": "https://github.com/dora-rs/dora/blob/main/node-hub/dora-reachy2",
+    "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=node-hub%2Fdora-reachy2",
+    "last_release": "https://img.shields.io/pypi/v/dora-reachy2",
+    "license": "https://img.shields.io/pypi/l/dora-reachy2",
     "tags": ["python"],
     "category": "Robot"
   },
