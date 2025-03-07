@@ -142,7 +142,14 @@ sidebar_position: 1
    Now lets run the dataflow.
 
    ```bash
-   dora run dataflow.yml --name conversation
+   # Create an virtual environment
+   uv venv --seed -p 3.11
+
+   # Install all dependencies
+   dora build dataflow.yml --uv
+
+   # Run the dataflow
+   dora run dataflow.yml --uv
    ```
 
    - You should see the listener node print out the message `"I heard Hello World"`.
