@@ -69,9 +69,10 @@ export const CategoriesNodes = [
 export const CategoriesExamples = [
   "Audio",
   "Vision",
-  "Training",
-  "Tutorial",
+  "Model Training",
+  "ROS2",
   "Benchmark",
+  "Tutorial",
 ];
 
 export type User = {

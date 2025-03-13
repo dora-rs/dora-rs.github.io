@@ -56,17 +56,17 @@
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Fpiper",
     "preview": "https://global.agilex.ai/cdn/shop/files/PIPER0814.00_00_37_00.Still004.jpg?v=1724743157&width=3840",
     "tags": ["python", "image"],
-    "category": "Training"
+    "category": "Model Training"
   },
   {
     "title": "LeRobot - Alexander Koch",
-    "description": "Piper RDT Pipeline",
+    "description": "Training Alexander Koch Low Cost Robot with LeRobot",
     "website": "lerobot",
     "source": "https://raw.githubusercontent.com/dora-rs/dora-lerobot/refs/heads/main/README.md",
-    "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora-lerobot",
+    "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora-lerobot?path=robots",
     "preview": "https://cdn-uploads.huggingface.co/production/uploads/631ce4b244503b72277fc89f/MNkMdnJqyPvOAEg20Mafg.png",
     "tags": ["python", "image"],
-    "category": "Training"
+    "category": "Model Training"
   },
   {
     "title": "C Example",
@@ -136,7 +136,7 @@
     "source": "https://github.com/dora-rs/dora/blob/main/examples/python-ros2-dataflow",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Fpython-ros2-dataflow",
     "tags": [],
-    "category": "Tutorial"
+    "category": "ROS2"
   },
   {
     "title": "Rust ROS2 Example",
@@ -146,7 +146,7 @@
     "source": "https://github.com/dora-rs/dora/blob/main/examples/rust-ros2-dataflow",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Frust-ros2-dataflow",
     "tags": [],
-    "category": "Tutorial"
+    "category": "ROS2"
   },
   {
     "title": "C++ ROS2 Example",
@@ -156,7 +156,7 @@
     "source": "https://github.com/dora-rs/dora/blob/main/examples/c++-ros2-dataflow",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Fc%2b%2b-ros2-dataflow",
     "tags": [],
-    "category": "Tutorial"
+    "category": "ROS2"
   },
   {
     "title": "CPU Benchmark",
@@ -164,7 +164,7 @@
     "website": "cpu-benchmark",
     "preview": "https://github.com/user-attachments/assets/3285d183-7560-40e1-ac02-30fee0f120cb",
     "source": "https://github.com/dora-rs/dora-benchmark/blob/main",
-    "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora-benchmark",
+    "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora-benchmark?path=dora-rs",
     "tags": [],
     "category": "Benchmark"
   },

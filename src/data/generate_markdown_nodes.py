@@ -48,27 +48,26 @@ df["title"] = df.apply(
 )
 
 # Convert shields to markdown image syntax
-df["downloads"] = df["downloads"].apply(lambda x: f"![Downloads]({x})" if x else "")
-df["license"] = df["license"].apply(lambda x: f"![License]({x})" if x else "")
-df["last_release"] = df["last_release"].apply(lambda x: f"![Release]({x})" if x else "")
+df["downloads"] = df["downloads"].apply(
+    lambda x: f"![Downloads]({x}?label=%20)" if x else ""
+)
+df["license"] = df["license"].apply(lambda x: f"![License]({x}?label=%20)" if x else "")
 
 
 # Function to generate a markdown table for a single category
 def generate_category_table(category, group):
     table = (
-        f"### {category}\n\n"
-        "| Title | Support | Description | Downloads | License | Release | \n"
-        "|-------|---------|-------------|-----------|---------|---------|\n"
+        "| Type | Title | Description | Support | Downloads | License |\n"
+        "|------|-------|-------------|---------|-----------|---------|\n"
     )
     for _, row in group.iterrows():
-        table += f"| {row['title']} | {row['support']} | {row['description']} | {row['downloads']} | {row['license']} | {row['last_release']} |\n"
+        table += f"| {row['category']} | {row['title']} | {row['description']} | {row['support']} | {row['downloads']} | {row['license']} |\n"
     return table + "\n"
 
 
 # Generate markdown tables for each category
 markdown_tables = []
-for category, group in df.groupby("category", sort=False):
-    markdown_tables.append(generate_category_table(category, group))
+markdown_tables.append(generate_category_table("", df))
 
 # Combine all tables into a single markdown file
 markdown_content = "\n".join(markdown_tables)
