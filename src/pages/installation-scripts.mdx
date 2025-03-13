@@ -38,6 +38,18 @@ import CodeBlock from '@theme/CodeBlock';
 <CodeBlock language="bash">{"cargo install dora-cli # In case of issues, try: `--locked`"}</CodeBlock>
 
   </TabItem>
+  <TabItem value="docker" label="Docker">
+
+- Pull:
+
+<CodeBlock language="bash">{"docker pull ghcr.io/dora-rs/dora-slim"}</CodeBlock>
+
+- Run:
+
+<CodeBlock language="bash">{"docker run ghcr.io/dora-rs/dora-slim dora --help"}</CodeBlock>
+
+
+  </TabItem>
   <TabItem value="nix" label="Nix[OS]">
   - To make a base dev-shell (Recommended):
 ```nix
