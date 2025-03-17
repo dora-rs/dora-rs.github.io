@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://dora-rs.ai/zh-CN/blog</id>
     <title>dora-rs Blog</title>
-    <updated>2025-03-13T17:06:03.000Z</updated>
+    <updated>2025-03-17T18:17:04.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://dora-rs.ai/zh-CN/blog"/>
     <subtitle>dora-rs Blog</subtitle>
@@ -11,7 +11,7 @@
         <title type="html"><![CDATA[Reachy2 Pick and Place]]></title>
         <id>https://dora-rs.ai/zh-CN/blog/reachy-pick-place</id>
         <link href="https://dora-rs.ai/zh-CN/blog/reachy-pick-place"/>
-        <updated>2025-03-13T17:06:03.000Z</updated>
+        <updated>2025-03-17T18:17:04.000Z</updated>
         <summary type="html"><![CDATA[Using reachy2 with QwenVL2.5 to pick object and put it in a brown bag.]]></summary>
         <content type="html"><![CDATA[<h5 class="anchor anchorWithStickyNavbar_LWe7" id="using-qwenvl-25-multi-bounding-box-capabilities-to-pick-and-place-mulitple-item-with-very-low-latency">Using qwenVL 2.5 multi bounding box capabilities to pick and place mulitple item with very low latency.<a href="https://dora-rs.ai/zh-CN/blog/reachy-pick-place#using-qwenvl-25-multi-bounding-box-capabilities-to-pick-and-place-mulitple-item-with-very-low-latency" class="hash-link" aria-label="直接链接至  Using qwenVL 2.5 multi bounding box capabilities to pick and place mulitple item with very low latency." title="直接链接至  Using qwenVL 2.5 multi bounding box capabilities to pick and place mulitple item with very low latency.">​</a></h5>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="rerun">Rerun<a href="https://dora-rs.ai/zh-CN/blog/reachy-pick-place#rerun" class="hash-link" aria-label="直接链接至  Rerun" title="直接链接至  Rerun">​</a></h2>
@@ -40,7 +40,7 @@
         <title type="html"><![CDATA[Reachy2 Speech-to-Grasp]]></title>
         <id>https://dora-rs.ai/zh-CN/blog/reachy-qwenvl-sam2</id>
         <link href="https://dora-rs.ai/zh-CN/blog/reachy-qwenvl-sam2"/>
-        <updated>2025-03-13T17:06:03.000Z</updated>
+        <updated>2025-03-17T18:17:04.000Z</updated>
         <summary type="html"><![CDATA[Using reachy2 with QwenVL2 and SAM2 in order to create a robust universal* grasper. *We currently does not optimise for grasp pose, but it is going to come]]></summary>
         <content type="html"><![CDATA[<p>Reachy grasping demo showcase how by combining multiple AI models together we can create a robot able to grasp object on a table from our speech autonomously.</p>
 <p>This is performed with 100% open source code.</p>
@@ -103,7 +103,7 @@
         <title type="html"><![CDATA[Rust-Python FFI]]></title>
         <id>https://dora-rs.ai/zh-CN/blog/rust-python</id>
         <link href="https://dora-rs.ai/zh-CN/blog/rust-python"/>
-        <updated>2025-03-13T17:06:03.000Z</updated>
+        <updated>2025-03-17T18:17:04.000Z</updated>
         <summary type="html"><![CDATA[Rust-Python FFI.]]></summary>
         <content type="html"><![CDATA[<p>Writing a rust library that is usable in multiple languages is not easy...</p>
 <p>This blogpost recollects things I have encountered while building <a href="https://github.com/webonnx/wonnx" target="_blank" rel="noopener noreferrer">wonnx</a> and <a href="https://github.com/dora-rs/dora" target="_blank" rel="noopener noreferrer">dora-rs</a>. I am going to use Rust-Python FFI through <code>pyo3</code> as an example. You can then extrapolate those issues to other languages FFI.</p>
