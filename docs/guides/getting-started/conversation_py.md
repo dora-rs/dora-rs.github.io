@@ -3,6 +3,20 @@ sidebar_position: 1
 ---
 
 # Python Conversation
+1. Install Dora CLI and Dependencies
+   First, ensure you have Python 3.11 installed.
+   
+   Create and Activate Virtual Environment
+   Create a clean virtual environment using uv:
+   ```
+   uv venv --seed -p 3.11
+   source .venv/bin/activate  # Linux/macOS
+   .venv\Scripts\activate     # Windows
+   ```
+   Install Dora CLI
+   ```
+   pip install dora-rs-cli
+   ```
 
 1. Create a new dataflow
 
@@ -142,10 +156,8 @@ sidebar_position: 1
    Now lets run the dataflow.
 
    ```bash
-   # Create an virtual environment
-   uv venv --seed -p 3.11
 
-   # Install all dependencies
+   # Build dataflow (install dependencies):
    dora build dataflow.yml --uv
 
    # Run the dataflow
