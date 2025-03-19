@@ -3,8 +3,22 @@ sidebar_position: 1
 ---
 
 # Python Conversation
+1. Install Dora CLI and Dependencies
+   First, ensure you have Python 3.11 installed.
+   
+   Create and Activate Virtual Environment
+   Create a clean virtual environment using uv:
+   ```
+   uv venv --seed -p 3.11
+   source .venv/bin/activate  # Linux/macOS
+   .venv\Scripts\activate     # Windows
+   ```
+   Install Dora CLI
+   ```
+   pip install dora-rs-cli
+   ```
 
-1. Create a new dataflow
+2. Create a new dataflow
 
    ```bash
    # Create a new Python-based dataflow and navigate into the project directory
@@ -45,7 +59,7 @@ sidebar_position: 1
           └── test_talker_2.py
    ```
 
-2. Go ahead and add another node to the workspace with
+3. Go ahead and add another node to the workspace with
 
    ```bash
     dora new --kind node talker --lang python
@@ -53,7 +67,7 @@ sidebar_position: 1
 
    Now open up the `talker/talker/main.py` file in your text editor.
 
-3. How the default node works
+4. How the default node works
 
    Your node is very bare bones right now but here is an explanation of what is going on in it by default.
 
@@ -91,7 +105,7 @@ sidebar_position: 1
    - The second argument, `pa.array(["Hello World"])`, uses Apache Arrow to handle the data. Here, `pa.array` creates an Arrow array from the list `["Hello World"]`.
    - The third argument for metadata is omitted here, indicating that no additional data about the transmission is necessary for this tutorial.
 
-4. Let's breakdown the listener node
+5. Let's breakdown the listener node
 
    ```python
      from dora import Node
@@ -114,7 +128,7 @@ sidebar_position: 1
    - The `event["value"]` contains an Apache Arrow array, which is a structured way to handle complex data efficiently. By accessing `[0]`, we retrieve the first element of this array.
    - The `.as_py()` method converts the Arrow element directly into a native Python data type.
 
-5. Running the dataflow
+6. Running the dataflow
 
    Before we can run the dataflow we have to change it first:
 
@@ -142,10 +156,8 @@ sidebar_position: 1
    Now lets run the dataflow.
 
    ```bash
-   # Create an virtual environment
-   uv venv --seed -p 3.11
 
-   # Install all dependencies
+   # Build dataflow (install dependencies):
    dora build dataflow.yml --uv
 
    # Run the dataflow
@@ -154,6 +166,6 @@ sidebar_position: 1
 
    - You should see the listener node print out the message `"I heard Hello World"`.
 
-6. Conclusion
+7. Conclusion
 
    Well done reaching the end of this tutorial! You've learned to create and run a custom Dora dataflow, integrating a talker and listener node. This setup forms the foundation for more complex dataflows. For further exploration, consider experimenting with different data types or exploring Dora's advanced features. More tutorials coming soon!
