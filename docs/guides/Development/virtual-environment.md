@@ -16,24 +16,28 @@ It is the one that is handled within the `dora up` command.
 
 In case of confusion, you can use `dora destroy && dora up` in the env, you want to be.
 
-## Overwrite an environment
+## Setting an arbitrary environment
 
-You can overwrite an environment using, the following tricks:
-
-- Using predefined python
+You can overwrite an environment using the `VIRTUAL_ENV` environment variable within the dataflow specification:
 
 ```yaml
-- id: dora-vad
-  path: ../.venv/bin/python
-  args: my_script.py
+- id: llm
+  build: |
+    pip install flash-attn --no-build-isolation
+    pip install -e ../../node-hub/dora-phi4
+  path: dora-phi4
+  inputs:
+    text: input/text
+  outputs:
+    - text
+  env:
+    VIRTUAL_ENV: /home/peter/Documents/work/dora/node-hub/dora-phi4/.venv
 ```
 
-- Using shell
+And run your datflow with uv:
 
-```yaml
-- id: dora-vad
-  path: shell
-  args: /path/to/python my_script.py
+```bash
+dora run dataflow.yml --uv
 ```
 
 ## Using `uv` with `--uv` flag
