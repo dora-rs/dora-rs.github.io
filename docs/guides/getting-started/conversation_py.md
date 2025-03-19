@@ -3,169 +3,245 @@ sidebar_position: 1
 ---
 
 # Python Conversation
-1. Install Dora CLI and Dependencies
-   First, ensure you have Python 3.11 installed.
-   
-   Create and Activate Virtual Environment
-   Create a clean virtual environment using uv:
-   ```
-   uv venv --seed -p 3.11
-   source .venv/bin/activate  # Linux/macOS
-   .venv\Scripts\activate     # Windows
-   ```
-   Install Dora CLI
-   ```
-   pip install dora-rs-cli
-   ```
 
-2. Create a new dataflow
+Dora enables real-time data processing through a flexible and modular framework. This guide walks you through setting up a simple conversation, consisting of a `talker` and `listener` node. The `talker` sends a message, while the `listener` receives and processes it.
 
-   ```bash
-   # Create a new Python-based dataflow and navigate into the project directory
-   dora new conversation_py --lang python
-   cd conversation_py
-   ```
+---
 
-   This creates the following `conversation_py` directory
+## 1. Setting Up the Environment
 
-   ```bash
-   ├── dataflow.yml
-   ├── listener-1
-   │   ├── README.md
-   │   ├── listener_1
-   │   │   ├── __init__.py
-   │   │   ├── __main__.py
-   │   │   └── main.py
-   │   ├── pyproject.toml
-   │   └── tests
-   │       └── test_listener_1.py
-   ├── talker-1
-   │   ├── README.md
-   │   ├── pyproject.toml
-   │   ├── talker_1
-   │   │   ├── __init__.py
-   │   │   ├── __main__.py
-   │   │   └── main.py
-   │   └── tests
-   │       └── test_talker_1.py
-   └── talker-2
-       ├── README.md
-       ├── pyproject.toml
-       ├── talker_2
-       │   ├── __init__.py
-       │   ├── __main__.py
-       │   └── main.py
-       └── tests
-          └── test_talker_2.py
-   ```
-
-3. Go ahead and add another node to the workspace with
-
-   ```bash
-    dora new --kind node talker --lang python
-   ```
-
-   Now open up the `talker/talker/main.py` file in your text editor.
-
-4. How the default node works
-
-   Your node is very bare bones right now but here is an explanation of what is going on in it by default.
-
-   - This section imports and initializes the node.
-
-   ```python
-   from dora import Node
-   import pyarrow as pa
-
-   def main():
-      node = Node()
-   ```
-
-   - This part of the code checks to see if the node has received any input, and if it has, it will print out some data relating to the input.
-
-   ```python
-   for event in node:
-      if event["type"] == "INPUT":
-         print(
-            f"""Node received:
-         id: {event["id"]},
-         value: {event["value"]},
-         metadata: {event["metadata"]}"""
-         )
-   ```
-
-   - This line send an output to other nodes.
-
-   ```python
-         node.send_output("speech", pa.array(["Hello World"])) # add this line
-   ```
-
-   - We are using the `send_output` method to send a string as an arrow array to the listener node.
-   - The first argument is the id of the output we want to send to be referenced later in the dataflow.
-   - The second argument, `pa.array(["Hello World"])`, uses Apache Arrow to handle the data. Here, `pa.array` creates an Arrow array from the list `["Hello World"]`.
-   - The third argument for metadata is omitted here, indicating that no additional data about the transmission is necessary for this tutorial.
-
-5. Let's breakdown the listener node
-
-   ```python
-     from dora import Node
+Before you start, ensure you have Python 3.11 or later installed. 
 
 
-      def main():
-         node = Node()
-         for event in node:
-            if event["type"] == "INPUT":
-                  message = event["value"][0].as_py()
-                  print(f"""I heard {message} from {event["id"]}""")
+
+### Creating a Virtual Environment
+
+To keep dependencies isolated, create a virtual environment using `uv`:
+
+```bash
+
+uv venv --seed -p 3.11
+
+dora venv activate  # macOS/Linux
+
+.venv\Scripts\activate  # Windows
+
+```
+
+### Installing Dora CLI
+
+Once the virtual environment is activated, install Dora:
+
+```bash
+
+pip install dora-rs-cli
+
+```
+
+---
+
+## 2. Creating a New Conversation
+
+Dora organizes real-time processing workflows as "conversations." To start, create a new conversation directory:
+
+```bash
+
+dora new --kind conversation --lang python my_conversation
+
+cd my_conversation
+
+```
+
+This command initializes the necessary project structure for Dora.
+
+---
+
+## 3. Adding Nodes to the Conversation
+
+Nodes are the fundamental building blocks of a Dora conversation. Each node processes or transfers data between components.
+
+### Adding a Talker Node
+
+Create a new `talker` node inside the conversation:
+
+```bash
+
+dora new --kind node talker --lang python
+
+```
+
+This generates a `talker` directory inside `my_conversation`, containing the following structure:
+
+```
+
+my_conversation/
+
+  ├── talker/
+
+  │   ├── __init__.py
+
+  │   ├── __main__.py
+
+  │   ├── main.py
+
+  │   ├── pyproject.toml
+
+  │   └── tests/
+
+```
+
+Now, open `talker/main.py` and inspect the generated code. The `talker` node emits messages on an output stream.
+
+### Adding a Listener Node
+
+Similarly, create a `listener` node:
+
+```bash
+
+dora new --kind node listener --lang python
+
+```
+
+Navigate to `listener/main.py` and inspect its contents. The `listener` node listens for incoming messages and processes them accordingly.
+
+---
+
+## 4. Understanding Node Functionality
 
 
-      if __name__ == "__main__":
-         main()
-   ```
 
-   Let's break down the key line in this script.
+The default `talker` implementation looks like this:
 
-   - The `event["value"]` contains an Apache Arrow array, which is a structured way to handle complex data efficiently. By accessing `[0]`, we retrieve the first element of this array.
-   - The `.as_py()` method converts the Arrow element directly into a native Python data type.
+```python
 
-6. Running the dataflow
+from dora import Node
 
-   Before we can run the dataflow we have to change it first:
+import pyarrow as pa
 
-   ```yaml
-   nodes:
-     - id: talker
-       path: talker-1/talker_1/main.py
-       inputs:
-         tick: dora/timer/secs/1
-       outputs:
-         - speech
+def main():
 
-     - id: listener
-       path: listener-1/listener_1/main.py
-       inputs:
-         speech: talker/speech
-   ```
+    node = Node()
 
-   Before we run the dataflow, let's go over it really quick.
+    for event in node:
 
-   - The talker node will be sent an input every second, which will then make it send an output.
-   - The listener node will be sent an input from the talker node and will then print out what it heard.
-   - The name of the output of the talker corresponds to the id set in the talker node.
+        if event["type"] == "INPUT":
 
-   Now lets run the dataflow.
+            print(f"Talker received: {event}")
 
-   ```bash
+            node.send_output(output_id="speech", data=pa.array(["Hello World"]))
 
-   # Build dataflow (install dependencies):
-   dora build dataflow.yml --uv
+if __name__ == "__main__":
 
-   # Run the dataflow
-   dora run dataflow.yml --uv
-   ```
+    main()
 
-   - You should see the listener node print out the message `"I heard Hello World"`.
+```
 
-7. Conclusion
+### How the Listener Node Works
 
-   Well done reaching the end of this tutorial! You've learned to create and run a custom Dora dataflow, integrating a talker and listener node. This setup forms the foundation for more complex dataflows. For further exploration, consider experimenting with different data types or exploring Dora's advanced features. More tutorials coming soon!
+The `listener` node processes messages received from the `talker` node. It extracts data from the Apache Arrow format and converts it into a native Python type:
+
+```python
+
+from dora import Node
+
+def main():
+
+    node = Node()
+
+    for event in node:
+
+        if event["type"] == "INPUT":
+
+            print(f"Listener received: {event['value'][0].as_py()}")
+
+if __name__ == "__main__":
+
+    main()
+
+```
+
+---
+
+## 5. Configuring the Conversation
+
+To enable communication between nodes, define a `dataflow.yml` file:
+
+```yaml
+
+nodes:
+
+  - id: talker
+
+    path: talker/main.py
+
+    inputs:
+
+      tick: dora/timer/secs/1
+
+    outputs:
+
+      - speech
+
+  - id: listener
+
+    path: listener/main.py
+
+    inputs:
+
+      speech: talker/speech
+
+```
+
+This configuration ensures that the `talker` sends messages every second, which are then received by the `listener` node.
+
+---
+
+## 6. Building and Running the Conversation
+
+### Building the Conversation
+
+Before running the conversation, build it to ensure dependencies are installed:
+
+```bash
+
+dora build dataflow.yml
+
+```
+
+### Running the Conversation
+
+Start the conversation with:
+
+```bash
+
+dora run dataflow.yml
+
+```
+
+You should see output in the terminal similar to:
+
+```
+
+Talker: Sending 'Hello World'
+
+Listener: Received 'Hello World'
+
+```
+
+This confirms that the nodes are successfully communicating.
+
+---
+
+## Conclusion
+
+Congratulations on completing the **Python Conversation** tutorial! You have successfully set up and run a basic Dora conversation, including a **Talker** and **Listener** node. This foundational knowledge prepares you for more advanced topics.
+
+To continue your learning, explore the next steps:
+
+-   **Webcam Plot**: Learn how to integrate live video streaming into Dora.
+-   **Yolov8**: Apply real-time object detection using YOLOv8.
+-   **LLMs**: Connect Dora with Large Language Models for AI-driven conversations.
+
+For deeper insights into Dora development, check out the **Development** and **Debugging** sections. Keep experimenting and refining your workflows!
+
+
