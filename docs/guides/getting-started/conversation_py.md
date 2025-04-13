@@ -59,13 +59,13 @@ sidebar_position: 1
           └── test_talker_2.py
    ```
 
-3. Go ahead and add another node to the workspace with
+3. For example you can add another node to the workspace with
 
    ```bash
     dora new --kind node talker --lang python
    ```
 
-   Now open up the `talker/talker/main.py` file in your text editor.
+   Now open up the `talker-1/talker_1/main.py` file in your text editor.
 
 4. How the default node works
 
@@ -164,7 +164,7 @@ sidebar_position: 1
    dora run dataflow.yml --uv
    ```
 
-   - You should see the listener node print out the message `"I heard Hello World"`.
+   - You should see the listener node print out the message `"I heard Hello World from speech"`.
 
 7. Conclusion
 
