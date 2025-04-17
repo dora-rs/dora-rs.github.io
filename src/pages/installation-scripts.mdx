@@ -16,20 +16,20 @@ import CodeBlock from '@theme/CodeBlock';
 
   - Paste the following line in a terminal
 
-<CodeBlock language="bash">{"curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/dora-rs/dora/main/install.sh | bash"}</CodeBlock>
+<CodeBlock language="bash">{"curl --proto '=https' --tlsv1.2 -LsSf https://github.com/dora-rs/dora/releases/latest/download/dora-cli-installer.sh | sh"}</CodeBlock>
 
   </TabItem>
   <TabItem value="macos" label="MacOS">
 
   - Paste the following line in a terminal
 
-<CodeBlock language="bash">{"curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/dora-rs/dora/main/install.sh | bash"}</CodeBlock>
+<CodeBlock language="bash">{"curl --proto '=https' --tlsv1.2 -LsSf https://github.com/dora-rs/dora/releases/latest/download/dora-cli-installer.sh | sh"}</CodeBlock>
 
   </TabItem>
   <TabItem value="windows" label="Windows">
 
   - Paste the following lines in a terminal
-<CodeBlock language="powershell">{"powershell -c 'irm https://raw.githubusercontent.com/dora-rs/dora/main/install.ps1 | iex'"}</CodeBlock>
+<CodeBlock language="powershell">{"powershell -ExecutionPolicy ByPass -c \"irm https://github.com/dora-rs/dorareleases/latest/download/dora-cli-installer.ps1 | iex\""}</CodeBlock>
   - If you use VSCode, make sure to restart VSCode for the change to happen.
 
   </TabItem>
