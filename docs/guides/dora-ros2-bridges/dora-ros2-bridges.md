@@ -1,13 +1,13 @@
 # Bridging ROS2
 
-dora-ros2-bridge is an extension that we have build for people to use ROS2 easily.
-One of the main issue with ROS2 is the complex build system. It would have been really hard for people to use dora on top of the ros2 build system so we have build this bridsge to be ROS2 compiler free. In order to do that, we convert every message at runtime into arrow struct format. This can be use to rapidly use AI models through numpy, pandas, ...
+dora-ros2-bridge is an extension that we have built for people to use ROS2 easily.
+One of the main issues with ROS2 is the complex build system. It would have been really hard for people to use dora on top of the ros2 build system so we have built this bridge to be ROS2 compiler free. In order to do that, we convert every message at runtime into arrow struct format. This can be used to rapidly use AI models through numpy, pandas, ...
 
 ## Why dora-ros2-bridge?
 
 > See: https://github.com/orgs/dora-rs/discussions/306
 
-Current robotic community uses a lot of ROS2 for building robots. It's hard for them to switch entirely from ROS2. Building easy-to-use bridge for ROS 2 helps provide a simpler way to integrate and transition projects to/from dora. This also makes it easy to reuse ROS2 sensor node that does not provide any other API.
+Current robotic community uses a lot of ROS2 for building robots. It's hard for them to switch entirely from ROS2. Building easy-to-use bridge for ROS 2 helps provide a simpler way to integrate and transition projects to/from dora. This also makes it easy to reuse ROS2 sensor nodes that do not provide any other API.
 
 ## Getting Started in Python
 
