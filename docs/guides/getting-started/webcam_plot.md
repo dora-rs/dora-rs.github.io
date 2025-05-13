@@ -39,6 +39,7 @@ This example will launch a webcam plot stream.
 4. Start attached to the dataflow as follows:
 
    ```bash
+   dora up 
    dora start dataflow.yml --attach --hot-reload --name webcam
    ```
 
