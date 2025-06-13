@@ -275,12 +275,13 @@ function ShowcaseCards({
             let categoryUsers = filteredUsers.filter(
               (user) => user.category == category
             );
+            let categoryDash = category.replace(/ /g, "-");
             if (categoryUsers.length === 0) {
               return null;
             }
             return (
               <div>
-                <Heading as="h2" id={"#" + category}>
+                <Heading as="h2" id={categoryDash}>
                   {category}
                 </Heading>
                 <ul className={clsx("clean-list", styles.showcaseList)}>
