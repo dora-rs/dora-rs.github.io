@@ -501,5 +501,16 @@
     "tags": ["python"],
     "support": "📐",
     "category": "Simulator"
+  },
+  {
+    "title": "Kornia V4L Capture",
+    "description": "Video stream for Linux Cameras",
+    "author": "kornia",
+    "website": "kornia-v4l-capture",
+    "source": "https://github.com/kornia/dora-nodes-hub/tree/5b309b6c6f95074f8d38f2a236142e2e0751ee19/kornia-v4l-capture",
+    "license": "https://github.com/kornia/dora-nodes-hub/blob/main/LICENSE",
+    "tags": ["rust", "image"],
+    "support": "✅",
+    "category": "Camera"
   }
 ]
