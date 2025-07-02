@@ -507,10 +507,38 @@
     "description": "Video stream for Linux Cameras",
     "author": "kornia",
     "website": "kornia-v4l-capture",
-    "source": "https://github.com/kornia/dora-nodes-hub/tree/5b309b6c6f95074f8d38f2a236142e2e0751ee19/kornia-v4l-capture",
-    "license": "https://github.com/kornia/dora-nodes-hub/blob/main/LICENSE",
+    "preview": "https://github.com/kornia/data/blob/4726f90bf82675ba821d7a8ecd16cf39ed51bfd5/kornia_logo.png",
+    "source": "https://github.com/kornia/dora-nodes-hub/tree/main/kornia-v4l-capture",
+    "license": "https://img.shields.io/badge/License-Apache_2.0-blue.svg",
+    "install": "- id: v4l-camera\n  git: https://github.com/kornia/dora-nodes-hub.git\n  rev: 5b309b6c6f95074f8d38f2a236142e2e0751ee19\n  build: cargo build -p kornia-v4l-capture --release\n  path: target/release/kornia-v4l-capture\n  inputs: \n    tick: dora/timer/millis/30\n  outputs: \n    - frame\n    SOURCE_DEVICE: '/dev/video0'\n    SOURCE_FPS: 30\n    IMAGE_COLS: 320\n    IMAGE_ROWS: 180\n    PIXEL_FORMAT: 'YUYV'",
     "tags": ["rust", "image"],
     "support": "✅",
     "category": "Camera"
+  },
+  {
+    "title": "Kornia GST Capture",
+    "description": "Video Capture using Gstreamer",
+    "author": "kornia",
+    "website": "kornia-gst-capture",
+    "preview": "https://github.com/kornia/data/blob/4726f90bf82675ba821d7a8ecd16cf39ed51bfd5/kornia_logo.png",
+    "source": "https://github.com/kornia/dora-nodes-hub/tree/main/kornia-gst-capture",
+    "license": "https://img.shields.io/badge/License-Apache_2.0-blue.svg",
+    "install": "- id: gst-camera\n  git: https://github.com/kornia/dora-nodes-hub.git\n  rev: 5b309b6c6f95074f8d38f2a236142e2e0751ee19\n  build: cargo build -p kornia-gst-capture --release\n  path: target/release/kornia-gst-capture\n  inputs: \n    tick: dora/timer/millis/30\n  outputs: \n    - frame\n  env:\n    SOURCE_TYPE: 'rtsp'\n    SOURCE_URI: 'rtsp://{username}:{password}@{ip}:{port}/{stream}'",
+    "tags": ["rust", "image"],
+    "support": "✅",
+    "category": "Camera"
+  },
+  {
+    "title": "Kornia Sobel Operator",
+    "description": "Kornia image processing Sobel operator",
+    "author": "kornia",
+    "website": "kornia-imgproc-sobel",
+    "preview": "https://private-user-images.githubusercontent.com/5157099/398961232-8a4f1b16-bb01-493a-8a89-758b89d82633.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTE0ODI5NzQsIm5iZiI6MTc1MTQ4MjY3NCwicGF0aCI6Ii81MTU3MDk5LzM5ODk2MTIzMi04YTRmMWIxNi1iYjAxLTQ5M2EtOGE4OS03NThiODlkODI2MzMucG5nP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI1MDcwMiUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNTA3MDJUMTg1NzU0WiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9ZjhiNDk1N2E0MTY5OTBjMTY4ZDI5N2MxY2NlZmY1Mjc0NTEyMmQxYWIwMzE2NzZlN2IyZmMzNTY2NzgxY2MyMSZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QifQ.FE1OsYG5yPJhWb5UK55k6auF0OhFmk5-P6F9sVo3afo",
+    "source": "https://github.com/kornia/dora-nodes-hub/tree/main/kornia-imgproc-sobel",
+    "license": "https://img.shields.io/badge/License-Apache_2.0-blue.svg",
+    "install": "- id: sobel\n  git: https://github.com/kornia/dora-nodes-hub.git\n  rev: 5b309b6c6f95074f8d38f2a236142e2e0751ee19\n  build: cargo build -p kornia-imgproc-sobel --release\n  path: target/release/kornia-imgproc-sobel\n  inputs:\n    frame: v4l-camera/frame\n  outputs: \n    - output\n",
+    "tags": ["rust", "image"],
+    "support": "✅",
+    "category": "Image Processing"
   }
 ]
