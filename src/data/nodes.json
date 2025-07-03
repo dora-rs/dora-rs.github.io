@@ -608,7 +608,7 @@
     "preview": "https://github.com/kornia/data/blob/main/kornia_logo.png?raw=true",
     "source": "https://github.com/kornia/dora-nodes-hub/tree/main/kornia-v4l-capture",
     "license": "https://img.shields.io/badge/License-Apache_2.0-blue.svg",
-    "install": "- id: v4l-camera\n  git: https://github.com/kornia/dora-nodes-hub.git\n  rev: 5b309b6c6f95074f8d38f2a236142e2e0751ee19\n  build: cargo build -p kornia-v4l-capture --release\n  path: target/release/kornia-v4l-capture\n  inputs: \n    tick: dora/timer/millis/30\n  outputs: \n    - frame\n    SOURCE_DEVICE: '/dev/video0'\n    SOURCE_FPS: 30\n    IMAGE_COLS: 320\n    IMAGE_ROWS: 180\n    PIXEL_FORMAT: 'YUYV'",
+    "install": "- id: v4l-camera\n  git: https://github.com/kornia/dora-nodes-hub.git\n  rev: 5b309b6c6f95074f8d38f2a236142e2e0751ee19\n  build: cargo build -p kornia-v4l-capture --release\n  path: target/release/kornia-v4l-capture\n  inputs: \n    tick: dora/timer/millis/30\n  env:\n  outputs: \n    - frame\n    SOURCE_DEVICE: '/dev/video0'\n    SOURCE_FPS: 30\n    IMAGE_COLS: 320\n    IMAGE_ROWS: 180\n    PIXEL_FORMAT: 'YUYV'",
     "tags": [
       "rust",
       "image"
