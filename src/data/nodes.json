@@ -9,7 +9,10 @@
     "downloads": "https://img.shields.io/pypi/dm/dora-pyaudio",
     "install": "- id: dora-pyaudio\n  build: pip install dora-pyaudio\n  path: dora-pyaudio\n  inputs: \n    tick: <NODE>/audio",
     "source": "https://github.com/dora-rs/dora/blob/main/node-hub/dora-pyaudio",
-    "tags": ["python", "audio"],
+    "tags": [
+      "python",
+      "audio"
+    ],
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=node-hub%2Fdora-pyaudio",
     "last_release": "https://img.shields.io/pypi/v/dora-pyaudio",
     "license": "https://img.shields.io/pypi/l/dora-pyaudio",
@@ -26,7 +29,10 @@
     "downloads": "https://img.shields.io/pypi/dm/dora-distil-whisper",
     "install": "- id: dora-distil-whisper\n  build: pip install dora-distil-whisper\n  path: dora-distil-whisper\n  inputs: \n    tick: <NODE>/audio\n  outputs: \n    - text",
     "source": "https://github.com/dora-rs/dora/blob/main/node-hub/dora-distil-whisper",
-    "tags": ["python", "audio"],
+    "tags": [
+      "python",
+      "audio"
+    ],
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=node-hub%2Fdora-distil-whisper",
     "last_release": "https://img.shields.io/pypi/v/dora-distil-whisper",
     "license": "https://img.shields.io/pypi/l/dora-distil-whisper",
@@ -42,7 +48,11 @@
     "downloads": "https://img.shields.io/pypi/dm/dora-qwen2-5-vl",
     "install": "- id: dora-qwenvl\n  build: pip install dora-qwenvl\n  path: dora-qwenvl\n  inputs: \n    text: <NODE>/text\n    image: <NODE>/image\n  outputs: \n    - text",
     "source": "https://github.com/dora-rs/dora/blob/main/node-hub/dora-qwen2-5-vl",
-    "tags": ["python", "image", "text"],
+    "tags": [
+      "python",
+      "image",
+      "text"
+    ],
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=node-hub%2Fdora-qwen2-5-vl",
     "last_release": "https://img.shields.io/pypi/v/dora-qwen2-5-vl",
     "license": "https://img.shields.io/pypi/l/dora-qwen2-5-vl",
@@ -58,7 +68,10 @@
     "downloads": "https://img.shields.io/pypi/dm/dora-qwen",
     "install": "- id: dora-qwenvl\n  build: pip install dora-qwenvl\n  path: dora-qwenvl\n  inputs: \n    text: <NODE>/text\n  outputs: \n    - text",
     "source": "https://github.com/dora-rs/dora/blob/main/node-hub/dora-qwen",
-    "tags": ["python", "text"],
+    "tags": [
+      "python",
+      "text"
+    ],
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=node-hub%2Fdora-qwen",
     "last_release": "https://img.shields.io/pypi/v/dora-qwen",
     "license": "https://img.shields.io/pypi/l/dora-qwen",
@@ -74,7 +87,11 @@
     "downloads": "https://img.shields.io/pypi/dm/dora-kokoro-tts",
     "install": "- id: dora-kokoro-tts\n  build: pip install dora-kokoro-tts\n  path: dora-kokoro-tts\n  inputs: \n    text: <NODE>/text\n  outputs: \n    - audio",
     "source": "https://github.com/dora-rs/dora/blob/main/node-hub/dora-kokoro-tts",
-    "tags": ["python", "audio", "text"],
+    "tags": [
+      "python",
+      "audio",
+      "text"
+    ],
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=node-hub%2Fdora-kokoro-tts",
     "last_release": "https://img.shields.io/pypi/v/dora-kokoro-tts",
     "license": "https://img.shields.io/pypi/l/dora-kokoro-tts",
@@ -89,7 +106,11 @@
     "author": "dora",
     "downloads": "https://img.shields.io/pypi/dm/dora-sam2",
     "source": "https://github.com/dora-rs/dora/blob/main/node-hub/dora-sam2",
-    "tags": ["python", "image", "text"],
+    "tags": [
+      "python",
+      "image",
+      "text"
+    ],
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=node-hub%2Fdora-sam2",
     "last_release": "https://img.shields.io/pypi/v/dora-sam2",
     "license": "https://img.shields.io/pypi/l/dora-sam2",
@@ -105,7 +126,10 @@
     "downloads": "https://img.shields.io/pypi/dm/dora-vad",
     "install": "- id: dora-vad\n  build: pip install dora-vad\n  path: dora-vad\n  inputs: \n    tick: <NODE>/audio\n  outputs: \n    - audio",
     "source": "https://github.com/dora-rs/dora/blob/main/node-hub/dora-vad",
-    "tags": ["python", "audio"],
+    "tags": [
+      "python",
+      "audio"
+    ],
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=node-hub%2Fdora-vad",
     "last_release": "https://img.shields.io/pypi/v/dora-vad",
     "license": "https://img.shields.io/pypi/l/dora-vad",
@@ -121,7 +145,10 @@
     "downloads": "https://img.shields.io/pypi/dm/dora-microphone",
     "install": "- id: dora-microphone\n  build: pip install dora-microphone\n  path: dora-microphone\n  inputs: \n    tick: dora/timer/millis/50\n  outputs: \n    - audio",
     "source": "https://github.com/dora-rs/dora/blob/main/node-hub/dora-microphone",
-    "tags": ["python", "audio"],
+    "tags": [
+      "python",
+      "audio"
+    ],
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=node-hub%2Fdora-microphone",
     "last_release": "https://img.shields.io/pypi/v/dora-microphone",
     "license": "https://img.shields.io/pypi/l/dora-microphone",
@@ -137,7 +164,12 @@
     "install": "- id: dora-rerun\n  build: pip install dora-rerun\n  path: dora-rerun\n  inputs: \n    image: <NODE>/image\n    text: <NODE>/text",
     "preview": "https://user-images.githubusercontent.com/1148717/218141237-0442d2b5-ed22-42bf-9321-10af1b894507.png",
     "source": "https://github.com/dora-rs/dora/blob/main/node-hub/dora-rerun",
-    "tags": ["rust", "text", "image", "depth"],
+    "tags": [
+      "rust",
+      "text",
+      "image",
+      "depth"
+    ],
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=node-hub%2Fdora-rerun",
     "last_release": "https://img.shields.io/pypi/v/dora-rerun",
     "license": "https://img.shields.io/pypi/l/dora-rerun",
@@ -156,7 +188,10 @@
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=node-hub%2Fopencv-video-capture",
     "last_release": "https://img.shields.io/pypi/v/opencv-video-capture",
     "license": "https://img.shields.io/pypi/l/opencv-video-capture",
-    "tags": ["python", "image"],
+    "tags": [
+      "python",
+      "image"
+    ],
     "support": "✅",
     "category": "Camera"
   },
@@ -172,7 +207,10 @@
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=node-hub%2Fdora-yolo",
     "last_release": "https://img.shields.io/pypi/v/dora-yolo",
     "license": "https://img.shields.io/pypi/l/dora-yolo",
-    "tags": ["python", "image"],
+    "tags": [
+      "python",
+      "image"
+    ],
     "support": "✅",
     "category": "Object Detection"
   },
@@ -188,7 +226,11 @@
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=node-hub%2Fopencv-plot",
     "last_release": "https://img.shields.io/pypi/v/opencv-plot",
     "license": "https://img.shields.io/pypi/l/opencv-plot",
-    "tags": ["python", "image", "text"],
+    "tags": [
+      "python",
+      "image",
+      "text"
+    ],
     "support": "✅",
     "category": "Visualization"
   },
@@ -204,7 +246,11 @@
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=node-hub%2Fdora-pyrealsense",
     "last_release": "https://img.shields.io/pypi/v/dora-pyrealsense",
     "license": "https://img.shields.io/pypi/l/dora-pyrealsense",
-    "tags": ["python", "image", "depth"],
+    "tags": [
+      "python",
+      "image",
+      "depth"
+    ],
     "support": "Linux🆗 <br> Mac🛠️",
     "category": "Camera"
   },
@@ -217,7 +263,11 @@
     "downloads": "https://img.shields.io/pypi/dm/dora-pyorbbecksdk",
     "preview": "https://new-orbbec3d-s3.s3.amazonaws.com/wp-content/uploads/2024/06/03120334/右45度-e1717416268437-300x153.png",
     "source": "https://github.com/dora-rs/dora/blob/main/node-hub/dora-pyorbbecksdk",
-    "tags": ["python", "image", "depth"],
+    "tags": [
+      "python",
+      "image",
+      "depth"
+    ],
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=node-hub%2Fdora-pyorbbecksdk",
     "last_release": "https://img.shields.io/pypi/v/dora-pyorbbecksdk",
     "license": "https://img.shields.io/pypi/l/dora-pyorbbecksdk",
@@ -236,7 +286,10 @@
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=node-hub%2Fdora-keyboard",
     "last_release": "https://img.shields.io/pypi/v/dora-keyboard",
     "license": "https://img.shields.io/pypi/l/dora-keyboard",
-    "tags": ["python", "text"],
+    "tags": [
+      "python",
+      "text"
+    ],
     "support": "✅",
     "category": "Peripheral"
   },
@@ -252,7 +305,9 @@
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=node-hub%2Fdora-piper",
     "last_release": "https://img.shields.io/pypi/v/dora-piper",
     "license": "https://img.shields.io/pypi/l/dora-piper",
-    "tags": ["python"],
+    "tags": [
+      "python"
+    ],
     "support": "🆗",
     "category": "Arm"
   },
@@ -268,7 +323,10 @@
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=node-hub%2Fdora-opus",
     "last_release": "https://img.shields.io/pypi/v/dora-opus",
     "license": "https://img.shields.io/pypi/l/dora-opus",
-    "tags": ["python", "text"],
+    "tags": [
+      "python",
+      "text"
+    ],
     "support": "🆗",
     "category": "Translation"
   },
@@ -284,7 +342,11 @@
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=node-hub%2Fllama-factory-recorder",
     "last_release": "https://img.shields.io/pypi/v/llama-factory-recorder",
     "license": "https://img.shields.io/pypi/l/llama-factory-recorder",
-    "tags": ["python", "image", "text"],
+    "tags": [
+      "python",
+      "image",
+      "text"
+    ],
     "support": "🆗",
     "category": "Recorder"
   },
@@ -300,7 +362,11 @@
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=node-hub%2Fdora-rdt-1b",
     "last_release": "https://img.shields.io/pypi/v/dora-rdt-1b",
     "license": "https://img.shields.io/pypi/l/dora-rdt-1b",
-    "tags": ["python", "image", "text"],
+    "tags": [
+      "python",
+      "image",
+      "text"
+    ],
     "support": "🆗",
     "category": "Vision Language Action(VLA)"
   },
@@ -311,7 +377,9 @@
     "website": "dynamixel",
     "preview": "https://robots.ros.org/assets/img/robots/dynamixel/dynamixel.png",
     "source": "https://github.com/dora-rs/dora-lerobot/blob/main/node-hub/dynamixel-client",
-    "tags": ["python"],
+    "tags": [
+      "python"
+    ],
     "support": "📐",
     "category": "Actuator"
   },
@@ -322,7 +390,9 @@
     "website": "feetech",
     "preview": "https://media.licdn.com/dms/image/v2/C5612AQGpeiwwIPDqaw/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1647414552058?e=2147483647&v=beta&t=QoHYcvm7pla6ptYtg3daKPAGRRctKGEkIGkBrGyE25Y",
     "source": "https://github.com/dora-rs/dora-lerobot/blob/main/node-hub/feetech-client",
-    "tags": ["python"],
+    "tags": [
+      "python"
+    ],
     "support": "📐",
     "category": "Actuator"
   },
@@ -333,7 +403,9 @@
     "website": "mujoco",
     "preview": "https://github.com/google-deepmind/mujoco/raw/main/banner.png",
     "source": "https://github.com/dora-rs/dora-lerobot/blob/main/node-hub/mujoco-client",
-    "tags": ["python"],
+    "tags": [
+      "python"
+    ],
     "support": "📐",
     "category": "Simulator"
   },
@@ -344,7 +416,9 @@
     "website": "lebai",
     "preview": "https://l-www.lebai.ltd/2015/07/1-495x400.jpg",
     "source": "https://github.com/dora-rs/dora-lerobot/blob/main/node-hub/lebai-client",
-    "tags": ["python"],
+    "tags": [
+      "python"
+    ],
     "support": "📐",
     "category": "Arm"
   },
@@ -355,7 +429,9 @@
     "website": "alex-koch-low-cost-robot",
     "preview": "https://github.com/AlexanderKoch-Koch/low_cost_robot/raw/main/pictures/robot_portait.jpg",
     "source": "https://github.com/dora-rs/dora-lerobot/blob/main/robots/alexk-lcr",
-    "tags": ["python"],
+    "tags": [
+      "python"
+    ],
     "support": "📐",
     "category": "Arm"
   },
@@ -366,7 +442,9 @@
     "website": "aloha",
     "preview": "https://static.wixstatic.com/media/d3716d_7d9108b35b194e3c806cc260fcfd7268~mv2.jpg/v1/fill/w_1000,h_659,al_c,q_85,usm_0.66_1.00_0.01/d3716d_7d9108b35b194e3c806cc260fcfd7268~mv2.jpg",
     "source": "https://github.com/dora-rs/dora-lerobot/blob/main/robots/aloha",
-    "tags": ["python"],
+    "tags": [
+      "python"
+    ],
     "support": "📐",
     "category": "Robot"
   },
@@ -381,7 +459,9 @@
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=node-hub%2Fdora-reachy2",
     "last_release": "https://img.shields.io/pypi/v/dora-reachy2",
     "license": "https://img.shields.io/pypi/l/dora-reachy2",
-    "tags": ["python"],
+    "tags": [
+      "python"
+    ],
     "support": "🆗",
     "category": "Robot"
   },
@@ -392,7 +472,9 @@
     "website": "carla",
     "preview": "https://media.licdn.com/dms/image/v2/D4D1BAQHyb4EFail-wQ/company-background_10000/company-background_10000/0/1663774857825/carla_simulator_cover?e=2147483647&v=beta&t=AmftWPQMtfni1t_RXUvqqkQJqxKK_I54BoHpLLSwjWE",
     "source": "https://github.com/dora-rs/dora-drives",
-    "tags": ["python"],
+    "tags": [
+      "python"
+    ],
     "support": "📐",
     "category": "Simulator"
   },
@@ -404,7 +486,9 @@
     "install": "- id: dora-reachy1\n  build: pip install dora-reachy1\n  path: dora-reachy1",
     "preview": "https://www.aquitaineonline.com/images/stories/Economie_Industrie_2021/Reachy_01.jpg",
     "source": "https://github.com/dora-rs/dora-lerobot/blob/main/node-hub/dora-reachy1",
-    "tags": ["python"],
+    "tags": [
+      "python"
+    ],
     "support": "📐",
     "category": "Robot"
   },
@@ -415,7 +499,9 @@
     "website": "robomaster-s1",
     "preview": "https://m.media-amazon.com/images/I/61K2UXjfHwL.jpg",
     "source": "https://huggingface.co/datasets/dora-rs/dora-robomaster",
-    "tags": ["python"],
+    "tags": [
+      "python"
+    ],
     "support": "📐",
     "category": "Chassis"
   },
@@ -430,7 +516,9 @@
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=node-hub%2Fdora-ugv",
     "last_release": "https://img.shields.io/pypi/v/dora-ugv",
     "license": "https://img.shields.io/pypi/l/dora-ugv",
-    "tags": ["python"],
+    "tags": [
+      "python"
+    ],
     "support": "🆗",
     "category": "Chassis"
   },
@@ -445,7 +533,9 @@
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=node-hub%2Fdora-kit-car",
     "last_release": "https://img.shields.io/pypi/v/dora-kit-car",
     "license": "https://img.shields.io/pypi/l/dora-kit-car",
-    "tags": ["python"],
+    "tags": [
+      "python"
+    ],
     "support": "🆗",
     "category": "Chassis"
   },
@@ -461,7 +551,9 @@
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=node-hub%2Fdora-argotranslate",
     "last_release": "https://img.shields.io/pypi/v/dora-argotranslate",
     "license": "https://img.shields.io/pypi/l/dora-argotranslate",
-    "tags": ["python"],
+    "tags": [
+      "python"
+    ],
     "support": "🆗",
     "category": "Translation"
   },
@@ -476,7 +568,9 @@
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=node-hub%2Fdora-internvl",
     "last_release": "https://img.shields.io/pypi/v/dora-internvl",
     "license": "https://img.shields.io/pypi/l/dora-internvl",
-    "tags": ["python"],
+    "tags": [
+      "python"
+    ],
     "support": "🆗",
     "category": "Vision Language Model(VLM)"
   },
@@ -487,7 +581,9 @@
     "website": "lerobot-dashboard",
     "preview": "https://cdn-uploads.huggingface.co/production/uploads/631ce4b244503b72277fc89f/MNkMdnJqyPvOAEg20Mafg.png",
     "source": "https://github.com/dora-rs/dora-lerobot/blob/main/node-hub/lerobot-dashboard",
-    "tags": ["python"],
+    "tags": [
+      "python"
+    ],
     "support": "📐",
     "category": "Recorder"
   },
@@ -498,7 +594,9 @@
     "website": "gymnasium",
     "preview": "https://raw.githubusercontent.com/Farama-Foundation/Gymnasium/main/gymnasium-text.png",
     "source": "https://github.com/dora-rs/dora-lerobot/blob/main/gym_dora",
-    "tags": ["python"],
+    "tags": [
+      "python"
+    ],
     "support": "📐",
     "category": "Simulator"
   },
@@ -507,11 +605,14 @@
     "description": "Video stream for Linux Cameras",
     "author": "kornia",
     "website": "kornia-v4l-capture",
-    "preview": "https://github.com/kornia/data/blob/4726f90bf82675ba821d7a8ecd16cf39ed51bfd5/kornia_logo.png",
+    "preview": "https://github.com/kornia/data/blob/main/kornia_logo.png?raw=true",
     "source": "https://github.com/kornia/dora-nodes-hub/tree/main/kornia-v4l-capture",
     "license": "https://img.shields.io/badge/License-Apache_2.0-blue.svg",
     "install": "- id: v4l-camera\n  git: https://github.com/kornia/dora-nodes-hub.git\n  rev: 5b309b6c6f95074f8d38f2a236142e2e0751ee19\n  build: cargo build -p kornia-v4l-capture --release\n  path: target/release/kornia-v4l-capture\n  inputs: \n    tick: dora/timer/millis/30\n  outputs: \n    - frame\n    SOURCE_DEVICE: '/dev/video0'\n    SOURCE_FPS: 30\n    IMAGE_COLS: 320\n    IMAGE_ROWS: 180\n    PIXEL_FORMAT: 'YUYV'",
-    "tags": ["rust", "image"],
+    "tags": [
+      "rust",
+      "image"
+    ],
     "support": "✅",
     "category": "Camera"
   },
@@ -520,11 +621,14 @@
     "description": "Video Capture using Gstreamer",
     "author": "kornia",
     "website": "kornia-gst-capture",
-    "preview": "https://github.com/kornia/data/blob/4726f90bf82675ba821d7a8ecd16cf39ed51bfd5/kornia_logo.png",
+    "preview": "https://github.com/kornia/data/blob/main/kornia_logo.png?raw=true",
     "source": "https://github.com/kornia/dora-nodes-hub/tree/main/kornia-gst-capture",
     "license": "https://img.shields.io/badge/License-Apache_2.0-blue.svg",
     "install": "- id: gst-camera\n  git: https://github.com/kornia/dora-nodes-hub.git\n  rev: 5b309b6c6f95074f8d38f2a236142e2e0751ee19\n  build: cargo build -p kornia-gst-capture --release\n  path: target/release/kornia-gst-capture\n  inputs: \n    tick: dora/timer/millis/30\n  outputs: \n    - frame\n  env:\n    SOURCE_TYPE: 'rtsp'\n    SOURCE_URI: 'rtsp://{username}:{password}@{ip}:{port}/{stream}'",
-    "tags": ["rust", "image"],
+    "tags": [
+      "rust",
+      "image"
+    ],
     "support": "✅",
     "category": "Camera"
   },
@@ -533,11 +637,14 @@
     "description": "Kornia image processing Sobel operator",
     "author": "kornia",
     "website": "kornia-imgproc-sobel",
-    "preview": "https://github.com/kornia/data/blob/4726f90bf82675ba821d7a8ecd16cf39ed51bfd5/kornia_logo.png",
+    "preview": "https://github.com/kornia/data/blob/main/kornia_logo.png?raw=true",
     "source": "https://github.com/kornia/dora-nodes-hub/tree/main/kornia-imgproc-sobel",
     "license": "https://img.shields.io/badge/License-Apache_2.0-blue.svg",
     "install": "- id: sobel\n  git: https://github.com/kornia/dora-nodes-hub.git\n  rev: 5b309b6c6f95074f8d38f2a236142e2e0751ee19\n  build: cargo build -p kornia-imgproc-sobel --release\n  path: target/release/kornia-imgproc-sobel\n  inputs:\n    frame: v4l-camera/frame\n  outputs: \n    - output\n",
-    "tags": ["rust", "image"],
+    "tags": [
+      "rust",
+      "image"
+    ],
     "support": "✅",
     "category": "Image Processing"
   }
