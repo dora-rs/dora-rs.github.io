@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Yolov8
+# Example: Yolov8
 
 ## Making the video stream intelligent
 

@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# LLMs
+# Example: LLMs
 
 ## Adding LLMs to our dataflow
 
