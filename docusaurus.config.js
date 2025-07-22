@@ -13,7 +13,7 @@ const config = {
   markdown: {
     mermaid: true,
   },
-  themes: ["@docusaurus/theme-mermaid"],
+  themes: ["@docusaurus/theme-mermaid", "docusaurus-json-schema-plugin"],
 
   // Set the production url of your site here
   url: "https://dora-rs.ai",

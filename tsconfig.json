@@ -3,6 +3,11 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "jsx": "react", // or "react-jsx" for React 17+
-
+    "types": [
+      "node",
+      "@docusaurus/module-type-aliases",
+      "@docusaurus/theme-classic",
+      "docusaurus-json-schema-plugin"
+    ]
   }
 }
