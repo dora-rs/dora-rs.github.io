@@ -1,11 +1,19 @@
 # Dataflow Specification
 
-Dataflows are specified through a YAML file.
-This article documents all available config options and their behavior.
 
-## Nodes
+Dora dataflows are specified through a YAML file.
+This dataflow configuration file specifies the nodes of the dataflow and their inputs and outputs.
+It also allows configuring communication parameters and enabling debug options.
 
-The most important field is the `nodes` field, which lists the nodes of the dataflow.
+This article provides an introduction to the dataflow file format and its most important fields.
+For a complete reference of all available fields their behavior check ouf the documentation of the
+[`Descriptor`](https://docs.rs/dora-core/0.3.12/dora_core/descriptor/struct.Descriptor.html) and
+[`Node`](https://docs.rs/dora-core/0.3.12/dora_core/descriptor/struct.Node.html) structs.
+
+## Defining Nodes
+
+The most important field in a dataflow configuration file is the `nodes` field, which lists the
+nodes of the dataflow.
 Each node is identified by a unique `id`:
 
 ```yaml
@@ -21,45 +29,56 @@ nodes:
 For each node, you need to specify the `path` of the executable or script that Dora should run when starting the node.
 Most of the other node fields are optional, but you typically want to specify at least some `inputs` and/or `outputs`.
 
-### Node Fields
+### Inputs and Outputs
 
-Below we group the fields into [_Identification_](#identification), [Execution](#execution), [IO](#io), and [Build][#build] fields.
+Nodes can send output messages that can be received by other nodes as input.
+All inputs and outputs need to be specified in the dataflow configuration file.
 
-#### Identification
+For each node, list all output IDs that it sends under the
+[`outputs`](https://docs.rs/dora-core/latest/dora_core/descriptor/struct.Node.html#structfield.outputs)
+key.
+Only the specified output IDs are valid to be used in output sending functions such as
+[`send_output`](https://docs.rs/dora-node-api/latest/dora_node_api/struct.DoraNode.html#method.send_output).
 
-Identification fields assign identifiers and other description to nodes.
+Receiving nodes can subscribe to outputs by listing them in their
+[`inputs`](https://docs.rs/dora-core/latest/dora_core/descriptor/struct.Node.html#structfield.inputs)
+field.
+The `inputs` field should be a key-value map of the following format:
+`input_id: source_node_id/source_node_output_id`
 
-##### `id` (required)
+The components are defined as follows:
+  - `input_id` is the local identifier that should be used for this input.
+    This will map to the `id` field of
+    [`Event::Input`](https://docs.rs/dora-node-api/latest/dora_node_api/enum.Event.html#variant.Input)
+    events sent to the node event loop.
+  - `source_node_id` should be the `id` field of the node that sends the output that we want
+    to subscribe to
+  - `source_node_output_id` should be the identifier of the output that that we want
+    to subscribe to
 
-Node IDs can be arbitrary strings with the following limitations:
+#### Input/Output Example
 
-- They must not contain any `/` characters (slashes).
-- We do not recommend using whitespace characters (e.g. spaces) in IDs
+```yaml
+nodes:
+  - id: example-node
+    outputs:
+      - one
+      - two
+  - id: receiver
+    inputs:
+        my_input: example-node/two
+```
 
-Each node must have a unique ID field.
 
-##### `name`
+### Fields Controlling Node Execution
 
-In addition to the `id` field, nodes can also have a `name` field.
-Typical usage is setting a short `id` and a more descriptive, longer `name` for the node.
-The `name` field is optional.
-
-##### `description`
-
-Nodes can also include a `description` text to describe the behavior of the node.
-The field is optional.
-
-### Execution
-
-Execution fields define how a node is executed, including command-line arguments and environment
+Use the following fields to define how a node is executed, including command-line arguments and environment
 variables.
 
 ##### `path` (required)
 
 Specifies the path of the executable or script that Dora should run when starting the dataflow.
 This can point to a normal executable (e.g. when using a compiled language such as Rust) or a Python script.
-
-Dora will automatically append a `.exe` extension on Windows systems when the specified file name has no extension.
 
 ```yaml
 nodes:
@@ -69,70 +88,40 @@ nodes:
     path: ./receive_data.py
 ```
 
-TODO URL support
+See the
+[`path` field documentation](https://docs.rs/dora-core/latest/dora_core/descriptor/struct.Node.html#structfield.path)
+for details.
 
-##### `args`
+##### `args` and `env`
 
-The command-line arguments that should be passed to the executable/script specified in `path`.
-The arguments should be separated by space.
-This field is optional and defaults to an empty argument list.
+Use the
+[`args`](https://docs.rs/dora-core/latest/dora_core/descriptor/struct.Node.html#structfield.args)
+field to specify command-line arguments that should be passed to the executable/script specified in
+`path`.
+Use the
+[`env`](https://docs.rs/dora-core/latest/dora_core/descriptor/struct.Node.html#structfield.env)
+field for setting environment variables.
 
 ```yaml
 nodes:
   - id: example
     path: example-node
     args: -v --some-flag foo
-```
-
-##### `env`
-
-Key-value map of environment variables that should be set for the node execution.
-This field is optional.
-
-```yaml
-nodes:
-  - id: camera
-    path: dora-pyrealsense
     env:
       IMAGE_WIDTH: 640
       IMAGE_HEIGHT: 480
 ```
 
-#### `deploy` (unstable)
+### Fields Controlling Node Build
 
-TODO
-
-### IO
-
-IO fields define the inputs and outputs of nodes.
-All IO fields are optional.
-
-#### `inputs`
-
-TODO
-
-#### `outputs`
-
-TODO
-
-#### `send_stdout_as`
-
-TODO
-
-### Build
-
-Build fields define how a node is set up and built on `dora build`.
+Use build fields define how a node is set up and built on `dora build`.
 All build fields are optional.
 
 ##### `build`
 
-The `build` key specifies the command that should be invoked for building the node.
-The key expects a single- or multi-line string.
-
-Each line is run as a separate command.
-Spaces are used to separate arguments.
-
-Note that all the environment variables specified in the [`env`](#env) field are also applied to the build commands.
+The
+[`build`](https://docs.rs/dora-core/latest/dora_core/descriptor/struct.Node.html#structfield.build)
+field specifies the command that should be invoked for building the node.
 
 ```yaml
 - id: build-example
@@ -145,45 +134,31 @@ Note that all the environment variables specified in the [`env`](#env) field are
   path: dora-phi4
 ```
 
-**Special treatment of `pip`:** Build lines that start with `pip` or `pip3` are treated in a special way:
-If the `--uv` argument is passed to the `dora build` command, all `pip`/`pip3` commands are run through the [`uv` package manager](https://docs.astral.sh/uv/).
+**Special treatment of `pip`:** Build lines that start with `pip` or `pip3` are treated in a
+special way:
+If the `--uv` argument is passed to the `dora build` command, all `pip`/`pip3` commands are run
+through the [`uv` package manager](https://docs.astral.sh/uv/).
 
 #### `git`
 
-The `git` key allows downloading nodes from git repositories.
+The [`git`](https://docs.rs/dora-core/latest/dora_core/descriptor/struct.Node.html#structfield.git)
+field allows downloading nodes from git repositories.
 This can be especially useful for distributed dataflows.
 
-When a `git` key is specified, `dora build` automatically clones the specified repository (or reuse an existing clone).
-Then it checks out the specified [`branch`](#branch), [`tag`](#tag), or [`rev`](#rev), or the default branch if none of them are specified.
+When a `git` key is specified, `dora build` automatically clones the specified repository (or reuse
+an existing clone).
+Then it checks out the specified [`branch`](#branch), [`tag`](#tag), or [`rev`](#rev), or the
+default branch if none of them are specified.
 Afterwards it runs the `build` command if specified.
-
-Note that the git clone directory is set as working directory for both the [`build`](#build) command and the specified [`path`](#path).
 
 ```yaml
 nodes:
   - id: rust-node
     git: https://github.com/dora-rs/dora.git
+    branch: main
     build: cargo build -p rust-dataflow-example-node
     path: target/debug/rust-dataflow-example-node
 ```
-
-#### `branch`
-
-The `branch` field is only allowed in combination with the [`git`](#git) field.
-It specifies the branch that should be checked out after cloning.
-Only one of `branch`, `tag`, or `rev` can be specified.
-
-#### `tag`
-
-The `tag` field is only allowed in combination with the [`git`](#git) field.
-It specifies the tag that should be checked out after cloning.
-Only one of `branch`, `tag`, or `rev` can be specified.
-
-#### `rev`
-
-The `rev` field is only allowed in combination with the [`git`](#git) field.
-It specifies the git revision (e.g. a commit hash) that should be checked out after cloning.
-Only one of `branch`, `tag`, or `rev` can be specified.
 
 
 ## Operators
@@ -193,59 +168,12 @@ Instead of running as a separate process, operators are linked into a runtime pr
 This allows running multiple operators to share a single address space (not supported for Python currently).
 
 Operators are defined as part of the node list, as children of a runtime node.
-A runtime node is a special node that specifies no `path` field, but contains an `operators` field instead.
+A runtime node is a special node that specifies no `path` field, but contains an
+[`operators`](https://docs.rs/dora-core/latest/dora_core/descriptor/struct.Node.html#structfield.operators)
+field instead.
 
-TODO
+## Other Dataflow Fields
 
-## Debug Options
+See the [`Descriptor`](https://docs.rs/dora-core/latest/dora_core/descriptor/struct.Descriptor.html)
+struct for a full list of supported fields.
 
-Dora defines a set of debug options that can be controlled through a top-level `debug` field in the dataflow specification.
-
-### `publish_all_messages_to_zenoh`
-
-TODO
-
-# OLD
-
-### Inputs and Outputs
-
-Each operator or custom node has a separate namespace for its outputs. To refer to outputs, the \<operator\>/\<output\> syntax is used. This way, there are no name conflicts between operators.
-
-Input operands are specified using the \<name\>: \<operator\>/\<output\> syntax, where \<data\> is the internal name that should be used for the operand. The main advantage of this name mapping is that the same operator executable can be reused multiple times on different input.
-
-## Nodes
-
-Nodes are defined using the following format:
-
-```yaml
-nodes:
-  - id: some-unique-id
-    # For nodes with multiple operators
-    operators:
-      - id: operator-1
-        # ... (see below)
-      - id: operator-2
-        # ... (see below)
-
-  - id: some-unique-id-2
-    custom:
-      source: path/to/timestamp
-      env:
-        - ENVIRONMENT_VARIABLE_1: true
-      working-directory: some/path
-
-      inputs:
-        input_1: operator_2/output_4
-        input_2: custom_node_2/output_4
-      outputs:
-        - output_1
-
-  # Unique operator
-  - id: some-unique-id-3
-    operator:
-      # ... (see below)
-```
-
-Nodes specify the executable name and arguments like a normal shell operation through the `run` field. Through the optional `env` field, it is possible to set environment variables for the process. The optional `working-directory` field allows to overwrite the directory in which the program is started.
-
-To integrate with the rest of the dora dataflow, custom nodes must specify their inputs and outputs, similar to operators. They can reference outputs of both operators, and other custom nodes.
