@@ -1,6 +1,6 @@
 import React, { JSX } from "react";
 import JSONSchemaViewer from "@theme/JSONSchemaViewer";
-import MDXContent from '@theme/MDXContent';
+import Markdown from "react-markdown";
 
 export default function SchemaViewer(): JSX.Element {
     const [schema, setSchema] = React.useState(
@@ -32,7 +32,7 @@ export default function SchemaViewer(): JSX.Element {
                     schema={schema}
                     viewerOptions={{
                         DescriptionComponent: ({ description }) => {
-                            return <MDXContent>{description}</MDXContent>;
+                            return <Markdown>{description}</Markdown>;
                         },
                     }}
                 />
