@@ -130,7 +130,7 @@ const config = {
               {
                 type: "doc",
                 docId: "api/cli",
-                label: "CLI",
+                label: "CLI Commands",
               },
             ],
           },
