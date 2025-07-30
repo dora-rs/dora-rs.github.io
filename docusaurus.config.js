@@ -125,7 +125,7 @@ const config = {
               {
                 type: "doc",
                 docId: "api/dataflow-config",
-                label: "Dataflow Specification",
+                label: "Dataflow Configuration",
               },
               {
                 type: "doc",
