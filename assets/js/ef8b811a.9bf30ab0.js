@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdora_rs_github_io=self.webpackChunkdora_rs_github_io||[]).push([[8947],{56600:a=>{a.exports=JSON.parse('{"authors":[{"name":"Haixuan Xavier Tao","title":"Maintainer of dora-rs","url":"https://github.com/haixuantao","imageURL":"https://github.com/haixuantao.png","key":"haixuan","page":null,"count":3}]}')}}]);

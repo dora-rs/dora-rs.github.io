@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdora_rs_github_io=self.webpackChunkdora_rs_github_io||[]).push([[3424],{53424:(e,r,s)=>{s.d(r,{createArchitectureServices:()=>c.S});var c=s(94318);s(21028)}}]);
