@@ -1,5 +1,4 @@
-# Dataflow Specification
-
+# Dataflow Structure
 
 Dora dataflows are specified through a YAML file.
 This dataflow configuration file specifies the nodes of the dataflow and their inputs and outputs.
@@ -18,12 +17,12 @@ Each node is identified by a unique `id`:
 
 ```yaml
 nodes:
-  - id: foo
-    path: path/to/the/executable
-    # ... (see below)
-  - id: bar
-    path: path/to/another/executable
-    # ... (see below)
+    - id: foo
+      path: path/to/the/executable
+      # ... (see below)
+    - id: bar
+      path: path/to/another/executable
+      # ... (see below)
 ```
 
 For each node, you need to specify the `path` of the executable or script that Dora should run when starting the node.
@@ -47,28 +46,28 @@ The `inputs` field should be a key-value map of the following format:
 `input_id: source_node_id/source_node_output_id`
 
 The components are defined as follows:
-  - `input_id` is the local identifier that should be used for this input.
+
+-   `input_id` is the local identifier that should be used for this input.
     This will map to the `id` field of
     [`Event::Input`](https://docs.rs/dora-node-api/latest/dora_node_api/enum.Event.html#variant.Input)
     events sent to the node event loop.
-  - `source_node_id` should be the `id` field of the node that sends the output that we want
+-   `source_node_id` should be the `id` field of the node that sends the output that we want
     to subscribe to
-  - `source_node_output_id` should be the identifier of the output that that we want
+-   `source_node_output_id` should be the identifier of the output that that we want
     to subscribe to
 
 #### Input/Output Example
 
 ```yaml
 nodes:
-  - id: example-node
-    outputs:
-      - one
-      - two
-  - id: receiver
-    inputs:
-        my_input: example-node/two
+    - id: example-node
+      outputs:
+          - one
+          - two
+    - id: receiver
+      inputs:
+          my_input: example-node/two
 ```
-
 
 ### Fields Controlling Node Execution
 
@@ -82,10 +81,10 @@ This can point to a normal executable (e.g. when using a compiled language such 
 
 ```yaml
 nodes:
-  - id: rust-example
-    path: target/release/rust-node
-  - id: python-example
-    path: ./receive_data.py
+    - id: rust-example
+      path: target/release/rust-node
+    - id: python-example
+      path: ./receive_data.py
 ```
 
 See the
@@ -104,12 +103,12 @@ field for setting environment variables.
 
 ```yaml
 nodes:
-  - id: example
-    path: example-node
-    args: -v --some-flag foo
-    env:
-      IMAGE_WIDTH: 640
-      IMAGE_HEIGHT: 480
+    - id: example
+      path: example-node
+      args: -v --some-flag foo
+      env:
+          IMAGE_WIDTH: 640
+          IMAGE_HEIGHT: 480
 ```
 
 ### Fields Controlling Node Build
@@ -153,13 +152,12 @@ Afterwards it runs the `build` command if specified.
 
 ```yaml
 nodes:
-  - id: rust-node
-    git: https://github.com/dora-rs/dora.git
-    branch: main
-    build: cargo build -p rust-dataflow-example-node
-    path: target/debug/rust-dataflow-example-node
+    - id: rust-node
+      git: https://github.com/dora-rs/dora.git
+      branch: main
+      build: cargo build -p rust-dataflow-example-node
+      path: target/debug/rust-dataflow-example-node
 ```
-
 
 ## Operators
 
@@ -177,3 +175,10 @@ field instead.
 See the [`Descriptor`](https://docs.rs/dora-core/latest/dora_core/descriptor/struct.Descriptor.html)
 struct for a full list of supported fields.
 
+## Full Specification
+
+```mdx-code-block
+import SchemaViewer from "@site/src/components/SchemaViewer";
+
+<SchemaViewer />
+```
