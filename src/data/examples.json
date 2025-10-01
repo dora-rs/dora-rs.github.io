@@ -4,7 +4,7 @@
     "description": "Transform speech to text.",
     "preview": "/img/whisper.png.avif",
     "website": "stt",
-    "source": "https://github.com/dora-rs/dora/blob/main/examples/speech-to-text",
+    "source": "https://github.com/dora-rs/node-hub/blob/main/examples/speech-to-text",
     "tags": ["audio", "python"],
     "category": "Audio",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Fspeech-to-text"
@@ -13,7 +13,7 @@
     "title": "Translation",
     "description": "Translate audio in real time.",
     "website": "translation",
-    "source": "https://github.com/dora-rs/dora/blob/main/examples/translation",
+    "source": "https://github.com/dora-rs/node-hub/blob/main/examples/translation",
     "tags": ["audio", "python"],
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Ftranslation",
     "category": "Audio"
@@ -23,7 +23,7 @@
     "description": "Use a VLM to understand images.",
     "preview": "https://github.com/QwenLM/Qwen-VL/raw/master/assets/logo.jpg",
     "website": "vlm",
-    "source": "https://github.com/dora-rs/dora/blob/main/examples/vlm",
+    "source": "https://github.com/dora-rs/node-hub/blob/main/examples/vlm",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Fvlm",
     "tags": ["python", "image"],
     "category": "Vision"
@@ -33,7 +33,7 @@
     "description": "Use YOLO to detect object within image.",
     "preview": "https://github.com/ultralytics/docs/releases/download/0/ultralytics-yolov8-banner.avif",
     "website": "yolo",
-    "source": "https://github.com/dora-rs/dora/blob/main/examples/python-dataflow",
+    "source": "https://github.com/dora-rs/node-hub/blob/main/examples/python-dataflow",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Fpython-dataflow",
     "tags": ["python", "image"],
     "category": "Vision"
@@ -43,7 +43,7 @@
     "description": "Simple webcam plot example",
     "preview": "https://upload.wikimedia.org/wikipedia/commons/3/35/AdventWebcam.jpg",
     "website": "webcam",
-    "source": "https://github.com/dora-rs/dora/blob/main/examples/camera",
+    "source": "https://github.com/dora-rs/node-hub/blob/main/examples/camera",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Fcamera",
     "tags": ["python", "image"],
     "category": "Vision"
@@ -52,7 +52,7 @@
     "title": "Piper RDT",
     "description": "Piper RDT Pipeline",
     "website": "piper",
-    "source": "https://github.com/dora-rs/dora/blob/main/examples/piper",
+    "source": "https://github.com/dora-rs/node-hub/blob/main/examples/piper",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Fpiper",
     "preview": "https://global.agilex.ai/cdn/shop/files/PIPER0814.00_00_37_00.Still004.jpg?v=1724743157&width=3840",
     "tags": ["python", "image"],
@@ -62,7 +62,7 @@
     "title": "LeRobot - Alexander Koch",
     "description": "Training Alexander Koch Low Cost Robot with LeRobot",
     "website": "lerobot",
-    "source": "https://raw.githubusercontent.com/dora-rs/dora-lerobot/refs/heads/main/README.md",
+    "source": "https://github.com/dora-rs/dora-lerobot/blob/main",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora-lerobot?path=robots",
     "preview": "https://cdn-uploads.huggingface.co/production/uploads/631ce4b244503b72277fc89f/MNkMdnJqyPvOAEg20Mafg.png",
     "tags": ["python", "image"],
@@ -103,7 +103,7 @@
     "description": "Example using CUDA Zero Copy",
     "website": "cuda-example",
     "preview": "https://d29g4g2dyqv443.cloudfront.net/sites/default/files/akamai/ros-dp-nitros.gif",
-    "source": "https://github.com/dora-rs/dora/blob/main/examples/cuda-benchmark",
+    "source": "https://github.com/dora-rs/node-hub/blob/main/examples/cuda-benchmark",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Fcuda-benchmark",
     "tags": [],
     "category": "Tutorial"
@@ -173,7 +173,7 @@
     "description": "GPU Benchmark of dora-rs",
     "website": "gpu-benchmark",
     "preview": "https://github.com/user-attachments/assets/d64370fc-b0ba-46af-be83-19d3c772ada6",
-    "source": "https://github.com/dora-rs/dora/blob/main/examples/cuda-benchmark",
+    "source": "https://github.com/dora-rs/node-hub/blob/main/examples/cuda-benchmark",
     "last_commit": "https://img.shields.io/github/last-commit/dora-rs/dora?path=examples%2Fcuda-benchmark",
     "tags": [],
     "category": "Benchmark"
