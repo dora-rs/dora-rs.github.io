@@ -3,13 +3,10 @@ import { rm } from "fs/promises";
 
 // Define the folder and file paths
 const outDir = "out";
-const staticFile = "static/python-api.html";
+const staticFile = "static/python";
 
 // Define the system commands
-const commands = [
-  "pdoc dora.dora -o out",
-  "cp out/dora/dora.html static/python-api.html",
-];
+const commands = ["pdoc dora -o out", "cp -r out static/python"];
 
 // Function to execute a command and return a Promise
 const execCommand = (command: string): Promise<void> => {
