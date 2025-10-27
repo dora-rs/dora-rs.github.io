@@ -2,18 +2,26 @@
 title: Support Matrix
 ---
 
-About everything supported about dora-rs in a table.
+## Support Matrix
 
-|                                   | dora-rs               |
-| --------------------------------- | --------------------- |
-| **Tier 1 Support**                | Python, Rust          |
-| **Tier 2 Support**                | C, C++, ROS2          |
-| **Hot-reloading**                 | Python                |
-| **Message Format**                | Arrow                 |
-| **Local Communication**           | Shared Memory         |
-| **Remote Communication**          | TCP (experimental)    |
-| **Metrics, Tracing, and Logging** | Opentelemetry         |
-| **Data archives**                 | Parquet               |
-| **Supported Platforms (x86_64)**  | Windows, macOS, Linux |
-| **Supported Platforms (ARM)**     | macOS, Linux          |
-| **Configuration**                 | YAML                  |
+|                                   | dora-rs                                                                                                                                                                                                                            |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **APIs**                          | Python >= 3.7 including sync ⭐✅ <br></br> Rust ✅<br></br> C/C++ 🆗 <br></br> ROS2 >= Foxy 🆗                                                                                                                                    |
+| **OS**                            | Linux: Arm 32 ⭐✅ Arm 64 ⭐✅ x64_86 ⭐✅ <br></br>MacOS: Arm 64 ⭐✅ <br></br>Windows: x64_86 🆗 <br></br>WSL: x64_86 🆗 <br></br>Android: 🛠️ (Blocked by: https://github.com/elast0ny/shared_memory/issues/32) <br></br>IOS: 🛠️ |
+| **Message Format**                | Arrow ✅ <br></br> Standard Specification 🛠️                                                                                                                                                                                       |
+| **Local Communication**           | Shared Memory ✅ <br></br> [Cuda IPC](https://arrow.apache.org/docs/python/api/cuda.html) 📐                                                                                                                                       |
+| **Remote Communication**          | [Zenoh](https://zenoh.io/) 📐                                                                                                                                                                                                      |
+| **RGB-D Streaming**               | AV1 Encoding (dora-rav1e), AV1 Decoding (dora-dav1d)📐                                                                                                                                                                             |
+| **Metrics, Tracing, and Logging** | Opentelemetry 📐                                                                                                                                                                                                                   |
+| **Configuration**                 | YAML ✅                                                                                                                                                                                                                            |
+| **Package Manager**               | [pip](https://pypi.org/): Python Node ✅ Rust Node ✅ C/C++ Node 🛠️ <br></br> [cargo](https://crates.io/): Rust Node ✅                                                                                                            |
+
+:
+
+> - ⭐ = Recommended
+> - ✅ = First Class Support
+> - 🆗 = Best Effort Support
+> - 📐 = Experimental and looking for contributions
+> - 🛠️ = Unsupported but hoped for through contributions
+>
+> Everything is open for contributions 🙋
