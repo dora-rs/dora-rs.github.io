@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Python Conversation
+# Example: Python Conversation
 1. Install Dora CLI and Dependencies
    First, ensure you have Python 3.11 installed.
    
