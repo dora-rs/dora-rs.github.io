@@ -146,7 +146,7 @@ The question is then going to be passed to the LLM which will reply in the windo
 
 You can also send a message directly to the dataflow by using the keyword `send` and then specifying the data that you want set.
 
-Note that the data and topic should be specified both in the dataflow and in the LLM node to send data`
+Note that the data and topic should be specified both in the dataflow and in the LLM node to send data.
 
 ## Getting started
 
