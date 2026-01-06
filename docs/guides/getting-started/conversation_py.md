@@ -73,32 +73,32 @@ sidebar_position: 1
 
    - This section imports and initializes the node.
 
-   ```python
-   from dora import Node
-   import pyarrow as pa
+     ```python
+     from dora import Node
+     import pyarrow as pa
 
-   def main():
-      node = Node()
-   ```
+     def main():
+        node = Node()
+     ```
 
    - This part of the code checks to see if the node has received any input, and if it has, it will print out some data relating to the input.
 
-   ```python
-   for event in node:
-      if event["type"] == "INPUT":
-         print(
-            f"""Node received:
-         id: {event["id"]},
-         value: {event["value"]},
-         metadata: {event["metadata"]}"""
-         )
-   ```
+     ```python
+     for event in node:
+        if event["type"] == "INPUT":
+           print(
+              f"""Node received:
+           id: {event["id"]},
+           value: {event["value"]},
+           metadata: {event["metadata"]}"""
+           )
+     ```
 
    - This line send an output to other nodes.
 
-   ```python
-         node.send_output("speech", pa.array(["Hello World"])) # add this line
-   ```
+     ```python
+           node.send_output("speech", pa.array(["Hello World"])) # add this line
+     ```
 
    - We are using the `send_output` method to send a string as an arrow array to the listener node.
    - The first argument is the id of the output we want to send to be referenced later in the dataflow.
