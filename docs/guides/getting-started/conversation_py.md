@@ -5,8 +5,7 @@ sidebar_position: 1
 # Python Conversation
 1. Install Dora CLI and Dependencies
    First, ensure you have Python 3.11 installed.
-   
-   Create and Activate Virtual Environment
+
    Create a clean virtual environment using uv:
    ```
    uv venv --seed -p 3.11
