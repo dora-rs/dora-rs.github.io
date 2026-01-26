@@ -10,7 +10,7 @@
 
 
 <link rel="search" type="application/opensearchdescription+xml" title="dora-rs" href="/zh-CN/opensearch.xml"><link rel="stylesheet" href="/zh-CN/assets/css/styles.0888b245.css">
-<script src="/zh-CN/assets/js/runtime~main.a03e3d51.js" defer="defer"></script>
+<script src="/zh-CN/assets/js/runtime~main.696b0f84.js" defer="defer"></script>
 <script src="/zh-CN/assets/js/main.ffff358f.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -23,7 +23,7 @@
 <ol>
 <li>
 <p>安装必须依赖</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">conda create </span><span class="token parameter variable" style="color:#36acaa">-n</span><span class="token plain"> example_env </span><span class="token assign-left variable" style="color:#36acaa">python</span><span class="token operator" style="color:#393A34">=</span><span class="token number" style="color:#36acaa">3.11</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">conda activate test_env</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">pip </span><span class="token function" style="color:#d73a49">install</span><span class="token plain"> </span><span class="token parameter variable" style="color:#36acaa">-r</span><span class="token plain"> https://raw.githubusercontent.com/dora-rs/dora/v0.3.6/examples/python-operator-dataflow/requirements.txt</span><br></span></code></pre></div></div>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">conda create </span><span class="token parameter variable" style="color:#36acaa">-n</span><span class="token plain"> example_env </span><span class="token assign-left variable" style="color:#36acaa">python</span><span class="token operator" style="color:#393A34">=</span><span class="token number" style="color:#36acaa">3.11</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">conda activate example_env</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">pip </span><span class="token function" style="color:#d73a49">install</span><span class="token plain"> </span><span class="token parameter variable" style="color:#36acaa">-r</span><span class="token plain"> https://raw.githubusercontent.com/dora-rs/dora/v0.3.6/examples/python-operator-dataflow/requirements.txt</span><br></span></code></pre></div></div>
 </li>
 <li>
 <p>建立一个新的 <code>object_detection.py</code> python文件，包含以下内容</p>
