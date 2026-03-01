@@ -17,6 +17,12 @@ wget https://raw.githubusercontent.com/dora-rs/dora/v0.3.6/examples/python-opera
 wget https://raw.githubusercontent.com/dora-rs/dora/v0.3.6/examples/python-operator-dataflow/file_saver_op.py
 ```
 
+Add required package listed here
+
+```bash
+wget https://raw.githubusercontent.com/dora-rs/dora/v0.3.6/examples/python-operator-dataflow/requirements_llm.txt
+```
+
 and the dataflow configuration:
 
 ```yaml {24-87}
@@ -51,7 +57,8 @@ nodes:
   ## Speech to text
   - id: keyboard
     custom:
-      source: keyboard_op.py
+      source: !Local
+      path: keyboard_op.py
       outputs:
         - buffer
         - submitted
@@ -147,6 +154,36 @@ The question is then going to be passed to the LLM which will reply in the windo
 You can also send a message directly to the dataflow by using the keyword `send` and then specifying the data that you want set.
 
 Note that the data and topic should be specified both in the dataflow and in the LLM node to send data.
+
+## Optimization for lower resource (Optional)
+
+If your computer has with 4-8GB of VRAM, you may encounter memory errors or startup timeouts.
+
+Recommended solution,
+
+**1. Force CPU Offloading for Auxiliary Models**
+
+To save some of VRAM for the LLM, run the Whisper and BGE models on your CPU. This keeps the GPU dedicated to the heavy lifting.
+
+Add arguments `device="cpu"` as following
+
+```python
+# whisper_op.py
+model = whisper.load_model("base", device="cpu")
+
+# sentence_transformers_op.py
+self.model = SentenceTransformer("BAAI/bge-large-en-v1.5", device="cpu")
+```
+
+**2. Use a Smaller LLM Model**
+
+The 6.7B model can be slow to initialize. For faster startup and lower memory usage, switch to the 1.3B version in
+`llm_op.py`
+
+```python
+# llm_op.py
+MODEL_NAME_OR_PATH = "deepseek-ai/deepseek-coder-1.3b-instruct"
+```
 
 ## Getting started
 
