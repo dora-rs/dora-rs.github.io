@@ -9,7 +9,7 @@ Dora supports distributed tracing via OpenTelemetry (OTLP). The previous Jaeger 
 ### 1. Start SigNoz
 
 ```bash
-git clone -b main https://github.com/SigNoz/signoz.git
+git clone --branch v0.115.0 --depth 1 https://github.com/SigNoz/signoz.git
 cd signoz/deploy
 docker compose -f docker/docker-compose.yaml up -d
 ```
