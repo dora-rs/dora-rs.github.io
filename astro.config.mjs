@@ -4,8 +4,8 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 
 export default defineConfig({
-  site: 'https://ymote.github.io',
-  base: '/adora-website',
+  site: 'https://dora-rs.ai',
+  base: '/',
   integrations: [sitemap(), react()],
   vite: {
     plugins: [tailwindcss()],
