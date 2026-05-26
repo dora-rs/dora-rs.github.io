@@ -12,17 +12,17 @@ const featureMatrix = [
   { dim: 'Latency (SHM path)', adora: '~500us p50', dora: '~500us p50', ros2: '1-10ms' },
   { dim: 'Copy overhead', adora: 'Zero (Apache Arrow)', dora: 'Zero (Apache Arrow)', ros2: 'CDR serialization' },
   { dim: 'Fault tolerance', adora: 'Built-in (restart policies, health checks, circuit breakers)', dora: 'None', ros2: 'Basic lifecycle' },
-  { dim: 'Record / Replay', adora: 'Built-in (.adorec files)', dora: 'None', ros2: 'rosbag2' },
+  { dim: 'Record / Replay', adora: 'Built-in (.dora files)', dora: 'None', ros2: 'rosbag2' },
   { dim: 'Dynamic topology', adora: 'Yes (add/remove/connect/disconnect at runtime)', dora: 'No', ros2: 'Partial (lifecycle nodes)' },
   { dim: 'Cluster management', adora: 'Built-in SSH clusters with label scheduling', dora: 'None', ros2: 'Manual or external tools' },
   { dim: 'Observability', adora: 'OpenTelemetry (logs, metrics, traces)', dora: 'Basic logging', ros2: 'ROS2 logging + third-party' },
   { dim: 'Real-time support', adora: 'SCHED_FIFO + mlockall + CPU affinity', dora: 'None', ros2: 'rclcpp Executor (partial)' },
-  { dim: 'Type annotations', adora: 'Static validation via adora validate', dora: 'None', ros2: 'IDL / .msg files' },
+  { dim: 'Type annotations', adora: 'Static validation via dora validate', dora: 'None', ros2: 'IDL / .msg files' },
   { dim: 'Reusable modules', adora: 'YAML module composition with typed ports', dora: 'None', ros2: 'ROS2 packages' },
   { dim: 'Log management', adora: 'Structured + rotation + routing + aggregation', dora: 'Basic stdout', ros2: 'rosout' },
-  { dim: 'Resource monitoring', adora: 'adora top TUI (CPU, mem, queues, network)', dora: 'None', ros2: 'External tools' },
+  { dim: 'Resource monitoring', adora: 'dora top TUI (CPU, mem, queues, network)', dora: 'None', ros2: 'External tools' },
   { dim: 'Topic inspection', adora: 'topic echo / hz / info', dora: 'None', ros2: 'ros2 topic echo / hz / info' },
-  { dim: 'Schema validation', adora: 'adora validate with wiring checks', dora: 'None', ros2: 'colcon build (compile-time)' },
+  { dim: 'Schema validation', adora: 'dora validate with wiring checks', dora: 'None', ros2: 'colcon build (compile-time)' },
   { dim: 'WebSocket control', adora: 'Full control + topic data channels', dora: 'None', ros2: 'rosbridge (third-party)' },
   { dim: 'Python CLI API', adora: 'PyO3 native bindings', dora: 'None', ros2: 'rclpy' },
   { dim: 'Coordinator HA', adora: 'Persistent redb state + daemon reconnect', dora: 'None', ros2: 'N/A (no coordinator)' },
@@ -32,20 +32,20 @@ const featureMatrix = [
 ];
 
 const cliComparison = [
-  { command: 'Start dataflow', adora: 'adora start dataflow.yml', dora: 'dora start dataflow.yml' },
-  { command: 'Stop dataflow', adora: 'adora stop', dora: 'dora destroy' },
-  { command: 'View logs', adora: 'adora logs --node webcam', dora: '(stdout only)' },
-  { command: 'Record messages', adora: 'adora record', dora: '(not available)' },
-  { command: 'Replay recording', adora: 'adora replay recording.adorec', dora: '(not available)' },
-  { command: 'Live topic data', adora: 'adora topic echo webcam/image', dora: '(not available)' },
-  { command: 'Frequency monitor', adora: 'adora topic hz webcam/image', dora: '(not available)' },
-  { command: 'Resource monitor', adora: 'adora top', dora: '(not available)' },
-  { command: 'Add node at runtime', adora: 'adora node add --path ./detector', dora: '(not available)' },
-  { command: 'Cluster deploy', adora: 'adora cluster up', dora: '(not available)' },
-  { command: 'Validate dataflow', adora: 'adora validate dataflow.yml', dora: '(not available)' },
-  { command: 'View traces', adora: 'adora trace list', dora: '(not available)' },
-  { command: 'Parameter management', adora: 'adora param get/set/delete', dora: '(not available)' },
-  { command: 'Dataflow visualization', adora: 'adora graph dataflow.yml', dora: 'dora graph dataflow.yml' },
+  { command: 'Start dataflow', adora: 'dora start dataflow.yml', dora: 'dora start dataflow.yml' },
+  { command: 'Stop dataflow', adora: 'dora stop', dora: 'dora destroy' },
+  { command: 'View logs', adora: 'dora logs --node webcam', dora: '(stdout only)' },
+  { command: 'Record messages', adora: 'dora record', dora: '(not available)' },
+  { command: 'Replay recording', adora: 'dora replay recording.dora', dora: '(not available)' },
+  { command: 'Live topic data', adora: 'dora topic echo webcam/image', dora: '(not available)' },
+  { command: 'Frequency monitor', adora: 'dora topic hz webcam/image', dora: '(not available)' },
+  { command: 'Resource monitor', adora: 'dora top', dora: '(not available)' },
+  { command: 'Add node at runtime', adora: 'dora node add --path ./detector', dora: '(not available)' },
+  { command: 'Cluster deploy', adora: 'dora cluster up', dora: '(not available)' },
+  { command: 'Validate dataflow', adora: 'dora validate dataflow.yml', dora: '(not available)' },
+  { command: 'View traces', adora: 'dora trace list', dora: '(not available)' },
+  { command: 'Parameter management', adora: 'dora param get/set/delete', dora: '(not available)' },
+  { command: 'Dataflow visualization', adora: 'dora graph dataflow.yml', dora: 'dora graph dataflow.yml' },
 ];
 
 const patternExamples = [
@@ -62,7 +62,7 @@ const patternExamples = [
   {
     name: 'Service (request/reply)',
     available: { adora: true, dora: false, ros2: true },
-    yaml: `# Adora — metadata-based correlation
+    yaml: `# dora 1.0 — metadata-based correlation
 node.send_service_request("request", params, data)
 # Server passes through request_id
 node.send_service_response("response", metadata.parameters, result)`,
@@ -85,8 +85,8 @@ node.send_service_response("response", metadata.parameters, result)`,
 ---
 
 <Layout
-  title="Adora vs dora vs ROS2 — Detailed Comparison"
-  description="Comprehensive comparison of Adora, original dora, and ROS2. Feature matrix, architecture differences, CLI commands, communication patterns, and migration guide."
+  title="dora 1.0 vs dora 0.x vs ROS2 — Detailed Comparison"
+  description="Comprehensive comparison of dora 1.0, dora 0.x, and ROS2. Feature matrix, architecture differences, CLI commands, communication patterns, and upgrade guide."
 >
   <!-- Hero -->
   <Section id="comparison-hero" padY="lg">
@@ -94,12 +94,12 @@ node.send_service_response("response", metadata.parameters, result)`,
       <div class="text-center">
         <p class="font-mono text-[16px] uppercase tracking-[0.08em] text-neutral-2">Comparison</p>
         <h1 class="mt-3 text-[32px] tracking-[-0.03em] md:text-[42px] lg:text-[52px]">
-          What changed from dora to Adora
+          What's new in dora 1.0
         </h1>
         <p class="mx-auto mt-5 max-w-2xl text-[16px] leading-relaxed text-neutral-2">
-          Adora is a significantly enhanced fork of dora that adds production-grade features:
-          services, actions, streaming, fault tolerance, cluster management, record/replay,
-          dynamic topology, and comprehensive observability. Here's everything that's different.
+          dora 1.0 is a major release that adds production-grade features on top of dora's
+          zero-copy core: services, actions, streaming, fault tolerance, cluster management,
+          record/replay, dynamic topology, and comprehensive observability. Here's everything that's new.
         </p>
       </div>
     </Container>
@@ -114,8 +114,8 @@ node.send_service_response("response", metadata.parameters, result)`,
           TCP to WebSocket, single to distributed
         </h2>
         <p class="mt-4 max-w-2xl text-[16px] leading-relaxed text-neutral-2">
-          The original dora uses TCP for coordinator-daemon communication and supports
-          single-machine deployment. Adora replaces TCP with WebSocket, adds multi-machine
+          dora 0.x used TCP for coordinator-daemon communication and supported
+          single-machine deployment. dora 1.0 replaces TCP with WebSocket, adds a multi-machine
           Zenoh data plane, and introduces persistent coordinator state for high availability.
         </p>
       </div>
@@ -135,7 +135,7 @@ node.send_service_response("response", metadata.parameters, result)`,
           From 1 pattern to 4
         </h2>
         <p class="mt-4 max-w-2xl text-[16px] leading-relaxed text-neutral-2">
-          Original dora only supports topic-based pub/sub. Adora adds Service, Action, and
+          dora 0.x supported only topic-based pub/sub. dora 1.0 adds Service, Action, and
           Streaming patterns via well-known metadata keys — no protocol or daemon changes needed.
         </p>
       </div>
@@ -147,10 +147,10 @@ node.send_service_response("response", metadata.parameters, result)`,
               <h3 class="text-[16px] text-text-bright">{pattern.name}</h3>
               <div class="flex gap-1.5">
                 <span class={`inline-block rounded px-1.5 py-0.5 font-mono text-[10px] ${pattern.available.adora ? 'bg-accent/20 text-accent' : 'bg-surface-3 text-neutral-2'}`}>
-                  adora
+                  dora 1.0
                 </span>
                 <span class={`inline-block rounded px-1.5 py-0.5 font-mono text-[10px] ${pattern.available.dora ? 'bg-accent/20 text-accent' : 'bg-surface-3 text-neutral-2'}`}>
-                  dora
+                  dora 0.x
                 </span>
                 <span class={`inline-block rounded px-1.5 py-0.5 font-mono text-[10px] ${pattern.available.ros2 ? 'bg-accent/20 text-accent' : 'bg-surface-3 text-neutral-2'}`}>
                   ROS2
@@ -179,8 +179,8 @@ node.send_service_response("response", metadata.parameters, result)`,
           <thead>
             <tr class="border-b border-surface-3 bg-surface-1">
               <th class="px-4 py-3 text-left font-mono text-[15px] uppercase tracking-[0.08em] text-neutral-1">Dimension</th>
-              <th class="px-4 py-3 text-left font-mono text-[15px] uppercase tracking-[0.08em] text-accent">Adora</th>
-              <th class="px-4 py-3 text-left font-mono text-[15px] uppercase tracking-[0.08em] text-neutral-2">dora (original)</th>
+              <th class="px-4 py-3 text-left font-mono text-[15px] uppercase tracking-[0.08em] text-accent">dora 1.0</th>
+              <th class="px-4 py-3 text-left font-mono text-[15px] uppercase tracking-[0.08em] text-neutral-2">dora 0.x</th>
               <th class="px-4 py-3 text-left font-mono text-[15px] uppercase tracking-[0.08em] text-neutral-2">ROS2</th>
             </tr>
           </thead>
@@ -208,7 +208,7 @@ node.send_service_response("response", metadata.parameters, result)`,
           CLI commands side by side
         </h2>
         <p class="mt-4 max-w-2xl text-[16px] leading-relaxed text-neutral-2">
-          Adora extends the dora CLI with record/replay, topic inspection, resource monitoring,
+          dora 1.0 extends the dora CLI with record/replay, topic inspection, resource monitoring,
           dynamic topology, cluster management, parameter management, and more.
         </p>
       </div>
@@ -218,8 +218,8 @@ node.send_service_response("response", metadata.parameters, result)`,
           <thead>
             <tr class="border-b border-surface-3 bg-surface-1">
               <th class="px-4 py-3 text-left font-mono text-[15px] uppercase tracking-[0.08em] text-neutral-1">Operation</th>
-              <th class="px-4 py-3 text-left font-mono text-[15px] uppercase tracking-[0.08em] text-accent">Adora</th>
-              <th class="px-4 py-3 text-left font-mono text-[15px] uppercase tracking-[0.08em] text-neutral-2">dora</th>
+              <th class="px-4 py-3 text-left font-mono text-[15px] uppercase tracking-[0.08em] text-accent">dora 1.0</th>
+              <th class="px-4 py-3 text-left font-mono text-[15px] uppercase tracking-[0.08em] text-neutral-2">dora 0.x</th>
             </tr>
           </thead>
           <tbody>
@@ -261,7 +261,7 @@ node.send_service_response("response", metadata.parameters, result)`,
         </div>
         <div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
           <h3 class="text-[16px] text-accent">Record & Replay</h3>
-          <p class="mt-2 text-[16px] text-neutral-2">Capture all messages to .adorec files. Replay at any speed with node substitution for regression testing.</p>
+          <p class="mt-2 text-[16px] text-neutral-2">Capture all messages to .dora files. Replay at any speed with node substitution for regression testing.</p>
         </div>
         <div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
           <h3 class="text-[16px] text-accent">Cluster Management</h3>
@@ -275,13 +275,13 @@ node.send_service_response("response", metadata.parameters, result)`,
     </Container>
   </Section>
 
-  <!-- Migration Guide -->
+  <!-- Upgrade Guide -->
   <Section id="migration" padY="lg">
     <Container narrow>
       <div class="mb-8 text-center">
-        <p class="font-mono text-[16px] uppercase tracking-[0.08em] text-neutral-2">Migration</p>
+        <p class="font-mono text-[16px] uppercase tracking-[0.08em] text-neutral-2">Upgrade</p>
         <h2 class="mt-3 text-[28px] tracking-[-0.03em] md:text-[36px]">
-          Migrating from dora
+          Upgrading from dora 0.x
         </h2>
       </div>
 
@@ -289,9 +289,9 @@ node.send_service_response("response", metadata.parameters, result)`,
         <div class="rounded-lg border border-surface-3 bg-surface-1 p-6">
           <h3 class="text-[18px] text-accent">Backward compatible for pub/sub</h3>
           <p class="mt-2 text-[15px] leading-relaxed text-neutral-2">
-            Existing topic-based dataflows work with minimal changes. The core pub/sub model is the same,
-            and YAML dataflow definitions follow the same structure. Rename <code class="text-code">dora</code> to
-            <code class="text-code">adora</code> in your CLI commands and you're running.
+            Existing topic-based dataflows work with minimal changes. The core pub/sub model is unchanged,
+            and YAML dataflow definitions follow the same structure — your existing
+            <code class="text-code">dora</code> CLI commands keep working.
           </p>
         </div>
 
@@ -300,17 +300,17 @@ node.send_service_response("response", metadata.parameters, result)`,
           <p class="mt-2 text-[15px] leading-relaxed text-neutral-2">
             New features are additive. Add service patterns to specific nodes, enable fault tolerance
             per-node with <code class="text-code">restart_policy</code>, start recording with
-            <code class="text-code">adora record</code>. No need to rewrite your entire pipeline.
+            <code class="text-code">dora record</code>. No need to rewrite your entire pipeline.
           </p>
         </div>
 
         <div class="rounded-lg border border-surface-3 bg-surface-1 p-6">
-          <h3 class="text-[18px] text-accent">Crate renames</h3>
+          <h3 class="text-[18px] text-accent">Same crates, new capabilities</h3>
           <p class="mt-2 text-[15px] leading-relaxed text-neutral-2">
-            All crates are renamed from <code class="text-code">dora-*</code> to
-            <code class="text-code">adora-*</code>. Update your Cargo.toml dependencies:
-            <code class="text-code">dora-node-api</code> becomes <code class="text-code">adora-node-api</code>,
-            <code class="text-code">dora-operator-api</code> becomes <code class="text-code">adora-operator-api</code>, etc.
+            Your existing <code class="text-code">dora-*</code> crate dependencies keep working —
+            <code class="text-code">dora-node-api</code>, <code class="text-code">dora-operator-api</code>,
+            and the rest are unchanged. dora 1.0 adds new APIs for services, actions, and streaming
+            without breaking existing ones.
           </p>
         </div>
       </div>

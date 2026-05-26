@@ -2,7 +2,7 @@
   {
     "section": "Getting Started",
     "chapters": [
-      { "title": "Installation", "description": "Install the Adora CLI and runtime on Linux, macOS, or Windows", "href": "/book/getting-started/installation" },
+      { "title": "Installation", "description": "Install the dora CLI and runtime on Linux, macOS, or Windows", "href": "/book/getting-started/installation" },
       { "title": "Quickstart", "description": "Build and run your first dataflow in under 5 minutes", "href": "/book/getting-started/quickstart" }
     ]
   },
@@ -28,7 +28,7 @@
   {
     "section": "Operations",
     "chapters": [
-      { "title": "CLI Reference", "description": "Complete command reference for the adora CLI", "href": "/book/operations/cli" },
+      { "title": "CLI Reference", "description": "Complete command reference for the dora CLI", "href": "/book/operations/cli" },
       { "title": "Logging", "description": "Structured logging with rotation, routing, and aggregation", "href": "/book/operations/logging" },
       { "title": "Debugging", "description": "Topic inspection, trace viewing, and resource monitoring", "href": "/book/operations/debugging" },
       { "title": "Fault Tolerance", "description": "Restart policies, health checks, and circuit breakers", "href": "/book/operations/fault-tolerance" },

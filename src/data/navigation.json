@@ -8,6 +8,6 @@
   ],
   "external": [
     { "text": "Book", "href": "/book" },
-    { "text": "GitHub", "href": "https://github.com/dora-rs/adora" }
+    { "text": "GitHub", "href": "https://github.com/dora-rs/dora" }
   ]
 }

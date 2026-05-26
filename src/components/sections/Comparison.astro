@@ -6,7 +6,7 @@ const rows = [
   { dim: 'Latency (SHM)', adora: '~500us p50', dora: '~500us p50', ros2: '1-10ms' },
   { dim: 'Comm patterns', adora: '4 (Topic/Service/Action/Stream)', dora: '1 (Topic)', ros2: '4' },
   { dim: 'Fault tolerance', adora: 'Built-in restart policies', dora: 'None', ros2: 'Basic' },
-  { dim: 'Record/Replay', adora: 'Built-in (.adorec)', dora: 'None', ros2: 'rosbag' },
+  { dim: 'Record/Replay', adora: 'Built-in (.dora)', dora: 'None', ros2: 'rosbag' },
   { dim: 'Cluster management', adora: 'SSH + labels', dora: 'None', ros2: 'Manual' },
   { dim: 'Dynamic topology', adora: 'Yes', dora: 'No', ros2: 'Partial' },
   { dim: 'Observability', adora: 'OpenTelemetry', dora: 'Basic logs', ros2: 'ROS2 logging' },
@@ -19,10 +19,10 @@ const rows = [
   <div class="glass-panel mb-8">
     <p class="font-mono text-[16px] uppercase tracking-[0.08em] text-neutral-2">Comparison</p>
     <h2 class="mt-3 text-[28px] tracking-[-0.03em] md:text-[36px] lg:text-[48px]">
-      Adora vs dora vs ROS2
+      dora 1.0 vs dora 0.x vs ROS2
     </h2>
     <p class="mt-4 max-w-xl text-[16px] leading-relaxed text-neutral-2">
-      Adora builds on dora's zero-copy data plane and adds the orchestration, fault tolerance,
+      dora 1.0 builds on dora's zero-copy data plane and adds the orchestration, fault tolerance,
       and observability you need for production deployments.
     </p>
   </div>
@@ -32,8 +32,8 @@ const rows = [
       <thead>
         <tr class="border-b border-white/10">
           <th class="px-3 py-3 text-left font-mono text-[15px] uppercase tracking-[0.08em] text-neutral-1">Dimension</th>
-          <th class="px-3 py-3 text-left font-mono text-[15px] uppercase tracking-[0.08em] text-accent">Adora</th>
-          <th class="px-3 py-3 text-left font-mono text-[15px] uppercase tracking-[0.08em] text-neutral-2">dora</th>
+          <th class="px-3 py-3 text-left font-mono text-[15px] uppercase tracking-[0.08em] text-accent">dora 1.0</th>
+          <th class="px-3 py-3 text-left font-mono text-[15px] uppercase tracking-[0.08em] text-neutral-2">dora 0.x</th>
           <th class="px-3 py-3 text-left font-mono text-[15px] uppercase tracking-[0.08em] text-neutral-2">ROS2</th>
         </tr>
       </thead>

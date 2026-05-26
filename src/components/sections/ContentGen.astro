@@ -12,18 +12,18 @@ import Container from 'components/layout/Container.astro';
         Capture, replay, debug
       </h2>
       <p class="mt-4 max-w-2xl text-[16px] leading-relaxed text-neutral-2">
-        Record all dataflow messages to .adorec files. Replay offline at any speed
+        Record all dataflow messages to .dora files. Replay offline at any speed
         with node substitution for regression testing.
       </p>
     </div>
 
     <div class="mb-16 space-y-4">
       <div class="rounded-lg border border-surface-3 bg-surface-1 p-5 reveal">
-        <span class="font-mono text-[16px] text-accent">adora record</span>
-        <p class="mt-1 text-[16px] text-neutral-2">Capture live messages from any running dataflow to .adorec files. Selective per-node or full-graph recording.</p>
+        <span class="font-mono text-[16px] text-accent">dora record</span>
+        <p class="mt-1 text-[16px] text-neutral-2">Capture live messages from any running dataflow to .dora files. Selective per-node or full-graph recording.</p>
       </div>
       <div class="rounded-lg border border-surface-3 bg-surface-1 p-5 reveal">
-        <span class="font-mono text-[16px] text-accent">adora replay</span>
+        <span class="font-mono text-[16px] text-accent">dora replay</span>
         <p class="mt-1 text-[16px] text-neutral-2">Replay recorded data at any speed — 0.1x for step-through debugging or 10x for fast regression tests.</p>
       </div>
       <div class="rounded-lg border border-surface-3 bg-surface-1 p-5 reveal">
@@ -52,7 +52,7 @@ import Container from 'components/layout/Container.astro';
       </div>
       <div class="rounded-lg border border-surface-3 bg-surface-1 p-5 reveal">
         <h3 class="text-[16px] text-accent">CI regression testing</h3>
-        <p class="mt-1 text-[16px] text-neutral-2">Record golden datasets, replay in CI. Automatically detect when algorithm changes produce different outputs. Integrate with <code class="text-code">adora replay --assert</code>.</p>
+        <p class="mt-1 text-[16px] text-neutral-2">Record golden datasets, replay in CI. Automatically detect when algorithm changes produce different outputs. Integrate with <code class="text-code">dora replay --assert</code>.</p>
       </div>
       <div class="rounded-lg border border-surface-3 bg-surface-1 p-5 reveal">
         <h3 class="text-[16px] text-accent">Timestamp-accurate replay</h3>
@@ -61,7 +61,7 @@ import Container from 'components/layout/Container.astro';
     </div>
 
     <div class="mt-8 flex flex-wrap gap-2 reveal">
-      {['.adorec format', 'variable speed', 'node substitution', 'offline mode', 'regression testing', 'CI integration', 'data inspection', 'timestamp replay', 'selective recording', 'multi-node capture'].map((s) => (
+      {['.dora format', 'variable speed', 'node substitution', 'offline mode', 'regression testing', 'CI integration', 'data inspection', 'timestamp replay', 'selective recording', 'multi-node capture'].map((s) => (
         <span class="rounded-sm border border-surface-3 bg-surface-1 px-3 py-1.5 font-mono text-[15px] text-neutral-2 transition-colors duration-300 hover:border-neutral-1 hover:text-accent">
           {s}
         </span>

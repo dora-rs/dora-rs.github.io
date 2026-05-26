@@ -4,28 +4,28 @@ import Container from 'components/layout/Container.astro';
 import CodeBlock from 'components/ui/CodeBlock.astro';
 
 const code = `<span class="text-neutral-2"># Install</span>
-cargo install adora-cli
+cargo install dora-cli
 
 <span class="text-neutral-2"># Create a dataflow</span>
 cat > dataflow.yml << <span class="text-neutral-1">'EOF'</span>
 nodes:
   - id: webcam
-    path: adora-hub/webcam
+    path: dora-hub/webcam
     outputs: [image]
   - id: detector
-    path: adora-hub/yolov8
+    path: dora-hub/yolov8
     inputs:
       image: webcam/image
     outputs: [bbox]
   - id: plot
-    path: adora-hub/opencv-plot
+    path: dora-hub/opencv-plot
     inputs:
       image: webcam/image
       bbox: detector/bbox
 <span class="text-neutral-1">EOF</span>
 
 <span class="text-neutral-2"># Run it</span>
-adora start dataflow.yml`;
+dora start dataflow.yml`;
 ---
 
 <Section id="quickstart" background="secondary" padY="lg">

@@ -25,7 +25,7 @@
   },
   {
     "title": "Record & Replay",
-    "description": "Capture dataflow messages to .adorec files. Replay offline at any speed with node substitution for regression testing and offline debugging.",
+    "description": "Capture dataflow messages to .dora files. Replay offline at any speed with node substitution for regression testing and offline debugging.",
     "stat": null,
     "statLabel": null
   },

@@ -41,7 +41,7 @@ const makeNodeStyle = (bg, border) => ({
   boxShadow: `0 4px 20px rgba(0,0,0,0.3), 0 0 15px ${border}22`,
 });
 
-const AdoraNode = ({ data }) => (
+const doraNode = ({ data }) => (
   <div style={makeNodeStyle(data.bg, data.border)}>
     <AllHandles />
     <div style={{ fontWeight: 600, fontSize: '15px' }}>{data.label}</div>
@@ -71,10 +71,10 @@ const ZenohNode = ({ data }) => (
   </div>
 );
 
-const nodeTypes = { adora: AdoraNode, entry: EntryNode, zenoh: ZenohNode };
+const nodeTypes = { adora: doraNode, entry: EntryNode, zenoh: ZenohNode };
 
 const initialNodes = [
-  { id: 'cli', type: 'entry', position: { x: 280, y: 0 }, data: { label: 'ADORA CLI' } },
+  { id: 'cli', type: 'entry', position: { x: 280, y: 0 }, data: { label: 'dora CLI' } },
   { id: 'coordinator', type: 'adora', position: { x: 280, y: 120 }, data: { label: 'Coordinator', description: 'WebSocket control plane', bg: TEAL, border: TEAL_DARK } },
   { id: 'daemon1', type: 'adora', position: { x: 60, y: 240 }, data: { label: 'Daemon (host-1)', bg: INDIGO, border: INDIGO_DARK } },
   { id: 'daemon2', type: 'adora', position: { x: 280, y: 240 }, data: { label: 'Daemon (host-2)', bg: INDIGO, border: INDIGO_DARK } },

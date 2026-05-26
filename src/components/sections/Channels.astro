@@ -5,9 +5,9 @@ import Container from 'components/layout/Container.astro';
 const languages = [
   {
     name: 'Rust',
-    snippet: `use adora_node::prelude::*;
+    snippet: `use dora_node::prelude::*;
 
-#[adora_main]
+#[dora_main]
 fn main() -> eyre::Result<()> {
     let node = DoraNode::init()?;
     for event in node {
@@ -23,7 +23,7 @@ fn main() -> eyre::Result<()> {
   },
   {
     name: 'Python',
-    snippet: `from adora import Node
+    snippet: `from dora import Node
 
 node = Node()
 
@@ -36,7 +36,7 @@ for event in node:
   },
   {
     name: 'C',
-    snippet: `#include "adora/node_api.h"
+    snippet: `#include "dora/node_api.h"
 
 int main() {
     void *node = dora_init_node();
@@ -52,12 +52,12 @@ int main() {
   },
   {
     name: 'C++',
-    snippet: `#include "adora/node.hpp"
+    snippet: `#include "dora/node.hpp"
 
 int main() {
-    auto node = adora::Node();
+    auto node = dora::Node();
     for (auto event : node) {
-        if (event.type == adora::INPUT) {
+        if (event.type == dora::INPUT) {
             auto data = event.data();
             node.send("out", data);
         }

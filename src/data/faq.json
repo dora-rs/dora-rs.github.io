@@ -1,26 +1,26 @@
 [
   {
-    "question": "How is Adora different from dora?",
-    "answer": "Adora is a significantly enhanced fork of dora that adds service (request/reply), action (goal/feedback/result), and streaming communication patterns, WebSocket-based coordinator, fault tolerance with automatic restart and state persistence, record/replay, cluster management, dynamic topology, and comprehensive observability. Original dora only supports topic pub/sub with a TCP coordinator."
+    "question": "What's new in dora 1.0?",
+    "answer": "dora 1.0 is a major release that adds service (request/reply), action (goal/feedback/result), and streaming communication patterns, a WebSocket-based coordinator, fault tolerance with automatic restart and state persistence, record/replay, cluster management, dynamic topology, and comprehensive observability. dora 0.x supported only topic pub/sub with a TCP coordinator."
   },
   {
-    "question": "How is Adora different from ROS2?",
-    "answer": "Adora is 10-17x faster than ROS2 Python thanks to zero-copy shared memory and Apache Arrow. It uses simple YAML for dataflow definitions instead of code generation, supports Rust/Python/C/C++ without IDL files, and provides built-in cluster management, record/replay, and a single CLI for the full lifecycle."
+    "question": "How is dora different from ROS2?",
+    "answer": "dora is 10-17x faster than ROS2 Python thanks to zero-copy shared memory and Apache Arrow. It uses simple YAML for dataflow definitions instead of code generation, supports Rust/Python/C/C++ without IDL files, and provides built-in cluster management, record/replay, and a single CLI for the full lifecycle."
   },
   {
-    "question": "What languages does Adora support?",
-    "answer": "Adora provides native APIs for Rust, Python (via PyO3), C, and C++ (via CXX bridge). All languages share the same Apache Arrow data format with zero serialization overhead, and you can mix languages freely in a single dataflow."
+    "question": "What languages does dora support?",
+    "answer": "dora provides native APIs for Rust, Python (via PyO3), C, and C++ (via CXX bridge). All languages share the same Apache Arrow data format with zero serialization overhead, and you can mix languages freely in a single dataflow."
   },
   {
     "question": "What communication patterns are available?",
-    "answer": "Adora supports four patterns: Topic (fire-and-forget pub/sub), Service (request/reply with UUID correlation), Action (long-running goals with periodic feedback and cancellation), and Streaming (continuous data with session/segment/chunk metadata and queue flushing for interruption)."
+    "answer": "dora supports four patterns: Topic (fire-and-forget pub/sub), Service (request/reply with UUID correlation), Action (long-running goals with periodic feedback and cancellation), and Streaming (continuous data with session/segment/chunk metadata and queue flushing for interruption)."
   },
   {
-    "question": "Is Adora production-ready?",
-    "answer": "Yes. Adora includes fault tolerance with configurable restart policies, persistent coordinator state via redb, record/replay for debugging, OpenTelemetry observability, distributed deployment with cluster management, and comprehensive CI including format, lint, test, and E2E checks on all platforms."
+    "question": "Is dora 1.0 production-ready?",
+    "answer": "Yes. dora 1.0 includes fault tolerance with configurable restart policies, persistent coordinator state via redb, record/replay for debugging, OpenTelemetry observability, distributed deployment with cluster management, and comprehensive CI including format, lint, test, and E2E checks on all platforms."
   },
   {
-    "question": "Can I migrate from dora to Adora?",
+    "question": "Can I upgrade from dora 0.x to 1.0?",
     "answer": "Existing topic-based dataflows are largely backward compatible. The core pub/sub model is the same, and YAML dataflow definitions follow the same structure. You can incrementally adopt new features like services, actions, and fault tolerance without rewriting existing nodes."
   }
 ]

@@ -51,7 +51,7 @@ function LabelNode({ data }) {
 const nodeTypes = { arch: ArchNode, label: LabelNode };
 
 const doraNodes = [
-  { id: 'dl', type: 'label', position: { x: 60, y: 0 }, data: { label: 'dora (original)', color: MUTED } },
+  { id: 'dl', type: 'label', position: { x: 60, y: 0 }, data: { label: 'dora 0.x', color: MUTED } },
   { id: 'd-cli', type: 'arch', position: { x: 50, y: 50 }, data: { label: 'dora CLI', bg: MUTED_DARK, border: MUTED, muted: true } },
   { id: 'd-coord', type: 'arch', position: { x: 30, y: 140 }, data: { label: 'Coordinator', sub: 'TCP', bg: MUTED_DARK, border: MUTED, muted: true, wide: true } },
   { id: 'd-daemon', type: 'arch', position: { x: 50, y: 230 }, data: { label: 'Daemon', bg: MUTED_DARK, border: MUTED, muted: true } },
@@ -67,8 +67,8 @@ const doraEdges = [
 ];
 
 const adoraNodes = [
-  { id: 'al', type: 'label', position: { x: 460, y: 0 }, data: { label: 'Adora', color: TEAL } },
-  { id: 'a-cli', type: 'arch', position: { x: 440, y: 50 }, data: { label: 'ADORA CLI', bg: AMBER_DARK, border: AMBER, wide: true } },
+  { id: 'al', type: 'label', position: { x: 460, y: 0 }, data: { label: 'dora 1.0', color: TEAL } },
+  { id: 'a-cli', type: 'arch', position: { x: 440, y: 50 }, data: { label: 'dora CLI', bg: AMBER_DARK, border: AMBER, wide: true } },
   { id: 'a-coord', type: 'arch', position: { x: 430, y: 140 }, data: { label: 'Coordinator', sub: 'WebSocket :6013', bg: TEAL_DARK, border: TEAL, wide: true } },
   { id: 'a-d1', type: 'arch', position: { x: 330, y: 240 }, data: { label: 'Daemon 1', bg: '#2A2A66', border: INDIGO } },
   { id: 'a-d2', type: 'arch', position: { x: 460, y: 240 }, data: { label: 'Daemon 2', bg: '#2A2A66', border: INDIGO } },

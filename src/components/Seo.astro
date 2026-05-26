@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { title, description, ogImage, canonicalUrl } = Astro.props;
-const siteUrl = Astro.site?.toString() ?? 'https://adora.dev';
+const siteUrl = Astro.site?.toString() ?? 'https://dora-rs.ai';
 const canonical = canonicalUrl ?? Astro.url.href;
 const og = ogImage ?? `${siteUrl}og.png`;
 ---

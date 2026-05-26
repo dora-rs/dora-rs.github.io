@@ -1,26 +1,26 @@
 [
   {
-    "question": "Adora 和 dora 有什么区别？",
-    "answer": "Adora 是 dora 的增强分支，新增了 Service（请求/回复）、Action（目标/反馈/结果）和 Streaming 通信模式、基于 WebSocket 的协调器、容错机制（自动重启和状态持久化）、录制/回放、集群管理、动态拓扑和全面的可观测性。原始 dora 仅支持 Topic 发布/订阅和 TCP 协调器。"
+    "question": "dora 1.0 有哪些新功能？",
+    "answer": "dora 1.0 是一次重大发布，在 dora 的零拷贝内核之上新增了 Service（请求/回复）、Action（目标/反馈/结果）和 Streaming 通信模式、基于 WebSocket 的协调器、容错机制（自动重启和状态持久化）、录制/回放、集群管理、动态拓扑和全面的可观测性。dora 0.x 仅支持 Topic 发布/订阅和 TCP 协调器。"
   },
   {
-    "question": "Adora 和 ROS2 有什么区别？",
-    "answer": "Adora 通过零拷贝共享内存和 Apache Arrow 比 ROS2 Python 快 10-17 倍。使用简单的 YAML 定义数据流而非代码生成，支持 Rust/Python/C/C++ 且无需 IDL 文件，并提供内置的集群管理、录制/回放和完整生命周期的单一 CLI。"
+    "question": "dora 和 ROS2 有什么区别？",
+    "answer": "dora 通过零拷贝共享内存和 Apache Arrow 比 ROS2 Python 快 10-17 倍。使用简单的 YAML 定义数据流而非代码生成，支持 Rust/Python/C/C++ 且无需 IDL 文件，并提供内置的集群管理、录制/回放和完整生命周期的单一 CLI。"
   },
   {
     "question": "支持哪些编程语言？",
-    "answer": "Adora 为 Rust、Python（通过 PyO3）、C 和 C++（通过 CXX bridge）提供原生 API。所有语言共享相同的 Apache Arrow 数据格式，零序列化开销，可在单个数据流中自由混合语言。"
+    "answer": "dora 为 Rust、Python（通过 PyO3）、C 和 C++（通过 CXX bridge）提供原生 API。所有语言共享相同的 Apache Arrow 数据格式，零序列化开销，可在单个数据流中自由混合语言。"
   },
   {
     "question": "支持哪些通信模式？",
-    "answer": "Adora 支持四种模式：Topic（即发即忘的发布/订阅）、Service（带 UUID 关联的请求/回复）、Action（带周期性反馈和取消支持的长时间运行目标）和 Streaming（带会话/分段/数据块元数据和队列刷新的连续数据）。"
+    "answer": "dora 支持四种模式：Topic（即发即忘的发布/订阅）、Service（带 UUID 关联的请求/回复）、Action（带周期性反馈和取消支持的长时间运行目标）和 Streaming（带会话/分段/数据块元数据和队列刷新的连续数据）。"
   },
   {
-    "question": "Adora 可以用于生产环境吗？",
-    "answer": "可以。Adora 包含容错机制（可配置重启策略）、通过 redb 持久化协调器状态、用于调试的录制/回放、OpenTelemetry 可观测性、带集群管理的分布式部署，以及在所有平台上进行格式化、代码检查、测试和端到端检查的全面 CI。"
+    "question": "dora 1.0 可以用于生产环境吗？",
+    "answer": "可以。dora 1.0 包含容错机制（可配置重启策略）、通过 redb 持久化协调器状态、用于调试的录制/回放、OpenTelemetry 可观测性、带集群管理的分布式部署，以及在所有平台上进行格式化、代码检查、测试和端到端检查的全面 CI。"
   },
   {
-    "question": "能从 dora 迁移到 Adora 吗？",
+    "question": "能从 dora 0.x 升级到 1.0 吗？",
     "answer": "现有的基于 Topic 的数据流基本向后兼容。核心的发布/订阅模型相同，YAML 数据流定义遵循相同的结构。你可以逐步采用新功能如 Service、Action 和容错机制，无需重写现有节点。"
   }
 ]
