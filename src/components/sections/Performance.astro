@@ -3,15 +3,15 @@ import Section from 'components/layout/Section.astro';
 import Container from 'components/layout/Container.astro';
 
 const benchmarks = [
-  { metric: 'Latency (SHM)', adora: '~500us p50', dora: '~500us p50', ros2: '1-10ms' },
-  { metric: 'Copy overhead', adora: 'Zero (Arrow)', dora: 'Zero (Arrow)', ros2: 'CDR serialization' },
-  { metric: 'Comm patterns', adora: '4', dora: '1 (Topic)', ros2: '4' },
-  { metric: 'Fault tolerance', adora: 'Built-in', dora: 'None', ros2: 'Basic' },
-  { metric: 'Record/Replay', adora: 'Built-in', dora: 'None', ros2: 'rosbag' },
-  { metric: 'Cluster mgmt', adora: 'Built-in', dora: 'None', ros2: 'Manual' },
-  { metric: 'Dynamic topology', adora: 'Yes', dora: 'No', ros2: 'Partial' },
-  { metric: 'Observability', adora: 'OpenTelemetry', dora: 'Basic logs', ros2: 'ROS2 logging' },
-  { metric: 'Languages', adora: 'Rust/Py/C/C++', dora: 'Rust/Py/C/C++', ros2: 'C++/Py' },
+  { metric: 'Latency (SHM)', dora1: '~500us p50', dora0: '~500us p50', ros2: '1-10ms' },
+  { metric: 'Copy overhead', dora1: 'Zero (Arrow)', dora0: 'Zero (Arrow)', ros2: 'CDR serialization' },
+  { metric: 'Comm patterns', dora1: '4', dora0: '1 (Topic)', ros2: '4' },
+  { metric: 'Fault tolerance', dora1: 'Built-in', dora0: 'None', ros2: 'Basic' },
+  { metric: 'Record/Replay', dora1: 'Built-in', dora0: 'None', ros2: 'rosbag' },
+  { metric: 'Cluster mgmt', dora1: 'Built-in', dora0: 'None', ros2: 'Manual' },
+  { metric: 'Dynamic topology', dora1: 'Yes', dora0: 'No', ros2: 'Partial' },
+  { metric: 'Observability', dora1: 'OpenTelemetry', dora0: 'Basic logs', ros2: 'ROS2 logging' },
+  { metric: 'Languages', dora1: 'Rust/Py/C/C++', dora0: 'Rust/Py/C/C++', ros2: 'C++/Py' },
 ];
 ---
 
@@ -42,7 +42,7 @@ const benchmarks = [
           {benchmarks.map((row) => (
             <tr class="border-b border-surface-3 transition-colors duration-200 hover:bg-surface-1">
               <td class="px-4 py-3 text-[16px] text-text">{row.metric}</td>
-              <td class="px-4 py-3 font-mono text-[16px] text-text-bright">{row.adora}</td>
+              <td class="px-4 py-3 font-mono text-[16px] text-text-bright">{row.dora1}</td>
               <td class="px-4 py-3 font-mono text-[16px] text-neutral-2">{row.dora}</td>
               <td class="px-4 py-3 font-mono text-[16px] text-neutral-2">{row.ros2}</td>
             </tr>

@@ -18,28 +18,28 @@ const patterns = [
 ];
 
 const benchmarks = [
-  { metric: '延迟 (SHM)', adora: '~500us p50', dora: '~500us p50', ros2: '1-10ms' },
-  { metric: '拷贝开销', adora: '零 (Arrow)', dora: '零 (Arrow)', ros2: 'CDR 序列化' },
-  { metric: '通信模式', adora: '4', dora: '1 (Topic)', ros2: '4' },
-  { metric: '容错机制', adora: '内置', dora: '无', ros2: '基础' },
-  { metric: '录制/回放', adora: '内置', dora: '无', ros2: 'rosbag' },
-  { metric: '集群管理', adora: '内置', dora: '无', ros2: '手动' },
-  { metric: '动态拓扑', adora: '支持', dora: '不支持', ros2: '部分支持' },
-  { metric: '可观测性', adora: 'OpenTelemetry', dora: '基础日志', ros2: 'ROS2 日志' },
-  { metric: '编程语言', adora: 'Rust/Py/C/C++', dora: 'Rust/Py/C/C++', ros2: 'C++/Py' },
+  { metric: '延迟 (SHM)', dora1: '~500us p50', dora0: '~500us p50', ros2: '1-10ms' },
+  { metric: '拷贝开销', dora1: '零 (Arrow)', dora0: '零 (Arrow)', ros2: 'CDR 序列化' },
+  { metric: '通信模式', dora1: '4', dora0: '1 (Topic)', ros2: '4' },
+  { metric: '容错机制', dora1: '内置', dora0: '无', ros2: '基础' },
+  { metric: '录制/回放', dora1: '内置', dora0: '无', ros2: 'rosbag' },
+  { metric: '集群管理', dora1: '内置', dora0: '无', ros2: '手动' },
+  { metric: '动态拓扑', dora1: '支持', dora0: '不支持', ros2: '部分支持' },
+  { metric: '可观测性', dora1: 'OpenTelemetry', dora0: '基础日志', ros2: 'ROS2 日志' },
+  { metric: '编程语言', dora1: 'Rust/Py/C/C++', dora0: 'Rust/Py/C/C++', ros2: 'C++/Py' },
 ];
 
 const comparisonRows = [
-  { dim: '定义', adora: '数据流框架', dora: '数据流框架', ros2: '机器人中间件' },
-  { dim: '延迟 (SHM)', adora: '~500us p50', dora: '~500us p50', ros2: '1-10ms' },
-  { dim: '通信模式', adora: '4 (Topic/Service/Action/Stream)', dora: '1 (Topic)', ros2: '4' },
-  { dim: '容错机制', adora: '内置重启策略', dora: '无', ros2: '基础' },
-  { dim: '录制/回放', adora: '内置 (.dora)', dora: '无', ros2: 'rosbag' },
-  { dim: '集群管理', adora: 'SSH + 标签', dora: '无', ros2: '手动' },
-  { dim: '动态拓扑', adora: '支持', dora: '不支持', ros2: '部分支持' },
-  { dim: '可观测性', adora: 'OpenTelemetry', dora: '基础日志', ros2: 'ROS2 日志' },
-  { dim: '编程语言', adora: 'Rust/Py/C/C++', dora: 'Rust/Py/C/C++', ros2: 'C++/Py' },
-  { dim: '零拷贝', adora: 'Arrow + Zenoh SHM', dora: 'Arrow + Zenoh SHM', ros2: 'CDR 序列化' },
+  { dim: '定义', dora1: '数据流框架', dora0: '数据流框架', ros2: '机器人中间件' },
+  { dim: '延迟 (SHM)', dora1: '~500us p50', dora0: '~500us p50', ros2: '1-10ms' },
+  { dim: '通信模式', dora1: '4 (Topic/Service/Action/Stream)', dora0: '1 (Topic)', ros2: '4' },
+  { dim: '容错机制', dora1: '内置重启策略', dora0: '无', ros2: '基础' },
+  { dim: '录制/回放', dora1: '内置 (.dora)', dora0: '无', ros2: 'rosbag' },
+  { dim: '集群管理', dora1: 'SSH + 标签', dora0: '无', ros2: '手动' },
+  { dim: '动态拓扑', dora1: '支持', dora0: '不支持', ros2: '部分支持' },
+  { dim: '可观测性', dora1: 'OpenTelemetry', dora0: '基础日志', ros2: 'ROS2 日志' },
+  { dim: '编程语言', dora1: 'Rust/Py/C/C++', dora0: 'Rust/Py/C/C++', ros2: 'C++/Py' },
+  { dim: '零拷贝', dora1: 'Arrow + Zenoh SHM', dora0: 'Arrow + Zenoh SHM', ros2: 'CDR 序列化' },
 ];
 
 const cases = [
@@ -497,7 +497,7 @@ const stats = [
             {benchmarks.map((row) => (
               <tr class="border-b border-surface-3 transition-colors duration-200 hover:bg-surface-1">
                 <td class="px-4 py-3 text-[16px] text-text">{row.metric}</td>
-                <td class="px-4 py-3 font-mono text-[16px] text-text-bright">{row.adora}</td>
+                <td class="px-4 py-3 font-mono text-[16px] text-text-bright">{row.dora1}</td>
                 <td class="px-4 py-3 font-mono text-[16px] text-neutral-2">{row.dora}</td>
                 <td class="px-4 py-3 font-mono text-[16px] text-neutral-2">{row.ros2}</td>
               </tr>
@@ -537,7 +537,7 @@ const stats = [
           {comparisonRows.map((row) => (
             <tr class="border-b border-white/5 transition-colors duration-200 hover:bg-white/5">
               <td class="px-3 py-2.5 font-mono text-[16px] text-neutral-2">{row.dim}</td>
-              <td class="px-3 py-2.5 text-text-bright">{row.adora}</td>
+              <td class="px-3 py-2.5 text-text-bright">{row.dora1}</td>
               <td class="px-3 py-2.5 text-neutral-2">{row.dora}</td>
               <td class="px-3 py-2.5 text-neutral-2">{row.ros2}</td>
             </tr>

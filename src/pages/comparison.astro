@@ -6,52 +6,52 @@ import Button from 'components/ui/Button.astro';
 import ComparisonArchFlow from 'components/ComparisonArchFlow.jsx';
 
 const featureMatrix = [
-  { dim: 'Coordinator protocol', adora: 'WebSocket (port 6013)', dora: 'TCP', ros2: 'DDS' },
-  { dim: 'Data plane', adora: 'Zenoh SHM + shared memory', dora: 'Shared memory only', ros2: 'DDS serialization' },
-  { dim: 'Communication patterns', adora: '4 (Topic, Service, Action, Streaming)', dora: '1 (Topic only)', ros2: '4 (Topic, Service, Action, Timer)' },
-  { dim: 'Latency (SHM path)', adora: '~500us p50', dora: '~500us p50', ros2: '1-10ms' },
-  { dim: 'Copy overhead', adora: 'Zero (Apache Arrow)', dora: 'Zero (Apache Arrow)', ros2: 'CDR serialization' },
-  { dim: 'Fault tolerance', adora: 'Built-in (restart policies, health checks, circuit breakers)', dora: 'None', ros2: 'Basic lifecycle' },
-  { dim: 'Record / Replay', adora: 'Built-in (.dora files)', dora: 'None', ros2: 'rosbag2' },
-  { dim: 'Dynamic topology', adora: 'Yes (add/remove/connect/disconnect at runtime)', dora: 'No', ros2: 'Partial (lifecycle nodes)' },
-  { dim: 'Cluster management', adora: 'Built-in SSH clusters with label scheduling', dora: 'None', ros2: 'Manual or external tools' },
-  { dim: 'Observability', adora: 'OpenTelemetry (logs, metrics, traces)', dora: 'Basic logging', ros2: 'ROS2 logging + third-party' },
-  { dim: 'Real-time support', adora: 'SCHED_FIFO + mlockall + CPU affinity', dora: 'None', ros2: 'rclcpp Executor (partial)' },
-  { dim: 'Type annotations', adora: 'Static validation via dora validate', dora: 'None', ros2: 'IDL / .msg files' },
-  { dim: 'Reusable modules', adora: 'YAML module composition with typed ports', dora: 'None', ros2: 'ROS2 packages' },
-  { dim: 'Log management', adora: 'Structured + rotation + routing + aggregation', dora: 'Basic stdout', ros2: 'rosout' },
-  { dim: 'Resource monitoring', adora: 'dora top TUI (CPU, mem, queues, network)', dora: 'None', ros2: 'External tools' },
-  { dim: 'Topic inspection', adora: 'topic echo / hz / info', dora: 'None', ros2: 'ros2 topic echo / hz / info' },
-  { dim: 'Schema validation', adora: 'dora validate with wiring checks', dora: 'None', ros2: 'colcon build (compile-time)' },
-  { dim: 'WebSocket control', adora: 'Full control + topic data channels', dora: 'None', ros2: 'rosbridge (third-party)' },
-  { dim: 'Python CLI API', adora: 'PyO3 native bindings', dora: 'None', ros2: 'rclpy' },
-  { dim: 'Coordinator HA', adora: 'Persistent redb state + daemon reconnect', dora: 'None', ros2: 'N/A (no coordinator)' },
-  { dim: 'Source files', adora: '772', dora: '488', ros2: '~50,000+' },
-  { dim: 'Examples', adora: '37', dora: '20', ros2: 'Hundreds (community)' },
-  { dim: 'CI templates', adora: 'Reusable downstream CI workflows', dora: 'None', ros2: 'N/A' },
+  { dim: 'Coordinator protocol', dora1: 'WebSocket (port 6013)', dora0: 'TCP', ros2: 'DDS' },
+  { dim: 'Data plane', dora1: 'Zenoh SHM + shared memory', dora0: 'Shared memory only', ros2: 'DDS serialization' },
+  { dim: 'Communication patterns', dora1: '4 (Topic, Service, Action, Streaming)', dora0: '1 (Topic only)', ros2: '4 (Topic, Service, Action, Timer)' },
+  { dim: 'Latency (SHM path)', dora1: '~500us p50', dora0: '~500us p50', ros2: '1-10ms' },
+  { dim: 'Copy overhead', dora1: 'Zero (Apache Arrow)', dora0: 'Zero (Apache Arrow)', ros2: 'CDR serialization' },
+  { dim: 'Fault tolerance', dora1: 'Built-in (restart policies, health checks, circuit breakers)', dora0: 'None', ros2: 'Basic lifecycle' },
+  { dim: 'Record / Replay', dora1: 'Built-in (.dora files)', dora0: 'None', ros2: 'rosbag2' },
+  { dim: 'Dynamic topology', dora1: 'Yes (add/remove/connect/disconnect at runtime)', dora0: 'No', ros2: 'Partial (lifecycle nodes)' },
+  { dim: 'Cluster management', dora1: 'Built-in SSH clusters with label scheduling', dora0: 'None', ros2: 'Manual or external tools' },
+  { dim: 'Observability', dora1: 'OpenTelemetry (logs, metrics, traces)', dora0: 'Basic logging', ros2: 'ROS2 logging + third-party' },
+  { dim: 'Real-time support', dora1: 'SCHED_FIFO + mlockall + CPU affinity', dora0: 'None', ros2: 'rclcpp Executor (partial)' },
+  { dim: 'Type annotations', dora1: 'Static validation via dora validate', dora0: 'None', ros2: 'IDL / .msg files' },
+  { dim: 'Reusable modules', dora1: 'YAML module composition with typed ports', dora0: 'None', ros2: 'ROS2 packages' },
+  { dim: 'Log management', dora1: 'Structured + rotation + routing + aggregation', dora0: 'Basic stdout', ros2: 'rosout' },
+  { dim: 'Resource monitoring', dora1: 'dora top TUI (CPU, mem, queues, network)', dora0: 'None', ros2: 'External tools' },
+  { dim: 'Topic inspection', dora1: 'topic echo / hz / info', dora0: 'None', ros2: 'ros2 topic echo / hz / info' },
+  { dim: 'Schema validation', dora1: 'dora validate with wiring checks', dora0: 'None', ros2: 'colcon build (compile-time)' },
+  { dim: 'WebSocket control', dora1: 'Full control + topic data channels', dora0: 'None', ros2: 'rosbridge (third-party)' },
+  { dim: 'Python CLI API', dora1: 'PyO3 native bindings', dora0: 'None', ros2: 'rclpy' },
+  { dim: 'Coordinator HA', dora1: 'Persistent redb state + daemon reconnect', dora0: 'None', ros2: 'N/A (no coordinator)' },
+  { dim: 'Source files', dora1: '772', dora0: '488', ros2: '~50,000+' },
+  { dim: 'Examples', dora1: '37', dora0: '20', ros2: 'Hundreds (community)' },
+  { dim: 'CI templates', dora1: 'Reusable downstream CI workflows', dora0: 'None', ros2: 'N/A' },
 ];
 
 const cliComparison = [
-  { command: 'Start dataflow', adora: 'dora start dataflow.yml', dora: 'dora start dataflow.yml' },
-  { command: 'Stop dataflow', adora: 'dora stop', dora: 'dora destroy' },
-  { command: 'View logs', adora: 'dora logs --node webcam', dora: '(stdout only)' },
-  { command: 'Record messages', adora: 'dora record', dora: '(not available)' },
-  { command: 'Replay recording', adora: 'dora replay recording.dora', dora: '(not available)' },
-  { command: 'Live topic data', adora: 'dora topic echo webcam/image', dora: '(not available)' },
-  { command: 'Frequency monitor', adora: 'dora topic hz webcam/image', dora: '(not available)' },
-  { command: 'Resource monitor', adora: 'dora top', dora: '(not available)' },
-  { command: 'Add node at runtime', adora: 'dora node add --path ./detector', dora: '(not available)' },
-  { command: 'Cluster deploy', adora: 'dora cluster up', dora: '(not available)' },
-  { command: 'Validate dataflow', adora: 'dora validate dataflow.yml', dora: '(not available)' },
-  { command: 'View traces', adora: 'dora trace list', dora: '(not available)' },
-  { command: 'Parameter management', adora: 'dora param get/set/delete', dora: '(not available)' },
-  { command: 'Dataflow visualization', adora: 'dora graph dataflow.yml', dora: 'dora graph dataflow.yml' },
+  { command: 'Start dataflow', dora1: 'dora start dataflow.yml', dora0: 'dora start dataflow.yml' },
+  { command: 'Stop dataflow', dora1: 'dora stop', dora0: 'dora destroy' },
+  { command: 'View logs', dora1: 'dora logs --node webcam', dora0: '(stdout only)' },
+  { command: 'Record messages', dora1: 'dora record', dora0: '(not available)' },
+  { command: 'Replay recording', dora1: 'dora replay recording.dora', dora0: '(not available)' },
+  { command: 'Live topic data', dora1: 'dora topic echo webcam/image', dora0: '(not available)' },
+  { command: 'Frequency monitor', dora1: 'dora topic hz webcam/image', dora0: '(not available)' },
+  { command: 'Resource monitor', dora1: 'dora top', dora0: '(not available)' },
+  { command: 'Add node at runtime', dora1: 'dora node add --path ./detector', dora0: '(not available)' },
+  { command: 'Cluster deploy', dora1: 'dora cluster up', dora0: '(not available)' },
+  { command: 'Validate dataflow', dora1: 'dora validate dataflow.yml', dora0: '(not available)' },
+  { command: 'View traces', dora1: 'dora trace list', dora0: '(not available)' },
+  { command: 'Parameter management', dora1: 'dora param get/set/delete', dora0: '(not available)' },
+  { command: 'Dataflow visualization', dora1: 'dora graph dataflow.yml', dora0: 'dora graph dataflow.yml' },
 ];
 
 const patternExamples = [
   {
     name: 'Topic (pub/sub)',
-    available: { adora: true, dora: true, ros2: true },
+    available: { dora1: true, dora0: true, ros2: true },
     yaml: `nodes:
   - id: sensor
     outputs: [data]
@@ -61,7 +61,7 @@ const patternExamples = [
   },
   {
     name: 'Service (request/reply)',
-    available: { adora: true, dora: false, ros2: true },
+    available: { dora1: true, dora0: false, ros2: true },
     yaml: `# dora 1.0 — metadata-based correlation
 node.send_service_request("request", params, data)
 # Server passes through request_id
@@ -69,14 +69,14 @@ node.send_service_response("response", metadata.parameters, result)`,
   },
   {
     name: 'Action (goal/feedback/result)',
-    available: { adora: true, dora: false, ros2: true },
+    available: { dora1: true, dora0: false, ros2: true },
     yaml: `# Goal with periodic feedback + final result
 # Supports cancellation via cancel output
 # Metadata keys: goal_id, goal_status`,
   },
   {
     name: 'Streaming (session/segment/chunk)',
-    available: { adora: true, dora: false, ros2: false },
+    available: { dora1: true, dora0: false, ros2: false },
     yaml: `# Real-time pipelines with interruption
 # flush: true clears downstream queues
 # Enables voice/video barge-in`,
@@ -146,7 +146,7 @@ node.send_service_response("response", metadata.parameters, result)`,
             <div class="mb-3 flex items-center gap-3">
               <h3 class="text-[16px] text-text-bright">{pattern.name}</h3>
               <div class="flex gap-1.5">
-                <span class={`inline-block rounded px-1.5 py-0.5 font-mono text-[10px] ${pattern.available.adora ? 'bg-accent/20 text-accent' : 'bg-surface-3 text-neutral-2'}`}>
+                <span class={`inline-block rounded px-1.5 py-0.5 font-mono text-[10px] ${pattern.available.dora1 ? 'bg-accent/20 text-accent' : 'bg-surface-3 text-neutral-2'}`}>
                   dora 1.0
                 </span>
                 <span class={`inline-block rounded px-1.5 py-0.5 font-mono text-[10px] ${pattern.available.dora ? 'bg-accent/20 text-accent' : 'bg-surface-3 text-neutral-2'}`}>
@@ -188,7 +188,7 @@ node.send_service_response("response", metadata.parameters, result)`,
             {featureMatrix.map((row) => (
               <tr class="border-b border-surface-3/50 transition-colors duration-200 hover:bg-surface-1/50">
                 <td class="px-4 py-2.5 font-mono text-[16px] text-neutral-2">{row.dim}</td>
-                <td class="px-4 py-2.5 text-text-bright">{row.adora}</td>
+                <td class="px-4 py-2.5 text-text-bright">{row.dora1}</td>
                 <td class="px-4 py-2.5 text-neutral-2">{row.dora}</td>
                 <td class="px-4 py-2.5 text-neutral-2">{row.ros2}</td>
               </tr>
@@ -226,7 +226,7 @@ node.send_service_response("response", metadata.parameters, result)`,
             {cliComparison.map((row) => (
               <tr class="border-b border-surface-3/50 transition-colors duration-200 hover:bg-surface-1/50">
                 <td class="px-4 py-2.5 text-neutral-2">{row.command}</td>
-                <td class="px-4 py-2.5 font-mono text-[16px] text-text-bright">{row.adora}</td>
+                <td class="px-4 py-2.5 font-mono text-[16px] text-text-bright">{row.dora1}</td>
                 <td class="px-4 py-2.5 font-mono text-[16px] text-neutral-2">{row.dora}</td>
               </tr>
             ))}
