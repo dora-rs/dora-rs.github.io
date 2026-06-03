@@ -12,7 +12,7 @@ const featureMatrix = [
   { dim: 'Latency (SHM path)', dora1: '~500us p50', dora0: '~500us p50', ros2: '1-10ms' },
   { dim: 'Copy overhead', dora1: 'Zero (Apache Arrow)', dora0: 'Zero (Apache Arrow)', ros2: 'CDR serialization' },
   { dim: 'Fault tolerance', dora1: 'Built-in (restart policies, health checks, circuit breakers)', dora0: 'None', ros2: 'Basic lifecycle' },
-  { dim: 'Record / Replay', dora1: 'Built-in (.dora files)', dora0: 'None', ros2: 'rosbag2' },
+  { dim: 'Record / Replay', dora1: 'Built-in (.drec files)', dora0: 'None', ros2: 'rosbag2' },
   { dim: 'Dynamic topology', dora1: 'Yes (add/remove/connect/disconnect at runtime)', dora0: 'No', ros2: 'Partial (lifecycle nodes)' },
   { dim: 'Cluster management', dora1: 'Built-in SSH clusters with label scheduling', dora0: 'None', ros2: 'Manual or external tools' },
   { dim: 'Observability', dora1: 'OpenTelemetry (logs, metrics, traces)', dora0: 'Basic logging', ros2: 'ROS2 logging + third-party' },
@@ -27,7 +27,7 @@ const featureMatrix = [
   { dim: 'Python CLI API', dora1: 'PyO3 native bindings', dora0: 'None', ros2: 'rclpy' },
   { dim: 'Coordinator HA', dora1: 'Persistent redb state + daemon reconnect', dora0: 'None', ros2: 'N/A (no coordinator)' },
   { dim: 'Source files', dora1: '772', dora0: '488', ros2: '~50,000+' },
-  { dim: 'Examples', dora1: '37', dora0: '20', ros2: 'Hundreds (community)' },
+  { dim: 'Examples', dora1: '45', dora0: '20', ros2: 'Hundreds (community)' },
   { dim: 'CI templates', dora1: 'Reusable downstream CI workflows', dora0: 'None', ros2: 'N/A' },
 ];
 
@@ -36,11 +36,11 @@ const cliComparison = [
   { command: 'Stop dataflow', dora1: 'dora stop', dora0: 'dora destroy' },
   { command: 'View logs', dora1: 'dora logs --node webcam', dora0: '(stdout only)' },
   { command: 'Record messages', dora1: 'dora record', dora0: '(not available)' },
-  { command: 'Replay recording', dora1: 'dora replay recording.dora', dora0: '(not available)' },
+  { command: 'Replay recording', dora1: 'dora replay recording.drec', dora0: '(not available)' },
   { command: 'Live topic data', dora1: 'dora topic echo webcam/image', dora0: '(not available)' },
   { command: 'Frequency monitor', dora1: 'dora topic hz webcam/image', dora0: '(not available)' },
   { command: 'Resource monitor', dora1: 'dora top', dora0: '(not available)' },
-  { command: 'Add node at runtime', dora1: 'dora node add --path ./detector', dora0: '(not available)' },
+  { command: 'Add node at runtime', dora1: 'dora node add --from-yaml node.yml', dora0: '(not available)' },
   { command: 'Cluster deploy', dora1: 'dora cluster up', dora0: '(not available)' },
   { command: 'Validate dataflow', dora1: 'dora validate dataflow.yml', dora0: '(not available)' },
   { command: 'View traces', dora1: 'dora trace list', dora0: '(not available)' },
@@ -261,7 +261,7 @@ node.send_service_response("response", metadata.parameters, result)`,
         </div>
         <div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
           <h3 class="text-[16px] text-accent">Record & Replay</h3>
-          <p class="mt-2 text-[16px] text-neutral-2">Capture all messages to .dora files. Replay at any speed with node substitution for regression testing.</p>
+          <p class="mt-2 text-[16px] text-neutral-2">Capture all messages to .drec files. Replay at any speed with node substitution for regression testing.</p>
         </div>
         <div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
           <h3 class="text-[16px] text-accent">Cluster Management</h3>

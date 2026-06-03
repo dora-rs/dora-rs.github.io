@@ -25,7 +25,7 @@
   },
   {
     "title": "Record & Replay",
-    "description": "Capture dataflow messages to .dora files. Replay offline at any speed with node substitution for regression testing and offline debugging.",
+    "description": "Capture dataflow messages to .drec files. Replay offline at any speed with node substitution for regression testing and offline debugging.",
     "stat": null,
     "statLabel": null
   },
@@ -50,6 +50,12 @@
   {
     "title": "Agentic Engineering",
     "description": "Built and maintained with autonomous AI agents driving code generation, reviews, refactoring, testing, and commits.",
+    "stat": null,
+    "statLabel": null
+  },
+  {
+    "title": "ROS2 & MAVLink Bridges",
+    "description": "Bidirectional ROS2 bridge (experimental) with Arrow-native conversion and QoS mapping, plus a MAVLink 2 bridge (TCP/UDP/serial) for drone/robotics interop.",
     "stat": null,
     "statLabel": null
   }

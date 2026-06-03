@@ -11,7 +11,7 @@ const featureMatrix = [
   { dim: '延迟 (SHM)', dora1: '~500us p50', dora0: '~500us p50', ros2: '1-10ms' },
   { dim: '拷贝开销', dora1: '零 (Apache Arrow)', dora0: '零 (Apache Arrow)', ros2: 'CDR 序列化' },
   { dim: '容错', dora1: '内置（重启策略、健康检查、熔断器）', dora0: '无', ros2: '基础生命周期' },
-  { dim: '录制/回放', dora1: '内置 (.dora 文件)', dora0: '无', ros2: 'rosbag2' },
+  { dim: '录制/回放', dora1: '内置 (.drec 文件)', dora0: '无', ros2: 'rosbag2' },
   { dim: '动态拓扑', dora1: '支持（运行时添加/移除/连接/断开）', dora0: '不支持', ros2: '部分（生命周期节点）' },
   { dim: '集群管理', dora1: '内置 SSH 集群 + 标签调度', dora0: '无', ros2: '手动或外部工具' },
   { dim: '可观测性', dora1: 'OpenTelemetry（日志、指标、追踪）', dora0: '基础日志', ros2: 'ROS2 日志 + 第三方' },
