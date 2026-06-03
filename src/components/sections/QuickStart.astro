@@ -9,23 +9,31 @@ cargo install dora-cli
 <span class="text-neutral-2"># Create a dataflow</span>
 cat > dataflow.yml << <span class="text-neutral-1">'EOF'</span>
 nodes:
-  - id: webcam
-    path: dora-hub/webcam
-    outputs: [image]
-  - id: detector
-    path: dora-hub/yolov8
+  - id: camera
+    build: pip install opencv-video-capture
+    path: opencv-video-capture
     inputs:
-      image: webcam/image
+      tick: dora/timer/millis/20
+    outputs: [image]
+    env:
+      CAPTURE_PATH: 0
+  - id: object-detection
+    build: pip install dora-yolo
+    path: dora-yolo
+    inputs:
+      image: camera/image
     outputs: [bbox]
   - id: plot
-    path: dora-hub/opencv-plot
+    build: pip install dora-rerun
+    path: dora-rerun
     inputs:
-      image: webcam/image
-      bbox: detector/bbox
+      image: camera/image
+      boxes2d: object-detection/bbox
 <span class="text-neutral-1">EOF</span>
 
-<span class="text-neutral-2"># Run it</span>
-dora start dataflow.yml`;
+<span class="text-neutral-2"># Build the nodes, then run locally</span>
+dora build dataflow.yml
+dora run dataflow.yml`;
 ---
 
 <Section id="quickstart" background="secondary" padY="lg">
