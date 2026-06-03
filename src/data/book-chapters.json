@@ -11,7 +11,7 @@
     "chapters": [
       { "title": "Architecture", "description": "CLI, Coordinator, Daemon, and Node layers explained", "href": "/book/concepts/architecture" },
       { "title": "Dataflow YAML", "description": "Define pipelines as directed graphs with typed inputs and outputs", "href": "/book/concepts/dataflow-yaml" },
-      { "title": "Type Annotations", "description": "Static type checking for dataflow connections", "href": "/book/concepts/type-annotations" },
+      { "title": "Type Annotations", "description": "Static type checking for dataflow connections", "href": "/book/concepts/types" },
       { "title": "Modules", "description": "Compose reusable sub-graphs as standalone YAML files", "href": "/book/concepts/modules" },
       { "title": "Communication Patterns", "description": "Topic, Service, Action, and Streaming patterns", "href": "/book/concepts/patterns" }
     ]
