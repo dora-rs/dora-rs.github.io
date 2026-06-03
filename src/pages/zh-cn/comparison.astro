@@ -5,18 +5,18 @@ import Container from 'components/layout/Container.astro';
 import Button from 'components/ui/Button.astro';
 
 const featureMatrix = [
-  { dim: '协调器协议', adora: 'WebSocket (端口 6013)', dora: 'TCP', ros2: 'DDS' },
-  { dim: '数据平面', adora: 'Zenoh SHM + 共享内存', dora: '仅共享内存', ros2: 'DDS 序列化' },
-  { dim: '通信模式', adora: '4 种 (Topic, Service, Action, Streaming)', dora: '1 种 (仅 Topic)', ros2: '4 种 (Topic, Service, Action, Timer)' },
-  { dim: '延迟 (SHM)', adora: '~500us p50', dora: '~500us p50', ros2: '1-10ms' },
-  { dim: '拷贝开销', adora: '零 (Apache Arrow)', dora: '零 (Apache Arrow)', ros2: 'CDR 序列化' },
-  { dim: '容错', adora: '内置（重启策略、健康检查、熔断器）', dora: '无', ros2: '基础生命周期' },
-  { dim: '录制/回放', adora: '内置 (.dora 文件)', dora: '无', ros2: 'rosbag2' },
-  { dim: '动态拓扑', adora: '支持（运行时添加/移除/连接/断开）', dora: '不支持', ros2: '部分（生命周期节点）' },
-  { dim: '集群管理', adora: '内置 SSH 集群 + 标签调度', dora: '无', ros2: '手动或外部工具' },
-  { dim: '可观测性', adora: 'OpenTelemetry（日志、指标、追踪）', dora: '基础日志', ros2: 'ROS2 日志 + 第三方' },
-  { dim: '实时支持', adora: 'SCHED_FIFO + mlockall + CPU 亲和', dora: '无', ros2: 'rclcpp Executor（部分）' },
-  { dim: '源文件数', adora: '772', dora: '488', ros2: '~50,000+' },
+  { dim: '协调器协议', dora1: 'WebSocket (端口 6013)', dora0: 'TCP', ros2: 'DDS' },
+  { dim: '数据平面', dora1: 'Zenoh SHM + 共享内存', dora0: '仅共享内存', ros2: 'DDS 序列化' },
+  { dim: '通信模式', dora1: '4 种 (Topic, Service, Action, Streaming)', dora0: '1 种 (仅 Topic)', ros2: '4 种 (Topic, Service, Action, Timer)' },
+  { dim: '延迟 (SHM)', dora1: '~500us p50', dora0: '~500us p50', ros2: '1-10ms' },
+  { dim: '拷贝开销', dora1: '零 (Apache Arrow)', dora0: '零 (Apache Arrow)', ros2: 'CDR 序列化' },
+  { dim: '容错', dora1: '内置（重启策略、健康检查、熔断器）', dora0: '无', ros2: '基础生命周期' },
+  { dim: '录制/回放', dora1: '内置 (.dora 文件)', dora0: '无', ros2: 'rosbag2' },
+  { dim: '动态拓扑', dora1: '支持（运行时添加/移除/连接/断开）', dora0: '不支持', ros2: '部分（生命周期节点）' },
+  { dim: '集群管理', dora1: '内置 SSH 集群 + 标签调度', dora0: '无', ros2: '手动或外部工具' },
+  { dim: '可观测性', dora1: 'OpenTelemetry（日志、指标、追踪）', dora0: '基础日志', ros2: 'ROS2 日志 + 第三方' },
+  { dim: '实时支持', dora1: 'SCHED_FIFO + mlockall + CPU 亲和', dora0: '无', ros2: 'rclcpp Executor（部分）' },
+  { dim: '源文件数', dora1: '772', dora0: '488', ros2: '~50,000+' },
 ];
 ---
 
@@ -60,7 +60,7 @@ const featureMatrix = [
             {featureMatrix.map((row) => (
               <tr class="border-b border-surface-3/50 transition-colors duration-200 hover:bg-surface-1/50">
                 <td class="px-4 py-2.5 font-mono text-[16px] text-neutral-2">{row.dim}</td>
-                <td class="px-4 py-2.5 text-text-bright">{row.adora}</td>
+                <td class="px-4 py-2.5 text-text-bright">{row.dora1}</td>
                 <td class="px-4 py-2.5 text-neutral-2">{row.dora}</td>
                 <td class="px-4 py-2.5 text-neutral-2">{row.ros2}</td>
               </tr>
