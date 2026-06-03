@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [adora-website]
+    branches: [main]
 
 permissions:
   contents: read
