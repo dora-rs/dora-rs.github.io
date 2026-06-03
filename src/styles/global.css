@@ -110,6 +110,8 @@ html[data-theme="light"] {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
+    /* Offset anchor targets so section headings clear the fixed header (~69px) */
+    scroll-padding-top: 84px;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 

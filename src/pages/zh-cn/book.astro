@@ -3,6 +3,8 @@ import Layout from 'layouts/Layout.astro';
 import Section from 'components/layout/Section.astro';
 import Container from 'components/layout/Container.astro';
 import chapters from 'data/book-chapters.json';
+
+const bookUrl = 'https://dora-rs.ai/dora/zh-CN/';
 ---
 
 <Layout
@@ -35,7 +37,7 @@ import chapters from 'data/book-chapters.json';
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
               {group.chapters.map((ch) => (
                 <a
-                  href={ch.href}
+                  href={bookUrl + ch.href.replace('/book/', '')}
                   class="group block rounded-lg border border-surface-3 bg-surface-1 p-5 transition-all duration-300 hover:border-accent hover:bg-surface-2"
                 >
                   <h3 class="text-[16px] font-normal text-text-bright transition-colors group-hover:text-accent">
