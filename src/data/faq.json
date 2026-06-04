@@ -17,7 +17,7 @@
   },
   {
     "question": "Is dora 1.0 production-ready?",
-    "answer": "Yes. dora 1.0 includes fault tolerance with configurable restart policies, persistent coordinator state via redb, record/replay for debugging, OpenTelemetry observability, distributed deployment with cluster management, and comprehensive CI including format, lint, test, and E2E checks on all platforms."
+    "answer": "dora 1.0 is at the release-candidate stage (1.0.0-rc1) and is built for production use: fault tolerance with configurable restart policies, persistent coordinator state via redb, record/replay for debugging, OpenTelemetry observability, distributed deployment with cluster management, and comprehensive CI (format, lint, test, and E2E) on all platforms. As a release candidate it is still hardening in a few areas — for example, reclaiming running dataflows across a coordinator restart is currently partial — so validate against your own workload before depending on it."
   },
   {
     "question": "Can I upgrade from dora 0.x to 1.0?",
