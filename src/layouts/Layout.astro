@@ -59,5 +59,35 @@ const { title, description, ogImage } = Astro.props;
         mo.observe(document.body, { childList: true, subtree: true });
       })();
     </script>
+
+    <!-- Deep-anchor landing fix: client components (React-Flow diagrams)
+         hydrate and grow the page ~1900px after load, so an initial #hash
+         scroll lands short. Re-scroll to the target as the layout settles,
+         backing off the moment the user scrolls. -->
+    <script is:inline>
+      (function() {
+        if (!location.hash) return;
+        var id = decodeURIComponent(location.hash.slice(1));
+        if (!document.getElementById(id)) return;
+        var HEADER = 84; // matches scroll-padding-top
+        var interacted = false;
+        ['wheel','touchstart','keydown','pointerdown'].forEach(function(ev) {
+          window.addEventListener(ev, function() { interacted = true; }, { passive: true, once: true });
+        });
+        function jump() {
+          if (interacted) return;
+          var el = document.getElementById(id);
+          if (!el) return;
+          window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - HEADER);
+        }
+        // Follow the layout as it grows during hydration, then stop.
+        if (window.ResizeObserver) {
+          var ro = new ResizeObserver(jump);
+          ro.observe(document.body);
+          setTimeout(function() { ro.disconnect(); }, 3000);
+        }
+        window.addEventListener('load', jump);
+      })();
+    </script>
   </body>
 </html>
