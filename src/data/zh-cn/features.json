@@ -25,7 +25,7 @@
   },
   {
     "title": "录制与回放",
-    "description": "将数据流消息录制到 .dora 文件。以任意速度离线回放，支持节点替换，用于回归测试和离线调试。",
+    "description": "将数据流消息录制到 .drec 文件。以任意速度离线回放，支持节点替换，用于回归测试和离线调试。",
     "stat": null,
     "statLabel": null
   },
@@ -49,8 +49,14 @@
   },
   {
     "title": "智能体工程",
-    "description": "由自主 AI 智能体驱动代码生成、审查、重构、测试和提交。772 个源文件，持续增长中。",
-    "stat": "772",
-    "statLabel": "源文件"
+    "description": "由自主 AI 智能体驱动代码生成、审查、重构、测试和提交。",
+    "stat": null,
+    "statLabel": null
+  },
+  {
+    "title": "ROS2 与 MAVLink 桥接",
+    "description": "双向 ROS2 桥接（实验性），支持 Arrow 原生转换和 QoS 映射；以及 MAVLink 2 桥接（TCP/UDP/串口），用于无人机/机器人互操作。",
+    "stat": null,
+    "statLabel": null
   }
 ]

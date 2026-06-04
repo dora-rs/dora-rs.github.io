@@ -2,6 +2,5 @@
   { "value": "10-17x", "label": "快于 ROS2" },
   { "value": "4", "label": "通信模式" },
   { "value": "4", "label": "编程语言" },
-  { "value": "772", "label": "源文件" },
   { "value": "0", "label": "拷贝开销" }
 ]

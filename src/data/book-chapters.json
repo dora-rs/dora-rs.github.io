@@ -3,7 +3,7 @@
     "section": "Getting Started",
     "chapters": [
       { "title": "Installation", "description": "Install the dora CLI and runtime on Linux, macOS, or Windows", "href": "/book/getting-started/installation" },
-      { "title": "Quickstart", "description": "Build and run your first dataflow in under 5 minutes", "href": "/book/getting-started/quickstart" }
+      { "title": "Quick Start", "description": "Build and run your first dataflow in under 5 minutes", "href": "/book/getting-started/quickstart" }
     ]
   },
   {
@@ -33,7 +33,7 @@
       { "title": "Debugging", "description": "Topic inspection, trace viewing, and resource monitoring", "href": "/book/operations/debugging" },
       { "title": "Fault Tolerance", "description": "Restart policies, health checks, and circuit breakers", "href": "/book/operations/fault-tolerance" },
       { "title": "Distributed Deployment", "description": "Multi-machine clusters with SSH and label scheduling", "href": "/book/operations/distributed" },
-      { "title": "Performance Tuning", "description": "Queue sizes, shared memory thresholds, and Arrow optimization", "href": "/book/operations/performance" },
+      { "title": "Performance", "description": "Queue sizes, shared memory thresholds, and Arrow optimization", "href": "/book/operations/performance" },
       { "title": "Real-Time Tuning", "description": "SCHED_FIFO, mlockall, CPU affinity, and kernel parameters", "href": "/book/operations/realtime-tuning" },
       { "title": "Dynamic Topology", "description": "Add, remove, connect, and disconnect nodes at runtime", "href": "/book/operations/dynamic-topology" }
     ]
@@ -42,8 +42,8 @@
     "section": "Advanced",
     "chapters": [
       { "title": "ROS2 Bridge", "description": "Bidirectional interop with ROS2 topics, services, and actions", "href": "/book/advanced/ros2-bridge" },
-      { "title": "WebSocket Control", "description": "Programmatic control via the WebSocket API", "href": "/book/advanced/ws-control" },
-      { "title": "WebSocket Topics", "description": "Stream topic data over WebSocket for web UIs", "href": "/book/advanced/ws-topic" }
+      { "title": "WebSocket Control Plane", "description": "Programmatic control via the WebSocket API", "href": "/book/advanced/ws-control" },
+      { "title": "WebSocket Topic Data", "description": "Stream topic data over WebSocket for web UIs", "href": "/book/advanced/ws-topic" }
     ]
   },
   {
