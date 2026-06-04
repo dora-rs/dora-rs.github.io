@@ -6,18 +6,22 @@ const isZhCn = Astro.url.pathname.includes('/zh-cn');
 const langSwitchHref = isZhCn ? `${base}/` : `${base}/zh-cn/`;
 const langSwitchLabel = isZhCn ? 'EN' : 'CN';
 
+// Section anchors live on the home page; prefix with the home path so the
+// links also work from sub-pages (/comparison, /book) instead of resolving to
+// a non-existent anchor on the current page.
+const home = isZhCn ? `${base}/zh-cn/` : `${base}/`;
 const navLinks = isZhCn ? [
-  { text: '特性', href: '#features' },
-  { text: '架构', href: '#architecture' },
-  { text: '性能', href: '#performance' },
+  { text: '特性', href: `${home}#features` },
+  { text: '架构', href: `${home}#architecture` },
+  { text: '性能', href: `${home}#performance` },
   { text: '对比', href: `${base}/zh-cn/comparison` },
-  { text: '快速开始', href: '#quickstart' },
+  { text: '快速开始', href: `${home}#quickstart` },
 ] : [
-  { text: 'Features', href: '#features' },
-  { text: 'Architecture', href: '#architecture' },
-  { text: 'Performance', href: '#performance' },
+  { text: 'Features', href: `${home}#features` },
+  { text: 'Architecture', href: `${home}#architecture` },
+  { text: 'Performance', href: `${home}#performance` },
   { text: 'Comparison', href: `${base}/comparison` },
-  { text: 'Quick Start', href: '#quickstart' },
+  { text: 'Quick Start', href: `${home}#quickstart` },
 ];
 
 const externalLinks = isZhCn ? [
