@@ -47,6 +47,17 @@
     ]
   },
   {
+    "section": "Node Packaging (Dora Hub)",
+    "chapters": [
+      { "title": "Overview", "description": "What the Hub is and the cargo-style package model", "href": "/book/hub/overview" },
+      { "title": "Using Hub Nodes", "description": "Reference, search, and inspect published nodes from a dataflow", "href": "/book/hub/using-nodes" },
+      { "title": "Writing a Node Manifest", "description": "Turn your code into a typed, versioned, reusable node", "href": "/book/hub/node-manifest" },
+      { "title": "Reproducible Builds", "description": "Lockfiles, --locked, checking for and applying updates, offline builds", "href": "/book/hub/reproducible-builds" },
+      { "title": "Publishing a Node", "description": "Publish to the catalog, manage versions, namespaces and ownership", "href": "/book/hub/publishing" },
+      { "title": "Custom & Enterprise Indexes", "description": "Private and mirrored catalogs, namespace binding, binary distribution", "href": "/book/hub/indexes" }
+    ]
+  },
+  {
     "section": "Development",
     "chapters": [
       { "title": "Testing Guide", "description": "Unit tests, integration tests, smoke tests, and TDD workflow", "href": "/book/development/testing" }
