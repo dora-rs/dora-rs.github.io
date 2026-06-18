@@ -18,6 +18,12 @@
     "statLabel": "languages"
   },
   {
+    "title": "Node Hub",
+    "description": "Pull a reusable node into a dataflow with one line — hub: dora-yolo@^0.5 — with cargo-style versioned resolution, reproducible lockfiles (--locked), and typed contracts checked at build time. Backed by a git-based public catalog of ready-made nodes.",
+    "stat": null,
+    "statLabel": null
+  },
+  {
     "title": "Fault Tolerance",
     "description": "Per-node restart policies (never/on-failure/always), exponential backoff, health monitoring, circuit breakers, and coordinator state persistence via redb.",
     "stat": null,

@@ -18,6 +18,12 @@
     "statLabel": "种语言"
   },
   {
+    "title": "节点中心 (Node Hub)",
+    "description": "一行 YAML 即可将可复用节点引入数据流（hub: dora-yolo@^0.5）：cargo 风格的版本化解析、可复现的锁文件（--locked），以及构建时校验的类型契约。背后是一个基于 git 的公共节点目录。",
+    "stat": null,
+    "statLabel": null
+  },
+  {
     "title": "容错机制",
     "description": "按节点配置重启策略（never/on-failure/always）、指数退避、健康监控、熔断器、通过 redb 持久化协调器状态。",
     "stat": null,
