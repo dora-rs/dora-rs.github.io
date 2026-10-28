@@ -25,9 +25,11 @@ const navLinks = isZhCn ? [
 ];
 
 const externalLinks = isZhCn ? [
+  { text: '博客', href: `${base}/blog/` },
   { text: '手册', href: `${base}/zh-cn/book` },
   { text: 'GitHub', href: 'https://github.com/dora-rs/dora' },
 ] : [
+  { text: 'Blog', href: `${base}/blog/` },
   { text: 'Book', href: `${base}/book` },
   { text: 'GitHub', href: 'https://github.com/dora-rs/dora' },
 ];
@@ -45,7 +47,7 @@ const homeHref = isZhCn ? `${base}/zh-cn/` : `${base}/`;
     </a>
 
     <!-- Desktop Nav -->
-    <nav class="nav-group hidden items-center gap-8 lg:flex">
+    <nav class="nav-group hidden items-center gap-8 xl:flex">
       {navLinks.map((link) => (
         <a
           href={link.href}
@@ -71,7 +73,7 @@ const homeHref = isZhCn ? `${base}/zh-cn/` : `${base}/`;
     </nav>
 
     <!-- Mobile: Theme Toggle + Menu Button -->
-    <div class="flex items-center gap-3 lg:hidden">
+    <div class="flex items-center gap-3 xl:hidden">
       <ThemeToggle />
       <button
         id="menu-toggle"
@@ -87,7 +89,7 @@ const homeHref = isZhCn ? `${base}/zh-cn/` : `${base}/`;
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden border-t border-surface-3 bg-bg px-4 py-8 lg:hidden">
+  <div id="mobile-menu" class="hidden border-t border-surface-3 bg-bg px-4 py-8 xl:hidden">
     <nav class="flex flex-col gap-6">
       {navLinks.map((link) => (
         <a

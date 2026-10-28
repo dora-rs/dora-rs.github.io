@@ -5,7 +5,11 @@
   "scripts": {
     "dev": "astro dev --host",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "predev": "node scripts/import-blog.mjs",
+    "prebuild": "node scripts/import-blog.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:browser": "node tests/blog-browser.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
