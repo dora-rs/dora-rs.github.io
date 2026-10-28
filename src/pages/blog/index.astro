@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from 'layouts/Layout.astro';
+
+const posts = (await getCollection('blog')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const formatDate = (date: Date) => date.toLocaleDateString('en', { dateStyle: 'long', timeZone: 'UTC' });
+---
+
+<Layout title="Blog — dora" description="News, releases, and engineering stories from the dora project.">
+  <section class="mx-auto max-w-4xl px-4 pb-24 pt-36 lg:px-9">
+    <p class="font-mono text-sm uppercase tracking-widest text-accent">From the dora team</p>
+    <h1 class="mt-4 text-5xl font-medium text-text-bright">Blog</h1>
+    <p class="mt-6 text-xl text-neutral-2">News, releases, and engineering stories.</p>
+    <div class="mt-14 divide-y divide-surface-3 border-y border-surface-3">
+      {posts.length === 0 && <p class="py-10 text-neutral-2">No posts yet. Check back soon.</p>}
+      {posts.map((post) => (
+        <article class="py-10">
+          <time datetime={post.data.date.toISOString()} class="font-mono text-sm text-neutral-2">{formatDate(post.data.date)}</time>
+          <h2 class="mt-3 text-3xl font-medium text-text-bright">
+            <a href={`/blog/${post.id}/`} class="hover:text-accent">{post.data.title}</a>
+          </h2>
+          <p class="mt-4 leading-relaxed text-text-dim">{post.data.description}</p>
+          <a href={`/blog/${post.id}/`} class="mt-5 inline-block text-accent">Read post <span aria-hidden="true">→</span></a>
+        </article>
+      ))}
+    </div>
+  </section>
+</Layout>
