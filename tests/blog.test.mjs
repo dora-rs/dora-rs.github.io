@@ -17,8 +17,11 @@ test('imports dated Markdown without changing the source; removes stale posts', 
     await writeFile(join(source, '2026-09-02-hello.md'), markdown);
     await writeFile(join(source, 'README.md'), '# Instructions');
     await writeFile(join(output, 'stale.md'), '# Old post');
-    await importBlog(source, output);
+    await mkdir(join(source, 'images'));
+    await writeFile(join(source, 'images', 'diagram.svg'), '<svg xmlns="http://www.w3.org/2000/svg"/>');
+    await importBlog(source, output, join(root, 'assets'));
     assert.deepEqual(await readdir(output), ['2026-09-02-hello.md']);
+    assert.match(await readFile(join(root, 'assets', 'diagram.svg'), 'utf8'), /<svg/);
     const generated = await readFile(join(output, '2026-09-02-hello.md'), 'utf8');
     assert.match(generated, /title: "Hello dora"/);
     assert.match(generated, /date: "2026-09-02"/);
@@ -26,7 +29,7 @@ test('imports dated Markdown without changing the source; removes stale posts', 
     assert.match(generated, /```rust\nlet x = 1;/);
     assert.doesNotMatch(generated, /\n# Hello dora/);
     assert.equal(await readFile(join(source, '2026-09-02-hello.md'), 'utf8'), markdown);
-    await assert.rejects(importBlog(join(root, 'missing'), output));
+    await assert.rejects(importBlog(join(root, 'missing'), output, join(root, 'assets')));
     assert.deepEqual(await readdir(output), ['2026-09-02-hello.md']);
   } finally {
     await rm(root, { recursive: true, force: true });
@@ -47,7 +50,7 @@ test('rewrites repository links, images, references and sibling posts; preserves
   const transform = remarkBlogLinks();
   transform(tree, { data: { astro: { frontmatter: { blogSource: '2026-10-28-post.md' } } } });
   assert.equal(nodes[0].url, 'https://github.com/dora-rs/dora/blob/main/docs/api-rust.md#stability');
-  assert.equal(nodes[1].url, 'https://raw.githubusercontent.com/dora-rs/dora/main/docs/blog/images/diagram.png');
+  assert.equal(nodes[1].url, '/blog/images/diagram.png');
   assert.equal(nodes[2].url, 'https://github.com/dora-rs/dora/tree/main/examples/rust-dataflow/');
   assert.equal(nodes[3].url, '/blog/2026-09-02-hello/#intro');
   assert.equal(nodes[4].url, '#intro');
@@ -66,8 +69,11 @@ test('deleting the last post clears the generated collection', async () => {
     await mkdir(source);
     await mkdir(output);
     await writeFile(join(output, '2026-09-02-deleted.md'), '# Deleted post');
-    await importBlog(source, output);
+    await mkdir(join(root, 'assets'));
+    await writeFile(join(root, 'assets', 'stale.svg'), '<svg/>');
+    await importBlog(source, output, join(root, 'assets'));
     assert.deepEqual(await readdir(output), []);
+    await assert.rejects(readdir(join(root, 'assets')), { code: 'ENOENT' });
   } finally {
     await rm(root, { recursive: true, force: true });
   }

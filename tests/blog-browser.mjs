@@ -17,9 +17,14 @@ try {
     await page.goto(`${base}${postLink}`);
     assert.equal(await page.locator('h1').count(), 1);
     assert.ok(await page.locator('.blog-prose p').count() > 0);
-    const diagramCount = await page.locator('pre[data-language="mermaid"] code').count();
-    if (diagramCount) {
-      await page.waitForFunction((count) => document.querySelectorAll('figure.mermaid svg').length === count, diagramCount);
+    assert.equal(await page.locator('pre[data-language="mermaid"]').count(), 0);
+    const diagrams = page.locator('.blog-prose img[src^="/blog/images/"]');
+    const diagramCount = await diagrams.count();
+    for (const image of await diagrams.all()) {
+      assert.ok(await image.getAttribute('alt'));
+      await image.scrollIntoViewIfNeeded();
+      await image.evaluate((element) => element.decode());
+      assert.ok(await image.evaluate((element) => element.naturalWidth > 0));
     }
     totalDiagrams += diagramCount;
     assert.ok(await page.locator('a[href^="https://github.com/dora-rs/dora/blob/main/docs/"]').count() > 0);
@@ -36,7 +41,7 @@ try {
   await page.getByRole('link', { name: 'Blog', exact: true }).first().click();
   await page.waitForURL('**/blog/');
   assert.deepEqual(errors, []);
-  console.log(`Blog browser checks passed; ${totalDiagrams} Mermaid diagrams rendered.`);
+  console.log(`Blog browser checks passed; ${totalDiagrams} static diagrams loaded.`);
 } finally {
   await browser.close();
 }

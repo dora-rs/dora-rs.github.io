@@ -1,10 +1,11 @@
-import { readdir, readFile, mkdir, rm, writeFile } from 'node:fs/promises';
+import { readdir, readFile, mkdir, rm, writeFile, cp } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 // Keep docs/blog as the single source. Only generated copies receive frontmatter.
-export async function importBlog(source, output = 'src/content/blog') {
-  const names = (await readdir(source)).filter((name) => /^\d{4}-\d{2}-\d{2}-.+\.md$/.test(name));
+export async function importBlog(source, output = 'src/content/blog', assetsOutput = 'public/blog/images') {
+  const entries = await readdir(source);
+  const names = entries.filter((name) => /^\d{4}-\d{2}-\d{2}-.+\.md$/.test(name));
   const posts = await Promise.all(names.map(async (name) => {
     const markdown = await readFile(join(source, name), 'utf8');
     const heading = /^# (.+)\r?$/m.exec(markdown);
@@ -22,6 +23,10 @@ export async function importBlog(source, output = 'src/content/blog') {
   // Read and validate everything before replacing the previous import.
   await rm(output, { recursive: true, force: true });
   await mkdir(output, { recursive: true });
+  await rm(assetsOutput, { recursive: true, force: true });
+  if (entries.includes('images')) {
+    await cp(join(source, 'images'), assetsOutput, { recursive: true });
+  }
   await Promise.all(posts.map(({ name, content }) => writeFile(join(output, name), content)));
   console.log(`Imported ${posts.length} blog post(s) from ${source}`);
 }

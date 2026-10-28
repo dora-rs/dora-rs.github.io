@@ -5,3 +5,4 @@ dist
 # Blog content is imported from dora-rs/dora at build time
 .blog-source/
 src/content/blog/
+public/blog/images/

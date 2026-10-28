@@ -40,29 +40,4 @@ const date = post.data.date.toLocaleDateString('en', { dateStyle: 'long', timeZo
   .blog-prose :is(th, td) { border: 1px solid var(--color-surface-3); padding: 0.75rem; text-align: left; }
   .blog-prose blockquote { border-left: 3px solid var(--color-accent); padding-left: 1.25rem; color: var(--color-text-dim); }
   .blog-prose img { max-width: 100%; height: auto; }
-  .blog-prose .mermaid { overflow-x: auto; background: var(--color-surface-1); padding: 1rem; border-radius: 0.5rem; }
 </style>
-
-<script>
-  // Load the diagram renderer only on posts that use Mermaid. Keep the source
-  // visible if rendering fails, and retain an accessible description of it.
-  const blocks = document.querySelectorAll('pre[data-language="mermaid"] code, pre code.language-mermaid');
-  if (blocks.length) {
-    const { default: mermaid } = await import('mermaid');
-    mermaid.initialize({ startOnLoad: false, securityLevel: 'strict', theme: 'neutral' });
-    for (const [index, block] of Array.from(blocks).entries()) {
-      const source = block.textContent || '';
-      try {
-        const { svg } = await mermaid.render(`blog-diagram-${index}`, source);
-        const figure = document.createElement('figure');
-        figure.className = 'mermaid';
-        figure.setAttribute('role', 'img');
-        figure.setAttribute('aria-label', source);
-        figure.innerHTML = svg;
-        block.parentElement?.replaceWith(figure);
-      } catch (error) {
-        console.error('Could not render blog diagram', error);
-      }
-    }
-  }
-</script>

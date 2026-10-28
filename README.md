@@ -32,8 +32,9 @@ URL. All dated posts in that folder are published; keep drafts elsewhere.
 
 Before development or builds, the import script generates an ignored content
 collection with titles, dates and excerpts. It does not modify the originals.
-Articles support syntax highlighting, tables, heading anchors and Mermaid
-fences. Relative documentation and example links point back to the source
+Articles support syntax highlighting, tables, heading anchors and static images.
+Store diagrams as SVGs under `docs/blog/images/` and reference them with Markdown
+image syntax. The importer copies these assets into the website build. Relative documentation and example links point back to the source
 repository; links to other posts stay on the website.
 
 The Pages workflow checks out `docs/blog` from dora's `main` branch on every
