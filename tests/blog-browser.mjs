@@ -37,6 +37,21 @@ try {
       }
     }
   }
+  // The header renders one theme toggle in the desktop nav and one in the
+  // collapsed mobile bar; whichever is visible must cycle the theme.
+  for (const width of [390, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto(`${base}/blog/`);
+    await page.evaluate(() => localStorage.removeItem('theme'));
+    await page.reload();
+    const toggle = page.locator('[data-theme-toggle]:visible');
+    assert.equal(await toggle.count(), 1);
+    for (const theme of ['dark', 'light', 'black']) {
+      await toggle.click();
+      assert.equal(await page.evaluate(() => document.documentElement.getAttribute('data-theme') ?? 'black'), theme);
+      assert.equal(await toggle.locator('[data-theme-label]').textContent(), theme);
+    }
+  }
   await page.goto(`${base}/`);
   await page.getByRole('link', { name: 'Blog', exact: true }).first().click();
   await page.waitForURL('**/blog/');
